@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.ancestry"
+  },
+  "description": {
+    "text": "Ancestry - Lena Raine"
+  },
+  "length_in_seconds": 343,
+  "comparator_output": 12
+}

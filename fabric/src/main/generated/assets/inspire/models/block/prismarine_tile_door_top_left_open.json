@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "inspire:block/prismarine_tile_door_bottom",
+    "top": "inspire:block/prismarine_tile_door_top"
+  }
+}

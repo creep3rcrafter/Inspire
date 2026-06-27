@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.lilypad"
+  },
+  "description": {
+    "text": "Lilypad - Amos Roddy"
+  },
+  "length_in_seconds": 235,
+  "comparator_output": 12
+}

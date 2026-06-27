@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.os_piano"
+  },
+  "description": {
+    "text": "O's Piano - Amos Roddy"
+  },
+  "length_in_seconds": 275,
+  "comparator_output": 12
+}

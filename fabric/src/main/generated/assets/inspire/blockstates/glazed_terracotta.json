@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "inspire:block/glazed_terracotta",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "inspire:block/glazed_terracotta",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "inspire:block/glazed_terracotta"
+    },
+    "facing=west": {
+      "model": "inspire:block/glazed_terracotta",
+      "y": 90
+    }
+  }
+}

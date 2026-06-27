@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.comforting_memories"
+  },
+  "description": {
+    "text": "Comforting Memories - Kumi Tanioka"
+  },
+  "length_in_seconds": 275,
+  "comparator_output": 12
+}

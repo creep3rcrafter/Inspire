@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "inspire:block/cyan_nether_tile_pillar_top",
+    "side": "inspire:block/cyan_nether_tile_pillar_side"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.biome_fest"
+  },
+  "description": {
+    "text": "Biome Fest - C418"
+  },
+  "length_in_seconds": 377,
+  "comparator_output": 12
+}

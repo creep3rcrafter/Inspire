@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.echo_in_the_wind"
+  },
+  "description": {
+    "text": "Echo in the Wind - Aaron Cherof"
+  },
+  "length_in_seconds": 296,
+  "comparator_output": 12
+}

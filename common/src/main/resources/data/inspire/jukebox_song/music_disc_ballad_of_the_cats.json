@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.ballad_of_the_cats"
+  },
+  "description": {
+    "text": "Ballad Of The Cats - C418"
+  },
+  "length_in_seconds": 274,
+  "comparator_output": 12
+}

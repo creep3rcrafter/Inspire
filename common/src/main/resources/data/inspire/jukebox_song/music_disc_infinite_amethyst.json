@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.infinite_amethyst"
+  },
+  "description": {
+    "text": "Infinite Amethyst - Lena Raine"
+  },
+  "length_in_seconds": 271,
+  "comparator_output": 12
+}

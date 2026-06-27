@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "inspire:block/quartz_tile_slab"
+    },
+    "type=double": {
+      "model": "inspire:block/quartz_tiles"
+    },
+    "type=top": {
+      "model": "inspire:block/quartz_tile_slab_top"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.one_more_day"
+  },
+  "description": {
+    "text": "One More Day - Lena Raine"
+  },
+  "length_in_seconds": 278,
+  "comparator_output": 12
+}

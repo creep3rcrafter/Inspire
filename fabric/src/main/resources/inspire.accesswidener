@@ -1,0 +1,18 @@
+accessWidener v2 named
+
+accessible method net/minecraft/world/item/DyeColor values ()[Lnet/minecraft/world/item/DyeColor;
+
+# Make the constructor invokable (including synthetic parameters)
+accessible method net/minecraft/world/item/DyeColor <init> (Ljava/lang/String;IILjava/lang/String;ILnet/minecraft/world/level/material/MapColor;II)V
+
+# Allow us to modify the BY_ID map
+accessible field net/minecraft/world/item/DyeColor BY_ID Ljava/util/function/IntFunction;
+
+# Allow us to modify the BY_FIREWORK_COLOR map
+accessible field net/minecraft/world/item/DyeColor BY_FIREWORK_COLOR Lit/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap;
+
+accessible method net/minecraft/world/level/block/entity/BlockEntityType <init> (Lnet/minecraft/world/level/block/entity/BlockEntityType$BlockEntitySupplier;Ljava/util/Set;)V
+
+accessible method net/minecraft/world/level/block/AbstractCauldronBlock canReceiveStalactiteDrip (Lnet/minecraft/world/level/material/Fluid;)Z
+
+mutable field net/minecraft/data/BlockFamilies MUD_BRICKS Lnet/minecraft/data/BlockFamily;

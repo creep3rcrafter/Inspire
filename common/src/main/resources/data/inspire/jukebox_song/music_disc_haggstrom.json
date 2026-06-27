@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.haggstrom"
+  },
+  "description": {
+    "text": "Haggstrom - C418"
+  },
+  "length_in_seconds": 204,
+  "comparator_output": 12
+}

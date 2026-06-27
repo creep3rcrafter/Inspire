@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.taswell"
+  },
+  "description": {
+    "text": "Taswell - C418"
+  },
+  "length_in_seconds": 514,
+  "comparator_output": 12
+}

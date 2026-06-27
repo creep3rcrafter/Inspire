@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.crescent_dunes"
+  },
+  "description": {
+    "text": "Crescent Dunes - Aaron Cherof"
+  },
+  "length_in_seconds": 253,
+  "comparator_output": 12
+}

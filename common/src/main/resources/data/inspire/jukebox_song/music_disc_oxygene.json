@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.oxygene"
+  },
+  "description": {
+    "text": "Oxygene - C418"
+  },
+  "length_in_seconds": 65,
+  "comparator_output": 12
+}

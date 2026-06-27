@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.dragon_fish"
+  },
+  "description": {
+    "text": "Dragon Fish - C418"
+  },
+  "length_in_seconds": 373,
+  "comparator_output": 12
+}

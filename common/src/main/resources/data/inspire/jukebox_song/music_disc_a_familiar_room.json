@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.a_familiar_room"
+  },
+  "description": {
+    "text": "A Familiar Room - Aaron Cherof"
+  },
+  "length_in_seconds": 241,
+  "comparator_output": 12
+}

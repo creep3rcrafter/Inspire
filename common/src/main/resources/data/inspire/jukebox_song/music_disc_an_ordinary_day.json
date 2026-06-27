@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.an_ordinary_day"
+  },
+  "description": {
+    "text": "An Ordinary Day - Kumi Tanioka"
+  },
+  "length_in_seconds": 331,
+  "comparator_output": 12
+}

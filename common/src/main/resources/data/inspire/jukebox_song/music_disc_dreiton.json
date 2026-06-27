@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.dreiton"
+  },
+  "description": {
+    "text": "Dreiton - C418"
+  },
+  "length_in_seconds": 436,
+  "comparator_output": 12
+}

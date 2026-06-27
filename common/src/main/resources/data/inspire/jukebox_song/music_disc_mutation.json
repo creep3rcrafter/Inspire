@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.mutation"
+  },
+  "description": {
+    "text": "Mutation - C418"
+  },
+  "length_in_seconds": 184,
+  "comparator_output": 12
+}

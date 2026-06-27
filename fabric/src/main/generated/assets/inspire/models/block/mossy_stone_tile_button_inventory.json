@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "inspire:block/mossy_stone_tiles"
+  }
+}

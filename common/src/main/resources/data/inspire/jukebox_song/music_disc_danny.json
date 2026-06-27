@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.danny"
+  },
+  "description": {
+    "text": "Danny - C418"
+  },
+  "length_in_seconds": 254,
+  "comparator_output": 12
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.so_below"
+  },
+  "description": {
+    "text": "So Below - Lena Raine"
+  },
+  "length_in_seconds": 319,
+  "comparator_output": 12
+}

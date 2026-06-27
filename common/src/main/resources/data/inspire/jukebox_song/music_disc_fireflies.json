@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.fireflies"
+  },
+  "description": {
+    "text": "Fireflies - Amos Roddy"
+  },
+  "length_in_seconds": 155,
+  "comparator_output": 12
+}

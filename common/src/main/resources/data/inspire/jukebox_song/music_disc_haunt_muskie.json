@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.haunt_muskie"
+  },
+  "description": {
+    "text": "Haunt Muskie - C418"
+  },
+  "length_in_seconds": 360,
+  "comparator_output": 12
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.wending"
+  },
+  "description": {
+    "text": "Wending - Lena Raine"
+  },
+  "length_in_seconds": 314,
+  "comparator_output": 12
+}

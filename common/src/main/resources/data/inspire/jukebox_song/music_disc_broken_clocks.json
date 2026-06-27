@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.broken_clocks"
+  },
+  "description": {
+    "text": "Broken Clocks - Amos Roddy"
+  },
+  "length_in_seconds": 213,
+  "comparator_output": 12
+}

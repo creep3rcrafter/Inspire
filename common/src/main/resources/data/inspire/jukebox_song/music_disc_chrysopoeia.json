@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.chrysopoeia"
+  },
+  "description": {
+    "text": "Chrysopoeia - Lena Raine"
+  },
+  "length_in_seconds": 243,
+  "comparator_output": 12
+}

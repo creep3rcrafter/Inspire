@@ -1,0 +1,105 @@
+package net.github.creep3rcrafter.inspire.client;
+
+import dev.architectury.event.events.client.ClientTickEvent;
+import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
+import dev.architectury.registry.client.rendering.RenderTypeRegistry;
+import it.unimi.dsi.fastutil.ints.Int2LongMap;
+import it.unimi.dsi.fastutil.ints.Int2LongOpenHashMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import net.github.creep3rcrafter.inspire.client.renderer.RegularBedRenderer;
+import net.github.creep3rcrafter.inspire.item.PortableJukeboxItem;
+import net.github.creep3rcrafter.inspire.register.InspireBlockEntityTypes;
+import net.github.creep3rcrafter.inspire.register.InspireBlocks;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class InspireCommonClient {
+    public static final Int2ObjectMap<InteractionHand> ACTIVE_JUKEBOX_HAND = new Int2ObjectOpenHashMap<>();
+    public static final Set<Integer> ACTIVE_JUKEBOX_PLAYERS = new HashSet<>();
+    public static final Int2LongMap LAST_PARTICLE = new Int2LongOpenHashMap();
+    public static final Map<Integer, InteractionHand> PLAYING_HAND = new HashMap<>();
+    public static void init(){
+        RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.WARPED_NYLIUM_SHELF.get());
+        RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.CRIMSON_NYLIUM_SHELF.get());
+        RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.TINTED_GLASS_PANE.get());
+        RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.ICICLE.get());
+        BlockEntityRendererRegistry.register(InspireBlockEntityTypes.BED.get(), RegularBedRenderer::new);
+        /*
+        ClientTickEvent.CLIENT_POST.register(client -> {
+            if (client.level == null) return;
+            Player player = client.player;
+            if (player == null) return;
+            if (PortableJukeboxItem.CURRENT_SOUND == null) return;
+            if (!client.getSoundManager().isActive(PortableJukeboxItem.CURRENT_SOUND)) return;
+            InteractionHand activeHand = null;
+            ItemStack main = player.getMainHandItem();
+            ItemStack off = player.getOffhandItem();
+            if (main.getItem() instanceof PortableJukeboxItem)
+                activeHand = InteractionHand.MAIN_HAND;
+            else if (off.getItem() instanceof PortableJukeboxItem)
+                activeHand = InteractionHand.OFF_HAND;
+            else
+                return;
+            long now = System.currentTimeMillis();
+            if (now - PortableJukeboxItem.LAST_PARTICLE_TIME < 1000) return;
+            PortableJukeboxItem.LAST_PARTICLE_TIME = now;
+            PortableJukeboxItem.spawnMusicParticles(player, activeHand);
+        });
+        ClientTickEvent.CLIENT_POST.register(client -> {
+            if (client.level == null) return;
+            for (int id : ACTIVE_JUKEBOX_PLAYERS) {
+                Entity e = client.level.getEntity(id);
+                if (e instanceof Player player) {
+                    PortableJukeboxItem.spawnMusicParticles(player, InteractionHand.MAIN_HAND);
+                }
+            }
+        });//kinda worked
+        ClientTickEvent.CLIENT_POST.register(client -> {
+            if (client.level == null) return;
+
+            long now = System.currentTimeMillis();
+
+            for (int id : ACTIVE_JUKEBOX_PLAYERS) {
+                Entity e = client.level.getEntity(id);
+
+                if (!(e instanceof Player player)) continue;
+
+                InteractionHand hand = PLAYING_HAND.getOrDefault(id, InteractionHand.MAIN_HAND);
+
+                long last = LAST_PARTICLE_TIME.getOrDefault(id, 0L);
+
+                if (now - last >= 1000) {
+                    PortableJukeboxItem.spawnMusicParticles(player, hand);
+                    LAST_PARTICLE_TIME.put(id, now);
+                }
+            }
+        });
+         */
+        ClientTickEvent.CLIENT_POST.register(client -> {
+            if (client.level == null) return;
+
+            long now = System.currentTimeMillis();
+
+            for (int playerId : ACTIVE_JUKEBOX_PLAYERS) {
+                Entity entity = client.level.getEntity(playerId);
+                if (entity instanceof Player player){
+                    InteractionHand hand = ACTIVE_JUKEBOX_HAND.getOrDefault(playerId, InteractionHand.MAIN_HAND);
+
+                    long last = LAST_PARTICLE.getOrDefault(playerId, 0);
+                    if (now - last >= 1000) {
+                        PortableJukeboxItem.spawnMusicParticles(player, hand);
+                        LAST_PARTICLE.put(playerId, now);
+                    }
+                }
+            }
+        });
+    }
+}

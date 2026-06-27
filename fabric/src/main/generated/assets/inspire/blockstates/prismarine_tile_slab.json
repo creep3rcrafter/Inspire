@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "inspire:block/prismarine_tile_slab"
+    },
+    "type=double": {
+      "model": "inspire:block/prismarine_tiles"
+    },
+    "type=top": {
+      "model": "inspire:block/prismarine_tile_slab_top"
+    }
+  }
+}

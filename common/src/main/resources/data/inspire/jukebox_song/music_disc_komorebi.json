@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.komorebi"
+  },
+  "description": {
+    "text": "Komorebi - Kumi Tanioka"
+  },
+  "length_in_seconds": 288,
+  "comparator_output": 12
+}

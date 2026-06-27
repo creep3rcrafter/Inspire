@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.clark"
+  },
+  "description": {
+    "text": "Clark - C418"
+  },
+  "length_in_seconds": 191,
+  "comparator_output": 12
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.below_and_above"
+  },
+  "description": {
+    "text": "Below and Above - Amos Roddy"
+  },
+  "length_in_seconds": 212,
+  "comparator_output": 12
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.beginning_2"
+  },
+  "description": {
+    "text": "Beginning 2 - C418"
+  },
+  "length_in_seconds": 175,
+  "comparator_output": 12
+}

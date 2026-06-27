@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.deeper"
+  },
+  "description": {
+    "text": "Deeper - C418"
+  },
+  "length_in_seconds": 303,
+  "comparator_output": 12
+}

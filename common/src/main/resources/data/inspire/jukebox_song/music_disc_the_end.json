@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.the_end"
+  },
+  "description": {
+    "text": "The End - C418"
+  },
+  "length_in_seconds": 903,
+  "comparator_output": 12
+}

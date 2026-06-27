@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.shuniji"
+  },
+  "description": {
+    "text": "Shuniji - C418"
+  },
+  "length_in_seconds": 244,
+  "comparator_output": 12
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.minecraft"
+  },
+  "description": {
+    "text": "Minecraft - C418"
+  },
+  "length_in_seconds": 254,
+  "comparator_output": 12
+}

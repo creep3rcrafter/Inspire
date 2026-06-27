@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.concrete_halls"
+  },
+  "description": {
+    "text": "Concrete Halls - C418"
+  },
+  "length_in_seconds": 253,
+  "comparator_output": 12
+}

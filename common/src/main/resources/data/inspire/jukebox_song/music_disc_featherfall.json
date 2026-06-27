@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.featherfall"
+  },
+  "description": {
+    "text": "Featherfall - Aaron Cherof"
+  },
+  "length_in_seconds": 345,
+  "comparator_output": 12
+}

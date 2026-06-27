@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "inspire:item/soul_bow_pulling_0"
+  }
+}

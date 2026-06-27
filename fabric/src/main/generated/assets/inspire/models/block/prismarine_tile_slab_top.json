@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "inspire:block/prismarine_tiles",
+    "side": "inspire:block/prismarine_tiles",
+    "top": "inspire:block/prismarine_tiles"
+  }
+}

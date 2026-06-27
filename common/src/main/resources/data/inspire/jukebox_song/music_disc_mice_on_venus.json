@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.mice_on_venus"
+  },
+  "description": {
+    "text": "Mice On Venus - C418"
+  },
+  "length_in_seconds": 281,
+  "comparator_output": 12
+}

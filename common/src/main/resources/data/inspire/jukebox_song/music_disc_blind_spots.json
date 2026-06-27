@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.blind_spots"
+  },
+  "description": {
+    "text": "Blind Spots - C418"
+  },
+  "length_in_seconds": 331,
+  "comparator_output": 12
+}

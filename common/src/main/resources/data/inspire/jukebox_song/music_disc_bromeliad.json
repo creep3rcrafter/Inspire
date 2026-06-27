@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.bromeliad"
+  },
+  "description": {
+    "text": "Bromeliad - Aaron Cherof"
+  },
+  "length_in_seconds": 312,
+  "comparator_output": 12
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.wet_hands"
+  },
+  "description": {
+    "text": "Wet Hands - C418"
+  },
+  "length_in_seconds": 90,
+  "comparator_output": 12
+}

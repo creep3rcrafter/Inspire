@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.subwoofer_lullaby"
+  },
+  "description": {
+    "text": "Subwoofer Lullaby - C418"
+  },
+  "length_in_seconds": 208,
+  "comparator_output": 12
+}

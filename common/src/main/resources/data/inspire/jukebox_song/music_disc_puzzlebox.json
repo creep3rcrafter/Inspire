@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.puzzlebox"
+  },
+  "description": {
+    "text": "Puzzlebox - Aaron Cherof"
+  },
+  "length_in_seconds": 299,
+  "comparator_output": 12
+}

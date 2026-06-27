@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "inspire:block/end_stone_tile_slab"
+    },
+    "type=double": {
+      "model": "inspire:block/end_stone_tiles"
+    },
+    "type=top": {
+      "model": "inspire:block/end_stone_tile_slab_top"
+    }
+  }
+}

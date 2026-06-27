@@ -1,0 +1,44 @@
+modLoader = "javafml"
+loaderVersion = "[10,)"
+#issueTrackerURL = ""
+license = "Insert License Here"
+
+[[mods]]
+modId = "inspire"
+version = "${version}"
+displayName = "Inspire"
+authors = "Me!"
+description = '''
+This is an example description! Tell everyone what your mod is about!
+'''
+#logoFile = ""
+
+[[dependencies.inspire]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.10,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.inspire]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.10,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.inspire]]
+modId = "architectury"
+type = "required"
+versionRange = "[18.0.6,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "inspire.common.mixins.json"
+
+[[mixins]]
+config = "inspire.neoforge.mixins.json"
+
+[[mixins]]
+config = "inspire.neoforge.client.mixins.json"

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.stand_tall"
+  },
+  "description": {
+    "text": "Stand Tall - Lena Raine"
+  },
+  "length_in_seconds": 308,
+  "comparator_output": 12
+}

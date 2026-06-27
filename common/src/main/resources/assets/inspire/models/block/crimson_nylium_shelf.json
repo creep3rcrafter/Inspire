@@ -1,0 +1,6 @@
+{
+  "parent": "inspire:block/fungi_shelf",
+  "textures": {
+    "texture": "inspire:block/crimson_nylium_shelf"
+  }
+}

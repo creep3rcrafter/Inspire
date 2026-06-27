@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.living_mice"
+  },
+  "description": {
+    "text": "Living Mice - C418"
+  },
+  "length_in_seconds": 177,
+  "comparator_output": 12
+}

@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.pokopoko"
+  },
+  "description": {
+    "text": "pokopoko - Kumi Tanioka"
+  },
+  "length_in_seconds": 304,
+  "comparator_output": 12
+}

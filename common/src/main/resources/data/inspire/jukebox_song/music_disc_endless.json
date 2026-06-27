@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.endless"
+  },
+  "description": {
+    "text": "Endless - Lena Raine"
+  },
+  "length_in_seconds": 402,
+  "comparator_output": 12
+}

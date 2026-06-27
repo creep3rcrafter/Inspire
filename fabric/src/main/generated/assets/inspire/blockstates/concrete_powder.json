@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "inspire:block/concrete_powder"
+      },
+      {
+        "model": "inspire:block/concrete_powder",
+        "y": 90
+      },
+      {
+        "model": "inspire:block/concrete_powder",
+        "y": 180
+      },
+      {
+        "model": "inspire:block/concrete_powder",
+        "y": 270
+      }
+    ]
+  }
+}

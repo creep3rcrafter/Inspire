@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "net.github.creep3rcrafter.inspire.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+    "SoundEventMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

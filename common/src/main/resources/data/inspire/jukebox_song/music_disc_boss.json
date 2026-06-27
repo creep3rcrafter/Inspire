@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.boss"
+  },
+  "description": {
+    "text": "Boss - C418"
+  },
+  "length_in_seconds": 346,
+  "comparator_output": 12
+}

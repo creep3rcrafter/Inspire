@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.github.creep3rcrafter.inspire.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "mixins": [
+    "EquippableMixin",
+    "LivingEntityMixin",
+    "PlayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

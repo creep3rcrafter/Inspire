@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.moog_city_2"
+  },
+  "description": {
+    "text": "Moog City 2 - C418"
+  },
+  "length_in_seconds": 179,
+  "comparator_output": 12
+}

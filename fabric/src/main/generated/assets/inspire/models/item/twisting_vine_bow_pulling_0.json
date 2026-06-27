@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "inspire:item/twisting_vine_bow_pulling_0"
+  }
+}

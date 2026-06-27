@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.dry_hands"
+  },
+  "description": {
+    "text": "Dry Hands - C418"
+  },
+  "length_in_seconds": 68,
+  "comparator_output": 12
+}

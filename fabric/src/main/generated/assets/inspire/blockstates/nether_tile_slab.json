@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "inspire:block/nether_tile_slab"
+    },
+    "type=double": {
+      "model": "inspire:block/nether_tiles"
+    },
+    "type=top": {
+      "model": "inspire:block/nether_tile_slab_top"
+    }
+  }
+}

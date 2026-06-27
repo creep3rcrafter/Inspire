@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.labyrinthine"
+  },
+  "description": {
+    "text": "Labyrinthine - Lena Raine"
+  },
+  "length_in_seconds": 324,
+  "comparator_output": 12
+}

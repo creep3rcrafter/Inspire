@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.left_to_bloom"
+  },
+  "description": {
+    "text": "Left To Bloom - Lena Raine"
+  },
+  "length_in_seconds": 342,
+  "comparator_output": 12
+}

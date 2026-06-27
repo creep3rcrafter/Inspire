@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "inspire:block/cyan_nether_tile_door_bottom",
+    "top": "inspire:block/cyan_nether_tile_door_top"
+  }
+}

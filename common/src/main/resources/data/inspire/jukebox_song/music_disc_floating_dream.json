@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.floating_dream"
+  },
+  "description": {
+    "text": "Floating Dream - Kumi Tanioka"
+  },
+  "length_in_seconds": 206,
+  "comparator_output": 12
+}

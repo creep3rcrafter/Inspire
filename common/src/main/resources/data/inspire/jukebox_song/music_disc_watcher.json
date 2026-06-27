@@ -1,0 +1,10 @@
+{
+  "sound_event": {
+    "sound_id": "inspire:music_disc.watcher"
+  },
+  "description": {
+    "text": "Watcher - Aaron Cherof"
+  },
+  "length_in_seconds": 332,
+  "comparator_output": 12
+}

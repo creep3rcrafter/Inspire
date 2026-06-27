@@ -1,0 +1,46 @@
+# ==========================================
+# Minecraft Modding / Architectury Specific
+# ==========================================
+# Gradle build directories for all sub-projects (common, fabric, neoforge, forge)
+build/
+**/build/
+
+# Local Minecraft run/test directories containing logs, configs, and worlds
+run/
+**/run/
+*.log
+logs/
+
+# Architectury Loom / Gradle cache and intermediate outputs
+.gradle/
+**/output/
+**/libs/
+
+# ==========================================
+# IDEs and Editors
+# ==========================================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+**/out/
+
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+*.launch
+bin/
+**/bin/
+
+# Visual Studio Code
+.vscode/
+
+# ==========================================
+# Operating System Files
+# ==========================================
+.DS_Store
+Thumbs.db

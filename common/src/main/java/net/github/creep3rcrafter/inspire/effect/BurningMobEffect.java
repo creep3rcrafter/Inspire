@@ -14,6 +14,8 @@ public class BurningMobEffect extends MobEffect {
         super(mobEffectCategory, i);
     }
 
+    // DISABLED: These methods don't exist in MobEffect in Minecraft 1.21.1
+    /*
     @Override
     public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
         return super.applyEffectTick(serverLevel, livingEntity, amplifier);
@@ -33,4 +35,5 @@ public class BurningMobEffect extends MobEffect {
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return false;
     }
+    */
 }

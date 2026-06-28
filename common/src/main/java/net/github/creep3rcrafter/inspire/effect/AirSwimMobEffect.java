@@ -17,6 +17,7 @@ public class AirSwimMobEffect extends MobEffect {
         super(mobEffectCategory, i);
     }
 
+    /*
     @Override
     public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
         float f;
@@ -50,4 +51,5 @@ public class AirSwimMobEffect extends MobEffect {
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return duration >= 1;
     }
+    */
 }

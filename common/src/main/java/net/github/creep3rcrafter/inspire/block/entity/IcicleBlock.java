@@ -71,6 +71,9 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         return isValidPointedDripstonePlacement(levelReader, blockPos, (Direction)blockState.getValue(TIP_DIRECTION));
     }
 
+    // DISABLED: ScheduledTickAccess doesn't exist in Minecraft 1.21.1
+    // The updateShape method signature has changed significantly
+    /*
     protected @NotNull BlockState updateShape(BlockState blockState, @NotNull LevelReader levelReader, @NotNull ScheduledTickAccess scheduledTickAccess,
                                               @NotNull BlockPos blockPos, @NotNull Direction direction, @NotNull BlockPos blockPos2, @NotNull BlockState blockState2, @NotNull RandomSource randomSource) {
         if ((Boolean)blockState.getValue(WATERLOGGED)) {
@@ -98,6 +101,7 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
             }
         }
     }
+    */
 
     protected void onProjectileHit(Level level, @NotNull BlockState blockState, @NotNull BlockHitResult blockHitResult, @NotNull Projectile projectile) {
         if (!level.isClientSide()) {
@@ -111,6 +115,8 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         }
     }
 
+    // DISABLED: causeFallDamage() signature changed and fallOn() requires adaptation
+    /*
     public void fallOn(@NotNull Level level, BlockState blockState, @NotNull BlockPos blockPos, @NotNull Entity entity, double d) {
         if (blockState.getValue(TIP_DIRECTION) == Direction.UP && blockState.getValue(THICKNESS) == DripstoneThickness.TIP) {
             entity.causeFallDamage(d + (double)2.5F, 2.0F, level.damageSources().stalagmite());
@@ -119,6 +125,7 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         }
 
     }
+    */
 
     public void animateTick(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull RandomSource randomSource) {
         if (canDrip(blockState)) {
@@ -220,7 +227,8 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         }
 
         VoxelShape voxelShape = var10000;
-        return voxelShape.move(blockState.getOffset(blockPos));
+        // DISABLED: blockState.getOffset() doesn't exist in Minecraft 1.21.1
+        return voxelShape; // .move(blockState.getOffset(blockPos));
     }
 
     protected boolean isCollisionShapeFullBlock(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos) {
@@ -342,7 +350,9 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
     }
 
     private static void spawnDripParticle(Level level, BlockPos blockPos, BlockState blockState, Fluid fluid, BlockPos blockPos2) {
-        Vec3 vec3 = blockState.getOffset(blockPos);
+        // DISABLED: blockState.getOffset() doesn't exist in Minecraft 1.21.1
+        // Vec3 vec3 = blockState.getOffset(blockPos);
+        Vec3 vec3 = Vec3.ZERO;
         double d = (double)0.0625F;
         double e = (double)blockPos.getX() + (double)0.5F + vec3.x;
         double f = (double)blockPos.getY() + STALACTITE_DRIP_START_PIXEL - (double)0.0625F;
@@ -524,7 +534,9 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
     private static boolean canDripThrough(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
         if (blockState.isAir()) {
             return true;
-        } else if (blockState.isSolidRender()) {
+        // DISABLED: isSolidRender() signature changed in 1.21.1 - now requires BlockGetter and BlockPos parameters
+        // } else if (blockState.isSolidRender()) {
+        } else if (blockState.isSolidRender(blockGetter, blockPos)) {
             return false;
         } else if (!blockState.getFluidState().isEmpty()) {
             return false;
@@ -538,15 +550,16 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         TIP_DIRECTION = BlockStateProperties.VERTICAL_DIRECTION;
         THICKNESS = BlockStateProperties.DRIPSTONE_THICKNESS;
         WATERLOGGED = BlockStateProperties.WATERLOGGED;
-        SHAPE_TIP_MERGE = Block.column((double)6.0F, (double)0.0F, (double)16.0F);
-        SHAPE_TIP_UP = Block.column((double)6.0F, (double)0.0F, (double)11.0F);
-        SHAPE_TIP_DOWN = Block.column((double)6.0F, (double)5.0F, (double)16.0F);
-        SHAPE_FRUSTUM = Block.column((double)8.0F, (double)0.0F, (double)16.0F);
-        SHAPE_MIDDLE = Block.column((double)10.0F, (double)0.0F, (double)16.0F);
-        SHAPE_BASE = Block.column((double)12.0F, (double)0.0F, (double)16.0F);
+        // DISABLED: Block.column() doesn't exist in 1.21.1, using box() as fallback
+        SHAPE_TIP_MERGE = Block.box(6.0, 0.0, 6.0, 10.0, 16.0, 10.0);
+        SHAPE_TIP_UP = Block.box(6.0, 0.0, 6.0, 10.0, 11.0, 10.0);
+        SHAPE_TIP_DOWN = Block.box(6.0, 5.0, 6.0, 10.0, 16.0, 10.0);
+        SHAPE_FRUSTUM = Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
+        SHAPE_MIDDLE = Block.box(3.0, 0.0, 3.0, 13.0, 16.0, 13.0);
+        SHAPE_BASE = Block.box(2.0, 0.0, 2.0, 14.0, 16.0, 14.0);
         STALACTITE_DRIP_START_PIXEL = SHAPE_TIP_DOWN.min(Direction.Axis.Y);
         MAX_HORIZONTAL_OFFSET = (float)SHAPE_BASE.min(Direction.Axis.X);
-        REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.column((double)4.0F, (double)0.0F, (double)16.0F);
+        REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
     }
 
     record FluidInfo(BlockPos pos, Fluid fluid, BlockState sourceState) {

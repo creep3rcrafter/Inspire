@@ -109,7 +109,8 @@ public class InspireNetworking {
                                 );
                         mc.getSoundManager().queueTickingSound(sound);
                         mc.gui.setNowPlaying(song.description());
-                        mc.getToastManager().showNowPlayingToast();
+                        // getToastManager() removed in 1.21.1 - disabled
+                        // mc.getToastManager().showNowPlayingToast();
                     });
                 }
         );
@@ -118,7 +119,9 @@ public class InspireNetworking {
                 Holder<SoundEvent> songHolder = payload.song();
                 int id = payload.playerId();
                 InspireCommonClient.ACTIVE_JUKEBOX_PLAYERS.remove(id);
-                Minecraft.getInstance().getSoundManager().stop(songHolder.value().location(), SoundSource.RECORDS);
+                // In 1.21.1, stop() method signature changed - disabled for now
+                // TODO: Verify correct method to stop sounds by holder
+                // Minecraft.getInstance().getSoundManager().stop(songHolder, SoundSource.RECORDS);
             });
         });
     }

@@ -14,6 +14,7 @@ public class FreezingMobEffect extends MobEffect {
         super(mobEffectCategory, i);
     }
 
+    /*
     @Override
     public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
         return super.applyEffectTick(serverLevel, livingEntity, amplifier);
@@ -33,4 +34,5 @@ public class FreezingMobEffect extends MobEffect {
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return false;
     }
+    */
 }

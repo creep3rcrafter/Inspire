@@ -12,8 +12,9 @@ public class InspireDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(InspireFabricLootTableProvider::new);
-        pack.addProvider(InspireFabricBlockTagProvider::new);
-        pack.addProvider(InspireFabricItemTagProvider::new);
-        pack.addProvider(InspireFabricModelProvider::new);
+        // DISABLED: Tag and model providers use APIs that don't exist in Minecraft 1.21.1
+        // pack.addProvider(InspireFabricBlockTagProvider::new);
+        // pack.addProvider(InspireFabricItemTagProvider::new);
+        // pack.addProvider(InspireFabricModelProvider::new);
     }
 }

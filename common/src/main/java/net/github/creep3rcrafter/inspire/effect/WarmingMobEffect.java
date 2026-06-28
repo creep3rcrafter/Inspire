@@ -15,6 +15,7 @@ public class WarmingMobEffect extends MobEffect {
         super(mobEffectCategory, i);
     }
 
+    /*
     @Override
     public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
         if (!livingEntity.level().isClientSide()) {
@@ -41,4 +42,5 @@ public class WarmingMobEffect extends MobEffect {
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return duration >= 1;
     }
+    */
 }

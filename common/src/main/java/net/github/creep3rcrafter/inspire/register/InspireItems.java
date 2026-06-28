@@ -9,7 +9,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.equipment.Equippable;
 
 public class InspireItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(InspireCommon.MOD_ID, Registries.ITEM);
@@ -401,7 +400,8 @@ public class InspireItems {
     public static final RegistrySupplier<Item> GLAZED_TERRACOTTA;
     public static final RegistrySupplier<Item> TINTED_GLASS_PANE;
     public static final RegistrySupplier<Item> FROGLIGHT;
-    public static final RegistrySupplier<Item> HARNESS;
+    // HARNESS removed - Equippable/Equipment API doesn't exist in 1.21.1
+    // public static final RegistrySupplier<Item> HARNESS;
     public static final RegistrySupplier<Item> SOAP;
     public static final RegistrySupplier<Item> ICICLE;
 
@@ -1169,7 +1169,8 @@ public class InspireItems {
         GLAZED_TERRACOTTA = ITEMS.register("glazed_terracotta", ()-> new BlockItem(InspireBlocks.GLAZED_TERRACOTTA.get(), basicProperties("glazed_terracotta").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         TINTED_GLASS_PANE = ITEMS.register("tinted_glass_pane", ()-> new BlockItem(InspireBlocks.TINTED_GLASS_PANE.get(), basicProperties("tinted_glass_pane").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         FROGLIGHT = ITEMS.register("froglight", ()-> new BlockItem(InspireBlocks.FROGLIGHT.get(), basicProperties("froglight").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
-        HARNESS = ITEMS.register("harness", ()-> new Item(basicProperties("harness").component(DataComponents.EQUIPPABLE, Equippable.harness(null)).arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        // HARNESS registration removed - Equippable/Equipment API doesn't exist in 1.21.1
+        // HARNESS = ITEMS.register("harness", ()-> new Item(basicProperties("harness").component(DataComponents.EQUIPPABLE, Equippable.harness(null)).arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         SOAP = ITEMS.register("soap", ()-> new Item(basicProperties("soap").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         ICICLE = ITEMS.register("icicle", ()-> new BlockItem(InspireBlocks.ICICLE.get(),basicProperties("icicle").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
 
@@ -1289,7 +1290,7 @@ public class InspireItems {
     }
     private static RegistrySupplier<Item> registerBasicMusicDisc(String name, ResourceKey<JukeboxSong> jukeboxSongResourceKey) {
         return ITEMS.register(name, () -> new Item(basicProperties(name)
-                .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, name)))
+                // setId() is not available in Minecraft 1.21.1
                 .stacksTo(1)
                 .rarity(Rarity.UNCOMMON)
                 .jukeboxPlayable(jukeboxSongResourceKey)
@@ -1305,6 +1306,7 @@ public class InspireItems {
     }
 
     private static Item.Properties basicProperties(String name) {
-        return new Item.Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, name)));
+        // setId() is not available in Minecraft 1.21.1
+        return new Item.Properties();
     }
 }

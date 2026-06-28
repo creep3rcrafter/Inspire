@@ -492,8 +492,8 @@ public class InspireBlocks {
         RED_NETHER_BRICK_PILLAR = BLOCKS.register("red_nether_brick_pillar", ()-> new RotatedPillarBlock(copyProperties("red_nether_brick_pillar", Blocks.RED_NETHER_BRICKS)));
         RED_NETHER_BRICK_DOOR = BLOCKS.register("red_nether_brick_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("red_nether_brick_door", Blocks.RED_NETHER_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         RED_NETHER_BRICK_TRAPDOOR = BLOCKS.register("red_nether_brick_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("red_nether_brick_trapdoor", Blocks.RED_NETHER_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        RED_NETHER_BRICK_BUTTON = BLOCKS.register("red_nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("red_nether_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        RED_NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("red_nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("red_nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        RED_NETHER_BRICK_BUTTON = BLOCKS.register("red_nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("red_nether_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        RED_NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("red_nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("red_nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         RED_NETHER_BRICK_LAMP = BLOCKS.register("red_nether_brick_lamp", ()-> new Block(basicProperties("red_nether_brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         RED_NETHER_TILES = BLOCKS.register("red_nether_tiles", ()-> new Block(basicProperties("red_nether_tiles").mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(2.0F, 6.0F).sound(SoundType.NETHER_BRICKS)));
@@ -507,8 +507,8 @@ public class InspireBlocks {
         RED_NETHER_TILE_PILLAR = BLOCKS.register("red_nether_tile_pillar", ()-> new RotatedPillarBlock(copyProperties("red_nether_tile_pillar", RED_NETHER_TILES.get())));
         RED_NETHER_TILE_DOOR = BLOCKS.register("red_nether_tile_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("red_nether_tile_door", RED_NETHER_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         RED_NETHER_TILE_TRAPDOOR = BLOCKS.register("red_nether_tile_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("red_nether_tile_trapdoor", RED_NETHER_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        RED_NETHER_TILE_BUTTON = BLOCKS.register("red_nether_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("red_nether_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        RED_NETHER_TILE_PRESSURE_PLATE = BLOCKS.register("red_nether_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("red_nether_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        RED_NETHER_TILE_BUTTON = BLOCKS.register("red_nether_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("red_nether_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        RED_NETHER_TILE_PRESSURE_PLATE = BLOCKS.register("red_nether_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("red_nether_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         RED_NETHER_TILE_LAMP = BLOCKS.register("red_nether_tile_lamp", ()-> new Block(basicProperties("red_nether_tile_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         //Cyan
@@ -523,8 +523,8 @@ public class InspireBlocks {
         CYAN_NETHER_BRICK_PILLAR = BLOCKS.register("cyan_nether_brick_pillar", ()-> new RotatedPillarBlock(copyProperties("cyan_nether_brick_pillar", CYAN_NETHER_BRICKS.get())));
         CYAN_NETHER_BRICK_DOOR = BLOCKS.register("cyan_nether_brick_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("cyan_nether_brick_door", CYAN_NETHER_BRICKS.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         CYAN_NETHER_BRICK_TRAPDOOR = BLOCKS.register("cyan_nether_brick_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("cyan_nether_brick_trapdoor", CYAN_NETHER_BRICKS.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        CYAN_NETHER_BRICK_BUTTON = BLOCKS.register("cyan_nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("cyan_nether_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        CYAN_NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("cyan_nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("cyan_nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        CYAN_NETHER_BRICK_BUTTON = BLOCKS.register("cyan_nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("cyan_nether_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        CYAN_NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("cyan_nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("cyan_nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         CYAN_NETHER_BRICK_LAMP = BLOCKS.register("cyan_nether_brick_lamp", ()-> new Block(basicProperties("cyan_nether_brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         CYAN_NETHER_TILES = BLOCKS.register("cyan_nether_tiles", ()-> new Block(basicProperties("cyan_nether_tiles").mapColor(MapColor.COLOR_CYAN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(2.0F, 6.0F).sound(SoundType.NETHER_BRICKS)));
@@ -538,16 +538,16 @@ public class InspireBlocks {
         CYAN_NETHER_TILE_PILLAR = BLOCKS.register("cyan_nether_tile_pillar", ()-> new RotatedPillarBlock(copyProperties("cyan_nether_tile_pillar", CYAN_NETHER_TILES.get())));
         CYAN_NETHER_TILE_DOOR = BLOCKS.register("cyan_nether_tile_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("cyan_nether_tile_door", CYAN_NETHER_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         CYAN_NETHER_TILE_TRAPDOOR = BLOCKS.register("cyan_nether_tile_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("cyan_nether_tile_trapdoor", CYAN_NETHER_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        CYAN_NETHER_TILE_BUTTON = BLOCKS.register("cyan_nether_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("cyan_nether_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        CYAN_NETHER_TILE_PRESSURE_PLATE = BLOCKS.register("cyan_nether_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("cyan_nether_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        CYAN_NETHER_TILE_BUTTON = BLOCKS.register("cyan_nether_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("cyan_nether_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        CYAN_NETHER_TILE_PRESSURE_PLATE = BLOCKS.register("cyan_nether_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("cyan_nether_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         CYAN_NETHER_TILE_LAMP = BLOCKS.register("cyan_nether_tile_lamp", ()-> new Block(basicProperties("cyan_nether_tile_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         NETHER_BRICK_FENCE_GATE = BLOCKS.register("nether_brick_fence_gate", ()-> new FenceGateBlock(WoodType.ACACIA, copyProperties("nether_brick_fence_gate", Blocks.NETHER_BRICKS)));
         NETHER_BRICK_PILLAR = BLOCKS.register("nether_brick_pillar", ()-> new RotatedPillarBlock(copyProperties("nether_brick_pillar", Blocks.NETHER_BRICKS)));
         NETHER_BRICK_DOOR = BLOCKS.register("nether_brick_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("nether_brick_door", Blocks.NETHER_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         NETHER_BRICK_TRAPDOOR = BLOCKS.register("nether_brick_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("nether_brick_trapdoor", Blocks.NETHER_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        NETHER_BRICK_BUTTON = BLOCKS.register("nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("nether_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        NETHER_BRICK_BUTTON = BLOCKS.register("nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("nether_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         NETHER_BRICK_LAMP = BLOCKS.register("nether_brick_lamp", ()-> new Block(basicProperties("nether_brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         NETHER_TILES = BLOCKS.register("nether_tiles", ()-> new Block(basicProperties("nether_tiles").mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(2.0F, 6.0F).sound(SoundType.NETHER_BRICKS)));
@@ -561,8 +561,8 @@ public class InspireBlocks {
         NETHER_TILE_PILLAR = BLOCKS.register("nether_tile_pillar", ()-> new RotatedPillarBlock(copyProperties("nether_tile_pillar", NETHER_TILES.get())));
         NETHER_TILE_DOOR = BLOCKS.register("nether_tile_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("nether_tile_door", NETHER_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         NETHER_TILE_TRAPDOOR = BLOCKS.register("nether_tile_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("nether_tile_trapdoor", NETHER_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        NETHER_TILE_BUTTON = BLOCKS.register("nether_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("nether_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        NETHER_TILE_PRESSURE_PLATE = BLOCKS.register("nether_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("nether_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        NETHER_TILE_BUTTON = BLOCKS.register("nether_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("nether_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        NETHER_TILE_PRESSURE_PLATE = BLOCKS.register("nether_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("nether_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         NETHER_TILE_LAMP = BLOCKS.register("nether_tile_lamp", ()-> new Block(basicProperties("nether_tile_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         CRACKED_QUARTZ_BRICKS = BLOCKS.register("cracked_quartz_bricks", ()-> new Block(copyProperties("cracked_quartz_bricks", Blocks.QUARTZ_BRICKS)));
@@ -575,8 +575,8 @@ public class InspireBlocks {
         QUARTZ_BRICK_PILLAR = BLOCKS.register("quartz_brick_pillar", ()-> new RotatedPillarBlock(copyProperties("quartz_brick_pillar", Blocks.QUARTZ_BRICKS)));
         QUARTZ_BRICK_DOOR = BLOCKS.register("quartz_brick_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("quartz_brick_door", Blocks.QUARTZ_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         QUARTZ_BRICK_TRAPDOOR = BLOCKS.register("quartz_brick_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("quartz_brick_trapdoor", Blocks.QUARTZ_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        QUARTZ_BRICK_BUTTON = BLOCKS.register("quartz_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("quartz_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        QUARTZ_BRICK_PRESSURE_PLATE = BLOCKS.register("quartz_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("quartz_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        QUARTZ_BRICK_BUTTON = BLOCKS.register("quartz_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("quartz_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        QUARTZ_BRICK_PRESSURE_PLATE = BLOCKS.register("quartz_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("quartz_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         QUARTZ_BRICK_LAMP = BLOCKS.register("quartz_brick_lamp", ()-> new Block(basicProperties("quartz_brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         QUARTZ_TILES = BLOCKS.register("quartz_tiles", ()-> new Block(copyProperties("quartz_tiles", Blocks.QUARTZ_BRICKS)));
@@ -590,8 +590,8 @@ public class InspireBlocks {
         QUARTZ_TILE_PILLAR = BLOCKS.register("quartz_tile_pillar", ()-> new RotatedPillarBlock(copyProperties("quartz_tile_pillar", QUARTZ_TILES.get())));
         QUARTZ_TILE_DOOR = BLOCKS.register("quartz_tile_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("quartz_tile_door", QUARTZ_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         QUARTZ_TILE_TRAPDOOR = BLOCKS.register("quartz_tile_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("quartz_tile_trapdoor", QUARTZ_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        QUARTZ_TILE_BUTTON = BLOCKS.register("quartz_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("quartz_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        QUARTZ_TILE_PRESSURE_PLATE = BLOCKS.register("quartz_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("quartz_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        QUARTZ_TILE_BUTTON = BLOCKS.register("quartz_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("quartz_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        QUARTZ_TILE_PRESSURE_PLATE = BLOCKS.register("quartz_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("quartz_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         QUARTZ_TILE_LAMP = BLOCKS.register("quartz_tile_lamp", ()-> new Block(basicProperties("quartz_tile_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         CRACKED_BRICKS = BLOCKS.register("cracked_bricks", ()-> new Block(copyProperties("cracked_bricks", Blocks.BRICKS)));
@@ -601,8 +601,8 @@ public class InspireBlocks {
         BRICK_PILLAR = BLOCKS.register("brick_pillar", ()-> new RotatedPillarBlock(copyProperties("brick_pillar", Blocks.BRICKS)));
         BRICK_DOOR = BLOCKS.register("brick_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("brick_door", Blocks.BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         BRICK_TRAPDOOR = BLOCKS.register("brick_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("brick_trapdoor", Blocks.BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        BRICK_BUTTON = BLOCKS.register("brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        BRICK_PRESSURE_PLATE = BLOCKS.register("brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        BRICK_BUTTON = BLOCKS.register("brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        BRICK_PRESSURE_PLATE = BLOCKS.register("brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         BRICK_LAMP = BLOCKS.register("brick_lamp", ()-> new Block(basicProperties("brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         BRICK_TILES = BLOCKS.register("brick_tiles", ()-> new Block(copyProperties("brick_tiles", Blocks.BRICKS)));
@@ -616,8 +616,8 @@ public class InspireBlocks {
         BRICK_TILE_PILLAR = BLOCKS.register("brick_tile_pillar", ()-> new RotatedPillarBlock(copyProperties("brick_tile_pillar", BRICK_TILES.get())));
         BRICK_TILE_DOOR = BLOCKS.register("brick_tile_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("brick_tile_door", BRICK_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         BRICK_TILE_TRAPDOOR = BLOCKS.register("brick_tile_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("brick_tile_trapdoor", BRICK_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        BRICK_TILE_BUTTON = BLOCKS.register("brick_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("brick_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        BRICK_TILE_PRESSURE_PLATE = BLOCKS.register("brick_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("brick_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        BRICK_TILE_BUTTON = BLOCKS.register("brick_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("brick_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        BRICK_TILE_PRESSURE_PLATE = BLOCKS.register("brick_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("brick_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         BRICK_TILE_LAMP = BLOCKS.register("brick_tile_lamp", ()-> new Block(basicProperties("brick_tile_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         CRACKED_MUD_BRICKS = BLOCKS.register("cracked_mud_bricks", ()-> new Block(copyProperties("cracked_mud_bricks", Blocks.MUD_BRICKS)));
@@ -627,8 +627,8 @@ public class InspireBlocks {
         MUD_BRICK_PILLAR = BLOCKS.register("mud_brick_pillar", ()-> new RotatedPillarBlock(copyProperties("mud_brick_pillar", Blocks.MUD_BRICKS)));
         MUD_BRICK_DOOR = BLOCKS.register("mud_brick_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("mud_brick_door", Blocks.MUD_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         MUD_BRICK_TRAPDOOR = BLOCKS.register("mud_brick_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("mud_brick_trapdoor", Blocks.MUD_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        MUD_BRICK_BUTTON = BLOCKS.register("mud_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("mud_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        MUD_BRICK_PRESSURE_PLATE = BLOCKS.register("mud_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("mud_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        MUD_BRICK_BUTTON = BLOCKS.register("mud_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("mud_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        MUD_BRICK_PRESSURE_PLATE = BLOCKS.register("mud_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("mud_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         MUD_BRICK_LAMP = BLOCKS.register("mud_brick_lamp", ()-> new Block(basicProperties("mud_brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         MUD_TILES = BLOCKS.register("mud_brick_tiles", ()-> new Block(copyProperties("mud_brick_tiles", Blocks.MUD_BRICKS)));
@@ -642,8 +642,8 @@ public class InspireBlocks {
         MUD_TILE_PILLAR = BLOCKS.register("mud_brick_tile_pillar", ()-> new RotatedPillarBlock(copyProperties("mud_brick_tile_pillar", MUD_TILES.get())));
         MUD_TILE_DOOR = BLOCKS.register("mud_brick_tile_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("mud_brick_tile_door", MUD_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         MUD_TILE_TRAPDOOR = BLOCKS.register("mud_brick_tile_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("mud_brick_tile_trapdoor", MUD_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        MUD_TILE_BUTTON = BLOCKS.register("mud_brick_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("mud_brick_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        MUD_TILE_PRESSURE_PLATE = BLOCKS.register("mud_brick_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("mud_brick_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        MUD_TILE_BUTTON = BLOCKS.register("mud_brick_tile_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("mud_brick_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        MUD_TILE_PRESSURE_PLATE = BLOCKS.register("mud_brick_tile_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("mud_brick_tile_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         MUD_TILE_LAMP = BLOCKS.register("mud_brick_tile_lamp", ()-> new Block(basicProperties("mud_brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         PRISMARINE_BRICK_WALL = BLOCKS.register("prismarine_brick_wall", () -> new WallBlock(copyProperties("prismarine_brick_wall", Blocks.PRISMARINE_BRICKS).forceSolidOn()));
@@ -654,8 +654,8 @@ public class InspireBlocks {
         PRISMARINE_BRICK_PILLAR = BLOCKS.register("prismarine_brick_pillar", () -> new RotatedPillarBlock(copyProperties("prismarine_brick_pillar",  Blocks.PRISMARINE_BRICKS)));
         PRISMARINE_BRICK_DOOR = BLOCKS.register("prismarine_brick_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("prismarine_brick_door",  Blocks.PRISMARINE_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         PRISMARINE_BRICK_TRAPDOOR = BLOCKS.register("prismarine_brick_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("prismarine_brick_trapdoor",  Blocks.PRISMARINE_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        PRISMARINE_BRICK_BUTTON = BLOCKS.register("prismarine_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("prismarine_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        PRISMARINE_BRICK_PRESSURE_PLATE = BLOCKS.register("prismarine_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("prismarine_brick_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        PRISMARINE_BRICK_BUTTON = BLOCKS.register("prismarine_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("prismarine_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        PRISMARINE_BRICK_PRESSURE_PLATE = BLOCKS.register("prismarine_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("prismarine_brick_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
 
         PRISMARINE_TILES = BLOCKS.register("prismarine_tiles", () -> new Block(copyProperties("prismarine_tiles", Blocks.PRISMARINE_BRICKS)));
         CRACKED_PRISMARINE_TILES = BLOCKS.register("cracked_prismarine_tiles", () -> new Block(copyProperties("cracked_prismarine_tiles", PRISMARINE_TILES.get())));
@@ -668,8 +668,8 @@ public class InspireBlocks {
         PRISMARINE_TILE_PILLAR = BLOCKS.register("prismarine_tile_pillar",() -> new RotatedPillarBlock(copyProperties("prismarine_tile_pillar", PRISMARINE_TILES.get())));
         PRISMARINE_TILE_DOOR = BLOCKS.register("prismarine_tile_door",() -> new DoorBlock(BlockSetType.STONE, copyProperties("prismarine_tile_door", PRISMARINE_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         PRISMARINE_TILE_TRAPDOOR = BLOCKS.register("prismarine_tile_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("prismarine_tile_trapdoor", PRISMARINE_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        PRISMARINE_TILE_BUTTON = BLOCKS.register("prismarine_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("prismarine_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        PRISMARINE_TILE_PRESSURE_PLATE = BLOCKS.register("prismarine_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("prismarine_tile_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        PRISMARINE_TILE_BUTTON = BLOCKS.register("prismarine_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("prismarine_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        PRISMARINE_TILE_PRESSURE_PLATE = BLOCKS.register("prismarine_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("prismarine_tile_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         PRISMARINE_TILE_SEA_LANTERN = BLOCKS.register("prismarine_tile_sea_lantern", () -> new Block(basicProperties("prismarine_tile_sea_lantern") .strength(0.3F) .sound(SoundType.GLASS) .lightLevel(s -> 15)));
 
         CRACKED_END_STONE_BRICKS = BLOCKS.register("cracked_end_stone_bricks", () -> new Block(copyProperties("cracked_end_stone_bricks", Blocks.END_STONE_BRICKS)));
@@ -679,8 +679,8 @@ public class InspireBlocks {
         END_STONE_BRICK_PILLAR = BLOCKS.register("end_stone_brick_pillar", () -> new RotatedPillarBlock(copyProperties("end_stone_brick_pillar", Blocks.END_STONE_BRICKS)));
         END_STONE_BRICK_DOOR = BLOCKS.register("end_stone_brick_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("end_stone_brick_door", Blocks.END_STONE_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         END_STONE_BRICK_TRAPDOOR = BLOCKS.register("end_stone_brick_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("end_stone_brick_trapdoor", Blocks.END_STONE_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        END_STONE_BRICK_BUTTON = BLOCKS.register("end_stone_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("end_stone_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        END_STONE_BRICK_PRESSURE_PLATE = BLOCKS.register("end_stone_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("end_stone_brick_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        END_STONE_BRICK_BUTTON = BLOCKS.register("end_stone_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("end_stone_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        END_STONE_BRICK_PRESSURE_PLATE = BLOCKS.register("end_stone_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("end_stone_brick_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         END_STONE_BRICK_LAMP = BLOCKS.register("end_stone_brick_lamp", () -> new Block(basicProperties("end_stone_brick_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         END_STONE_TILES = BLOCKS.register("end_stone_tiles", () -> new Block(copyProperties("end_stone_tiles", Blocks.END_STONE_BRICKS)));
@@ -694,8 +694,8 @@ public class InspireBlocks {
         END_STONE_TILE_PILLAR = BLOCKS.register("end_stone_tile_pillar", () -> new RotatedPillarBlock(copyProperties("end_stone_tile_pillar", END_STONE_TILES.get())));
         END_STONE_TILE_DOOR = BLOCKS.register("end_stone_tile_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("end_stone_tile_door", END_STONE_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         END_STONE_TILE_TRAPDOOR = BLOCKS.register("end_stone_tile_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("end_stone_tile_trapdoor", END_STONE_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        END_STONE_TILE_BUTTON = BLOCKS.register("end_stone_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("end_stone_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        END_STONE_TILE_PRESSURE_PLATE = BLOCKS.register("end_stone_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("end_stone_tile_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        END_STONE_TILE_BUTTON = BLOCKS.register("end_stone_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("end_stone_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        END_STONE_TILE_PRESSURE_PLATE = BLOCKS.register("end_stone_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("end_stone_tile_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         END_STONE_TILE_LAMP = BLOCKS.register("end_stone_tile_lamp", () -> new Block(basicProperties("end_stone_tile_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         CRACKED_PURPUR = BLOCKS.register("cracked_purpur", () -> new Block(copyProperties("cracked_purpur", Blocks.PURPUR_BLOCK)));
@@ -705,8 +705,8 @@ public class InspireBlocks {
         CHISELED_PURPUR = BLOCKS.register("chiseled_purpur", () -> new Block(copyProperties("chiseled_purpur", Blocks.PURPUR_BLOCK)));
         PURPUR_DOOR = BLOCKS.register("purpur_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("purpur_door", Blocks.PURPUR_BLOCK).noOcclusion().pushReaction(PushReaction.DESTROY)));
         PURPUR_TRAPDOOR = BLOCKS.register("purpur_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("purpur_trapdoor", Blocks.PURPUR_BLOCK).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        PURPUR_BUTTON = BLOCKS.register("purpur_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("purpur_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        PURPUR_PRESSURE_PLATE = BLOCKS.register("purpur_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("purpur_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        PURPUR_BUTTON = BLOCKS.register("purpur_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("purpur_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        PURPUR_PRESSURE_PLATE = BLOCKS.register("purpur_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("purpur_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         PURPUR_LAMP = BLOCKS.register("purpur_lamp", () -> new Block(basicProperties("purpur_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         STONE_BRICK_FENCE = BLOCKS.register("stone_brick_fence", () -> new FenceBlock(copyProperties("stone_brick_fence", Blocks.STONE_BRICKS)));
@@ -714,8 +714,8 @@ public class InspireBlocks {
         STONE_BRICK_PILLAR = BLOCKS.register("stone_brick_pillar", () -> new RotatedPillarBlock(copyProperties("stone_brick_pillar", Blocks.STONE_BRICKS)));
         STONE_BRICK_DOOR = BLOCKS.register("stone_brick_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("stone_brick_door", Blocks.STONE_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         STONE_BRICK_TRAPDOOR = BLOCKS.register("stone_brick_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("stone_brick_trapdoor", Blocks.STONE_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        STONE_BRICK_BUTTON = BLOCKS.register("stone_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("stone_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        STONE_BRICK_PRESSURE_PLATE = BLOCKS.register("stone_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("stone_brick_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        STONE_BRICK_BUTTON = BLOCKS.register("stone_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("stone_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        STONE_BRICK_PRESSURE_PLATE = BLOCKS.register("stone_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("stone_brick_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         STONE_BRICK_LAMP = BLOCKS.register("stone_brick_lamp", () -> new Block(basicProperties("stone_brick_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         CRACKED_POLISHED_DEEPSLATE = BLOCKS.register("cracked_polished_deepslate", () -> new Block(copyProperties("cracked_polished_deepslate", Blocks.POLISHED_DEEPSLATE)));
@@ -725,8 +725,8 @@ public class InspireBlocks {
         CHISELED_POLISHED_DEEPSLATE = BLOCKS.register("chiseled_polished_deepslate", () -> new Block(copyProperties("chiseled_polished_deepslate", Blocks.POLISHED_DEEPSLATE)));
         POLISHED_DEEPSLATE_DOOR = BLOCKS.register("polished_deepslate_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("polished_deepslate_door", Blocks.POLISHED_DEEPSLATE).noOcclusion().pushReaction(PushReaction.DESTROY)));
         POLISHED_DEEPSLATE_TRAPDOOR = BLOCKS.register("polished_deepslate_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("polished_deepslate_trapdoor", Blocks.POLISHED_DEEPSLATE).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        POLISHED_DEEPSLATE_BUTTON = BLOCKS.register("polished_deepslate_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("polished_deepslate_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        POLISHED_DEEPSLATE_PRESSURE_PLATE = BLOCKS.register("polished_deepslate_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("polished_deepslate_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        POLISHED_DEEPSLATE_BUTTON = BLOCKS.register("polished_deepslate_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("polished_deepslate_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        POLISHED_DEEPSLATE_PRESSURE_PLATE = BLOCKS.register("polished_deepslate_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("polished_deepslate_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         POLISHED_DEEPSLATE_LAMP = BLOCKS.register("polished_deepslate_lamp", () -> new Block(basicProperties("polished_deepslate_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         DEEPSLATE_BRICK_FENCE = BLOCKS.register("deepslate_brick_fence", () -> new FenceBlock(copyProperties("deepslate_brick_fence", Blocks.DEEPSLATE_BRICKS)));
@@ -735,8 +735,8 @@ public class InspireBlocks {
         CHISELED_DEEPSLATE_BRICKS = BLOCKS.register("chiseled_deepslate_bricks", () -> new Block(copyProperties("chiseled_deepslate_bricks", Blocks.DEEPSLATE_BRICKS)));
         DEEPSLATE_BRICK_DOOR = BLOCKS.register("deepslate_brick_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("deepslate_brick_door", Blocks.DEEPSLATE_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         DEEPSLATE_BRICK_TRAPDOOR = BLOCKS.register("deepslate_brick_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("deepslate_brick_trapdoor", Blocks.DEEPSLATE_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        DEEPSLATE_BRICK_BUTTON = BLOCKS.register("deepslate_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("deepslate_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        DEEPSLATE_BRICK_PRESSURE_PLATE = BLOCKS.register("deepslate_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("deepslate_brick_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        DEEPSLATE_BRICK_BUTTON = BLOCKS.register("deepslate_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("deepslate_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        DEEPSLATE_BRICK_PRESSURE_PLATE = BLOCKS.register("deepslate_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("deepslate_brick_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         DEEPSLATE_BRICK_LAMP = BLOCKS.register("deepslate_brick_lamp", () -> new Block(basicProperties("deepslate_brick_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         DEEPSLATE_TILE_FENCE = BLOCKS.register("deepslate_tile_fence", () -> new FenceBlock(copyProperties("deepslate_tile_fence", Blocks.DEEPSLATE_TILES)));
@@ -745,8 +745,8 @@ public class InspireBlocks {
         DEEPSLATE_TILE_PILLAR = BLOCKS.register("deepslate_tile_pillar", () -> new RotatedPillarBlock(copyProperties("deepslate_tile_pillar", Blocks.DEEPSLATE_TILES)));
         DEEPSLATE_TILE_DOOR = BLOCKS.register("deepslate_tile_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("deepslate_tile_door", Blocks.DEEPSLATE_TILES).noOcclusion().pushReaction(PushReaction.DESTROY)));
         DEEPSLATE_TILE_TRAPDOOR = BLOCKS.register("deepslate_tile_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("deepslate_tile_trapdoor", Blocks.DEEPSLATE_TILES).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        DEEPSLATE_TILE_BUTTON = BLOCKS.register("deepslate_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("deepslate_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        DEEPSLATE_TILE_PRESSURE_PLATE = BLOCKS.register("deepslate_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("deepslate_tile_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        DEEPSLATE_TILE_BUTTON = BLOCKS.register("deepslate_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("deepslate_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        DEEPSLATE_TILE_PRESSURE_PLATE = BLOCKS.register("deepslate_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("deepslate_tile_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         DEEPSLATE_TILE_LAMP = BLOCKS.register("deepslate_tile_lamp", () -> new Block(basicProperties("deepslate_tile_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         CRACKED_MOSSY_STONE_BRICK = BLOCKS.register("cracked_mossy_stone_brick", () -> new Block(copyProperties("cracked_mossy_stone_brick", Blocks.MOSSY_STONE_BRICKS)));
@@ -756,8 +756,8 @@ public class InspireBlocks {
         CHISELED_MOSSY_STONE_BRICKS = BLOCKS.register("chiseled_mossy_stone_bricks", () -> new Block(copyProperties("chiseled_mossy_stone_bricks", Blocks.MOSSY_STONE_BRICKS)));
         MOSSY_STONE_BRICK_DOOR = BLOCKS.register("mossy_stone_brick_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("mossy_stone_brick_door", Blocks.MOSSY_STONE_BRICKS).noOcclusion().pushReaction(PushReaction.DESTROY)));
         MOSSY_STONE_BRICK_TRAPDOOR = BLOCKS.register("mossy_stone_brick_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("mossy_stone_brick_trapdoor", Blocks.MOSSY_STONE_BRICKS).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        MOSSY_STONE_BRICK_BUTTON = BLOCKS.register("mossy_stone_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("mossy_stone_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        MOSSY_STONE_BRICK_PRESSURE_PLATE = BLOCKS.register("mossy_stone_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("mossy_stone_brick_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        MOSSY_STONE_BRICK_BUTTON = BLOCKS.register("mossy_stone_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("mossy_stone_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        MOSSY_STONE_BRICK_PRESSURE_PLATE = BLOCKS.register("mossy_stone_brick_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("mossy_stone_brick_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         MOSSY_STONE_BRICK_LAMP = BLOCKS.register("mossy_stone_brick_lamp", () -> new Block(basicProperties("mossy_stone_brick_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         MOSSY_STONE_TILES = BLOCKS.register("mossy_stone_tiles", () -> new Block(copyProperties("mossy_stone_tiles", Blocks.MOSSY_STONE_BRICKS)));
@@ -771,8 +771,8 @@ public class InspireBlocks {
         MOSSY_STONE_TILE_PILLAR = BLOCKS.register("mossy_stone_tile_pillar", () -> new RotatedPillarBlock(copyProperties("mossy_stone_tile_pillar", MOSSY_STONE_TILES.get())));
         MOSSY_STONE_TILE_DOOR = BLOCKS.register("mossy_stone_tile_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("mossy_stone_tile_door", MOSSY_STONE_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         MOSSY_STONE_TILE_TRAPDOOR = BLOCKS.register("mossy_stone_tile_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("mossy_stone_tile_trapdoor", MOSSY_STONE_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        MOSSY_STONE_TILE_BUTTON = BLOCKS.register("mossy_stone_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("mossy_stone_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        MOSSY_STONE_TILE_PRESSURE_PLATE = BLOCKS.register("mossy_stone_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("mossy_stone_tile_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        MOSSY_STONE_TILE_BUTTON = BLOCKS.register("mossy_stone_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("mossy_stone_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        MOSSY_STONE_TILE_PRESSURE_PLATE = BLOCKS.register("mossy_stone_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("mossy_stone_tile_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         MOSSY_STONE_TILE_LAMP = BLOCKS.register("mossy_stone_tile_lamp", () -> new Block(basicProperties("mossy_stone_tile_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         DARK_PRISMARINE_WALL = BLOCKS.register("dark_prismarine_wall", () -> new WallBlock(copyProperties("dark_prismarine_wall", Blocks.DARK_PRISMARINE).forceSolidOn()));
@@ -783,8 +783,8 @@ public class InspireBlocks {
         DARK_PRISMARINE_PILLAR = BLOCKS.register("dark_prismarine_pillar", () -> new RotatedPillarBlock(copyProperties("dark_prismarine_pillar", Blocks.DARK_PRISMARINE)));
         DARK_PRISMARINE_DOOR = BLOCKS.register("dark_prismarine_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("dark_prismarine_door", Blocks.DARK_PRISMARINE).noOcclusion().pushReaction(PushReaction.DESTROY)));
         DARK_PRISMARINE_TRAPDOOR = BLOCKS.register("dark_prismarine_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("dark_prismarine_trapdoor", Blocks.DARK_PRISMARINE).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        DARK_PRISMARINE_BUTTON = BLOCKS.register("dark_prismarine_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("dark_prismarine_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        DARK_PRISMARINE_PRESSURE_PLATE = BLOCKS.register("dark_prismarine_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("dark_prismarine_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        DARK_PRISMARINE_BUTTON = BLOCKS.register("dark_prismarine_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("dark_prismarine_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        DARK_PRISMARINE_PRESSURE_PLATE = BLOCKS.register("dark_prismarine_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("dark_prismarine_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         DARK_PRISMARINE_LAMP = BLOCKS.register("dark_prismarine_lamp", () -> new Block(basicProperties("dark_prismarine_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         STONE_TILES = BLOCKS.register("stone_tiles", () -> new Block(copyProperties("stone_tiles", Blocks.STONE_BRICKS)));
@@ -798,8 +798,8 @@ public class InspireBlocks {
         STONE_TILE_PILLAR = BLOCKS.register("stone_tile_pillar", () -> new RotatedPillarBlock(copyProperties("stone_tile_pillar", STONE_TILES.get())));
         STONE_TILE_DOOR = BLOCKS.register("stone_tile_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("stone_tile_door", STONE_TILES.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         STONE_TILE_TRAPDOOR = BLOCKS.register("stone_tile_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("stone_tile_trapdoor", STONE_TILES.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        STONE_TILE_BUTTON = BLOCKS.register("stone_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("stone_tile_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        STONE_TILE_PRESSURE_PLATE = BLOCKS.register("stone_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("stone_tile_pressure_plate").forceSolidOn().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        STONE_TILE_BUTTON = BLOCKS.register("stone_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("stone_tile_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        STONE_TILE_PRESSURE_PLATE = BLOCKS.register("stone_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("stone_tile_pressure_plate").forceSolidOn().strength(0.5F).pushReaction(PushReaction.DESTROY)));
         STONE_TILE_LAMP = BLOCKS.register("stone_tile_lamp", () -> new Block(basicProperties("stone_tile_lamp") .strength(0.3F).sound(SoundType.GLASS).lightLevel(s -> 15)));
 
         POLISHED_DEEPSLATE_TILES = BLOCKS.register("polished_deepslate_tiles", () -> new Block(copyProperties("polished_deepslate_tiles", Blocks.POLISHED_DEEPSLATE)));
@@ -813,8 +813,8 @@ public class InspireBlocks {
         POLISHED_DEEPSLATE_TILE_PILLAR = BLOCKS.register("polished_deepslate_tile_pillar", () -> new RotatedPillarBlock(copyProperties("polished_deepslate_tile_pillar", POLISHED_DEEPSLATE_TILES.get())));
         POLISHED_DEEPSLATE_TILE_DOOR = BLOCKS.register("polished_deepslate_tile_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("polished_deepslate_tile_door", POLISHED_DEEPSLATE_TILES.get()) .noOcclusion() .pushReaction(PushReaction.DESTROY)));
         POLISHED_DEEPSLATE_TILE_TRAPDOOR = BLOCKS.register("polished_deepslate_tile_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("polished_deepslate_tile_trapdoor", POLISHED_DEEPSLATE_TILES.get()) .noOcclusion() .isValidSpawn(InspireBlocks::never)));
-        POLISHED_DEEPSLATE_TILE_BUTTON = BLOCKS.register("polished_deepslate_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("polished_deepslate_tile_button") .noCollision() .strength(0.5F) .pushReaction(PushReaction.DESTROY)));
-        POLISHED_DEEPSLATE_TILE_PRESSURE_PLATE = BLOCKS.register("polished_deepslate_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("polished_deepslate_tile_pressure_plate") .forceSolidOn() .noCollision() .strength(0.5F) .pushReaction(PushReaction.DESTROY)));
+        POLISHED_DEEPSLATE_TILE_BUTTON = BLOCKS.register("polished_deepslate_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("polished_deepslate_tile_button")  .strength(0.5F) .pushReaction(PushReaction.DESTROY)));
+        POLISHED_DEEPSLATE_TILE_PRESSURE_PLATE = BLOCKS.register("polished_deepslate_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("polished_deepslate_tile_pressure_plate") .forceSolidOn()  .strength(0.5F) .pushReaction(PushReaction.DESTROY)));
         POLISHED_DEEPSLATE_TILE_LAMP = BLOCKS.register("polished_deepslate_tile_lamp", () -> new Block(basicProperties("polished_deepslate_tile_lamp") .strength(0.3F) .sound(SoundType.GLASS) .lightLevel(s -> 15)));
 
         PURPUR_TILES = BLOCKS.register("purpur_tiles", () -> new Block(copyProperties("purpur_tiles", Blocks.PURPUR_BLOCK)));
@@ -828,8 +828,8 @@ public class InspireBlocks {
         PURPUR_TILE_PILLAR = BLOCKS.register("purpur_tile_pillar", () -> new RotatedPillarBlock(copyProperties("purpur_tile_pillar", PURPUR_TILES.get())));
         PURPUR_TILE_DOOR = BLOCKS.register("purpur_tile_door", () -> new DoorBlock(BlockSetType.STONE, copyProperties("purpur_tile_door", PURPUR_TILES.get()) .noOcclusion() .pushReaction(PushReaction.DESTROY)));
         PURPUR_TILE_TRAPDOOR = BLOCKS.register("purpur_tile_trapdoor", () -> new TrapDoorBlock(BlockSetType.STONE, copyProperties("purpur_tile_trapdoor", PURPUR_TILES.get()) .noOcclusion() .isValidSpawn(InspireBlocks::never)));
-        PURPUR_TILE_BUTTON = BLOCKS.register("purpur_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("purpur_tile_button") .noCollision() .strength(0.5F) .pushReaction(PushReaction.DESTROY)));
-        PURPUR_TILE_PRESSURE_PLATE = BLOCKS.register("purpur_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("purpur_tile_pressure_plate") .forceSolidOn() .noCollision() .strength(0.5F) .pushReaction(PushReaction.DESTROY)));
+        PURPUR_TILE_BUTTON = BLOCKS.register("purpur_tile_button", () -> new ButtonBlock(BlockSetType.STONE, 20, basicProperties("purpur_tile_button")  .strength(0.5F) .pushReaction(PushReaction.DESTROY)));
+        PURPUR_TILE_PRESSURE_PLATE = BLOCKS.register("purpur_tile_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, basicProperties("purpur_tile_pressure_plate") .forceSolidOn()  .strength(0.5F) .pushReaction(PushReaction.DESTROY)));
         PURPUR_TILE_LAMP = BLOCKS.register("purpur_tile_lamp", () -> new Block(basicProperties("purpur_tile_lamp") .strength(0.3F) .sound(SoundType.GLASS) .lightLevel(s -> 15)));
 
         /*
@@ -844,8 +844,8 @@ public class InspireBlocks {
         POLISHED_RED_NETHER_BRICK_PILLAR = BLOCKS.register("polished_red_nether_brick_pillar", ()-> new RotatedPillarBlock(copyProperties("polished_red_nether_brick_pillar", POLISHED_RED_NETHER_BRICKS.get())));
         POLISHED_RED_NETHER_BRICK_DOOR = BLOCKS.register("polished_red_nether_brick_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("polished_red_nether_brick_door", POLISHED_RED_NETHER_BRICKS.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         POLISHED_RED_NETHER_BRICK_TRAPDOOR = BLOCKS.register("polished_red_nether_brick_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("polished_red_nether_brick_trapdoor", POLISHED_RED_NETHER_BRICKS.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        POLISHED_RED_NETHER_BRICK_BUTTON = BLOCKS.register("polished_red_nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("polished_red_nether_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        POLISHED_RED_NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("polished_red_nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("polished_red_nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        POLISHED_RED_NETHER_BRICK_BUTTON = BLOCKS.register("polished_red_nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("polished_red_nether_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        POLISHED_RED_NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("polished_red_nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("polished_red_nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         POLISHED_RED_NETHER_BRICK_LAMP = BLOCKS.register("polished_red_nether_brick_lamp", ()-> new Block(basicProperties("polished_red_nether_brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
 
         POLISHED_CYAN_NETHER_BRICKS = BLOCKS.register("polished_cyan_nether_bricks", ()-> new Block(copyProperties("polished_cyan_nether_bricks", CYAN_NETHER_BRICKS.get())));
@@ -859,29 +859,29 @@ public class InspireBlocks {
         POLISHED_CYAN_NETHER_BRICK_PILLAR = BLOCKS.register("polished_cyan_nether_brick_pillar", ()-> new RotatedPillarBlock(copyProperties("polished_cyan_nether_brick_pillar", POLISHED_CYAN_NETHER_BRICKS.get())));
         POLISHED_CYAN_NETHER_BRICK_DOOR = BLOCKS.register("polished_cyan_nether_brick_door", ()-> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("polished_cyan_nether_brick_door", POLISHED_CYAN_NETHER_BRICKS.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         POLISHED_CYAN_NETHER_BRICK_TRAPDOOR = BLOCKS.register("polished_cyan_nether_brick_trapdoor", ()-> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, copyProperties("polished_cyan_nether_brick_trapdoor", POLISHED_CYAN_NETHER_BRICKS.get()).noOcclusion().isValidSpawn(InspireBlocks::never)));
-        POLISHED_CYAN_NETHER_BRICK_BUTTON = BLOCKS.register("polished_cyan_nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("polished_cyan_nether_brick_button").noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
-        POLISHED_CYAN_NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("polished_cyan_nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("polished_cyan_nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        POLISHED_CYAN_NETHER_BRICK_BUTTON = BLOCKS.register("polished_cyan_nether_brick_button", ()-> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, basicProperties("polished_cyan_nether_brick_button").strength(0.5F).pushReaction(PushReaction.DESTROY)));
+        POLISHED_CYAN_NETHER_BRICK_PRESSURE_PLATE = BLOCKS.register("polished_cyan_nether_brick_pressure_plate", ()-> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, basicProperties("polished_cyan_nether_brick_pressure_plate").mapColor(MapColor.NETHER).forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F).pushReaction(PushReaction.DESTROY)));
         POLISHED_CYAN_NETHER_BRICK_LAMP = BLOCKS.register("polished_cyan_nether_brick_lamp", ()-> new Block(basicProperties("polished_cyan_nether_brick_lamp").mapColor(MapColor.SAND).instrument(NoteBlockInstrument.PLING).strength(0.3F).sound(SoundType.GLASS).lightLevel((blockStatex) -> 15).isRedstoneConductor(InspireBlocks::never)));
  */
 
         WARPED_NYLIUM_SHELF = BLOCKS.register("warped_nylium_shelf", () -> new ShelfFungiBlock(basicProperties("warped_nylium_shelf")
-                .noCollision()
+                
                 .instabreak()
                 .sound(SoundType.FUNGUS)
                 .pushReaction(PushReaction.DESTROY)
                 .forceSolidOn()
-                .noCollision()
+                
                 .noOcclusion()
                 .lightLevel((blockStatex) -> 5)
                 .hasPostProcess(InspireBlocks::always)
                 .emissiveRendering(InspireBlocks::always)));
         CRIMSON_NYLIUM_SHELF = BLOCKS.register("crimson_nylium_shelf", () -> new ShelfFungiBlock(basicProperties("crimson_nylium_shelf")
-                .noCollision()
+                
                 .instabreak()
                 .sound(SoundType.FUNGUS)
                 .pushReaction(PushReaction.DESTROY)
                 .forceSolidOn()
-                .noCollision()
+                
                 .noOcclusion()
                 .lightLevel((blockStatex) -> 5)
                 .hasPostProcess(InspireBlocks::always)
@@ -893,7 +893,8 @@ public class InspireBlocks {
     }
 
     private static BlockBehaviour.Properties basicProperties(String name) {
-        return BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, name)));
+        // setId() is not available in Minecraft 1.21.1
+        return BlockBehaviour.Properties.of();
     }
 
     private static boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
@@ -904,6 +905,7 @@ public class InspireBlocks {
     }
     @SuppressWarnings("deprecation")
     private static BlockBehaviour.Properties copyProperties(String name, Block block) {
-        return BlockBehaviour.Properties.ofLegacyCopy(block).setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, name)));
+        // setId() is not available in Minecraft 1.21.1
+        return BlockBehaviour.Properties.ofLegacyCopy(block);
     }
 }

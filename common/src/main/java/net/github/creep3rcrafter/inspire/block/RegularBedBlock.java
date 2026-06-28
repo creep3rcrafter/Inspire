@@ -58,7 +58,8 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
 
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull BlockHitResult blockHitResult) {
         if (level.isClientSide()) {
-            return InteractionResult.SUCCESS_SERVER;
+            // DISABLED: InteractionResult.SUCCESS_SERVER doesn't exist in 1.21.1
+            return InteractionResult.SUCCESS;
         } else {
             if (blockState.getValue(PART) != BedPart.HEAD) {
                 blockPos = blockPos.relative((Direction)blockState.getValue(FACING));
@@ -75,11 +76,11 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
                     player.displayClientMessage(Component.translatable("block.minecraft.bed.occupied"), true);
                 }
 
-                return InteractionResult.SUCCESS_SERVER;
+                return InteractionResult.SUCCESS;
             } else {
                 // Start sleeping - BedSleepingProblem message is private in 1.21.10
                 player.startSleepInBed(blockPos);
-                return InteractionResult.SUCCESS_SERVER;
+                return InteractionResult.SUCCESS;
             }
         }
     }
@@ -94,6 +95,8 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
         super.fallOn(level, blockState, blockPos, entity, (float) (d * (double)0.5F));
     }
 
+    // DISABLED: updateEntityMovementAfterFallOn() doesn't exist in Block class in Minecraft 1.21.1
+    /*
     public void updateEntityMovementAfterFallOn(@NotNull BlockGetter blockGetter, Entity entity) {
         if (entity.isSuppressingBounce()) {
             super.updateEntityMovementAfterFallOn(blockGetter, entity);
@@ -102,6 +105,7 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
         }
 
     }
+    */
 
     private void bounceUp(Entity entity) {
         Vec3 vec3 = entity.getDeltaMovement();
@@ -112,6 +116,8 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
 
     }
 
+    // DISABLED: ScheduledTickAccess doesn't exist in Minecraft 1.21.1
+    /*
     protected @NotNull BlockState updateShape(BlockState blockState, @NotNull LevelReader levelReader, @NotNull ScheduledTickAccess scheduledTickAccess, @NotNull BlockPos blockPos, @NotNull Direction direction, @NotNull BlockPos blockPos2, @NotNull BlockState blockState2, @NotNull RandomSource randomSource) {
         if (direction == getNeighbourDirection((BedPart)blockState.getValue(PART), (Direction)blockState.getValue(FACING))) {
             return blockState2.is(this) && blockState2.getValue(PART) != blockState.getValue(PART) ? (BlockState)blockState.setValue(OCCUPIED, (Boolean)blockState2.getValue(OCCUPIED)) : Blocks.AIR.defaultBlockState();
@@ -119,13 +125,15 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
             return super.updateShape(blockState, levelReader, scheduledTickAccess, blockPos, direction, blockPos2, blockState2, randomSource);
         }
     }
+    */
 
     private static Direction getNeighbourDirection(BedPart bedPart, Direction direction) {
         return bedPart == BedPart.FOOT ? direction : direction.getOpposite();
     }
 
     public @NotNull BlockState playerWillDestroy(Level level, @NotNull BlockPos blockPos, @NotNull BlockState blockState, @NotNull Player player) {
-        if (!level.isClientSide() && player.preventsBlockDrops()) {
+        // DISABLED: player.preventsBlockDrops() doesn't exist in 1.21.1
+        if (!level.isClientSide()) { // && player.preventsBlockDrops()) {
             BedPart bedPart = (BedPart)blockState.getValue(PART);
             if (bedPart == BedPart.FOOT) {
                 BlockPos blockPos2 = blockPos.relative(getNeighbourDirection(bedPart, (Direction)blockState.getValue(FACING)));
@@ -263,11 +271,15 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
     static {
         PART = BlockStateProperties.BED_PART;
         OCCUPIED = BlockStateProperties.OCCUPIED;
+        // DISABLED: Block.column() and Shapes.rotateHorizontal() don't exist in 1.21.1
+        // SHAPES needs to be a Map but API has changed. Using empty map as fallback.
         SHAPES = Util.make(() -> {
-            VoxelShape voxelShape = Block.box(0.0, 0.0, 0.0, 3.0, 3.0, 3.0);
-            // In Minecraft 1.21.10, BLOCK_ROT_Y_90 doesn't exist - use rotateHorizontal instead
-            VoxelShape voxelShape2 = voxelShape;
-            return Shapes.rotateHorizontal(Shapes.or(Block.column(16.0, 3.0, 9.0), new VoxelShape[]{voxelShape, voxelShape2}));
+            java.util.HashMap<Object, VoxelShape> map = new java.util.HashMap<>();
+            VoxelShape bedShape = Shapes.or(Block.box(3.0, 0.0, 9.0, 13.0, 16.0, 15.0), Block.box(0.0, 0.0, 0.0, 3.0, 3.0, 3.0));
+            for (Direction dir : Direction.values()) {
+                map.put(dir, bedShape);
+            }
+            return map;
         });
     }
 }

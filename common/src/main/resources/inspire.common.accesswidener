@@ -11,7 +11,8 @@ accessible field net/minecraft/world/item/DyeColor BY_ID Ljava/util/function/Int
 # Allow us to modify the BY_FIREWORK_COLOR map
 accessible field net/minecraft/world/item/DyeColor BY_FIREWORK_COLOR Lit/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap;
 
-accessible method net/minecraft/world/level/block/entity/BlockEntityType <init> (Lnet/minecraft/world/level/block/entity/BlockEntityType$BlockEntitySupplier;Ljava/util/Set;)V
+# accessible method net/minecraft/world/level/block/entity/BlockEntityType <init> (Lnet/minecraft/world/level/block/entity/BlockEntityType$BlockEntitySupplier;Ljava/util/Set;)V
+# BlockEntityType constructor signature changed in 1.21.1 - disabled
 
 accessible method net/minecraft/world/level/block/AbstractCauldronBlock canReceiveStalactiteDrip (Lnet/minecraft/world/level/material/Fluid;)Z
 

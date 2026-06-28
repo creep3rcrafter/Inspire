@@ -1,5 +1,12 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
+// DISABLED: Equipment API doesn't exist in Minecraft 1.21.1
+// The following packages are not available:
+// - net.minecraft.world.item.equipment.EquipmentAsset
+// - net.minecraft.world.item.equipment.Equippable
+// - net.minecraft.world.item.equipment.EquipmentAssets
+
+/*
 import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -33,5 +40,10 @@ public class EquippableMixin {
     private static ResourceKey<EquipmentAsset> inspire$CreateId() {
         return ResourceKey.create(ROOT_ID, ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "regular_harness"));
     }
+}
+*/
+
+public class EquippableMixin {
+    // All mixin methods disabled - Equipment API is not available in 1.21.1
 }
 

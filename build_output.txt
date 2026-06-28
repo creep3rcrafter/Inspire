@@ -1,0 +1,1192 @@
+﻿
+> Configure project :
+Architect Plugin: 3.4.164
+Architectury Loom: 1.13.469
+This version of Architectury Loom is in beta! Please report any issues you encounter: https://github.com/architectury/architectury-loom/issues
+
+> Task :common:compileJava FAILED
+.\gradlew : C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity
+\IcicleBlock.java:74: error: cannot find symbol
+At line:2 char:47
++ ... s\brend\Documents\GitHub\Inspire'; .\gradlew compileJava 2>&1 | Tee-O ...
++                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\brend\...not find symbol:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    protected @NotNull BlockState updateShape(BlockState blockState, @NotNull LevelReader levelReader, @NotNull 
+ScheduledTickAccess scheduledTickAccess,
+                                                                                                                ^
+  symbol:   class ScheduledTickAccess
+  location: class IcicleBlock
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.ja
+va:115: error: cannot find symbol
+    protected @NotNull BlockState updateShape(BlockState blockState, @NotNull LevelReader levelReader, @NotNull 
+ScheduledTickAccess scheduledTickAccess, @NotNull BlockPos blockPos, @NotNull Direction direction, @NotNull BlockPos 
+blockPos2, @NotNull BlockState blockState2, @NotNull RandomSource randomSource) {
+                                                                                                                ^
+  symbol:   class ScheduledTickAccess
+  location: class RegularBedBlock
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonClie
+nt.java:14: error: cannot find symbol
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+                                          ^
+  symbol:   class ChunkSectionLayer
+  location: package net.minecraft.client.renderer.chunk
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:19: error: cannot find symbol
+import net.minecraft.client.renderer.SubmitNodeCollector;
+                                    ^
+  symbol:   class SubmitNodeCollector
+  location: package net.minecraft.client.renderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:23: error: package net.minecraft.client.renderer.blockentity.state does not exist
+import net.minecraft.client.renderer.blockentity.state.BedRenderState;
+                                                      ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:24: error: package net.minecraft.client.renderer.feature does not exist
+import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
+                                            ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:26: error: package net.minecraft.client.renderer.special does not exist
+import net.minecraft.client.renderer.special.SpecialModelRenderer;
+                                            ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:27: error: package net.minecraft.client.renderer.state does not exist
+import net.minecraft.client.renderer.state.CameraRenderState;
+                                          ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:30: error: cannot find symbol
+import net.minecraft.client.resources.model.MaterialSet;
+                                           ^
+  symbol:   class MaterialSet
+  location: package net.minecraft.client.resources.model
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:47: error: cannot find symbol
+public class RegularBedRenderer implements BlockEntityRenderer<@NotNull RegularBedBlockEntity, @NotNull 
+BedRenderState> {
+                                                                                                        ^
+  symbol: class BedRenderState
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:47: error: wrong number of type arguments; required 1
+public class RegularBedRenderer implements BlockEntityRenderer<@NotNull RegularBedBlockEntity, @NotNull 
+BedRenderState> {
+                                                              ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:48: error: cannot find symbol
+    private final MaterialSet materials;
+                  ^
+  symbol:   class MaterialSet
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:49: error: cannot find symbol
+    private final Model.Simple headModel;
+                       ^
+  symbol:   class Simple
+  location: class Model
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:50: error: cannot find symbol
+    private final Model.Simple footModel;
+                       ^
+  symbol:   class Simple
+  location: class Model
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:56: error: package SpecialModelRenderer does not exist
+    public RegularBedRenderer(SpecialModelRenderer.BakingContext bakingContext) {
+                                                  ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:60: error: cannot find symbol
+    public RegularBedRenderer(MaterialSet materialSet, EntityModelSet entityModelSet) {
+                              ^
+  symbol:   class MaterialSet
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:85: error: cannot find symbol
+    public BedRenderState createRenderState() {
+           ^
+  symbol:   class BedRenderState
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:90: error: cannot find symbol
+    public void extractRenderState(RegularBedBlockEntity blockEntity, BedRenderState blockEntityRenderState, float f, 
+@NotNull Vec3 vec3, ModelFeatureRenderer.@Nullable CrumblingOverlay crumblingOverlay) {
+                                                                      ^
+  symbol:   class BedRenderState
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:90: error: package ModelFeatureRenderer does not exist
+    public void extractRenderState(RegularBedBlockEntity blockEntity, BedRenderState blockEntityRenderState, float f, 
+@NotNull Vec3 vec3, ModelFeatureRenderer.@Nullable CrumblingOverlay crumblingOverlay) {
+                                                                                                                       
+                                       ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:100: error: cannot find symbol
+    public void submit(BedRenderState bedRenderState, @NotNull PoseStack poseStack, @NotNull SubmitNodeCollector 
+submitNodeCollector, @NotNull CameraRenderState cameraRenderState) {
+                       ^
+  symbol:   class BedRenderState
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:100: error: cannot find symbol
+    public void submit(BedRenderState bedRenderState, @NotNull PoseStack poseStack, @NotNull SubmitNodeCollector 
+submitNodeCollector, @NotNull CameraRenderState cameraRenderState) {
+                                                                                             ^
+  symbol:   class SubmitNodeCollector
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:100: error: cannot find symbol
+    public void submit(BedRenderState bedRenderState, @NotNull PoseStack poseStack, @NotNull SubmitNodeCollector 
+submitNodeCollector, @NotNull CameraRenderState cameraRenderState) {
+                                                                                                                       
+                        ^
+  symbol:   class CameraRenderState
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:109: error: cannot find symbol
+    public void submitSpecial(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int i, int j, Material 
+material, int k) {
+                                                   ^
+  symbol:   class SubmitNodeCollector
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:114: error: cannot find symbol
+    private void submitPiece(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Model.Simple simple, 
+Direction direction, Material material, int i, int j, boolean bl, ModelFeatureRenderer.@Nullable CrumblingOverlay 
+crumblingOverlay, int k) {
+                                                  ^
+  symbol:   class SubmitNodeCollector
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:114: error: cannot find symbol
+    private void submitPiece(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Model.Simple simple, 
+Direction direction, Material material, int i, int j, boolean bl, ModelFeatureRenderer.@Nullable CrumblingOverlay 
+crumblingOverlay, int k) {
+                                                                                                ^
+  symbol:   class Simple
+  location: class Model
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:114: error: package ModelFeatureRenderer does not exist
+    private void submitPiece(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Model.Simple simple, 
+Direction direction, Material material, int i, int j, boolean bl, ModelFeatureRenderer.@Nullable CrumblingOverlay 
+crumblingOverlay, int k) {
+                                                                                                                       
+                                                                               ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\item\PortableJukeboxItem
+.java:25: error: cannot find symbol
+import net.minecraft.world.item.component.TooltipDisplay;
+                                         ^
+  symbol:   class TooltipDisplay
+  location: package net.minecraft.world.item.component
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\item\PortableJukeboxItem
+.java:130: error: cannot find symbol
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, TooltipDisplay tooltipDisplay, 
+Consumer<Component> consumer, TooltipFlag tooltipFlag) {
+                                                                                    ^
+  symbol:   class TooltipDisplay
+  location: class PortableJukeboxItem
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.ja
+va:13: error: package net.minecraft.world.item.equipment does not exist
+import net.minecraft.world.item.equipment.EquipmentAsset;
+                                         ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.ja
+va:14: error: package net.minecraft.world.item.equipment does not exist
+import net.minecraft.world.item.equipment.Equippable;
+                                         ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.ja
+va:21: error: package net.minecraft.world.item.equipment does not exist
+import static net.minecraft.world.item.equipment.EquipmentAssets.ROOT_ID;
+                                                ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.ja
+va:21: error: static import only from classes and interfaces
+import static net.minecraft.world.item.equipment.EquipmentAssets.ROOT_ID;
+^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.ja
+va:26: error: cannot find symbol
+    private static void injectHarness(DyeColor dyeColor, CallbackInfoReturnable<Equippable> cir) {
+                                                                                ^
+  symbol:   class Equippable
+  location: class EquippableMixin
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.ja
+va:33: error: cannot find symbol
+    private static ResourceKey<EquipmentAsset> inspire$CreateId() {
+                               ^
+  symbol:   class EquipmentAsset
+  location: class EquippableMixin
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\register\InspireItems.ja
+va:12: error: package net.minecraft.world.item.equipment does not exist
+import net.minecraft.world.item.equipment.Equippable;
+                                         ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\toast\NowPlayingToast.ja
+va:4: error: cannot find symbol
+import net.minecraft.client.gui.components.toasts.ToastManager;
+                                                 ^
+  symbol:   class ToastManager
+  location: package net.minecraft.client.gui.components.toasts
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.ja
+va:23: error: cannot find symbol
+@Mixin(Equippable.class)
+       ^
+  symbol: class Equippable
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:116: error: incompatible types: possible lossy conversion from double to float
+            entity.causeFallDamage(d + (double)2.5F, 2.0F, level.damageSources().stalagmite());
+                                     ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:118: error: incompatible types: possible lossy conversion from double to float
+            super.fallOn(level, blockState, blockPos, entity, d);
+                                                              ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:223: error: method getOffset in class BlockStateBase cannot be applied to given types;
+        return voxelShape.move(blockState.getOffset(blockPos));
+                                         ^
+  required: BlockGetter,BlockPos
+  found:    @org.jetbrains.annotations.NotNull BlockPos
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:345: error: method getOffset in class BlockStateBase cannot be applied to given types;
+        Vec3 vec3 = blockState.getOffset(blockPos);
+                              ^
+  required: BlockGetter,BlockPos
+  found:    BlockPos
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:527: error: method isSolidRender in class BlockStateBase cannot be applied to given types;
+        } else if (blockState.isSolidRender()) {
+                             ^
+  required: BlockGetter,BlockPos
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:541: error: cannot find symbol
+        SHAPE_TIP_MERGE = Block.column((double)6.0F, (double)0.0F, (double)16.0F);
+                               ^
+  symbol:   method column(double,double,double)
+  location: class Block
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:542: error: cannot find symbol
+        SHAPE_TIP_UP = Block.column((double)6.0F, (double)0.0F, (double)11.0F);
+                            ^
+  symbol:   method column(double,double,double)
+  location: class Block
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:543: error: cannot find symbol
+        SHAPE_TIP_DOWN = Block.column((double)6.0F, (double)5.0F, (double)16.0F);
+                              ^
+  symbol:   method column(double,double,double)
+  location: class Block
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:544: error: cannot find symbol
+        SHAPE_FRUSTUM = Block.column((double)8.0F, (double)0.0F, (double)16.0F);
+                             ^
+  symbol:   method column(double,double,double)
+  location: class Block
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:545: error: cannot find symbol
+        SHAPE_MIDDLE = Block.column((double)10.0F, (double)0.0F, (double)16.0F);
+                            ^
+  symbol:   method column(double,double,double)
+  location: class Block
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:546: error: cannot find symbol
+        SHAPE_BASE = Block.column((double)12.0F, (double)0.0F, (double)16.0F);
+                          ^
+  symbol:   method column(double,double,double)
+  location: class Block
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlock
+.java:549: error: cannot find symbol
+        REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.column((double)4.0F, (double)0.0F, (double)16.0F);
+                                                              ^
+  symbol:   method column(double,double,double)
+  location: class Block
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.ja
+va:61: error: cannot find symbol
+            return InteractionResult.SUCCESS_SERVER;
+                                    ^
+  symbol:   variable SUCCESS_SERVER
+  location: class InteractionResult
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.ja
+va:78: error: cannot find symbol
+                return InteractionResult.SUCCESS_SERVER;
+                                        ^
+  symbol:   variable SUCCESS_SERVER
+  location: class InteractionResult
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.ja
+va:82: error: cannot find symbol
+                return InteractionResult.SUCCESS_SERVER;
+                                        ^
+  symbol:   variable SUCCESS_SERVER
+  location: class InteractionResult
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.ja
+va:99: error: cannot find symbol
+            super.updateEntityMovementAfterFallOn(blockGetter, entity);
+                 ^
+  symbol: method updateEntityMovementAfterFallOn(@org.jetbrains.annotations.NotNull BlockGetter,Entity)
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.ja
+va:128: error: cannot find symbol
+        if (!level.isClientSide() && player.preventsBlockDrops()) {
+                                           ^
+  symbol:   method preventsBlockDrops()
+  location: variable player of type @org.jetbrains.annotations.NotNull Player
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.ja
+va:270: error: cannot find symbol
+            return Shapes.rotateHorizontal(Shapes.or(Block.column(16.0, 3.0, 9.0), new VoxelShape[]{voxelShape, 
+voxelShape2}));
+                                                          ^
+  symbol:   method column(double,double,double)
+  location: class Block
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\ShelfFungiBlock.ja
+va:63: error: cannot find symbol
+        Map<AttachFace, Map<Direction, VoxelShape>> map = Shapes.rotateAttachFace(voxelShape);
+                                                                ^
+  symbol:   method rotateAttachFace(VoxelShape)
+  location: class Shapes
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\ShelfFungiBlock.ja
+va:64: error: incompatible types: ImmutableMap<BlockState,VoxelShape> cannot be converted to 
+Function<BlockState,VoxelShape>
+        return this.getShapeForEachState((blockState) -> (VoxelShape)((Map<?, 
+?>)map.get(blockState.getValue(FACE))).get(blockState.getValue(FACING)));
+                                        ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonClie
+nt.java:30: error: cannot find symbol
+        RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.WARPED_NYLIUM_SHELF.get());
+                                    ^
+  symbol:   variable ChunkSectionLayer
+  location: class InspireCommonClient
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonClie
+nt.java:31: error: cannot find symbol
+        RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.CRIMSON_NYLIUM_SHELF.get());
+                                    ^
+  symbol:   variable ChunkSectionLayer
+  location: class InspireCommonClient
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonClie
+nt.java:32: error: cannot find symbol
+        RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.TINTED_GLASS_PANE.get());
+                                    ^
+  symbol:   variable ChunkSectionLayer
+  location: class InspireCommonClient
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonClie
+nt.java:33: error: cannot find symbol
+        RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.ICICLE.get());
+                                    ^
+  symbol:   variable ChunkSectionLayer
+  location: class InspireCommonClient
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonClie
+nt.java:34: error: incompatible types: cannot infer type-variable(s) T
+        BlockEntityRendererRegistry.register(InspireBlockEntityTypes.BED.get(), RegularBedRenderer::new);
+                                            ^
+    (argument mismatch; invalid constructor reference
+      reference to RegularBedRenderer is ambiguous
+        both constructor RegularBedRenderer(Context) in RegularBedRenderer and constructor 
+RegularBedRenderer(BakingContext) in RegularBedRenderer match)
+  where T is a type-variable:
+    T extends BlockEntity declared in method <T>register(BlockEntityType<T>,BlockEntityRendererProvider<? super T>)
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:53: error: cannot find symbol
+        this(context.materials(), context.entityModelSet());
+                    ^
+  symbol:   method materials()
+  location: variable context of type Context
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:53: error: cannot find symbol
+        this(context.materials(), context.entityModelSet());
+                                         ^
+  symbol:   method entityModelSet()
+  location: variable context of type Context
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:62: error: cannot find symbol
+        this.headModel = new Model.Simple(entityModelSet.bakeLayer(ModelLayers.BED_HEAD), RenderType::entitySolid);
+                                  ^
+  symbol:   class Simple
+  location: class Model
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:63: error: cannot find symbol
+        this.footModel = new Model.Simple(entityModelSet.bakeLayer(ModelLayers.BED_FOOT), RenderType::entitySolid);
+                                  ^
+  symbol:   class Simple
+  location: class Model
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:84: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:86: error: cannot find symbol
+        return new BedRenderState();
+                   ^
+  symbol:   class BedRenderState
+  location: class RegularBedRenderer
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:89: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:91: error: not an enclosing class: BlockEntityRenderer
+        BlockEntityRenderer.super.extractRenderState(blockEntity, blockEntityRenderState, f, vec3, crumblingOverlay);
+                           ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:99: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:110: error: package ModelFeatureRenderer does not exist
+        this.submitPiece(poseStack, submitNodeCollector, this.headModel, Direction.SOUTH, material, i, j, false, 
+(ModelFeatureRenderer.CrumblingOverlay)null, k);
+                                                                                                                       
+               ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\RegularB
+edRenderer.java:111: error: package ModelFeatureRenderer does not exist
+        this.submitPiece(poseStack, submitNodeCollector, this.footModel, Direction.SOUTH, material, i, j, true, 
+(ModelFeatureRenderer.CrumblingOverlay)null, k);
+                                                                                                                       
+              ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\AirSwimMobEffect.
+java:20: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\AirSwimMobEffect.
+java:39: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\AirSwimMobEffect.
+java:41: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+        super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+             ^
+  required: Entity,Entity,LivingEntity,int,double
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ArcherMobEffect.j
+ava:17: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ArcherMobEffect.j
+ava:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+        return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                    ^
+  required: LivingEntity,int
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ArcherMobEffect.j
+ava:22: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ArcherMobEffect.j
+ava:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+        super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+             ^
+  required: Entity,Entity,LivingEntity,int,double
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\BurningMobEffect.
+java:17: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\BurningMobEffect.
+java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+        return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                    ^
+  required: LivingEntity,int
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\BurningMobEffect.
+java:22: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\BurningMobEffect.
+java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+        super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+             ^
+  required: Entity,Entity,LivingEntity,int,double
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CorrosiveMobEffec
+t.java:17: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CorrosiveMobEffec
+t.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+        return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                    ^
+  required: LivingEntity,int
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CorrosiveMobEffec
+t.java:22: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CorrosiveMobEffec
+t.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+        super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+             ^
+
+[Incubating] Problems report is available at: file:///C:/Users/brend/Documents/GitHub/Inspire/build/reports/problems/problems-report.html
+  required: Entity,Entity,LivingEntity,int,double
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CuringMobEffect.j
+ava:17: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CuringMobEffect.j
+ava:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+        return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                    ^
+  required: LivingEntity,int
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CuringMobEffect.j
+ava:22: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CuringMobEffect.j
+ava:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+        super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+             ^
+  required: Entity,Entity,LivingEntity,int,double
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\DestructionMobEff
+ect.java:17: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\DestructionMobEff
+ect.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+        return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                    ^
+  required: LivingEntity,int
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\DestructionMobEff
+ect.java:22: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\DestructionMobEff
+ect.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+        super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+             ^
+  required: Entity,Entity,LivingEntity,int,double
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ExplosiveMobEffec
+t.java:17: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ExplosiveMobEffec
+t.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+        return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                    ^
+  required: LivingEntity,int
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+  reason: actual and formal argument lists differ in length
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ExplosiveMobEffec
+t.java:22: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ExplosiveMobEffec
+t.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+        super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+             ^
+  required: Entity,Entity,LivingEntity,int,double
+  found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+  reason: actual and formal argument lists differ in length
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':common:compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:223: error: method getOffset in class BlockStateBase cannot be applied to given types;
+          return voxelShape.move(blockState.getOffset(blockPos));
+                                           ^
+    required: BlockGetter,BlockPos
+    found:    @org.jetbrains.annotations.NotNull BlockPos
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:345: error: method getOffset in class BlockStateBase cannot be applied to given types;
+          Vec3 vec3 = blockState.getOffset(blockPos);
+                                ^
+    required: BlockGetter,BlockPos
+    found:    BlockPos
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:527: error: method isSolidRender in class BlockStateBase cannot be applied to given types;
+          } else if (blockState.isSolidRender()) {
+                               ^
+    required: BlockGetter,BlockPos
+    found:    no arguments
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\AirSwimMobEffec
+t.java:41: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+          super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+               ^
+    required: Entity,Entity,LivingEntity,int,double
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ArcherMobEffect
+.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+          return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                      ^
+    required: LivingEntity,int
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ArcherMobEffect
+.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+          super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+               ^
+    required: Entity,Entity,LivingEntity,int,double
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\BurningMobEffec
+t.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+          return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                      ^
+    required: LivingEntity,int
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\BurningMobEffec
+t.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+          super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+               ^
+    required: Entity,Entity,LivingEntity,int,double
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CorrosiveMobEff
+ect.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+          return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                      ^
+    required: LivingEntity,int
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CorrosiveMobEff
+ect.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+          super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+               ^
+    required: Entity,Entity,LivingEntity,int,double
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CuringMobEffect
+.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+          return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                      ^
+    required: LivingEntity,int
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CuringMobEffect
+.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+          super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+               ^
+    required: Entity,Entity,LivingEntity,int,double
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\DestructionMobE
+ffect.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+          return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                      ^
+    required: LivingEntity,int
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\DestructionMobE
+ffect.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+          super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+               ^
+    required: Entity,Entity,LivingEntity,int,double
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ExplosiveMobEff
+ect.java:19: error: method applyEffectTick in class MobEffect cannot be applied to given types;
+          return super.applyEffectTick(serverLevel, livingEntity, amplifier);
+                      ^
+    required: LivingEntity,int
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.NotNull LivingEntity,int
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ExplosiveMobEff
+ect.java:24: error: method applyInstantenousEffect in class MobEffect cannot be applied to given types;
+          super.applyInstantenousEffect(serverLevel, entity, entity2, livingEntity, i, d);
+               ^
+    required: Entity,Entity,LivingEntity,int,double
+    found:    @org.jetbrains.annotations.NotNull ServerLevel,@org.jetbrains.annotations.Nullable 
+Entity,@org.jetbrains.annotations.Nullable Entity,LivingEntity,int,double
+    reason: actual and formal argument lists differ in length
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.
+java:21: error: static import only from classes and interfaces
+  import static net.minecraft.world.item.equipment.EquipmentAssets.ROOT_ID;
+  ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:91: error: not an enclosing class: BlockEntityRenderer
+          BlockEntityRenderer.super.extractRenderState(blockEntity, blockEntityRenderState, f, vec3, crumblingOverlay);
+                             ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.
+java:99: error: cannot find symbol
+              super.updateEntityMovementAfterFallOn(blockGetter, entity);
+                   ^
+    symbol: method updateEntityMovementAfterFallOn(@org.jetbrains.annotations.NotNull BlockGetter,Entity)
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:116: error: incompatible types: possible lossy conversion from double to float
+              entity.causeFallDamage(d + (double)2.5F, 2.0F, level.damageSources().stalagmite());
+                                       ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:118: error: incompatible types: possible lossy conversion from double to float
+              super.fallOn(level, blockState, blockPos, entity, d);
+                                                                ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\ShelfFungiBlock.
+java:64: error: incompatible types: ImmutableMap<BlockState,VoxelShape> cannot be converted to 
+Function<BlockState,VoxelShape>
+          return this.getShapeForEachState((blockState) -> (VoxelShape)((Map<?, 
+?>)map.get(blockState.getValue(FACE))).get(blockState.getValue(FACING)));
+                                          ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonCl
+ient.java:34: error: incompatible types: cannot infer type-variable(s) T
+          BlockEntityRendererRegistry.register(InspireBlockEntityTypes.BED.get(), RegularBedRenderer::new);
+                                              ^
+      (argument mismatch; invalid constructor reference
+        reference to RegularBedRenderer is ambiguous
+          both constructor RegularBedRenderer(Context) in RegularBedRenderer and constructor 
+RegularBedRenderer(BakingContext) in RegularBedRenderer match)
+    where T is a type-variable:
+      T extends BlockEntity declared in method <T>register(BlockEntityType<T>,BlockEntityRendererProvider<? super T>)
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:47: error: wrong number of type arguments; required 1
+  public class RegularBedRenderer implements BlockEntityRenderer<@NotNull RegularBedBlockEntity, @NotNull 
+BedRenderState> {
+                                                                ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:74: error: cannot find symbol
+      protected @NotNull BlockState updateShape(BlockState blockState, @NotNull LevelReader levelReader, @NotNull 
+ScheduledTickAccess scheduledTickAccess,
+                                                                                                                  ^
+    symbol:   class ScheduledTickAccess
+    location: class IcicleBlock
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.
+java:115: error: cannot find symbol
+      protected @NotNull BlockState updateShape(BlockState blockState, @NotNull LevelReader levelReader, @NotNull 
+ScheduledTickAccess scheduledTickAccess, @NotNull BlockPos blockPos, @NotNull Direction direction, @NotNull BlockPos 
+blockPos2, @NotNull BlockState blockState2, @NotNull RandomSource randomSource) {
+                                                                                                                  ^
+    symbol:   class ScheduledTickAccess
+    location: class RegularBedBlock
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonCl
+ient.java:14: error: cannot find symbol
+  import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+                                            ^
+    symbol:   class ChunkSectionLayer
+    location: package net.minecraft.client.renderer.chunk
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:19: error: cannot find symbol
+  import net.minecraft.client.renderer.SubmitNodeCollector;
+                                      ^
+    symbol:   class SubmitNodeCollector
+    location: package net.minecraft.client.renderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:30: error: cannot find symbol
+  import net.minecraft.client.resources.model.MaterialSet;
+                                             ^
+    symbol:   class MaterialSet
+    location: package net.minecraft.client.resources.model
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:48: error: cannot find symbol
+      private final MaterialSet materials;
+                    ^
+    symbol:   class MaterialSet
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:49: error: cannot find symbol
+      private final Model.Simple headModel;
+                         ^
+    symbol:   class Simple
+    location: class Model
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:50: error: cannot find symbol
+      private final Model.Simple footModel;
+                         ^
+    symbol:   class Simple
+    location: class Model
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:60: error: cannot find symbol
+      public RegularBedRenderer(MaterialSet materialSet, EntityModelSet entityModelSet) {
+                                ^
+    symbol:   class MaterialSet
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:85: error: cannot find symbol
+      public BedRenderState createRenderState() {
+             ^
+    symbol:   class BedRenderState
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:90: error: cannot find symbol
+      public void extractRenderState(RegularBedBlockEntity blockEntity, BedRenderState blockEntityRenderState, float 
+f, @NotNull Vec3 vec3, ModelFeatureRenderer.@Nullable CrumblingOverlay crumblingOverlay) {
+                                                                        ^
+    symbol:   class BedRenderState
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:100: error: cannot find symbol
+      public void submit(BedRenderState bedRenderState, @NotNull PoseStack poseStack, @NotNull SubmitNodeCollector 
+submitNodeCollector, @NotNull CameraRenderState cameraRenderState) {
+                         ^
+    symbol:   class BedRenderState
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:100: error: cannot find symbol
+      public void submit(BedRenderState bedRenderState, @NotNull PoseStack poseStack, @NotNull SubmitNodeCollector 
+submitNodeCollector, @NotNull CameraRenderState cameraRenderState) {
+                                                                                               ^
+    symbol:   class SubmitNodeCollector
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:100: error: cannot find symbol
+      public void submit(BedRenderState bedRenderState, @NotNull PoseStack poseStack, @NotNull SubmitNodeCollector 
+submitNodeCollector, @NotNull CameraRenderState cameraRenderState) {
+                                                                                                                       
+                          ^
+    symbol:   class CameraRenderState
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:109: error: cannot find symbol
+      public void submitSpecial(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int i, int j, Material 
+material, int k) {
+                                                     ^
+    symbol:   class SubmitNodeCollector
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:114: error: cannot find symbol
+      private void submitPiece(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Model.Simple simple, 
+Direction direction, Material material, int i, int j, boolean bl, ModelFeatureRenderer.@Nullable CrumblingOverlay 
+crumblingOverlay, int k) {
+                                                    ^
+    symbol:   class SubmitNodeCollector
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:114: error: cannot find symbol
+      private void submitPiece(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Model.Simple simple, 
+Direction direction, Material material, int i, int j, boolean bl, ModelFeatureRenderer.@Nullable CrumblingOverlay 
+crumblingOverlay, int k) {
+                                                                                                  ^
+    symbol:   class Simple
+    location: class Model
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\item\PortableJukeboxIt
+em.java:25: error: cannot find symbol
+  import net.minecraft.world.item.component.TooltipDisplay;
+                                           ^
+    symbol:   class TooltipDisplay
+    location: package net.minecraft.world.item.component
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\item\PortableJukeboxIt
+em.java:130: error: cannot find symbol
+      public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, TooltipDisplay tooltipDisplay, 
+Consumer<Component> consumer, TooltipFlag tooltipFlag) {
+                                                                                      ^
+    symbol:   class TooltipDisplay
+    location: class PortableJukeboxItem
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.
+java:26: error: cannot find symbol
+      private static void injectHarness(DyeColor dyeColor, CallbackInfoReturnable<Equippable> cir) {
+                                                                                  ^
+    symbol:   class Equippable
+    location: class EquippableMixin
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.
+java:33: error: cannot find symbol
+      private static ResourceKey<EquipmentAsset> inspire$CreateId() {
+                                 ^
+    symbol:   class EquipmentAsset
+    location: class EquippableMixin
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\toast\NowPlayingToast.
+java:4: error: cannot find symbol
+  import net.minecraft.client.gui.components.toasts.ToastManager;
+                                                   ^
+    symbol:   class ToastManager
+    location: package net.minecraft.client.gui.components.toasts
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.
+java:61: error: cannot find symbol
+              return InteractionResult.SUCCESS_SERVER;
+                                      ^
+    symbol:   variable SUCCESS_SERVER
+    location: class InteractionResult
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.
+java:78: error: cannot find symbol
+                  return InteractionResult.SUCCESS_SERVER;
+                                          ^
+    symbol:   variable SUCCESS_SERVER
+    location: class InteractionResult
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.
+java:82: error: cannot find symbol
+                  return InteractionResult.SUCCESS_SERVER;
+                                          ^
+    symbol:   variable SUCCESS_SERVER
+    location: class InteractionResult
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonCl
+ient.java:30: error: cannot find symbol
+          RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.WARPED_NYLIUM_SHELF.get());
+                                      ^
+    symbol:   variable ChunkSectionLayer
+    location: class InspireCommonClient
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonCl
+ient.java:31: error: cannot find symbol
+          RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.CRIMSON_NYLIUM_SHELF.get());
+                                      ^
+    symbol:   variable ChunkSectionLayer
+    location: class InspireCommonClient
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonCl
+ient.java:32: error: cannot find symbol
+          RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.TINTED_GLASS_PANE.get());
+                                      ^
+    symbol:   variable ChunkSectionLayer
+    location: class InspireCommonClient
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\InspireCommonCl
+ient.java:33: error: cannot find symbol
+          RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.ICICLE.get());
+                                      ^
+    symbol:   variable ChunkSectionLayer
+    location: class InspireCommonClient
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:62: error: cannot find symbol
+          this.headModel = new Model.Simple(entityModelSet.bakeLayer(ModelLayers.BED_HEAD), RenderType::entitySolid);
+                                    ^
+    symbol:   class Simple
+    location: class Model
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:63: error: cannot find symbol
+          this.footModel = new Model.Simple(entityModelSet.bakeLayer(ModelLayers.BED_FOOT), RenderType::entitySolid);
+                                    ^
+    symbol:   class Simple
+    location: class Model
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:86: error: cannot find symbol
+          return new BedRenderState();
+                     ^
+    symbol:   class BedRenderState
+    location: class RegularBedRenderer
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:84: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:89: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:99: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\AirSwimMobEffec
+t.java:20: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\AirSwimMobEffec
+t.java:39: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ArcherMobEffect
+.java:17: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ArcherMobEffect
+.java:22: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\BurningMobEffec
+t.java:17: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\BurningMobEffec
+t.java:22: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CorrosiveMobEff
+ect.java:17: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CorrosiveMobEff
+ect.java:22: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CuringMobEffect
+.java:17: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\CuringMobEffect
+.java:22: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\DestructionMobE
+ffect.java:17: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\DestructionMobE
+ffect.java:22: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ExplosiveMobEff
+ect.java:17: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\effect\ExplosiveMobEff
+ect.java:22: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:47: error: cannot find symbol
+  public class RegularBedRenderer implements BlockEntityRenderer<@NotNull RegularBedBlockEntity, @NotNull 
+BedRenderState> {
+                                                                                                          ^
+    symbol: class BedRenderState
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.
+java:23: error: cannot find symbol
+  @Mixin(Equippable.class)
+         ^
+    symbol: class Equippable
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:541: error: cannot find symbol
+          SHAPE_TIP_MERGE = Block.column((double)6.0F, (double)0.0F, (double)16.0F);
+                                 ^
+    symbol:   method column(double,double,double)
+    location: class Block
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:542: error: cannot find symbol
+          SHAPE_TIP_UP = Block.column((double)6.0F, (double)0.0F, (double)11.0F);
+                              ^
+    symbol:   method column(double,double,double)
+    location: class Block
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:543: error: cannot find symbol
+          SHAPE_TIP_DOWN = Block.column((double)6.0F, (double)5.0F, (double)16.0F);
+                                ^
+    symbol:   method column(double,double,double)
+    location: class Block
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:544: error: cannot find symbol
+          SHAPE_FRUSTUM = Block.column((double)8.0F, (double)0.0F, (double)16.0F);
+                               ^
+    symbol:   method column(double,double,double)
+    location: class Block
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:545: error: cannot find symbol
+          SHAPE_MIDDLE = Block.column((double)10.0F, (double)0.0F, (double)16.0F);
+                              ^
+    symbol:   method column(double,double,double)
+    location: class Block
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:546: error: cannot find symbol
+1 actionable task: 1 executed
+          SHAPE_BASE = Block.column((double)12.0F, (double)0.0F, (double)16.0F);
+                            ^
+    symbol:   method column(double,double,double)
+    location: class Block
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\entity\IcicleBlo
+ck.java:549: error: cannot find symbol
+          REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.column((double)4.0F, (double)0.0F, (double)16.0F);
+                                                                ^
+    symbol:   method column(double,double,double)
+    location: class Block
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.
+java:128: error: cannot find symbol
+          if (!level.isClientSide() && player.preventsBlockDrops()) {
+                                             ^
+    symbol:   method preventsBlockDrops()
+    location: variable player of type @org.jetbrains.annotations.NotNull Player
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\RegularBedBlock.
+java:270: error: cannot find symbol
+              return Shapes.rotateHorizontal(Shapes.or(Block.column(16.0, 3.0, 9.0), new VoxelShape[]{voxelShape, 
+voxelShape2}));
+                                                            ^
+    symbol:   method column(double,double,double)
+    location: class Block
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\block\ShelfFungiBlock.
+java:63: error: cannot find symbol
+          Map<AttachFace, Map<Direction, VoxelShape>> map = Shapes.rotateAttachFace(voxelShape);
+                                                                  ^
+    symbol:   method rotateAttachFace(VoxelShape)
+    location: class Shapes
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:53: error: cannot find symbol
+          this(context.materials(), context.entityModelSet());
+                      ^
+    symbol:   method materials()
+    location: variable context of type Context
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:53: error: cannot find symbol
+          this(context.materials(), context.entityModelSet());
+                                           ^
+    symbol:   method entityModelSet()
+    location: variable context of type Context
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:23: error: package net.minecraft.client.renderer.blockentity.state does not exist
+  import net.minecraft.client.renderer.blockentity.state.BedRenderState;
+                                                        ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:24: error: package net.minecraft.client.renderer.feature does not exist
+  import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
+                                              ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:26: error: package net.minecraft.client.renderer.special does not exist
+  import net.minecraft.client.renderer.special.SpecialModelRenderer;
+                                              ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:27: error: package net.minecraft.client.renderer.state does not exist
+  import net.minecraft.client.renderer.state.CameraRenderState;
+                                            ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:56: error: package SpecialModelRenderer does not exist
+      public RegularBedRenderer(SpecialModelRenderer.BakingContext bakingContext) {
+                                                    ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:90: error: package ModelFeatureRenderer does not exist
+      public void extractRenderState(RegularBedBlockEntity blockEntity, BedRenderState blockEntityRenderState, float 
+f, @NotNull Vec3 vec3, ModelFeatureRenderer.@Nullable CrumblingOverlay crumblingOverlay) {
+                                                                                                                       
+                                         ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:114: error: package ModelFeatureRenderer does not exist
+      private void submitPiece(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Model.Simple simple, 
+Direction direction, Material material, int i, int j, boolean bl, ModelFeatureRenderer.@Nullable CrumblingOverlay 
+crumblingOverlay, int k) {
+                                                                                                                       
+                                                                                 ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.
+java:13: error: package net.minecraft.world.item.equipment does not exist
+  import net.minecraft.world.item.equipment.EquipmentAsset;
+                                           ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.
+java:14: error: package net.minecraft.world.item.equipment does not exist
+  import net.minecraft.world.item.equipment.Equippable;
+                                           ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\mixin\EquippableMixin.
+java:21: error: package net.minecraft.world.item.equipment does not exist
+  import static net.minecraft.world.item.equipment.EquipmentAssets.ROOT_ID;
+                                                  ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\register\InspireItems.
+java:12: error: package net.minecraft.world.item.equipment does not exist
+  import net.minecraft.world.item.equipment.Equippable;
+                                           ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:110: error: package ModelFeatureRenderer does not exist
+          this.submitPiece(poseStack, submitNodeCollector, this.headModel, Direction.SOUTH, material, i, j, false, 
+(ModelFeatureRenderer.CrumblingOverlay)null, k);
+                                                                                                                       
+                 ^
+  C:\Users\brend\Documents\GitHub\Inspire\common\src\main\java\net\github\creep3rcrafter\inspire\client\renderer\Regula
+rBedRenderer.java:111: error: package ModelFeatureRenderer does not exist
+          this.submitPiece(poseStack, submitNodeCollector, this.footModel, Direction.SOUTH, material, i, j, true, 
+(ModelFeatureRenderer.CrumblingOverlay)null, k);
+                                                                                                                       
+                ^
+  100 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 3s

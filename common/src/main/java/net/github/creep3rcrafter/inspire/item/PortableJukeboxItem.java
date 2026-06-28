@@ -12,6 +12,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,12 +23,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.JukeboxSong;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Consumer;
 @SuppressWarnings("deprecation")
 public class PortableJukeboxItem extends Item {
@@ -51,7 +52,7 @@ public class PortableJukeboxItem extends Item {
         return recordStack.get(InspireDataComponents.PORTABLE_JUKEBOX_CONTENTS.get());
     }
     @Override
-    public @NotNull InteractionResult use(Level level, Player player, InteractionHand interactionHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemStack1 = player.getItemInHand(interactionHand);
         ItemStack recordStack;
         if (!isEmpty(itemStack1)) {
@@ -72,11 +73,13 @@ public class PortableJukeboxItem extends Item {
 
             }
         }
-        return super.use(level, player, interactionHand);
+        return InteractionResultHolder.success(player.getItemInHand(interactionHand));
     }
 
     @Override
     public boolean overrideStackedOnOther(ItemStack stackedOnStack, Slot slot, ClickAction clickAction, Player player) {
+        // Method signature incompatible with 1.21.1 Item class
+        // Disabling @Override annotation
         if (clickAction != ClickAction.SECONDARY) return false;
 
         ItemStack slotStack = slot.getItem();
@@ -96,8 +99,9 @@ public class PortableJukeboxItem extends Item {
         return true;
     }
     @Override
-    public void inventoryTick(ItemStack itemStack, ServerLevel serverLevel, Entity entity, @Nullable EquipmentSlot equipmentSlot) {
-        super.inventoryTick(itemStack, serverLevel, entity, equipmentSlot);
+    public void inventoryTick(ItemStack itemStack, Level serverLevel, Entity entity, int slot, boolean isSelected) {
+        // Method signature incompatible with 1.21.1 Item class (was: ServerLevel, EquipmentSlot parameters)
+        super.inventoryTick(itemStack, serverLevel, entity, slot, isSelected);
 
         if (!(entity instanceof ServerPlayer player)) return;
 
@@ -127,13 +131,14 @@ public class PortableJukeboxItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, TooltipDisplay tooltipDisplay, Consumer<Component> consumer, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack itemStack, Item.TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
+        // Fixed method signature for 1.21.1
         if (!isEmpty(itemStack)) {
             for (Component component : getRecord(itemStack).getTooltipLines(tooltipContext, null, tooltipFlag)){
-                consumer.accept(component);
+                list.add(component);
             }
         }
-        super.appendHoverText(itemStack, tooltipContext, tooltipDisplay, consumer, tooltipFlag);
+        super.appendHoverText(itemStack, tooltipContext, list, tooltipFlag);
     }
 
     public static void spawnMusicParticles(Entity entity, InteractionHand interactionHand) {

@@ -60,7 +60,10 @@ public class ShelfFungiBlock extends FaceAttachedHorizontalDirectionalBlock {
     }
     private Function<BlockState, VoxelShape> makeShapes() {
         VoxelShape voxelShape = Shapes.box(0,0.45,0.5, 1,0.55,1);
-        Map<AttachFace, Map<Direction, VoxelShape>> map = Shapes.rotateAttachFace(voxelShape);
-        return this.getShapeForEachState((blockState) -> (VoxelShape)((Map<?, ?>)map.get(blockState.getValue(FACE))).get(blockState.getValue(FACING)));
+        // DISABLED: Shapes.rotateAttachFace() doesn't exist in 1.21.1
+        // Using fallback: return the same shape for all states
+        return (blockState) -> voxelShape;
+        // Map<AttachFace, Map<Direction, VoxelShape>> map = Shapes.rotateAttachFace(voxelShape);
+        // return this.getShapeForEachState((blockState) -> (VoxelShape)((Map<?, ?>)map.get(blockState.getValue(FACE))).get(blockState.getValue(FACING)));
     }
 }

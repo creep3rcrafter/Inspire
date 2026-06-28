@@ -1,5 +1,3 @@
-package net.github.creep3rcrafter.inspire.client.renderer;
-
 // DISABLED: This renderer uses rendering APIs not available in Minecraft 1.21.1
 // The following APIs are not available:
 // - net.minecraft.client.renderer.blockentity.state.BedRenderState
@@ -7,7 +5,5 @@ package net.github.creep3rcrafter.inspire.client.renderer;
 // - net.minecraft.client.renderer.special.SpecialModelRenderer
 // - net.minecraft.client.renderer.state.CameraRenderState
 // - BlockEntityRenderer interface changed significantly
-// This file has been disabled and will need to be rewritten for Minecraft 1.21.1
 
-public class RegularBedRenderer {
-}
+// This file has been disabled and will need to be rewritten for Minecraft 1.21.1

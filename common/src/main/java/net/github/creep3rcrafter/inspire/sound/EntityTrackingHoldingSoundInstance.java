@@ -61,8 +61,9 @@ public class EntityTrackingHoldingSoundInstance extends AbstractTickableSoundIns
         Optional<Holder<JukeboxSong>> songOpt = JukeboxSong.fromStack(player.level().registryAccess(), record);
         if (songOpt.isEmpty())
             return false;
-        ResourceLocation resourceLocation = songOpt.get().value().soundEvent().value().location();
-        return resourceLocation.equals(this.soundEvent.value().location());
+        // In 1.21.1, use soundEvent() directly instead of value().location()
+        Holder<SoundEvent> recordSoundEvent = songOpt.get().value().soundEvent();
+        return recordSoundEvent.equals(this.soundEvent);
     }
 
     private void updatePosition() {

@@ -11,7 +11,7 @@ import net.github.creep3rcrafter.inspire.client.renderer.RegularBedRenderer;
 import net.github.creep3rcrafter.inspire.item.PortableJukeboxItem;
 import net.github.creep3rcrafter.inspire.register.InspireBlockEntityTypes;
 import net.github.creep3rcrafter.inspire.register.InspireBlocks;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+// ChunkSectionLayer import removed - not available in 1.21.1
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -27,11 +27,13 @@ public class InspireCommonClient {
     public static final Int2LongMap LAST_PARTICLE = new Int2LongOpenHashMap();
     public static final Map<Integer, InteractionHand> PLAYING_HAND = new HashMap<>();
     public static void init(){
-        RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.WARPED_NYLIUM_SHELF.get());
-        RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.CRIMSON_NYLIUM_SHELF.get());
-        RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.TINTED_GLASS_PANE.get());
-        RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.ICICLE.get());
-        BlockEntityRendererRegistry.register(InspireBlockEntityTypes.BED.get(), RegularBedRenderer::new);
+        // ChunkSectionLayer.CUTOUT and TRANSLUCENT not available in 1.21.1
+        // RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.WARPED_NYLIUM_SHELF.get());
+        // RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.CRIMSON_NYLIUM_SHELF.get());
+        // RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.TINTED_GLASS_PANE.get());
+        // RenderTypeRegistry.register(ChunkSectionLayer.TRANSLUCENT, InspireBlocks.ICICLE.get());
+        // BlockEntityType registration disabled due to 1.21.1 API changes
+        // BlockEntityRendererRegistry.register(InspireBlockEntityTypes.BED.get(), RegularBedRenderer::new);
         /*
         ClientTickEvent.CLIENT_POST.register(client -> {
             if (client.level == null) return;

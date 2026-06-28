@@ -22,7 +22,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.BrightnessCombiner;
 import net.minecraft.client.renderer.blockentity.state.BedRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -37,9 +37,12 @@ import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3fc;
+import org.joml.Vector3f;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RegularBedRenderer implements BlockEntityRenderer<@NotNull RegularBedBlockEntity, @NotNull BedRenderState> {
     private final MaterialSet materials;
@@ -56,8 +59,8 @@ public class RegularBedRenderer implements BlockEntityRenderer<@NotNull RegularB
 
     public RegularBedRenderer(MaterialSet materialSet, EntityModelSet entityModelSet) {
         this.materials = materialSet;
-        this.headModel = new Model.Simple(entityModelSet.bakeLayer(ModelLayers.BED_HEAD), RenderTypes::entitySolid);
-        this.footModel = new Model.Simple(entityModelSet.bakeLayer(ModelLayers.BED_FOOT), RenderTypes::entitySolid);
+        this.headModel = new Model.Simple(entityModelSet.bakeLayer(ModelLayers.BED_HEAD), RenderType::entitySolid);
+        this.footModel = new Model.Simple(entityModelSet.bakeLayer(ModelLayers.BED_FOOT), RenderType::entitySolid);
     }
 
     public static LayerDefinition createHeadLayer() {
@@ -111,7 +114,7 @@ public class RegularBedRenderer implements BlockEntityRenderer<@NotNull RegularB
     private void submitPiece(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Model.Simple simple, Direction direction, Material material, int i, int j, boolean bl, ModelFeatureRenderer.@Nullable CrumblingOverlay crumblingOverlay, int k) {
         poseStack.pushPose();
         preparePose(poseStack, bl, direction);
-        submitNodeCollector.submitModel(simple, Unit.INSTANCE, poseStack, material.renderType(RenderTypes::entitySolid), i, j, -1, this.materials.get(material), k, crumblingOverlay);
+        submitNodeCollector.submitModel(simple, Unit.INSTANCE, poseStack, material.renderType(RenderType::entitySolid), i, j, -1, this.materials.get(material), k, crumblingOverlay);
         poseStack.popPose();
     }
 
@@ -126,9 +129,13 @@ public class RegularBedRenderer implements BlockEntityRenderer<@NotNull RegularB
     public void getExtents(Consumer<Vector3fc> consumer) {
         PoseStack poseStack = new PoseStack();
         preparePose(poseStack, false, Direction.SOUTH);
-        this.headModel.root().getExtentsForGui(poseStack, consumer);
+        Set<Vector3f> headExtents = new HashSet<>();
+        this.headModel.root().getExtentsForGui(poseStack, headExtents);
+        headExtents.forEach(consumer);
         poseStack.setIdentity();
         preparePose(poseStack, true, Direction.SOUTH);
-        this.footModel.root().getExtentsForGui(poseStack, consumer);
+        Set<Vector3f> footExtents = new HashSet<>();
+        this.footModel.root().getExtentsForGui(poseStack, footExtents);
+        footExtents.forEach(consumer);
     }
 }

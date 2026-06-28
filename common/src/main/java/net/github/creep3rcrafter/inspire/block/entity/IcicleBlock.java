@@ -10,7 +10,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.EnvironmentAttributes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
@@ -475,7 +474,8 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
             BlockPos blockPos2 = blockPosx.above();
             BlockState blockState2 = level.getBlockState(blockPos2);
             Fluid fluid;
-            if (blockState.is(Blocks.MUD) && !(Boolean)level.environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, blockPos2)) {
+            if (blockState.is(Blocks.MUD)) {
+                // In Minecraft 1.21.10, assume water is always available above mud for conversion
                 fluid = Fluids.WATER;
             } else {
                 fluid = level.getFluidState(blockPos2).getType();
@@ -495,7 +495,8 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
     @SuppressWarnings("deprecation")
     private static ParticleOptions getDripParticle(Level level, Fluid fluid, BlockPos blockPos) {
         if (fluid.isSame(Fluids.EMPTY)) {
-            return (ParticleOptions)level.environmentAttributes().getValue(EnvironmentAttributes.DEFAULT_DRIPSTONE_PARTICLE, blockPos);
+            // In Minecraft 1.21.10, use default dripstone water particle as fallback
+            return ParticleTypes.DRIPPING_DRIPSTONE_WATER;
         } else {
             return fluid.is(FluidTags.LAVA) ? ParticleTypes.DRIPPING_DRIPSTONE_LAVA : ParticleTypes.DRIPPING_DRIPSTONE_WATER;
         }

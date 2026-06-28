@@ -364,6 +364,177 @@ public class InspireItems {
     public static final RegistrySupplier<Item> POLISHED_DEEPSLATE_PRESSURE_PLATE;
     public static final RegistrySupplier<Item> POLISHED_DEEPSLATE_LAMP;
 
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_BLACKSTONE;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_FENCE_GATE;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_LAMP;
+
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_BRICK_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_BRICK_FENCE_GATE;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_BRICK_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_BRICK_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_BRICK_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_BLACKSTONE_BRICK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_GILDED_BLACKSTONE;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_STAIRS;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_SLAB;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_WALL;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_FENCE;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_GILDED_BLACKSTONE;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_PILLAR;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_DOOR;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_TRAPDOOR;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_BUTTON;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> GILDED_BLACKSTONE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_SMOOTH_STONE;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_STAIRS;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_WALL;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_FENCE;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_SMOOTH_STONE;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_PILLAR;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_DOOR;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_TRAPDOOR;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_BUTTON;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> SMOOTH_STONE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_REDSTONE_BLOCK;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_STAIRS;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_SLAB;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_WALL;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_FENCE;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_REDSTONE_BLOCK;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_PILLAR;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_DOOR;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_TRAPDOOR;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_BUTTON;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> REDSTONE_BLOCK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_AMETHYST_BLOCK;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_STAIRS;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_SLAB;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_WALL;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_FENCE;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_AMETHYST_BLOCK;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_PILLAR;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_DOOR;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_TRAPDOOR;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_BUTTON;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> AMETHYST_BLOCK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_GLOWSTONE;
+    public static final RegistrySupplier<Item> GLOWSTONE_STAIRS;
+    public static final RegistrySupplier<Item> GLOWSTONE_SLAB;
+    public static final RegistrySupplier<Item> GLOWSTONE_WALL;
+    public static final RegistrySupplier<Item> GLOWSTONE_FENCE;
+    public static final RegistrySupplier<Item> GLOWSTONE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_GLOWSTONE;
+    public static final RegistrySupplier<Item> GLOWSTONE_PILLAR;
+    public static final RegistrySupplier<Item> GLOWSTONE_DOOR;
+    public static final RegistrySupplier<Item> GLOWSTONE_TRAPDOOR;
+    public static final RegistrySupplier<Item> GLOWSTONE_BUTTON;
+    public static final RegistrySupplier<Item> GLOWSTONE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> GLOWSTONE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_SMOOTH_BASALT;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_STAIRS;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_SLAB;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_WALL;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_FENCE;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_SMOOTH_BASALT;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_PILLAR;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_DOOR;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_TRAPDOOR;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_BUTTON;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> SMOOTH_BASALT_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_BASALT;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_STAIRS;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_SLAB;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_WALL;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_BASALT;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_BASALT_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_BASALT;
+    public static final RegistrySupplier<Item> BASALT_STAIRS;
+    public static final RegistrySupplier<Item> BASALT_SLAB;
+    public static final RegistrySupplier<Item> BASALT_WALL;
+    public static final RegistrySupplier<Item> BASALT_FENCE;
+    public static final RegistrySupplier<Item> BASALT_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_BASALT;
+    public static final RegistrySupplier<Item> BASALT_PILLAR;
+    public static final RegistrySupplier<Item> BASALT_DOOR;
+    public static final RegistrySupplier<Item> BASALT_TRAPDOOR;
+    public static final RegistrySupplier<Item> BASALT_BUTTON;
+    public static final RegistrySupplier<Item> BASALT_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> BASALT_LAMP;
+
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE;
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_GLOWSTONE;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_STAIRS;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_SLAB;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_WALL;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_GLOWSTONE;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_LAMP;
+
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICKS;
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_GLOWSTONE_BRICKS;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_STAIRS;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_SLAB;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_WALL;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_GLOWSTONE_BRICKS;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_BRICK_LAMP;
+
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILES;
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_GLOWSTONE_TILES;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_STAIRS;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_SLAB;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_WALL;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_GLOWSTONE_TILES;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_GLOWSTONE_TILE_LAMP;
+
     public static final RegistrySupplier<Item> POLISHED_DEEPSLATE_TILES;
     public static final RegistrySupplier<Item> CRACKED_POLISHED_DEEPSLATE_TILES;
     public static final RegistrySupplier<Item> POLISHED_DEEPSLATE_TILE_STAIRS;
@@ -378,6 +549,281 @@ public class InspireItems {
     public static final RegistrySupplier<Item> POLISHED_DEEPSLATE_TILE_BUTTON;
     public static final RegistrySupplier<Item> POLISHED_DEEPSLATE_TILE_PRESSURE_PLATE;
     public static final RegistrySupplier<Item> POLISHED_DEEPSLATE_TILE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_TUFF;
+    public static final RegistrySupplier<Item> POLISHED_TUFF_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_TUFF_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_TUFF;
+    public static final RegistrySupplier<Item> POLISHED_TUFF_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_TUFF_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_TUFF_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_TUFF_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_TUFF_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_TUFF_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_TUFF_BRICKS;
+    public static final RegistrySupplier<Item> TUFF_BRICK_FENCE;
+    public static final RegistrySupplier<Item> TUFF_BRICK_FENCE_GATE;
+    public static final RegistrySupplier<Item> TUFF_BRICK_PILLAR;
+    public static final RegistrySupplier<Item> TUFF_BRICK_DOOR;
+    public static final RegistrySupplier<Item> TUFF_BRICK_TRAPDOOR;
+    public static final RegistrySupplier<Item> TUFF_BRICK_BUTTON;
+    public static final RegistrySupplier<Item> TUFF_BRICK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> TUFF_BRICK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_QUARTZ;
+    public static final RegistrySupplier<Item> QUARTZ_WALL;
+    public static final RegistrySupplier<Item> QUARTZ_FENCE;
+    public static final RegistrySupplier<Item> QUARTZ_FENCE_GATE;
+    public static final RegistrySupplier<Item> QUARTZ_DOOR;
+    public static final RegistrySupplier<Item> QUARTZ_TRAPDOOR;
+    public static final RegistrySupplier<Item> QUARTZ_BUTTON;
+    public static final RegistrySupplier<Item> QUARTZ_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> QUARTZ_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_SMOOTH_QUARTZ;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_WALL;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_FENCE;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_SMOOTH_QUARTZ;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_PILLAR;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_DOOR;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_TRAPDOOR;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_BUTTON;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> SMOOTH_QUARTZ_LAMP;
+
+    public static final RegistrySupplier<Item> RESIN;
+    public static final RegistrySupplier<Item> CRACKED_RESIN;
+    public static final RegistrySupplier<Item> RESIN_STAIRS;
+    public static final RegistrySupplier<Item> RESIN_SLAB;
+    public static final RegistrySupplier<Item> RESIN_WALL;
+    public static final RegistrySupplier<Item> RESIN_FENCE;
+    public static final RegistrySupplier<Item> RESIN_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_RESIN;
+    public static final RegistrySupplier<Item> RESIN_PILLAR;
+    public static final RegistrySupplier<Item> RESIN_DOOR;
+    public static final RegistrySupplier<Item> RESIN_TRAPDOOR;
+    public static final RegistrySupplier<Item> RESIN_BUTTON;
+    public static final RegistrySupplier<Item> RESIN_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> RESIN_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_GRANITE;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_WALL;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_GRANITE;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_GRANITE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_DIORITE;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_WALL;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_DIORITE;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_DIORITE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_ANDESITE;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_WALL;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_ANDESITE;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_ANDESITE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_SANDSTONE;
+    public static final RegistrySupplier<Item> SANDSTONE_FENCE;
+    public static final RegistrySupplier<Item> SANDSTONE_FENCE_GATE;
+    public static final RegistrySupplier<Item> SANDSTONE_PILLAR;
+    public static final RegistrySupplier<Item> SANDSTONE_DOOR;
+    public static final RegistrySupplier<Item> SANDSTONE_TRAPDOOR;
+    public static final RegistrySupplier<Item> SANDSTONE_BUTTON;
+    public static final RegistrySupplier<Item> SANDSTONE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> SANDSTONE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_IRON_BLOCK;
+    public static final RegistrySupplier<Item> IRON_BLOCK_STAIRS;
+    public static final RegistrySupplier<Item> IRON_BLOCK_SLAB;
+    public static final RegistrySupplier<Item> IRON_BLOCK_WALL;
+    public static final RegistrySupplier<Item> IRON_BLOCK_FENCE;
+    public static final RegistrySupplier<Item> IRON_BLOCK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_IRON_BLOCK;
+    public static final RegistrySupplier<Item> IRON_BLOCK_PILLAR;
+    public static final RegistrySupplier<Item> IRON_BLOCK_DOOR;
+    public static final RegistrySupplier<Item> IRON_BLOCK_TRAPDOOR;
+    public static final RegistrySupplier<Item> IRON_BLOCK_BUTTON;
+    public static final RegistrySupplier<Item> IRON_BLOCK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> IRON_BLOCK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_GOLD_BLOCK;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_STAIRS;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_SLAB;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_WALL;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_FENCE;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_GOLD_BLOCK;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_PILLAR;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_DOOR;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_TRAPDOOR;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_BUTTON;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> GOLD_BLOCK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_EMERALD_BLOCK;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_STAIRS;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_SLAB;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_WALL;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_FENCE;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_EMERALD_BLOCK;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_PILLAR;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_DOOR;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_TRAPDOOR;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_BUTTON;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> EMERALD_BLOCK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_DIAMOND_BLOCK;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_STAIRS;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_SLAB;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_WALL;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_FENCE;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_DIAMOND_BLOCK;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_PILLAR;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_DOOR;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_TRAPDOOR;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_BUTTON;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> DIAMOND_BLOCK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_NETHERITE_BLOCK;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_STAIRS;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_SLAB;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_WALL;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_FENCE;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_NETHERITE_BLOCK;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_PILLAR;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_DOOR;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_TRAPDOOR;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_BUTTON;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> NETHERITE_BLOCK_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_OBSIDIAN;
+    public static final RegistrySupplier<Item> OBSIDIAN_STAIRS;
+    public static final RegistrySupplier<Item> OBSIDIAN_SLAB;
+    public static final RegistrySupplier<Item> OBSIDIAN_WALL;
+    public static final RegistrySupplier<Item> OBSIDIAN_FENCE;
+    public static final RegistrySupplier<Item> OBSIDIAN_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_OBSIDIAN;
+    public static final RegistrySupplier<Item> OBSIDIAN_PILLAR;
+    public static final RegistrySupplier<Item> OBSIDIAN_DOOR;
+    public static final RegistrySupplier<Item> OBSIDIAN_TRAPDOOR;
+    public static final RegistrySupplier<Item> OBSIDIAN_BUTTON;
+    public static final RegistrySupplier<Item> OBSIDIAN_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> OBSIDIAN_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_CRYING_OBSIDIAN;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_STAIRS;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_SLAB;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_WALL;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_FENCE;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_CRYING_OBSIDIAN;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_PILLAR;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_DOOR;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_TRAPDOOR;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_BUTTON;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> CRYING_OBSIDIAN_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_BEDROCK;
+    public static final RegistrySupplier<Item> BEDROCK_STAIRS;
+    public static final RegistrySupplier<Item> BEDROCK_SLAB;
+    public static final RegistrySupplier<Item> BEDROCK_WALL;
+    public static final RegistrySupplier<Item> BEDROCK_FENCE;
+    public static final RegistrySupplier<Item> BEDROCK_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_BEDROCK;
+    public static final RegistrySupplier<Item> BEDROCK_PILLAR;
+    public static final RegistrySupplier<Item> BEDROCK_DOOR;
+    public static final RegistrySupplier<Item> BEDROCK_TRAPDOOR;
+    public static final RegistrySupplier<Item> BEDROCK_BUTTON;
+    public static final RegistrySupplier<Item> BEDROCK_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> BEDROCK_LAMP;
+
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE;
+    public static final RegistrySupplier<Item> CRACKED_SOUL_SANDSTONE;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_STAIRS;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_SLAB;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_WALL;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_FENCE;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_SOUL_SANDSTONE;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_PILLAR;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_DOOR;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_TRAPDOOR;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_BUTTON;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> SOUL_SANDSTONE_LAMP;
+
+    public static final RegistrySupplier<Item> SOUL_SLATE;
+    public static final RegistrySupplier<Item> CRACKED_SOUL_SLATE;
+    public static final RegistrySupplier<Item> SOUL_SLATE_STAIRS;
+    public static final RegistrySupplier<Item> SOUL_SLATE_SLAB;
+    public static final RegistrySupplier<Item> SOUL_SLATE_WALL;
+    public static final RegistrySupplier<Item> SOUL_SLATE_FENCE;
+    public static final RegistrySupplier<Item> SOUL_SLATE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_SOUL_SLATE;
+    public static final RegistrySupplier<Item> SOUL_SLATE_PILLAR;
+    public static final RegistrySupplier<Item> SOUL_SLATE_DOOR;
+    public static final RegistrySupplier<Item> SOUL_SLATE_TRAPDOOR;
+    public static final RegistrySupplier<Item> SOUL_SLATE_BUTTON;
+    public static final RegistrySupplier<Item> SOUL_SLATE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> SOUL_SLATE_LAMP;
+
+    public static final RegistrySupplier<Item> CRACKED_DRIPSTONE;
+    public static final RegistrySupplier<Item> DRIPSTONE_STAIRS;
+    public static final RegistrySupplier<Item> DRIPSTONE_SLAB;
+    public static final RegistrySupplier<Item> DRIPSTONE_WALL;
+    public static final RegistrySupplier<Item> DRIPSTONE_FENCE;
+    public static final RegistrySupplier<Item> DRIPSTONE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_DRIPSTONE;
+    public static final RegistrySupplier<Item> DRIPSTONE_PILLAR;
+    public static final RegistrySupplier<Item> DRIPSTONE_DOOR;
+    public static final RegistrySupplier<Item> DRIPSTONE_TRAPDOOR;
+    public static final RegistrySupplier<Item> DRIPSTONE_BUTTON;
+    public static final RegistrySupplier<Item> DRIPSTONE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> DRIPSTONE_LAMP;
+
+    public static final RegistrySupplier<Item> POLISHED_CALCITE;
+    public static final RegistrySupplier<Item> CRACKED_POLISHED_CALCITE;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_STAIRS;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_SLAB;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_WALL;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_FENCE;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_FENCE_GATE;
+    public static final RegistrySupplier<Item> CHISELED_POLISHED_CALCITE;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_PILLAR;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_DOOR;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_TRAPDOOR;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_BUTTON;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> POLISHED_CALCITE_LAMP;
 
     public static final RegistrySupplier<Item> AMARANTH_FROGLIGHT;
     public static final RegistrySupplier<Item> BLUSH_FROGLIGHT;
@@ -1100,6 +1546,1288 @@ public class InspireItems {
         POLISHED_DEEPSLATE_LAMP = ITEMS.register("polished_deepslate_lamp",
                 () -> new BlockItem(InspireBlocks.POLISHED_DEEPSLATE_LAMP.get(),
                         basicProperties("polished_deepslate_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_POLISHED_BLACKSTONE = ITEMS.register("cracked_polished_blackstone",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_BLACKSTONE.get(),
+                        basicProperties("cracked_polished_blackstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_FENCE = ITEMS.register("polished_blackstone_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_FENCE.get(),
+                        basicProperties("polished_blackstone_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_FENCE_GATE = ITEMS.register("polished_blackstone_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_FENCE_GATE.get(),
+                        basicProperties("polished_blackstone_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_PILLAR = ITEMS.register("polished_blackstone_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_PILLAR.get(),
+                        basicProperties("polished_blackstone_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_DOOR = ITEMS.register("polished_blackstone_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_DOOR.get(),
+                        basicProperties("polished_blackstone_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_TRAPDOOR = ITEMS.register("polished_blackstone_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_TRAPDOOR.get(),
+                        basicProperties("polished_blackstone_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_LAMP = ITEMS.register("polished_blackstone_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_LAMP.get(),
+                        basicProperties("polished_blackstone_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_BRICK_FENCE = ITEMS.register("polished_blackstone_brick_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_BRICK_FENCE.get(),
+                        basicProperties("polished_blackstone_brick_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_BRICK_FENCE_GATE = ITEMS.register("polished_blackstone_brick_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_BRICK_FENCE_GATE.get(),
+                        basicProperties("polished_blackstone_brick_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_BRICK_PILLAR = ITEMS.register("polished_blackstone_brick_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_BRICK_PILLAR.get(),
+                        basicProperties("polished_blackstone_brick_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_BRICK_DOOR = ITEMS.register("polished_blackstone_brick_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_BRICK_DOOR.get(),
+                        basicProperties("polished_blackstone_brick_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_BRICK_TRAPDOOR = ITEMS.register("polished_blackstone_brick_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_BRICK_TRAPDOOR.get(),
+                        basicProperties("polished_blackstone_brick_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_BLACKSTONE_BRICK_LAMP = ITEMS.register("polished_blackstone_brick_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_BLACKSTONE_BRICK_LAMP.get(),
+                        basicProperties("polished_blackstone_brick_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_GILDED_BLACKSTONE = ITEMS.register("cracked_gilded_blackstone",
+                () -> new BlockItem(InspireBlocks.CRACKED_GILDED_BLACKSTONE.get(),
+                        basicProperties("cracked_gilded_blackstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_STAIRS = ITEMS.register("gilded_blackstone_stairs",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_STAIRS.get(),
+                        basicProperties("gilded_blackstone_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_SLAB = ITEMS.register("gilded_blackstone_slab",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_SLAB.get(),
+                        basicProperties("gilded_blackstone_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_WALL = ITEMS.register("gilded_blackstone_wall",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_WALL.get(),
+                        basicProperties("gilded_blackstone_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_FENCE = ITEMS.register("gilded_blackstone_fence",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_FENCE.get(),
+                        basicProperties("gilded_blackstone_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_FENCE_GATE = ITEMS.register("gilded_blackstone_fence_gate",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_FENCE_GATE.get(),
+                        basicProperties("gilded_blackstone_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_GILDED_BLACKSTONE = ITEMS.register("chiseled_gilded_blackstone",
+                () -> new BlockItem(InspireBlocks.CHISELED_GILDED_BLACKSTONE.get(),
+                        basicProperties("chiseled_gilded_blackstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_PILLAR = ITEMS.register("gilded_blackstone_pillar",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_PILLAR.get(),
+                        basicProperties("gilded_blackstone_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_DOOR = ITEMS.register("gilded_blackstone_door",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_DOOR.get(),
+                        basicProperties("gilded_blackstone_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_TRAPDOOR = ITEMS.register("gilded_blackstone_trapdoor",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_TRAPDOOR.get(),
+                        basicProperties("gilded_blackstone_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_BUTTON = ITEMS.register("gilded_blackstone_button",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_BUTTON.get(),
+                        basicProperties("gilded_blackstone_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_PRESSURE_PLATE = ITEMS.register("gilded_blackstone_pressure_plate",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_PRESSURE_PLATE.get(),
+                        basicProperties("gilded_blackstone_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GILDED_BLACKSTONE_LAMP = ITEMS.register("gilded_blackstone_lamp",
+                () -> new BlockItem(InspireBlocks.GILDED_BLACKSTONE_LAMP.get(),
+                        basicProperties("gilded_blackstone_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_SMOOTH_STONE = ITEMS.register("cracked_smooth_stone",
+                () -> new BlockItem(InspireBlocks.CRACKED_SMOOTH_STONE.get(),
+                        basicProperties("cracked_smooth_stone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_STAIRS = ITEMS.register("smooth_stone_stairs",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_STAIRS.get(),
+                        basicProperties("smooth_stone_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_WALL = ITEMS.register("smooth_stone_wall",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_WALL.get(),
+                        basicProperties("smooth_stone_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_FENCE = ITEMS.register("smooth_stone_fence",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_FENCE.get(),
+                        basicProperties("smooth_stone_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_FENCE_GATE = ITEMS.register("smooth_stone_fence_gate",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_FENCE_GATE.get(),
+                        basicProperties("smooth_stone_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_SMOOTH_STONE = ITEMS.register("chiseled_smooth_stone",
+                () -> new BlockItem(InspireBlocks.CHISELED_SMOOTH_STONE.get(),
+                        basicProperties("chiseled_smooth_stone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_PILLAR = ITEMS.register("smooth_stone_pillar",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_PILLAR.get(),
+                        basicProperties("smooth_stone_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_DOOR = ITEMS.register("smooth_stone_door",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_DOOR.get(),
+                        basicProperties("smooth_stone_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_TRAPDOOR = ITEMS.register("smooth_stone_trapdoor",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_TRAPDOOR.get(),
+                        basicProperties("smooth_stone_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_BUTTON = ITEMS.register("smooth_stone_button",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_BUTTON.get(),
+                        basicProperties("smooth_stone_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_PRESSURE_PLATE = ITEMS.register("smooth_stone_pressure_plate",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_PRESSURE_PLATE.get(),
+                        basicProperties("smooth_stone_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_STONE_LAMP = ITEMS.register("smooth_stone_lamp",
+                () -> new BlockItem(InspireBlocks.SMOOTH_STONE_LAMP.get(),
+                        basicProperties("smooth_stone_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_REDSTONE_BLOCK = ITEMS.register("cracked_redstone_block",
+                () -> new BlockItem(InspireBlocks.CRACKED_REDSTONE_BLOCK.get(),
+                        basicProperties("cracked_redstone_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_STAIRS = ITEMS.register("redstone_block_stairs",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_STAIRS.get(),
+                        basicProperties("redstone_block_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_SLAB = ITEMS.register("redstone_block_slab",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_SLAB.get(),
+                        basicProperties("redstone_block_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_WALL = ITEMS.register("redstone_block_wall",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_WALL.get(),
+                        basicProperties("redstone_block_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_FENCE = ITEMS.register("redstone_block_fence",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_FENCE.get(),
+                        basicProperties("redstone_block_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_FENCE_GATE = ITEMS.register("redstone_block_fence_gate",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_FENCE_GATE.get(),
+                        basicProperties("redstone_block_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_REDSTONE_BLOCK = ITEMS.register("chiseled_redstone_block",
+                () -> new BlockItem(InspireBlocks.CHISELED_REDSTONE_BLOCK.get(),
+                        basicProperties("chiseled_redstone_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_PILLAR = ITEMS.register("redstone_block_pillar",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_PILLAR.get(),
+                        basicProperties("redstone_block_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_DOOR = ITEMS.register("redstone_block_door",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_DOOR.get(),
+                        basicProperties("redstone_block_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_TRAPDOOR = ITEMS.register("redstone_block_trapdoor",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_TRAPDOOR.get(),
+                        basicProperties("redstone_block_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_BUTTON = ITEMS.register("redstone_block_button",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_BUTTON.get(),
+                        basicProperties("redstone_block_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_PRESSURE_PLATE = ITEMS.register("redstone_block_pressure_plate",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_PRESSURE_PLATE.get(),
+                        basicProperties("redstone_block_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        REDSTONE_BLOCK_LAMP = ITEMS.register("redstone_block_lamp",
+                () -> new BlockItem(InspireBlocks.REDSTONE_BLOCK_LAMP.get(),
+                        basicProperties("redstone_block_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_AMETHYST_BLOCK = ITEMS.register("cracked_amethyst_block",
+                () -> new BlockItem(InspireBlocks.CRACKED_AMETHYST_BLOCK.get(),
+                        basicProperties("cracked_amethyst_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_STAIRS = ITEMS.register("amethyst_block_stairs",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_STAIRS.get(),
+                        basicProperties("amethyst_block_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_SLAB = ITEMS.register("amethyst_block_slab",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_SLAB.get(),
+                        basicProperties("amethyst_block_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_WALL = ITEMS.register("amethyst_block_wall",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_WALL.get(),
+                        basicProperties("amethyst_block_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_FENCE = ITEMS.register("amethyst_block_fence",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_FENCE.get(),
+                        basicProperties("amethyst_block_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_FENCE_GATE = ITEMS.register("amethyst_block_fence_gate",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_FENCE_GATE.get(),
+                        basicProperties("amethyst_block_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_AMETHYST_BLOCK = ITEMS.register("chiseled_amethyst_block",
+                () -> new BlockItem(InspireBlocks.CHISELED_AMETHYST_BLOCK.get(),
+                        basicProperties("chiseled_amethyst_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_PILLAR = ITEMS.register("amethyst_block_pillar",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_PILLAR.get(),
+                        basicProperties("amethyst_block_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_DOOR = ITEMS.register("amethyst_block_door",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_DOOR.get(),
+                        basicProperties("amethyst_block_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_TRAPDOOR = ITEMS.register("amethyst_block_trapdoor",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_TRAPDOOR.get(),
+                        basicProperties("amethyst_block_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_BUTTON = ITEMS.register("amethyst_block_button",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_BUTTON.get(),
+                        basicProperties("amethyst_block_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_PRESSURE_PLATE = ITEMS.register("amethyst_block_pressure_plate",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_PRESSURE_PLATE.get(),
+                        basicProperties("amethyst_block_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        AMETHYST_BLOCK_LAMP = ITEMS.register("amethyst_block_lamp",
+                () -> new BlockItem(InspireBlocks.AMETHYST_BLOCK_LAMP.get(),
+                        basicProperties("amethyst_block_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_GLOWSTONE = ITEMS.register("cracked_glowstone",
+                () -> new BlockItem(InspireBlocks.CRACKED_GLOWSTONE.get(),
+                        basicProperties("cracked_glowstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_STAIRS = ITEMS.register("glowstone_stairs",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_STAIRS.get(),
+                        basicProperties("glowstone_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_SLAB = ITEMS.register("glowstone_slab",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_SLAB.get(),
+                        basicProperties("glowstone_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_WALL = ITEMS.register("glowstone_wall",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_WALL.get(),
+                        basicProperties("glowstone_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_FENCE = ITEMS.register("glowstone_fence",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_FENCE.get(),
+                        basicProperties("glowstone_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_FENCE_GATE = ITEMS.register("glowstone_fence_gate",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_FENCE_GATE.get(),
+                        basicProperties("glowstone_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_GLOWSTONE = ITEMS.register("chiseled_glowstone",
+                () -> new BlockItem(InspireBlocks.CHISELED_GLOWSTONE.get(),
+                        basicProperties("chiseled_glowstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_PILLAR = ITEMS.register("glowstone_pillar",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_PILLAR.get(),
+                        basicProperties("glowstone_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_DOOR = ITEMS.register("glowstone_door",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_DOOR.get(),
+                        basicProperties("glowstone_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_TRAPDOOR = ITEMS.register("glowstone_trapdoor",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_TRAPDOOR.get(),
+                        basicProperties("glowstone_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_BUTTON = ITEMS.register("glowstone_button",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_BUTTON.get(),
+                        basicProperties("glowstone_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_PRESSURE_PLATE = ITEMS.register("glowstone_pressure_plate",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_PRESSURE_PLATE.get(),
+                        basicProperties("glowstone_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GLOWSTONE_LAMP = ITEMS.register("glowstone_lamp",
+                () -> new BlockItem(InspireBlocks.GLOWSTONE_LAMP.get(),
+                        basicProperties("glowstone_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_SMOOTH_BASALT = ITEMS.register("cracked_smooth_basalt",
+                () -> new BlockItem(InspireBlocks.CRACKED_SMOOTH_BASALT.get(),
+                        basicProperties("cracked_smooth_basalt").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_STAIRS = ITEMS.register("smooth_basalt_stairs",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_STAIRS.get(),
+                        basicProperties("smooth_basalt_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_SLAB = ITEMS.register("smooth_basalt_slab",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_SLAB.get(),
+                        basicProperties("smooth_basalt_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_WALL = ITEMS.register("smooth_basalt_wall",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_WALL.get(),
+                        basicProperties("smooth_basalt_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_FENCE = ITEMS.register("smooth_basalt_fence",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_FENCE.get(),
+                        basicProperties("smooth_basalt_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_FENCE_GATE = ITEMS.register("smooth_basalt_fence_gate",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_FENCE_GATE.get(),
+                        basicProperties("smooth_basalt_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_SMOOTH_BASALT = ITEMS.register("chiseled_smooth_basalt",
+                () -> new BlockItem(InspireBlocks.CHISELED_SMOOTH_BASALT.get(),
+                        basicProperties("chiseled_smooth_basalt").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_PILLAR = ITEMS.register("smooth_basalt_pillar",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_PILLAR.get(),
+                        basicProperties("smooth_basalt_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_DOOR = ITEMS.register("smooth_basalt_door",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_DOOR.get(),
+                        basicProperties("smooth_basalt_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_TRAPDOOR = ITEMS.register("smooth_basalt_trapdoor",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_TRAPDOOR.get(),
+                        basicProperties("smooth_basalt_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_BUTTON = ITEMS.register("smooth_basalt_button",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_BUTTON.get(),
+                        basicProperties("smooth_basalt_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_PRESSURE_PLATE = ITEMS.register("smooth_basalt_pressure_plate",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_PRESSURE_PLATE.get(),
+                        basicProperties("smooth_basalt_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_BASALT_LAMP = ITEMS.register("smooth_basalt_lamp",
+                () -> new BlockItem(InspireBlocks.SMOOTH_BASALT_LAMP.get(),
+                        basicProperties("smooth_basalt_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_POLISHED_BASALT = ITEMS.register("cracked_polished_basalt",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_BASALT.get(),
+                        basicProperties("cracked_polished_basalt").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_STAIRS = ITEMS.register("polished_basalt_stairs",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_STAIRS.get(),
+                        basicProperties("polished_basalt_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_SLAB = ITEMS.register("polished_basalt_slab",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_SLAB.get(),
+                        basicProperties("polished_basalt_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_WALL = ITEMS.register("polished_basalt_wall",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_WALL.get(),
+                        basicProperties("polished_basalt_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_FENCE = ITEMS.register("polished_basalt_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_FENCE.get(),
+                        basicProperties("polished_basalt_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_FENCE_GATE = ITEMS.register("polished_basalt_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_FENCE_GATE.get(),
+                        basicProperties("polished_basalt_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_BASALT = ITEMS.register("chiseled_polished_basalt",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_BASALT.get(),
+                        basicProperties("chiseled_polished_basalt").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_PILLAR = ITEMS.register("polished_basalt_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_PILLAR.get(),
+                        basicProperties("polished_basalt_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_DOOR = ITEMS.register("polished_basalt_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_DOOR.get(),
+                        basicProperties("polished_basalt_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_TRAPDOOR = ITEMS.register("polished_basalt_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_TRAPDOOR.get(),
+                        basicProperties("polished_basalt_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_BUTTON = ITEMS.register("polished_basalt_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_BUTTON.get(),
+                        basicProperties("polished_basalt_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_PRESSURE_PLATE = ITEMS.register("polished_basalt_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_PRESSURE_PLATE.get(),
+                        basicProperties("polished_basalt_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_BASALT_LAMP = ITEMS.register("polished_basalt_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_BASALT_LAMP.get(),
+                        basicProperties("polished_basalt_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_BASALT = ITEMS.register("cracked_basalt",
+                () -> new BlockItem(InspireBlocks.CRACKED_BASALT.get(),
+                        basicProperties("cracked_basalt").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_STAIRS = ITEMS.register("basalt_stairs",
+                () -> new BlockItem(InspireBlocks.BASALT_STAIRS.get(),
+                        basicProperties("basalt_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_SLAB = ITEMS.register("basalt_slab",
+                () -> new BlockItem(InspireBlocks.BASALT_SLAB.get(),
+                        basicProperties("basalt_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_WALL = ITEMS.register("basalt_wall",
+                () -> new BlockItem(InspireBlocks.BASALT_WALL.get(),
+                        basicProperties("basalt_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_FENCE = ITEMS.register("basalt_fence",
+                () -> new BlockItem(InspireBlocks.BASALT_FENCE.get(),
+                        basicProperties("basalt_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_FENCE_GATE = ITEMS.register("basalt_fence_gate",
+                () -> new BlockItem(InspireBlocks.BASALT_FENCE_GATE.get(),
+                        basicProperties("basalt_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_BASALT = ITEMS.register("chiseled_basalt",
+                () -> new BlockItem(InspireBlocks.CHISELED_BASALT.get(),
+                        basicProperties("chiseled_basalt").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_PILLAR = ITEMS.register("basalt_pillar",
+                () -> new BlockItem(InspireBlocks.BASALT_PILLAR.get(),
+                        basicProperties("basalt_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_DOOR = ITEMS.register("basalt_door",
+                () -> new BlockItem(InspireBlocks.BASALT_DOOR.get(),
+                        basicProperties("basalt_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_TRAPDOOR = ITEMS.register("basalt_trapdoor",
+                () -> new BlockItem(InspireBlocks.BASALT_TRAPDOOR.get(),
+                        basicProperties("basalt_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_BUTTON = ITEMS.register("basalt_button",
+                () -> new BlockItem(InspireBlocks.BASALT_BUTTON.get(),
+                        basicProperties("basalt_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_PRESSURE_PLATE = ITEMS.register("basalt_pressure_plate",
+                () -> new BlockItem(InspireBlocks.BASALT_PRESSURE_PLATE.get(),
+                        basicProperties("basalt_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BASALT_LAMP = ITEMS.register("basalt_lamp",
+                () -> new BlockItem(InspireBlocks.BASALT_LAMP.get(),
+                        basicProperties("basalt_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_GLOWSTONE = ITEMS.register("polished_glowstone",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE.get(),
+                        basicProperties("polished_glowstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRACKED_POLISHED_GLOWSTONE = ITEMS.register("cracked_polished_glowstone",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_GLOWSTONE.get(),
+                        basicProperties("cracked_polished_glowstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_STAIRS = ITEMS.register("polished_glowstone_stairs",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_STAIRS.get(),
+                        basicProperties("polished_glowstone_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_SLAB = ITEMS.register("polished_glowstone_slab",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_SLAB.get(),
+                        basicProperties("polished_glowstone_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_WALL = ITEMS.register("polished_glowstone_wall",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_WALL.get(),
+                        basicProperties("polished_glowstone_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_FENCE = ITEMS.register("polished_glowstone_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_FENCE.get(),
+                        basicProperties("polished_glowstone_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_FENCE_GATE = ITEMS.register("polished_glowstone_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_FENCE_GATE.get(),
+                        basicProperties("polished_glowstone_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_GLOWSTONE = ITEMS.register("chiseled_polished_glowstone",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_GLOWSTONE.get(),
+                        basicProperties("chiseled_polished_glowstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_PILLAR = ITEMS.register("polished_glowstone_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_PILLAR.get(),
+                        basicProperties("polished_glowstone_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_DOOR = ITEMS.register("polished_glowstone_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_DOOR.get(),
+                        basicProperties("polished_glowstone_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TRAPDOOR = ITEMS.register("polished_glowstone_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TRAPDOOR.get(),
+                        basicProperties("polished_glowstone_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BUTTON = ITEMS.register("polished_glowstone_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BUTTON.get(),
+                        basicProperties("polished_glowstone_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_PRESSURE_PLATE = ITEMS.register("polished_glowstone_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_PRESSURE_PLATE.get(),
+                        basicProperties("polished_glowstone_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_LAMP = ITEMS.register("polished_glowstone_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_LAMP.get(),
+                        basicProperties("polished_glowstone_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_GLOWSTONE_BRICKS = ITEMS.register("polished_glowstone_bricks",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICKS.get(),
+                        basicProperties("polished_glowstone_bricks").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRACKED_POLISHED_GLOWSTONE_BRICKS = ITEMS.register("cracked_polished_glowstone_bricks",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_GLOWSTONE_BRICKS.get(),
+                        basicProperties("cracked_polished_glowstone_bricks").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_STAIRS = ITEMS.register("polished_glowstone_brick_stairs",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_STAIRS.get(),
+                        basicProperties("polished_glowstone_brick_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_SLAB = ITEMS.register("polished_glowstone_brick_slab",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_SLAB.get(),
+                        basicProperties("polished_glowstone_brick_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_WALL = ITEMS.register("polished_glowstone_brick_wall",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_WALL.get(),
+                        basicProperties("polished_glowstone_brick_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_FENCE = ITEMS.register("polished_glowstone_brick_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_FENCE.get(),
+                        basicProperties("polished_glowstone_brick_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_FENCE_GATE = ITEMS.register("polished_glowstone_brick_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_FENCE_GATE.get(),
+                        basicProperties("polished_glowstone_brick_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_GLOWSTONE_BRICKS = ITEMS.register("chiseled_polished_glowstone_bricks",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_GLOWSTONE_BRICKS.get(),
+                        basicProperties("chiseled_polished_glowstone_bricks").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_PILLAR = ITEMS.register("polished_glowstone_brick_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_PILLAR.get(),
+                        basicProperties("polished_glowstone_brick_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_DOOR = ITEMS.register("polished_glowstone_brick_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_DOOR.get(),
+                        basicProperties("polished_glowstone_brick_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_TRAPDOOR = ITEMS.register("polished_glowstone_brick_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_TRAPDOOR.get(),
+                        basicProperties("polished_glowstone_brick_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_BUTTON = ITEMS.register("polished_glowstone_brick_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_BUTTON.get(),
+                        basicProperties("polished_glowstone_brick_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_PRESSURE_PLATE = ITEMS.register("polished_glowstone_brick_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_PRESSURE_PLATE.get(),
+                        basicProperties("polished_glowstone_brick_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_BRICK_LAMP = ITEMS.register("polished_glowstone_brick_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_BRICK_LAMP.get(),
+                        basicProperties("polished_glowstone_brick_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_GLOWSTONE_TILES = ITEMS.register("polished_glowstone_tiles",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILES.get(),
+                        basicProperties("polished_glowstone_tiles").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRACKED_POLISHED_GLOWSTONE_TILES = ITEMS.register("cracked_polished_glowstone_tiles",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_GLOWSTONE_TILES.get(),
+                        basicProperties("cracked_polished_glowstone_tiles").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_STAIRS = ITEMS.register("polished_glowstone_tile_stairs",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_STAIRS.get(),
+                        basicProperties("polished_glowstone_tile_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_SLAB = ITEMS.register("polished_glowstone_tile_slab",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_SLAB.get(),
+                        basicProperties("polished_glowstone_tile_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_WALL = ITEMS.register("polished_glowstone_tile_wall",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_WALL.get(),
+                        basicProperties("polished_glowstone_tile_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_FENCE = ITEMS.register("polished_glowstone_tile_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_FENCE.get(),
+                        basicProperties("polished_glowstone_tile_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_FENCE_GATE = ITEMS.register("polished_glowstone_tile_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_FENCE_GATE.get(),
+                        basicProperties("polished_glowstone_tile_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_GLOWSTONE_TILES = ITEMS.register("chiseled_polished_glowstone_tiles",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_GLOWSTONE_TILES.get(),
+                        basicProperties("chiseled_polished_glowstone_tiles").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_PILLAR = ITEMS.register("polished_glowstone_tile_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_PILLAR.get(),
+                        basicProperties("polished_glowstone_tile_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_DOOR = ITEMS.register("polished_glowstone_tile_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_DOOR.get(),
+                        basicProperties("polished_glowstone_tile_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_TRAPDOOR = ITEMS.register("polished_glowstone_tile_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_TRAPDOOR.get(),
+                        basicProperties("polished_glowstone_tile_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_BUTTON = ITEMS.register("polished_glowstone_tile_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_BUTTON.get(),
+                        basicProperties("polished_glowstone_tile_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_PRESSURE_PLATE = ITEMS.register("polished_glowstone_tile_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_PRESSURE_PLATE.get(),
+                        basicProperties("polished_glowstone_tile_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GLOWSTONE_TILE_LAMP = ITEMS.register("polished_glowstone_tile_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_GLOWSTONE_TILE_LAMP.get(),
+                        basicProperties("polished_glowstone_tile_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_POLISHED_TUFF = ITEMS.register("cracked_polished_tuff",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_TUFF.get(),
+                        basicProperties("cracked_polished_tuff").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_TUFF_FENCE = ITEMS.register("polished_tuff_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_TUFF_FENCE.get(),
+                        basicProperties("polished_tuff_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_TUFF_FENCE_GATE = ITEMS.register("polished_tuff_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_TUFF_FENCE_GATE.get(),
+                        basicProperties("polished_tuff_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_TUFF = ITEMS.register("chiseled_polished_tuff",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_TUFF.get(),
+                        basicProperties("chiseled_polished_tuff").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_TUFF_PILLAR = ITEMS.register("polished_tuff_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_TUFF_PILLAR.get(),
+                        basicProperties("polished_tuff_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_TUFF_DOOR = ITEMS.register("polished_tuff_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_TUFF_DOOR.get(),
+                        basicProperties("polished_tuff_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_TUFF_TRAPDOOR = ITEMS.register("polished_tuff_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_TUFF_TRAPDOOR.get(),
+                        basicProperties("polished_tuff_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_TUFF_BUTTON = ITEMS.register("polished_tuff_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_TUFF_BUTTON.get(),
+                        basicProperties("polished_tuff_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_TUFF_PRESSURE_PLATE = ITEMS.register("polished_tuff_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_TUFF_PRESSURE_PLATE.get(),
+                        basicProperties("polished_tuff_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_TUFF_LAMP = ITEMS.register("polished_tuff_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_TUFF_LAMP.get(),
+                        basicProperties("polished_tuff_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_TUFF_BRICKS = ITEMS.register("cracked_tuff_bricks",
+                () -> new BlockItem(InspireBlocks.CRACKED_TUFF_BRICKS.get(),
+                        basicProperties("cracked_tuff_bricks").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        TUFF_BRICK_FENCE = ITEMS.register("tuff_brick_fence",
+                () -> new BlockItem(InspireBlocks.TUFF_BRICK_FENCE.get(),
+                        basicProperties("tuff_brick_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        TUFF_BRICK_FENCE_GATE = ITEMS.register("tuff_brick_fence_gate",
+                () -> new BlockItem(InspireBlocks.TUFF_BRICK_FENCE_GATE.get(),
+                        basicProperties("tuff_brick_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        TUFF_BRICK_PILLAR = ITEMS.register("tuff_brick_pillar",
+                () -> new BlockItem(InspireBlocks.TUFF_BRICK_PILLAR.get(),
+                        basicProperties("tuff_brick_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        TUFF_BRICK_DOOR = ITEMS.register("tuff_brick_door",
+                () -> new BlockItem(InspireBlocks.TUFF_BRICK_DOOR.get(),
+                        basicProperties("tuff_brick_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        TUFF_BRICK_TRAPDOOR = ITEMS.register("tuff_brick_trapdoor",
+                () -> new BlockItem(InspireBlocks.TUFF_BRICK_TRAPDOOR.get(),
+                        basicProperties("tuff_brick_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        TUFF_BRICK_BUTTON = ITEMS.register("tuff_brick_button",
+                () -> new BlockItem(InspireBlocks.TUFF_BRICK_BUTTON.get(),
+                        basicProperties("tuff_brick_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        TUFF_BRICK_PRESSURE_PLATE = ITEMS.register("tuff_brick_pressure_plate",
+                () -> new BlockItem(InspireBlocks.TUFF_BRICK_PRESSURE_PLATE.get(),
+                        basicProperties("tuff_brick_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        TUFF_BRICK_LAMP = ITEMS.register("tuff_brick_lamp",
+                () -> new BlockItem(InspireBlocks.TUFF_BRICK_LAMP.get(),
+                        basicProperties("tuff_brick_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_QUARTZ = ITEMS.register("cracked_quartz",
+                () -> new BlockItem(InspireBlocks.CRACKED_QUARTZ.get(),
+                        basicProperties("cracked_quartz").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        QUARTZ_WALL = ITEMS.register("quartz_wall",
+                () -> new BlockItem(InspireBlocks.QUARTZ_WALL.get(),
+                        basicProperties("quartz_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        QUARTZ_FENCE = ITEMS.register("quartz_fence",
+                () -> new BlockItem(InspireBlocks.QUARTZ_FENCE.get(),
+                        basicProperties("quartz_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        QUARTZ_FENCE_GATE = ITEMS.register("quartz_fence_gate",
+                () -> new BlockItem(InspireBlocks.QUARTZ_FENCE_GATE.get(),
+                        basicProperties("quartz_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        QUARTZ_DOOR = ITEMS.register("quartz_door",
+                () -> new BlockItem(InspireBlocks.QUARTZ_DOOR.get(),
+                        basicProperties("quartz_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        QUARTZ_TRAPDOOR = ITEMS.register("quartz_trapdoor",
+                () -> new BlockItem(InspireBlocks.QUARTZ_TRAPDOOR.get(),
+                        basicProperties("quartz_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        QUARTZ_BUTTON = ITEMS.register("quartz_button",
+                () -> new BlockItem(InspireBlocks.QUARTZ_BUTTON.get(),
+                        basicProperties("quartz_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        QUARTZ_PRESSURE_PLATE = ITEMS.register("quartz_pressure_plate",
+                () -> new BlockItem(InspireBlocks.QUARTZ_PRESSURE_PLATE.get(),
+                        basicProperties("quartz_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        QUARTZ_LAMP = ITEMS.register("quartz_lamp",
+                () -> new BlockItem(InspireBlocks.QUARTZ_LAMP.get(),
+                        basicProperties("quartz_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_SMOOTH_QUARTZ = ITEMS.register("cracked_smooth_quartz",
+                () -> new BlockItem(InspireBlocks.CRACKED_SMOOTH_QUARTZ.get(),
+                        basicProperties("cracked_smooth_quartz").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_WALL = ITEMS.register("smooth_quartz_wall",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_WALL.get(),
+                        basicProperties("smooth_quartz_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_FENCE = ITEMS.register("smooth_quartz_fence",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_FENCE.get(),
+                        basicProperties("smooth_quartz_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_FENCE_GATE = ITEMS.register("smooth_quartz_fence_gate",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_FENCE_GATE.get(),
+                        basicProperties("smooth_quartz_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_SMOOTH_QUARTZ = ITEMS.register("chiseled_smooth_quartz",
+                () -> new BlockItem(InspireBlocks.CHISELED_SMOOTH_QUARTZ.get(),
+                        basicProperties("chiseled_smooth_quartz").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_PILLAR = ITEMS.register("smooth_quartz_pillar",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_PILLAR.get(),
+                        basicProperties("smooth_quartz_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_DOOR = ITEMS.register("smooth_quartz_door",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_DOOR.get(),
+                        basicProperties("smooth_quartz_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_TRAPDOOR = ITEMS.register("smooth_quartz_trapdoor",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_TRAPDOOR.get(),
+                        basicProperties("smooth_quartz_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_BUTTON = ITEMS.register("smooth_quartz_button",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_BUTTON.get(),
+                        basicProperties("smooth_quartz_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_PRESSURE_PLATE = ITEMS.register("smooth_quartz_pressure_plate",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_PRESSURE_PLATE.get(),
+                        basicProperties("smooth_quartz_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SMOOTH_QUARTZ_LAMP = ITEMS.register("smooth_quartz_lamp",
+                () -> new BlockItem(InspireBlocks.SMOOTH_QUARTZ_LAMP.get(),
+                        basicProperties("smooth_quartz_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        RESIN = ITEMS.register("resin",
+                () -> new BlockItem(InspireBlocks.RESIN.get(),
+                        basicProperties("resin").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRACKED_RESIN = ITEMS.register("cracked_resin",
+                () -> new BlockItem(InspireBlocks.CRACKED_RESIN.get(),
+                        basicProperties("cracked_resin").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_STAIRS = ITEMS.register("resin_stairs",
+                () -> new BlockItem(InspireBlocks.RESIN_STAIRS.get(),
+                        basicProperties("resin_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_SLAB = ITEMS.register("resin_slab",
+                () -> new BlockItem(InspireBlocks.RESIN_SLAB.get(),
+                        basicProperties("resin_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_WALL = ITEMS.register("resin_wall",
+                () -> new BlockItem(InspireBlocks.RESIN_WALL.get(),
+                        basicProperties("resin_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_FENCE = ITEMS.register("resin_fence",
+                () -> new BlockItem(InspireBlocks.RESIN_FENCE.get(),
+                        basicProperties("resin_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_FENCE_GATE = ITEMS.register("resin_fence_gate",
+                () -> new BlockItem(InspireBlocks.RESIN_FENCE_GATE.get(),
+                        basicProperties("resin_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_RESIN = ITEMS.register("chiseled_resin",
+                () -> new BlockItem(InspireBlocks.CHISELED_RESIN.get(),
+                        basicProperties("chiseled_resin").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_PILLAR = ITEMS.register("resin_pillar",
+                () -> new BlockItem(InspireBlocks.RESIN_PILLAR.get(),
+                        basicProperties("resin_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_DOOR = ITEMS.register("resin_door",
+                () -> new BlockItem(InspireBlocks.RESIN_DOOR.get(),
+                        basicProperties("resin_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_TRAPDOOR = ITEMS.register("resin_trapdoor",
+                () -> new BlockItem(InspireBlocks.RESIN_TRAPDOOR.get(),
+                        basicProperties("resin_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_BUTTON = ITEMS.register("resin_button",
+                () -> new BlockItem(InspireBlocks.RESIN_BUTTON.get(),
+                        basicProperties("resin_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_PRESSURE_PLATE = ITEMS.register("resin_pressure_plate",
+                () -> new BlockItem(InspireBlocks.RESIN_PRESSURE_PLATE.get(),
+                        basicProperties("resin_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        RESIN_LAMP = ITEMS.register("resin_lamp",
+                () -> new BlockItem(InspireBlocks.RESIN_LAMP.get(),
+                        basicProperties("resin_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_POLISHED_GRANITE = ITEMS.register("cracked_polished_granite",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_GRANITE.get(),
+                        basicProperties("cracked_polished_granite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_WALL = ITEMS.register("polished_granite_wall",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_WALL.get(),
+                        basicProperties("polished_granite_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_FENCE = ITEMS.register("polished_granite_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_FENCE.get(),
+                        basicProperties("polished_granite_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_FENCE_GATE = ITEMS.register("polished_granite_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_FENCE_GATE.get(),
+                        basicProperties("polished_granite_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_GRANITE = ITEMS.register("chiseled_polished_granite",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_GRANITE.get(),
+                        basicProperties("chiseled_polished_granite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_PILLAR = ITEMS.register("polished_granite_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_PILLAR.get(),
+                        basicProperties("polished_granite_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_DOOR = ITEMS.register("polished_granite_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_DOOR.get(),
+                        basicProperties("polished_granite_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_TRAPDOOR = ITEMS.register("polished_granite_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_TRAPDOOR.get(),
+                        basicProperties("polished_granite_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_BUTTON = ITEMS.register("polished_granite_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_BUTTON.get(),
+                        basicProperties("polished_granite_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_PRESSURE_PLATE = ITEMS.register("polished_granite_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_PRESSURE_PLATE.get(),
+                        basicProperties("polished_granite_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_GRANITE_LAMP = ITEMS.register("polished_granite_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_GRANITE_LAMP.get(),
+                        basicProperties("polished_granite_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_POLISHED_DIORITE = ITEMS.register("cracked_polished_diorite",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_DIORITE.get(),
+                        basicProperties("cracked_polished_diorite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_WALL = ITEMS.register("polished_diorite_wall",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_WALL.get(),
+                        basicProperties("polished_diorite_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_FENCE = ITEMS.register("polished_diorite_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_FENCE.get(),
+                        basicProperties("polished_diorite_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_FENCE_GATE = ITEMS.register("polished_diorite_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_FENCE_GATE.get(),
+                        basicProperties("polished_diorite_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_DIORITE = ITEMS.register("chiseled_polished_diorite",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_DIORITE.get(),
+                        basicProperties("chiseled_polished_diorite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_PILLAR = ITEMS.register("polished_diorite_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_PILLAR.get(),
+                        basicProperties("polished_diorite_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_DOOR = ITEMS.register("polished_diorite_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_DOOR.get(),
+                        basicProperties("polished_diorite_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_TRAPDOOR = ITEMS.register("polished_diorite_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_TRAPDOOR.get(),
+                        basicProperties("polished_diorite_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_BUTTON = ITEMS.register("polished_diorite_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_BUTTON.get(),
+                        basicProperties("polished_diorite_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_PRESSURE_PLATE = ITEMS.register("polished_diorite_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_PRESSURE_PLATE.get(),
+                        basicProperties("polished_diorite_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_DIORITE_LAMP = ITEMS.register("polished_diorite_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_DIORITE_LAMP.get(),
+                        basicProperties("polished_diorite_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_POLISHED_ANDESITE = ITEMS.register("cracked_polished_andesite",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_ANDESITE.get(),
+                        basicProperties("cracked_polished_andesite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_WALL = ITEMS.register("polished_andesite_wall",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_WALL.get(),
+                        basicProperties("polished_andesite_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_FENCE = ITEMS.register("polished_andesite_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_FENCE.get(),
+                        basicProperties("polished_andesite_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_FENCE_GATE = ITEMS.register("polished_andesite_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_FENCE_GATE.get(),
+                        basicProperties("polished_andesite_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_ANDESITE = ITEMS.register("chiseled_polished_andesite",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_ANDESITE.get(),
+                        basicProperties("chiseled_polished_andesite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_PILLAR = ITEMS.register("polished_andesite_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_PILLAR.get(),
+                        basicProperties("polished_andesite_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_DOOR = ITEMS.register("polished_andesite_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_DOOR.get(),
+                        basicProperties("polished_andesite_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_TRAPDOOR = ITEMS.register("polished_andesite_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_TRAPDOOR.get(),
+                        basicProperties("polished_andesite_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_BUTTON = ITEMS.register("polished_andesite_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_BUTTON.get(),
+                        basicProperties("polished_andesite_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_PRESSURE_PLATE = ITEMS.register("polished_andesite_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_PRESSURE_PLATE.get(),
+                        basicProperties("polished_andesite_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_ANDESITE_LAMP = ITEMS.register("polished_andesite_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_ANDESITE_LAMP.get(),
+                        basicProperties("polished_andesite_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_SANDSTONE = ITEMS.register("cracked_sandstone",
+                () -> new BlockItem(InspireBlocks.CRACKED_SANDSTONE.get(),
+                        basicProperties("cracked_sandstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SANDSTONE_FENCE = ITEMS.register("sandstone_fence",
+                () -> new BlockItem(InspireBlocks.SANDSTONE_FENCE.get(),
+                        basicProperties("sandstone_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SANDSTONE_FENCE_GATE = ITEMS.register("sandstone_fence_gate",
+                () -> new BlockItem(InspireBlocks.SANDSTONE_FENCE_GATE.get(),
+                        basicProperties("sandstone_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SANDSTONE_PILLAR = ITEMS.register("sandstone_pillar",
+                () -> new BlockItem(InspireBlocks.SANDSTONE_PILLAR.get(),
+                        basicProperties("sandstone_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SANDSTONE_DOOR = ITEMS.register("sandstone_door",
+                () -> new BlockItem(InspireBlocks.SANDSTONE_DOOR.get(),
+                        basicProperties("sandstone_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SANDSTONE_TRAPDOOR = ITEMS.register("sandstone_trapdoor",
+                () -> new BlockItem(InspireBlocks.SANDSTONE_TRAPDOOR.get(),
+                        basicProperties("sandstone_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SANDSTONE_BUTTON = ITEMS.register("sandstone_button",
+                () -> new BlockItem(InspireBlocks.SANDSTONE_BUTTON.get(),
+                        basicProperties("sandstone_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SANDSTONE_PRESSURE_PLATE = ITEMS.register("sandstone_pressure_plate",
+                () -> new BlockItem(InspireBlocks.SANDSTONE_PRESSURE_PLATE.get(),
+                        basicProperties("sandstone_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SANDSTONE_LAMP = ITEMS.register("sandstone_lamp",
+                () -> new BlockItem(InspireBlocks.SANDSTONE_LAMP.get(),
+                        basicProperties("sandstone_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_IRON_BLOCK = ITEMS.register("cracked_iron_block",
+                () -> new BlockItem(InspireBlocks.CRACKED_IRON_BLOCK.get(),
+                        basicProperties("cracked_iron_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_STAIRS = ITEMS.register("iron_block_stairs",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_STAIRS.get(),
+                        basicProperties("iron_block_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_SLAB = ITEMS.register("iron_block_slab",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_SLAB.get(),
+                        basicProperties("iron_block_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_WALL = ITEMS.register("iron_block_wall",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_WALL.get(),
+                        basicProperties("iron_block_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_FENCE = ITEMS.register("iron_block_fence",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_FENCE.get(),
+                        basicProperties("iron_block_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_FENCE_GATE = ITEMS.register("iron_block_fence_gate",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_FENCE_GATE.get(),
+                        basicProperties("iron_block_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_IRON_BLOCK = ITEMS.register("chiseled_iron_block",
+                () -> new BlockItem(InspireBlocks.CHISELED_IRON_BLOCK.get(),
+                        basicProperties("chiseled_iron_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_PILLAR = ITEMS.register("iron_block_pillar",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_PILLAR.get(),
+                        basicProperties("iron_block_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_DOOR = ITEMS.register("iron_block_door",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_DOOR.get(),
+                        basicProperties("iron_block_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_TRAPDOOR = ITEMS.register("iron_block_trapdoor",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_TRAPDOOR.get(),
+                        basicProperties("iron_block_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_BUTTON = ITEMS.register("iron_block_button",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_BUTTON.get(),
+                        basicProperties("iron_block_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_PRESSURE_PLATE = ITEMS.register("iron_block_pressure_plate",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_PRESSURE_PLATE.get(),
+                        basicProperties("iron_block_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        IRON_BLOCK_LAMP = ITEMS.register("iron_block_lamp",
+                () -> new BlockItem(InspireBlocks.IRON_BLOCK_LAMP.get(),
+                        basicProperties("iron_block_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_GOLD_BLOCK = ITEMS.register("cracked_gold_block",
+                () -> new BlockItem(InspireBlocks.CRACKED_GOLD_BLOCK.get(),
+                        basicProperties("cracked_gold_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_STAIRS = ITEMS.register("gold_block_stairs",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_STAIRS.get(),
+                        basicProperties("gold_block_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_SLAB = ITEMS.register("gold_block_slab",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_SLAB.get(),
+                        basicProperties("gold_block_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_WALL = ITEMS.register("gold_block_wall",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_WALL.get(),
+                        basicProperties("gold_block_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_FENCE = ITEMS.register("gold_block_fence",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_FENCE.get(),
+                        basicProperties("gold_block_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_FENCE_GATE = ITEMS.register("gold_block_fence_gate",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_FENCE_GATE.get(),
+                        basicProperties("gold_block_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_GOLD_BLOCK = ITEMS.register("chiseled_gold_block",
+                () -> new BlockItem(InspireBlocks.CHISELED_GOLD_BLOCK.get(),
+                        basicProperties("chiseled_gold_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_PILLAR = ITEMS.register("gold_block_pillar",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_PILLAR.get(),
+                        basicProperties("gold_block_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_DOOR = ITEMS.register("gold_block_door",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_DOOR.get(),
+                        basicProperties("gold_block_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_TRAPDOOR = ITEMS.register("gold_block_trapdoor",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_TRAPDOOR.get(),
+                        basicProperties("gold_block_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_BUTTON = ITEMS.register("gold_block_button",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_BUTTON.get(),
+                        basicProperties("gold_block_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_PRESSURE_PLATE = ITEMS.register("gold_block_pressure_plate",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_PRESSURE_PLATE.get(),
+                        basicProperties("gold_block_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        GOLD_BLOCK_LAMP = ITEMS.register("gold_block_lamp",
+                () -> new BlockItem(InspireBlocks.GOLD_BLOCK_LAMP.get(),
+                        basicProperties("gold_block_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_EMERALD_BLOCK = ITEMS.register("cracked_emerald_block",
+                () -> new BlockItem(InspireBlocks.CRACKED_EMERALD_BLOCK.get(),
+                        basicProperties("cracked_emerald_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_STAIRS = ITEMS.register("emerald_block_stairs",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_STAIRS.get(),
+                        basicProperties("emerald_block_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_SLAB = ITEMS.register("emerald_block_slab",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_SLAB.get(),
+                        basicProperties("emerald_block_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_WALL = ITEMS.register("emerald_block_wall",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_WALL.get(),
+                        basicProperties("emerald_block_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_FENCE = ITEMS.register("emerald_block_fence",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_FENCE.get(),
+                        basicProperties("emerald_block_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_FENCE_GATE = ITEMS.register("emerald_block_fence_gate",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_FENCE_GATE.get(),
+                        basicProperties("emerald_block_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_EMERALD_BLOCK = ITEMS.register("chiseled_emerald_block",
+                () -> new BlockItem(InspireBlocks.CHISELED_EMERALD_BLOCK.get(),
+                        basicProperties("chiseled_emerald_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_PILLAR = ITEMS.register("emerald_block_pillar",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_PILLAR.get(),
+                        basicProperties("emerald_block_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_DOOR = ITEMS.register("emerald_block_door",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_DOOR.get(),
+                        basicProperties("emerald_block_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_TRAPDOOR = ITEMS.register("emerald_block_trapdoor",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_TRAPDOOR.get(),
+                        basicProperties("emerald_block_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_BUTTON = ITEMS.register("emerald_block_button",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_BUTTON.get(),
+                        basicProperties("emerald_block_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_PRESSURE_PLATE = ITEMS.register("emerald_block_pressure_plate",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_PRESSURE_PLATE.get(),
+                        basicProperties("emerald_block_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        EMERALD_BLOCK_LAMP = ITEMS.register("emerald_block_lamp",
+                () -> new BlockItem(InspireBlocks.EMERALD_BLOCK_LAMP.get(),
+                        basicProperties("emerald_block_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_DIAMOND_BLOCK = ITEMS.register("cracked_diamond_block",
+                () -> new BlockItem(InspireBlocks.CRACKED_DIAMOND_BLOCK.get(),
+                        basicProperties("cracked_diamond_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_STAIRS = ITEMS.register("diamond_block_stairs",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_STAIRS.get(),
+                        basicProperties("diamond_block_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_SLAB = ITEMS.register("diamond_block_slab",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_SLAB.get(),
+                        basicProperties("diamond_block_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_WALL = ITEMS.register("diamond_block_wall",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_WALL.get(),
+                        basicProperties("diamond_block_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_FENCE = ITEMS.register("diamond_block_fence",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_FENCE.get(),
+                        basicProperties("diamond_block_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_FENCE_GATE = ITEMS.register("diamond_block_fence_gate",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_FENCE_GATE.get(),
+                        basicProperties("diamond_block_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_DIAMOND_BLOCK = ITEMS.register("chiseled_diamond_block",
+                () -> new BlockItem(InspireBlocks.CHISELED_DIAMOND_BLOCK.get(),
+                        basicProperties("chiseled_diamond_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_PILLAR = ITEMS.register("diamond_block_pillar",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_PILLAR.get(),
+                        basicProperties("diamond_block_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_DOOR = ITEMS.register("diamond_block_door",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_DOOR.get(),
+                        basicProperties("diamond_block_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_TRAPDOOR = ITEMS.register("diamond_block_trapdoor",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_TRAPDOOR.get(),
+                        basicProperties("diamond_block_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_BUTTON = ITEMS.register("diamond_block_button",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_BUTTON.get(),
+                        basicProperties("diamond_block_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_PRESSURE_PLATE = ITEMS.register("diamond_block_pressure_plate",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_PRESSURE_PLATE.get(),
+                        basicProperties("diamond_block_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DIAMOND_BLOCK_LAMP = ITEMS.register("diamond_block_lamp",
+                () -> new BlockItem(InspireBlocks.DIAMOND_BLOCK_LAMP.get(),
+                        basicProperties("diamond_block_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_NETHERITE_BLOCK = ITEMS.register("cracked_netherite_block",
+                () -> new BlockItem(InspireBlocks.CRACKED_NETHERITE_BLOCK.get(),
+                        basicProperties("cracked_netherite_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_STAIRS = ITEMS.register("netherite_block_stairs",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_STAIRS.get(),
+                        basicProperties("netherite_block_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_SLAB = ITEMS.register("netherite_block_slab",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_SLAB.get(),
+                        basicProperties("netherite_block_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_WALL = ITEMS.register("netherite_block_wall",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_WALL.get(),
+                        basicProperties("netherite_block_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_FENCE = ITEMS.register("netherite_block_fence",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_FENCE.get(),
+                        basicProperties("netherite_block_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_FENCE_GATE = ITEMS.register("netherite_block_fence_gate",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_FENCE_GATE.get(),
+                        basicProperties("netherite_block_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_NETHERITE_BLOCK = ITEMS.register("chiseled_netherite_block",
+                () -> new BlockItem(InspireBlocks.CHISELED_NETHERITE_BLOCK.get(),
+                        basicProperties("chiseled_netherite_block").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_PILLAR = ITEMS.register("netherite_block_pillar",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_PILLAR.get(),
+                        basicProperties("netherite_block_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_DOOR = ITEMS.register("netherite_block_door",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_DOOR.get(),
+                        basicProperties("netherite_block_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_TRAPDOOR = ITEMS.register("netherite_block_trapdoor",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_TRAPDOOR.get(),
+                        basicProperties("netherite_block_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_BUTTON = ITEMS.register("netherite_block_button",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_BUTTON.get(),
+                        basicProperties("netherite_block_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_PRESSURE_PLATE = ITEMS.register("netherite_block_pressure_plate",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_PRESSURE_PLATE.get(),
+                        basicProperties("netherite_block_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        NETHERITE_BLOCK_LAMP = ITEMS.register("netherite_block_lamp",
+                () -> new BlockItem(InspireBlocks.NETHERITE_BLOCK_LAMP.get(),
+                        basicProperties("netherite_block_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_OBSIDIAN = ITEMS.register("cracked_obsidian",
+                () -> new BlockItem(InspireBlocks.CRACKED_OBSIDIAN.get(),
+                        basicProperties("cracked_obsidian").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_STAIRS = ITEMS.register("obsidian_stairs",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_STAIRS.get(),
+                        basicProperties("obsidian_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_SLAB = ITEMS.register("obsidian_slab",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_SLAB.get(),
+                        basicProperties("obsidian_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_WALL = ITEMS.register("obsidian_wall",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_WALL.get(),
+                        basicProperties("obsidian_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_FENCE = ITEMS.register("obsidian_fence",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_FENCE.get(),
+                        basicProperties("obsidian_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_FENCE_GATE = ITEMS.register("obsidian_fence_gate",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_FENCE_GATE.get(),
+                        basicProperties("obsidian_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_OBSIDIAN = ITEMS.register("chiseled_obsidian",
+                () -> new BlockItem(InspireBlocks.CHISELED_OBSIDIAN.get(),
+                        basicProperties("chiseled_obsidian").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_PILLAR = ITEMS.register("obsidian_pillar",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_PILLAR.get(),
+                        basicProperties("obsidian_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_DOOR = ITEMS.register("obsidian_door",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_DOOR.get(),
+                        basicProperties("obsidian_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_TRAPDOOR = ITEMS.register("obsidian_trapdoor",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_TRAPDOOR.get(),
+                        basicProperties("obsidian_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_BUTTON = ITEMS.register("obsidian_button",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_BUTTON.get(),
+                        basicProperties("obsidian_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_PRESSURE_PLATE = ITEMS.register("obsidian_pressure_plate",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_PRESSURE_PLATE.get(),
+                        basicProperties("obsidian_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        OBSIDIAN_LAMP = ITEMS.register("obsidian_lamp",
+                () -> new BlockItem(InspireBlocks.OBSIDIAN_LAMP.get(),
+                        basicProperties("obsidian_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_CRYING_OBSIDIAN = ITEMS.register("cracked_crying_obsidian",
+                () -> new BlockItem(InspireBlocks.CRACKED_CRYING_OBSIDIAN.get(),
+                        basicProperties("cracked_crying_obsidian").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_STAIRS = ITEMS.register("crying_obsidian_stairs",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_STAIRS.get(),
+                        basicProperties("crying_obsidian_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_SLAB = ITEMS.register("crying_obsidian_slab",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_SLAB.get(),
+                        basicProperties("crying_obsidian_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_WALL = ITEMS.register("crying_obsidian_wall",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_WALL.get(),
+                        basicProperties("crying_obsidian_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_FENCE = ITEMS.register("crying_obsidian_fence",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_FENCE.get(),
+                        basicProperties("crying_obsidian_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_FENCE_GATE = ITEMS.register("crying_obsidian_fence_gate",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_FENCE_GATE.get(),
+                        basicProperties("crying_obsidian_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_CRYING_OBSIDIAN = ITEMS.register("chiseled_crying_obsidian",
+                () -> new BlockItem(InspireBlocks.CHISELED_CRYING_OBSIDIAN.get(),
+                        basicProperties("chiseled_crying_obsidian").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_PILLAR = ITEMS.register("crying_obsidian_pillar",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_PILLAR.get(),
+                        basicProperties("crying_obsidian_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_DOOR = ITEMS.register("crying_obsidian_door",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_DOOR.get(),
+                        basicProperties("crying_obsidian_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_TRAPDOOR = ITEMS.register("crying_obsidian_trapdoor",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_TRAPDOOR.get(),
+                        basicProperties("crying_obsidian_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_BUTTON = ITEMS.register("crying_obsidian_button",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_BUTTON.get(),
+                        basicProperties("crying_obsidian_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_PRESSURE_PLATE = ITEMS.register("crying_obsidian_pressure_plate",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_PRESSURE_PLATE.get(),
+                        basicProperties("crying_obsidian_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRYING_OBSIDIAN_LAMP = ITEMS.register("crying_obsidian_lamp",
+                () -> new BlockItem(InspireBlocks.CRYING_OBSIDIAN_LAMP.get(),
+                        basicProperties("crying_obsidian_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_BEDROCK = ITEMS.register("cracked_bedrock",
+                () -> new BlockItem(InspireBlocks.CRACKED_BEDROCK.get(),
+                        basicProperties("cracked_bedrock").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_STAIRS = ITEMS.register("bedrock_stairs",
+                () -> new BlockItem(InspireBlocks.BEDROCK_STAIRS.get(),
+                        basicProperties("bedrock_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_SLAB = ITEMS.register("bedrock_slab",
+                () -> new BlockItem(InspireBlocks.BEDROCK_SLAB.get(),
+                        basicProperties("bedrock_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_WALL = ITEMS.register("bedrock_wall",
+                () -> new BlockItem(InspireBlocks.BEDROCK_WALL.get(),
+                        basicProperties("bedrock_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_FENCE = ITEMS.register("bedrock_fence",
+                () -> new BlockItem(InspireBlocks.BEDROCK_FENCE.get(),
+                        basicProperties("bedrock_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_FENCE_GATE = ITEMS.register("bedrock_fence_gate",
+                () -> new BlockItem(InspireBlocks.BEDROCK_FENCE_GATE.get(),
+                        basicProperties("bedrock_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_BEDROCK = ITEMS.register("chiseled_bedrock",
+                () -> new BlockItem(InspireBlocks.CHISELED_BEDROCK.get(),
+                        basicProperties("chiseled_bedrock").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_PILLAR = ITEMS.register("bedrock_pillar",
+                () -> new BlockItem(InspireBlocks.BEDROCK_PILLAR.get(),
+                        basicProperties("bedrock_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_DOOR = ITEMS.register("bedrock_door",
+                () -> new BlockItem(InspireBlocks.BEDROCK_DOOR.get(),
+                        basicProperties("bedrock_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_TRAPDOOR = ITEMS.register("bedrock_trapdoor",
+                () -> new BlockItem(InspireBlocks.BEDROCK_TRAPDOOR.get(),
+                        basicProperties("bedrock_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_BUTTON = ITEMS.register("bedrock_button",
+                () -> new BlockItem(InspireBlocks.BEDROCK_BUTTON.get(),
+                        basicProperties("bedrock_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_PRESSURE_PLATE = ITEMS.register("bedrock_pressure_plate",
+                () -> new BlockItem(InspireBlocks.BEDROCK_PRESSURE_PLATE.get(),
+                        basicProperties("bedrock_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        BEDROCK_LAMP = ITEMS.register("bedrock_lamp",
+                () -> new BlockItem(InspireBlocks.BEDROCK_LAMP.get(),
+                        basicProperties("bedrock_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        SOUL_SANDSTONE = ITEMS.register("soul_sandstone",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE.get(),
+                        basicProperties("soul_sandstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRACKED_SOUL_SANDSTONE = ITEMS.register("cracked_soul_sandstone",
+                () -> new BlockItem(InspireBlocks.CRACKED_SOUL_SANDSTONE.get(),
+                        basicProperties("cracked_soul_sandstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_STAIRS = ITEMS.register("soul_sandstone_stairs",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_STAIRS.get(),
+                        basicProperties("soul_sandstone_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_SLAB = ITEMS.register("soul_sandstone_slab",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_SLAB.get(),
+                        basicProperties("soul_sandstone_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_WALL = ITEMS.register("soul_sandstone_wall",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_WALL.get(),
+                        basicProperties("soul_sandstone_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_FENCE = ITEMS.register("soul_sandstone_fence",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_FENCE.get(),
+                        basicProperties("soul_sandstone_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_FENCE_GATE = ITEMS.register("soul_sandstone_fence_gate",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_FENCE_GATE.get(),
+                        basicProperties("soul_sandstone_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_SOUL_SANDSTONE = ITEMS.register("chiseled_soul_sandstone",
+                () -> new BlockItem(InspireBlocks.CHISELED_SOUL_SANDSTONE.get(),
+                        basicProperties("chiseled_soul_sandstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_PILLAR = ITEMS.register("soul_sandstone_pillar",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_PILLAR.get(),
+                        basicProperties("soul_sandstone_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_DOOR = ITEMS.register("soul_sandstone_door",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_DOOR.get(),
+                        basicProperties("soul_sandstone_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_TRAPDOOR = ITEMS.register("soul_sandstone_trapdoor",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_TRAPDOOR.get(),
+                        basicProperties("soul_sandstone_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_BUTTON = ITEMS.register("soul_sandstone_button",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_BUTTON.get(),
+                        basicProperties("soul_sandstone_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_PRESSURE_PLATE = ITEMS.register("soul_sandstone_pressure_plate",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_PRESSURE_PLATE.get(),
+                        basicProperties("soul_sandstone_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SANDSTONE_LAMP = ITEMS.register("soul_sandstone_lamp",
+                () -> new BlockItem(InspireBlocks.SOUL_SANDSTONE_LAMP.get(),
+                        basicProperties("soul_sandstone_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        SOUL_SLATE = ITEMS.register("soul_slate",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE.get(),
+                        basicProperties("soul_slate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRACKED_SOUL_SLATE = ITEMS.register("cracked_soul_slate",
+                () -> new BlockItem(InspireBlocks.CRACKED_SOUL_SLATE.get(),
+                        basicProperties("cracked_soul_slate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_STAIRS = ITEMS.register("soul_slate_stairs",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_STAIRS.get(),
+                        basicProperties("soul_slate_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_SLAB = ITEMS.register("soul_slate_slab",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_SLAB.get(),
+                        basicProperties("soul_slate_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_WALL = ITEMS.register("soul_slate_wall",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_WALL.get(),
+                        basicProperties("soul_slate_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_FENCE = ITEMS.register("soul_slate_fence",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_FENCE.get(),
+                        basicProperties("soul_slate_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_FENCE_GATE = ITEMS.register("soul_slate_fence_gate",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_FENCE_GATE.get(),
+                        basicProperties("soul_slate_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_SOUL_SLATE = ITEMS.register("chiseled_soul_slate",
+                () -> new BlockItem(InspireBlocks.CHISELED_SOUL_SLATE.get(),
+                        basicProperties("chiseled_soul_slate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_PILLAR = ITEMS.register("soul_slate_pillar",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_PILLAR.get(),
+                        basicProperties("soul_slate_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_DOOR = ITEMS.register("soul_slate_door",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_DOOR.get(),
+                        basicProperties("soul_slate_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_TRAPDOOR = ITEMS.register("soul_slate_trapdoor",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_TRAPDOOR.get(),
+                        basicProperties("soul_slate_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_BUTTON = ITEMS.register("soul_slate_button",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_BUTTON.get(),
+                        basicProperties("soul_slate_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_PRESSURE_PLATE = ITEMS.register("soul_slate_pressure_plate",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_PRESSURE_PLATE.get(),
+                        basicProperties("soul_slate_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        SOUL_SLATE_LAMP = ITEMS.register("soul_slate_lamp",
+                () -> new BlockItem(InspireBlocks.SOUL_SLATE_LAMP.get(),
+                        basicProperties("soul_slate_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        CRACKED_DRIPSTONE = ITEMS.register("cracked_dripstone",
+                () -> new BlockItem(InspireBlocks.CRACKED_DRIPSTONE.get(),
+                        basicProperties("cracked_dripstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_STAIRS = ITEMS.register("dripstone_stairs",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_STAIRS.get(),
+                        basicProperties("dripstone_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_SLAB = ITEMS.register("dripstone_slab",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_SLAB.get(),
+                        basicProperties("dripstone_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_WALL = ITEMS.register("dripstone_wall",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_WALL.get(),
+                        basicProperties("dripstone_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_FENCE = ITEMS.register("dripstone_fence",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_FENCE.get(),
+                        basicProperties("dripstone_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_FENCE_GATE = ITEMS.register("dripstone_fence_gate",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_FENCE_GATE.get(),
+                        basicProperties("dripstone_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_DRIPSTONE = ITEMS.register("chiseled_dripstone",
+                () -> new BlockItem(InspireBlocks.CHISELED_DRIPSTONE.get(),
+                        basicProperties("chiseled_dripstone").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_PILLAR = ITEMS.register("dripstone_pillar",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_PILLAR.get(),
+                        basicProperties("dripstone_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_DOOR = ITEMS.register("dripstone_door",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_DOOR.get(),
+                        basicProperties("dripstone_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_TRAPDOOR = ITEMS.register("dripstone_trapdoor",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_TRAPDOOR.get(),
+                        basicProperties("dripstone_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_BUTTON = ITEMS.register("dripstone_button",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_BUTTON.get(),
+                        basicProperties("dripstone_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_PRESSURE_PLATE = ITEMS.register("dripstone_pressure_plate",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_PRESSURE_PLATE.get(),
+                        basicProperties("dripstone_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        DRIPSTONE_LAMP = ITEMS.register("dripstone_lamp",
+                () -> new BlockItem(InspireBlocks.DRIPSTONE_LAMP.get(),
+                        basicProperties("dripstone_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
+        POLISHED_CALCITE = ITEMS.register("polished_calcite",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE.get(),
+                        basicProperties("polished_calcite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CRACKED_POLISHED_CALCITE = ITEMS.register("cracked_polished_calcite",
+                () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_CALCITE.get(),
+                        basicProperties("cracked_polished_calcite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_STAIRS = ITEMS.register("polished_calcite_stairs",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_STAIRS.get(),
+                        basicProperties("polished_calcite_stairs").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_SLAB = ITEMS.register("polished_calcite_slab",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_SLAB.get(),
+                        basicProperties("polished_calcite_slab").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_WALL = ITEMS.register("polished_calcite_wall",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_WALL.get(),
+                        basicProperties("polished_calcite_wall").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_FENCE = ITEMS.register("polished_calcite_fence",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_FENCE.get(),
+                        basicProperties("polished_calcite_fence").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_FENCE_GATE = ITEMS.register("polished_calcite_fence_gate",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_FENCE_GATE.get(),
+                        basicProperties("polished_calcite_fence_gate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        CHISELED_POLISHED_CALCITE = ITEMS.register("chiseled_polished_calcite",
+                () -> new BlockItem(InspireBlocks.CHISELED_POLISHED_CALCITE.get(),
+                        basicProperties("chiseled_polished_calcite").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_PILLAR = ITEMS.register("polished_calcite_pillar",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_PILLAR.get(),
+                        basicProperties("polished_calcite_pillar").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_DOOR = ITEMS.register("polished_calcite_door",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_DOOR.get(),
+                        basicProperties("polished_calcite_door").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_TRAPDOOR = ITEMS.register("polished_calcite_trapdoor",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_TRAPDOOR.get(),
+                        basicProperties("polished_calcite_trapdoor").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_BUTTON = ITEMS.register("polished_calcite_button",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_BUTTON.get(),
+                        basicProperties("polished_calcite_button").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_PRESSURE_PLATE = ITEMS.register("polished_calcite_pressure_plate",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_PRESSURE_PLATE.get(),
+                        basicProperties("polished_calcite_pressure_plate").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+        POLISHED_CALCITE_LAMP = ITEMS.register("polished_calcite_lamp",
+                () -> new BlockItem(InspireBlocks.POLISHED_CALCITE_LAMP.get(),
+                        basicProperties("polished_calcite_lamp").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
+
         CRACKED_PURPUR = ITEMS.register("cracked_purpur",
                 () -> new BlockItem(InspireBlocks.CRACKED_PURPUR.get(),
                         basicProperties("cracked_purpur").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));

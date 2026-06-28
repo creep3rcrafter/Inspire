@@ -23,7 +23,7 @@ side = "BOTH"
 [[dependencies.inspire]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.10,)"
+versionRange = "[1.21.1,)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -32,6 +32,13 @@ modId = "architectury"
 type = "required"
 versionRange = "[18.0.6,)"
 ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.inspire]]
+modId = "rUSWdBok"
+type = "required"
+versionRange = "[0,)"
+ordering = "NONE"
 side = "BOTH"
 
 [[mixins]]

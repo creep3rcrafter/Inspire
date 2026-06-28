@@ -13,21 +13,23 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
-import java.util.function.Function;
-
 public class ShelfFungiBlock extends FaceAttachedHorizontalDirectionalBlock {
     public static final MapCodec<ShelfFungiBlock> CODEC = simpleCodec(ShelfFungiBlock::new);
-    private final Function<BlockState, VoxelShape> shapes;
+    private static final VoxelShape FLOOR_NORTH_SOUTH_SHAPE = Block.box(0.0, 0.0, 7.0, 16.0, 9.0, 9.0);
+    private static final VoxelShape FLOOR_EAST_WEST_SHAPE = Block.box(7.0, 0.0, 0.0, 9.0, 9.0, 16.0);
+    private static final VoxelShape CEILING_NORTH_SOUTH_SHAPE = Block.box(0.0, 7.0, 7.0, 16.0, 16.0, 9.0);
+    private static final VoxelShape CEILING_EAST_WEST_SHAPE = Block.box(7.0, 7.0, 0.0, 9.0, 16.0, 16.0);
+    private static final VoxelShape NORTH_WALL_SHAPE = Block.box(0.0, 7.0, 0.0, 16.0, 9.0, 9.0);
+    private static final VoxelShape SOUTH_WALL_SHAPE = Block.box(0.0, 7.0, 7.0, 16.0, 9.0, 16.0);
+    private static final VoxelShape WEST_WALL_SHAPE = Block.box(0.0, 7.0, 0.0, 9.0, 9.0, 16.0);
+    private static final VoxelShape EAST_WALL_SHAPE = Block.box(7.0, 7.0, 0.0, 16.0, 9.0, 16.0);
 
     public ShelfFungiBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
-        this.shapes = this.makeShapes();
     }
 
     @Override
@@ -50,20 +52,23 @@ public class ShelfFungiBlock extends FaceAttachedHorizontalDirectionalBlock {
         return blockState.rotate(mirror.getRotation((Direction)blockState.getValue(FACING)));
     }
 
-    private VoxelShape getVoxelShape(BlockState blockState) {
-        return (VoxelShape)this.shapes.apply(blockState);
-    }
-
     @Override
     protected @NotNull VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
-        return this.getVoxelShape(blockState);
-    }
-    private Function<BlockState, VoxelShape> makeShapes() {
-        VoxelShape voxelShape = Shapes.box(0,0.45,0.5, 1,0.55,1);
-        // DISABLED: Shapes.rotateAttachFace() doesn't exist in 1.21.1
-        // Using fallback: return the same shape for all states
-        return (blockState) -> voxelShape;
-        // Map<AttachFace, Map<Direction, VoxelShape>> map = Shapes.rotateAttachFace(voxelShape);
-        // return this.getShapeForEachState((blockState) -> (VoxelShape)((Map<?, ?>)map.get(blockState.getValue(FACE))).get(blockState.getValue(FACING)));
+        AttachFace face = blockState.getValue(FACE);
+        if (face == AttachFace.FLOOR) {
+            Direction facing = blockState.getValue(FACING);
+            return (facing == Direction.EAST || facing == Direction.WEST) ? FLOOR_EAST_WEST_SHAPE : FLOOR_NORTH_SOUTH_SHAPE;
+        }
+        if (face == AttachFace.CEILING) {
+            Direction facing = blockState.getValue(FACING);
+            return (facing == Direction.EAST || facing == Direction.WEST) ? CEILING_EAST_WEST_SHAPE : CEILING_NORTH_SOUTH_SHAPE;
+        }
+        return switch (blockState.getValue(FACING).getOpposite()) {
+            case NORTH -> NORTH_WALL_SHAPE;
+            case SOUTH -> SOUTH_WALL_SHAPE;
+            case WEST -> WEST_WALL_SHAPE;
+            case EAST -> EAST_WALL_SHAPE;
+            default -> FLOOR_NORTH_SOUTH_SHAPE;
+        };
     }
 }

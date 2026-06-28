@@ -40,7 +40,7 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
     public static final MapCodec<RegularBedBlock> CODEC = simpleCodec(RegularBedBlock::new);
     public static final EnumProperty<@NotNull BedPart> PART;
     public static final BooleanProperty OCCUPIED;
-    private static final Map SHAPES;
+    private static final Map<Direction, VoxelShape> SHAPES;
 
     public @NotNull MapCodec<RegularBedBlock> codec() {
         return CODEC;
@@ -271,12 +271,10 @@ public class RegularBedBlock extends HorizontalDirectionalBlock implements Entit
     static {
         PART = BlockStateProperties.BED_PART;
         OCCUPIED = BlockStateProperties.OCCUPIED;
-        // DISABLED: Block.column() and Shapes.rotateHorizontal() don't exist in 1.21.1
-        // SHAPES needs to be a Map but API has changed. Using empty map as fallback.
         SHAPES = Util.make(() -> {
-            java.util.HashMap<Object, VoxelShape> map = new java.util.HashMap<>();
-            VoxelShape bedShape = Shapes.or(Block.box(3.0, 0.0, 9.0, 13.0, 16.0, 15.0), Block.box(0.0, 0.0, 0.0, 3.0, 3.0, 3.0));
-            for (Direction dir : Direction.values()) {
+            java.util.HashMap<Direction, VoxelShape> map = new java.util.HashMap<>();
+            VoxelShape bedShape = Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 16.0);
+            for (Direction dir : Direction.Plane.HORIZONTAL) {
                 map.put(dir, bedShape);
             }
             return map;

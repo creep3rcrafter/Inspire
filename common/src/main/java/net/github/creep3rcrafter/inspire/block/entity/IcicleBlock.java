@@ -146,6 +146,10 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
     }
 
     protected void randomTick(@NotNull BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, RandomSource randomSource) {
+        if (shouldMelt(serverLevel, blockPos)) {
+            melt(serverLevel, blockPos);
+            return;
+        }
         maybeTransferFluid(blockState, serverLevel, blockPos, randomSource.nextFloat());
         if (randomSource.nextFloat() < 0.011377778F && isStalactiteStartPos(blockState, serverLevel, blockPos)) {
             growStalactiteOrStalagmiteIfPossible(blockState, serverLevel, blockPos, randomSource);
@@ -208,6 +212,27 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
             boolean bl = !blockPlaceContext.isSecondaryUseActive();
             DripstoneThickness dripstoneThickness = calculateDripstoneThickness(levelAccessor, blockPos, direction2, bl);
             return (BlockState)((BlockState)((BlockState)this.defaultBlockState().setValue(TIP_DIRECTION, direction2)).setValue(THICKNESS, dripstoneThickness)).setValue(WATERLOGGED, levelAccessor.getFluidState(blockPos).getType() == Fluids.WATER);
+        }
+    }
+
+    @Override
+    protected void onPlace(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull BlockState oldState, boolean movedByPiston) {
+        super.onPlace(blockState, level, blockPos, oldState, movedByPiston);
+        if (!oldState.is(blockState.getBlock())) {
+            refreshThicknessAround(level, blockPos);
+        }
+    }
+
+    @Override
+    protected void neighborChanged(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Block block, @NotNull BlockPos fromPos, boolean isMoving) {
+        super.neighborChanged(blockState, level, blockPos, block, fromPos, isMoving);
+        Direction tipDirection = blockState.getValue(TIP_DIRECTION);
+        if (fromPos.equals(blockPos.relative(tipDirection.getOpposite())) && !this.canSurvive(blockState, level, blockPos)) {
+            level.scheduleTick(blockPos, this, tipDirection == Direction.DOWN ? 2 : 1);
+        }
+        refreshThicknessAround(level, blockPos);
+        if (fromPos.getX() == blockPos.getX() && fromPos.getZ() == blockPos.getZ() && Math.abs(fromPos.getY() - blockPos.getY()) <= 1) {
+            refreshThicknessAt(level, fromPos);
         }
     }
 
@@ -419,6 +444,25 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         }
     }
 
+    private static void refreshThicknessAround(LevelAccessor level, BlockPos blockPos) {
+        refreshThicknessAt(level, blockPos);
+        refreshThicknessAt(level, blockPos.above());
+        refreshThicknessAt(level, blockPos.below());
+    }
+
+    private static void refreshThicknessAt(LevelAccessor level, BlockPos blockPos) {
+        BlockState state = level.getBlockState(blockPos);
+        if (!state.is(InspireBlocks.ICICLE.get())) {
+            return;
+        }
+        Direction direction = state.getValue(TIP_DIRECTION);
+        boolean mergedTip = state.getValue(THICKNESS) == DripstoneThickness.TIP_MERGE;
+        DripstoneThickness newThickness = calculateDripstoneThickness(level, blockPos, direction, mergedTip);
+        if (state.getValue(THICKNESS) != newThickness) {
+            level.setBlock(blockPos, state.setValue(THICKNESS, newThickness), 2);
+        }
+    }
+
     private static Optional<BlockPos> findRootBlock(Level level, BlockPos blockPos, BlockState blockState) {
         Direction direction = (Direction)blockState.getValue(TIP_DIRECTION);
         BiPredicate<BlockPos, BlockState> biPredicate = (blockPosx, blockStatex) -> blockStatex.is(InspireBlocks.ICICLE.get()) && blockStatex.getValue(TIP_DIRECTION) == direction;
@@ -543,6 +587,38 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         } else {
             VoxelShape voxelShape = blockState.getCollisionShape(blockGetter, blockPos);
             return !Shapes.joinIsNotEmpty(REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK, voxelShape, BooleanOp.AND);
+        }
+    }
+
+    private static boolean shouldMelt(ServerLevel level, BlockPos blockPos) {
+        if (level.getBrightness(LightLayer.BLOCK, blockPos) > 11) {
+            return true;
+        }
+
+        for (Direction direction : Direction.values()) {
+            BlockPos adjacentPos = blockPos.relative(direction);
+            BlockState adjacentState = level.getBlockState(adjacentPos);
+            FluidState adjacentFluidState = level.getFluidState(adjacentPos);
+
+            if (adjacentFluidState.is(FluidTags.LAVA)) {
+                return true;
+            }
+            if (adjacentState.is(Blocks.FIRE) || adjacentState.is(Blocks.SOUL_FIRE) || adjacentState.is(Blocks.MAGMA_BLOCK)) {
+                return true;
+            }
+            if (adjacentState.getBlock() instanceof CampfireBlock && adjacentState.getValue(CampfireBlock.LIT)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static void melt(ServerLevel level, BlockPos blockPos) {
+        if (level.dimensionType().ultraWarm()) {
+            level.removeBlock(blockPos, false);
+        } else {
+            level.setBlockAndUpdate(blockPos, Blocks.WATER.defaultBlockState());
         }
     }
 

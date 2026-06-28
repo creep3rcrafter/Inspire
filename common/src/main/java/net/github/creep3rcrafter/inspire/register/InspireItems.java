@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 
 public class InspireItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(InspireCommon.MOD_ID, Registries.ITEM);
@@ -400,8 +401,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> GLAZED_TERRACOTTA;
     public static final RegistrySupplier<Item> TINTED_GLASS_PANE;
     public static final RegistrySupplier<Item> FROGLIGHT;
-    // HARNESS removed - Equippable/Equipment API doesn't exist in 1.21.1
-    // public static final RegistrySupplier<Item> HARNESS;
+    public static final RegistrySupplier<Item> HARNESS;
     public static final RegistrySupplier<Item> SOAP;
     public static final RegistrySupplier<Item> ICICLE;
 
@@ -1169,10 +1169,9 @@ public class InspireItems {
         GLAZED_TERRACOTTA = ITEMS.register("glazed_terracotta", ()-> new BlockItem(InspireBlocks.GLAZED_TERRACOTTA.get(), basicProperties("glazed_terracotta").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         TINTED_GLASS_PANE = ITEMS.register("tinted_glass_pane", ()-> new BlockItem(InspireBlocks.TINTED_GLASS_PANE.get(), basicProperties("tinted_glass_pane").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         FROGLIGHT = ITEMS.register("froglight", ()-> new BlockItem(InspireBlocks.FROGLIGHT.get(), basicProperties("froglight").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
-        // HARNESS registration removed - Equippable/Equipment API doesn't exist in 1.21.1
-        // HARNESS = ITEMS.register("harness", ()-> new Item(basicProperties("harness").component(DataComponents.EQUIPPABLE, Equippable.harness(null)).arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        HARNESS = ITEMS.register("harness", ()-> new Item(basicProperties("harness").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         SOAP = ITEMS.register("soap", ()-> new Item(basicProperties("soap").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
-        ICICLE = ITEMS.register("icicle", ()-> new BlockItem(InspireBlocks.ICICLE.get(),basicProperties("icicle").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        ICICLE = ITEMS.register("icicle", ()-> new BlockItem(InspireBlocks.ICICLE.get(),basicProperties("icicle").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
 
         OAK_WALL = ITEMS.register("oak_wall", ()-> new BlockItem(InspireBlocks.OAK_WALL.get(), basicProperties("oak_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         SPRUCE_WALL = ITEMS.register("spruce_wall", ()-> new BlockItem(InspireBlocks.SPRUCE_WALL.get(), basicProperties("spruce_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -1182,10 +1181,63 @@ public class InspireItems {
         DARK_OAK_WALL = ITEMS.register("dark_oak_wall", ()-> new BlockItem(InspireBlocks.DARK_OAK_WALL.get(), basicProperties("dark_oak_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         MANGROVE_WALL = ITEMS.register("mangrove_wall", ()-> new BlockItem(InspireBlocks.MANGROVE_WALL.get(), basicProperties("mangrove_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         CHERRY_WALL = ITEMS.register("cherry_wall", ()-> new BlockItem(InspireBlocks.CHERRY_WALL.get(), basicProperties("cherry_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
-        PALE_OAK_WALL = ITEMS.register("pale_wall", ()-> new BlockItem(InspireBlocks.PALE_OAK_WALL.get(), basicProperties("pale_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        PALE_OAK_WALL = ITEMS.register("pale_oak_wall", ()-> new BlockItem(InspireBlocks.PALE_OAK_WALL.get(), basicProperties("pale_oak_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         BAMBOO_WALL = ITEMS.register("bamboo_wall", ()-> new BlockItem(InspireBlocks.BAMBOO_WALL.get(), basicProperties("bamboo_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         CRIMSON_WALL = ITEMS.register("crimson_wall", ()-> new BlockItem(InspireBlocks.CRIMSON_WALL.get(), basicProperties("crimson_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WARPED_WALL = ITEMS.register("warped_wall", ()-> new BlockItem(InspireBlocks.WARPED_WALL.get(), basicProperties("warped_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+
+        registerBlockItem("brick_fence_gate", InspireBlocks.BRICK_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("brick_tile_fence_gate", InspireBlocks.BRICK_TILE_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("chiseled_deepslate_bricks", InspireBlocks.CHISELED_DEEPSLATE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("chiseled_deepslate_tiles", InspireBlocks.CHISELED_DEEPSLATE_TILES, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("chiseled_mud_bricks", InspireBlocks.CHISELED_MUD_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("chiseled_mud_brick_tiles", InspireBlocks.CHISELED_MUD_TILES, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("cracked_mud_bricks", InspireBlocks.CRACKED_MUD_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("cracked_mud_brick_tiles", InspireBlocks.CRACKED_MUD_TILES, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("cyan_nether_brick_fence_gate", InspireBlocks.CYAN_NETHER_BRICK_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("cyan_nether_tile_fence_gate", InspireBlocks.CYAN_NETHER_TILE_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_brick_button", InspireBlocks.DEEPSLATE_BRICK_BUTTON, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_brick_door", InspireBlocks.DEEPSLATE_BRICK_DOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_brick_fence", InspireBlocks.DEEPSLATE_BRICK_FENCE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_brick_fence_gate", InspireBlocks.DEEPSLATE_BRICK_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_brick_lamp", InspireBlocks.DEEPSLATE_BRICK_LAMP, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_brick_pillar", InspireBlocks.DEEPSLATE_BRICK_PILLAR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_brick_pressure_plate", InspireBlocks.DEEPSLATE_BRICK_PRESSURE_PLATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_brick_trapdoor", InspireBlocks.DEEPSLATE_BRICK_TRAPDOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_tile_button", InspireBlocks.DEEPSLATE_TILE_BUTTON, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_tile_door", InspireBlocks.DEEPSLATE_TILE_DOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_tile_fence", InspireBlocks.DEEPSLATE_TILE_FENCE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_tile_fence_gate", InspireBlocks.DEEPSLATE_TILE_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_tile_lamp", InspireBlocks.DEEPSLATE_TILE_LAMP, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_tile_pillar", InspireBlocks.DEEPSLATE_TILE_PILLAR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_tile_pressure_plate", InspireBlocks.DEEPSLATE_TILE_PRESSURE_PLATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("deepslate_tile_trapdoor", InspireBlocks.DEEPSLATE_TILE_TRAPDOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_button", InspireBlocks.MUD_BRICK_BUTTON, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_door", InspireBlocks.MUD_BRICK_DOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_fence", InspireBlocks.MUD_BRICK_FENCE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_fence_gate", InspireBlocks.MUD_BRICK_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_lamp", InspireBlocks.MUD_BRICK_LAMP, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_pillar", InspireBlocks.MUD_BRICK_PILLAR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_pressure_plate", InspireBlocks.MUD_BRICK_PRESSURE_PLATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_trapdoor", InspireBlocks.MUD_BRICK_TRAPDOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_button", InspireBlocks.MUD_TILE_BUTTON, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_door", InspireBlocks.MUD_TILE_DOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_fence", InspireBlocks.MUD_TILE_FENCE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_fence_gate", InspireBlocks.MUD_TILE_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_lamp", InspireBlocks.MUD_TILE_LAMP, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_pillar", InspireBlocks.MUD_TILE_PILLAR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_pressure_plate", InspireBlocks.MUD_TILE_PRESSURE_PLATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_slab", InspireBlocks.MUD_TILE_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_stairs", InspireBlocks.MUD_TILE_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_trapdoor", InspireBlocks.MUD_TILE_TRAPDOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tile_wall", InspireBlocks.MUD_TILE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("mud_brick_tiles", InspireBlocks.MUD_TILES, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("nether_brick_fence_gate", InspireBlocks.NETHER_BRICK_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("nether_tile_fence_gate", InspireBlocks.NETHER_TILE_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("quartz_brick_fence_gate", InspireBlocks.QUARTZ_BRICK_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("quartz_tile_fence_gate", InspireBlocks.QUARTZ_TILE_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("red_nether_brick_fence_gate", InspireBlocks.RED_NETHER_BRICK_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlockItem("red_nether_tile_fence_gate", InspireBlocks.RED_NETHER_TILE_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
         /*
         POLISHED_RED_NETHER_BRICKS = ITEMS.register("polished_red_nether_bricks", () -> new BlockItem(InspireBlocks.POLISHED_RED_NETHER_BRICKS.get(), basicProperties("polished_red_nether_bricks").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
         CRACKED_POLISHED_RED_NETHER_BRICKS = ITEMS.register("cracked_polished_red_nether_bricks", () -> new BlockItem(InspireBlocks.CRACKED_POLISHED_RED_NETHER_BRICKS.get(), basicProperties("cracked_polished_red_nether_bricks").arch$tab(CreativeModeTabs.BUILDING_BLOCKS)));
@@ -1303,6 +1355,10 @@ public class InspireItems {
                 .jukeboxPlayable(jukeboxSongResourceKey)
                 .arch$tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
         ));
+    }
+
+    private static void registerBlockItem(String name, RegistrySupplier<Block> block, ResourceKey<CreativeModeTab> tab) {
+        ITEMS.register(name, () -> new BlockItem(block.get(), basicProperties(name).arch$tab(tab)));
     }
 
     private static Item.Properties basicProperties(String name) {

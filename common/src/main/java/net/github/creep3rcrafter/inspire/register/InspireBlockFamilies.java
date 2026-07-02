@@ -1,6 +1,7 @@
 package net.github.creep3rcrafter.inspire.register;
 
 import com.google.common.collect.Maps;
+import net.github.creep3rcrafter.inspire.utils.BetterBlockFamily;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
@@ -929,81 +930,6 @@ public class InspireBlockFamilies extends BlockFamilies {
                 .pressurePlate(InspireBlocks.MUD_BRICK_PRESSURE_PLATE.get())
                 .getFamily();
 
-// Deepslate Tiles Family
-        //BlockFamilies.DEEPSLATE_TILES.ad
-        /*
-        DEEPSLATE_TILES_FAMILY = familyBuilder(Blocks.DEEPSLATE_TILES)
-                //.cracked(InspireBlocks.CRACKED_DEEPSLATE_TILES.get())
-                //.stairs(InspireBlocks.DEEPSLATE_TILE_STAIRS.get())
-                //.slab(InspireBlocks.DEEPSLATE_TILE_SLAB.get())
-                //.wall(InspireBlocks.DEEPSLATE_TILE_WALL.get())
-                .fence(InspireBlocks.DEEPSLATE_TILE_FENCE.get())
-                .fenceGate(InspireBlocks.DEEPSLATE_TILE_FENCE_GATE.get())
-                .chiseled(InspireBlocks.CHISELED_DEEPSLATE_TILES.get())
-                //.pillar(InspireBlocks.DEEPSLATE_TILE_PILLAR.get())
-                .door(InspireBlocks.DEEPSLATE_TILE_DOOR.get())
-                .trapdoor(InspireBlocks.DEEPSLATE_TILE_TRAPDOOR.get())
-                .button(InspireBlocks.DEEPSLATE_TILE_BUTTON.get())
-                .pressurePlate(InspireBlocks.DEEPSLATE_TILE_PRESSURE_PLATE.get())
-                //.lamp(InspireBlocks.DEEPSLATE_TILE_LAMP.get())
-                .getFamily();
-
-         */
-        /*
-        try {
-            Field bricksField = BlockFamilies.class.getDeclaredField("BRICKS");
-            bricksField.setAccessible(true);
-
-            // Rebuild the family using the same base block
-            BlockFamily newBricksFamily = new BlockFamily.Builder(Blocks.BRICKS)
-                    .cracked(InspireBlocks.CRACKED_BRICKS.get())
-                    .stairs(Blocks.BRICK_STAIRS)
-                    .slab(Blocks.BRICK_SLAB)
-                    .wall(Blocks.BRICK_WALL)
-                    .fence(InspireBlocks.BRICK_FENCE.get())
-                    .fenceGate(InspireBlocks.BRICK_FENCE_GATE.get())
-                    .chiseled(InspireBlocks.CHISELED_BRICKS.get())
-                    .trapdoor(InspireBlocks.BRICK_TRAPDOOR.get())
-                    .door(InspireBlocks.BRICK_DOOR.get())
-                    .button(InspireBlocks.BRICK_FENCE_GATE.get())
-                    .pressurePlate(InspireBlocks.BRICK_PRESSURE_PLATE.get())
-                    .getFamily();
-
-            // Overwrite the vanilla field
-            bricksField.set(null, newBricksFamily);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-         */
-        /*
-        POLISHED_RED_NETHER_BRICKS = familyBuilder(InspireBlocks.POLISHED_RED_NETHER_BRICKS.get())
-                .cracked(InspireBlocks.CRACKED_POLISHED_RED_NETHER_BRICKS.get())
-                .stairs(InspireBlocks.POLISHED_RED_NETHER_BRICK_STAIRS.get())
-                .slab(InspireBlocks.POLISHED_RED_NETHER_BRICK_SLAB.get())
-                .wall(InspireBlocks.POLISHED_RED_NETHER_BRICK_WALL.get())
-                .fence(InspireBlocks.POLISHED_RED_NETHER_BRICK_FENCE.get())
-                .fenceGate(InspireBlocks.POLISHED_RED_NETHER_BRICK_FENCE_GATE.get())
-                .chiseled(InspireBlocks.CHISELED_POLISHED_RED_NETHER_BRICK.get())
-                .door(InspireBlocks.POLISHED_RED_NETHER_BRICK_DOOR.get())
-                .trapdoor(InspireBlocks.POLISHED_RED_NETHER_BRICK_TRAPDOOR.get())
-                .button(InspireBlocks.POLISHED_RED_NETHER_BRICK_BUTTON.get())
-                .pressurePlate(InspireBlocks.POLISHED_RED_NETHER_BRICK_PRESSURE_PLATE.get())
-                .getFamily();
-        POLISHED_CYAN_NETHER_BRICKS = familyBuilder(InspireBlocks.POLISHED_CYAN_NETHER_BRICKS.get())
-                .cracked(InspireBlocks.CRACKED_POLISHED_CYAN_NETHER_BRICKS.get())
-                .stairs(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_STAIRS.get())
-                .slab(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_SLAB.get())
-                .wall(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_WALL.get())
-                .fence(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_FENCE.get())
-                .fenceGate(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_FENCE_GATE.get())
-                .chiseled(InspireBlocks.CHISELED_POLISHED_CYAN_NETHER_BRICK.get())
-                .door(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_DOOR.get())
-                .trapdoor(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_TRAPDOOR.get())
-                .button(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_BUTTON.get())
-                .pressurePlate(InspireBlocks.POLISHED_CYAN_NETHER_BRICK_PRESSURE_PLATE.get())
-                .getFamily();
-         */
     }
 
 

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "inspire:block/resin_slab"
+    },
+    "type=double": {
+      "model": "inspire:block/resin_slab_double"
+    },
+    "type=top": {
+      "model": "inspire:block/resin_slab_top"
+    }
+  }
+}

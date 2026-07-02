@@ -5,30 +5,28 @@ import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
 public class BetterBlockFamily {
-    public DyeColor dyeColor;
-    public Block ofType;
-    public Block main;
-    public Block cracked;
-    public Block stair;
-    public Block slab;
-    public Block wall;
-    public Block fence;
-    public Block fenceGate;
-    public Block chiseled;
-    public Block pillar;
-    public Block door;
-    public Block trapdoor;
-    public Block button;
-    public Block pressurePlate;
-    public Block lamp;
-    public Block sign;
-    public Block hangingSign;
-    public Block shelf;
-    public Block grate;
+    public @Nullable DyeColor dyeColor;
+    public @Nullable Block main;
+    public @Nullable Block cracked;
+    public @Nullable Block stair;
+    public @Nullable Block slab;
+    public @Nullable Block wall;
+    public @Nullable Block fence;
+    public @Nullable Block fenceGate;
+    public @Nullable Block chiseled;
+    public @Nullable Block pillar;
+    public @Nullable Block door;
+    public @Nullable Block trapdoor;
+    public @Nullable Block button;
+    public @Nullable Block pressurePlate;
+    public @Nullable Block lamp;
+    public @Nullable Block sign;
+    public @Nullable Block hangingSign;
+    public @Nullable Block shelf;
+    public @Nullable Block grate;
 
     public BetterBlockFamily(
-            DyeColor dyeColor,
-            @Nullable Block ofType,
+            @Nullable DyeColor dyeColor,
             @Nullable Block main,
             @Nullable Block cracked,
             @Nullable Block stair,
@@ -48,7 +46,6 @@ public class BetterBlockFamily {
             @Nullable Block shelf,
             @Nullable Block grate){
         this.dyeColor = dyeColor;
-        this.ofType = ofType;
         this.main = main;
         this.cracked = cracked;
         this.stair = stair;

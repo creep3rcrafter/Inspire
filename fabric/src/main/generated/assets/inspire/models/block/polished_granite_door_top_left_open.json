@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "inspire:block/polished_granite_door_bottom",
+    "top": "inspire:block/polished_granite_door_top"
+  }
+}

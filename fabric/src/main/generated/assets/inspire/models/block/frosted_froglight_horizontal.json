@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "inspire:block/frosted_froglight_top",
-    "side": "inspire:block/frosted_froglight_side"
-  }
-}

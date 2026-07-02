@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "inspire:block/dripstone_door_bottom",
+    "top": "inspire:block/dripstone_door_top"
+  }
+}

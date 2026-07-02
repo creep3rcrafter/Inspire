@@ -45,3 +45,7 @@ bin/
 .DS_Store
 Thumbs.db
 
+PROXYAI.md
+/fabric/src/main/generated/.cache
+/fabric/src/main/generated/.cache
+/fabric/src/main/generated/.cache

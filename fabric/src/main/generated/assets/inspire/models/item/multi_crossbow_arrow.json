@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/crossbow",
-  "textures": {
-    "layer0": "inspire:item/multi_crossbow_arrow"
-  }
-}

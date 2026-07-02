@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "inspire:block/brick_tiles",
+    "side": "inspire:block/brick_tiles"
+  }
+}

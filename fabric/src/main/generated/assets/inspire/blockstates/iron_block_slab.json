@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "inspire:block/iron_block_slab"
+    },
+    "type=double": {
+      "model": "inspire:block/iron_block_slab_double"
+    },
+    "type=top": {
+      "model": "inspire:block/iron_block_slab_top"
+    }
+  }
+}

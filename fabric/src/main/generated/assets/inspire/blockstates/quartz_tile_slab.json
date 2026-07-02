@@ -4,7 +4,7 @@
       "model": "inspire:block/quartz_tile_slab"
     },
     "type=double": {
-      "model": "inspire:block/quartz_tiles"
+      "model": "inspire:block/quartz_tile_slab_double"
     },
     "type=top": {
       "model": "inspire:block/quartz_tile_slab_top"

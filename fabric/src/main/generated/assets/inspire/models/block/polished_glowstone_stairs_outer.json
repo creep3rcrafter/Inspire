@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "inspire:block/polished_glowstone",
+    "side": "inspire:block/polished_glowstone",
+    "top": "inspire:block/polished_glowstone"
+  }
+}

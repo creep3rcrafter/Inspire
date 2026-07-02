@@ -4,7 +4,7 @@
       "model": "inspire:block/purpur_tile_slab"
     },
     "type=double": {
-      "model": "inspire:block/purpur_tiles"
+      "model": "inspire:block/purpur_tile_slab_double"
     },
     "type=top": {
       "model": "inspire:block/purpur_tile_slab_top"

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/crossbow",
-  "textures": {
-    "layer0": "inspire:item/soul_multi_crossbow_pulling_1"
-  }
-}

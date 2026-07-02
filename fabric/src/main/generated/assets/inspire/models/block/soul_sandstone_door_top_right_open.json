@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "inspire:block/soul_sandstone_door_bottom",
+    "top": "inspire:block/soul_sandstone_door_top"
+  }
+}

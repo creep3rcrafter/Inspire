@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "inspire:block/polished_glowstone_tiles",
+    "side": "inspire:block/polished_glowstone_tiles",
+    "top": "inspire:block/polished_glowstone_tiles"
+  }
+}

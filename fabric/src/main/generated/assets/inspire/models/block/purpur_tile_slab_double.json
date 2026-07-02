@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "inspire:block/purpur_tiles",
+    "side": "inspire:block/purpur_tiles"
+  }
+}

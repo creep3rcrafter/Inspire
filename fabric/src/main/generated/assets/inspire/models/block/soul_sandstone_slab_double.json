@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "inspire:block/soul_sandstone",
+    "side": "inspire:block/soul_sandstone"
+  }
+}

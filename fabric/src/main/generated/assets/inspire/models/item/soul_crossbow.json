@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/crossbow",
+  "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "inspire:item/soul_crossbow"
   }

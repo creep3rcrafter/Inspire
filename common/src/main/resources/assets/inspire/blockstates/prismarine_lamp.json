@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "inspire:block/prismarine_lamp"
+    },
+    "lit=true": {
+      "model": "inspire:block/prismarine_lamp_on"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "inspire:item/empty_jar"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "inspire:fill": 0.0
+      },
+      "model": "inspire:item/cookie_jar_0"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.1
+      },
+      "model": "inspire:item/cookie_jar_1"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.2
+      },
+      "model": "inspire:item/cookie_jar_2"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.3
+      },
+      "model": "inspire:item/cookie_jar_3"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.4
+      },
+      "model": "inspire:item/cookie_jar_4"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.5
+      },
+      "model": "inspire:item/cookie_jar_5"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.6
+      },
+      "model": "inspire:item/cookie_jar_6"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.7
+      },
+      "model": "inspire:item/cookie_jar_7"
+    }
+  ]
+}

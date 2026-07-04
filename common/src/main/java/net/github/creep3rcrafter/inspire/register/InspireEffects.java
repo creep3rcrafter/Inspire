@@ -7,18 +7,56 @@ import net.github.creep3rcrafter.inspire.effect.AirSwimMobEffect;
 import net.github.creep3rcrafter.inspire.effect.HomingMobEffect;
 import net.github.creep3rcrafter.inspire.effect.UndyingMobEffect;
 import net.github.creep3rcrafter.inspire.effect.WarmingMobEffect;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.Fox;
+import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.animal.SnowGolem;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.animal.horse.ZombieHorse;
+import net.minecraft.world.entity.monster.Zoglin;
+import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.hoglin.Hoglin;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 public class InspireEffects {
-    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(InspireCommon.MOD_ID, Registries.MOB_EFFECT);
+    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(InspireCommon.MOD_ID, Registry.MOB_EFFECT_REGISTRY);
 
     public static final RegistrySupplier<MobEffect> UNDYING;
     public static final RegistrySupplier<MobEffect> AIR_SWIM;
     public static final RegistrySupplier<MobEffect> WARMING;
     public static final RegistrySupplier<MobEffect> HOMING;
-    /*
     public static final RegistrySupplier<MobEffect> RECOVERY;
     public static final RegistrySupplier<MobEffect> TELEPORTATION;
     public static final RegistrySupplier<MobEffect> SLIPPERY;
@@ -42,14 +80,112 @@ public class InspireEffects {
     public static final RegistrySupplier<MobEffect> REDSTONEACTIVE;
     public static final RegistrySupplier<MobEffect> NIMBLE;
     public static final RegistrySupplier<MobEffect> SPONGY;
-    MobEffects
-     */
+
     static {
-        UNDYING = EFFECTS.register("undying", () -> new UndyingMobEffect(MobEffectCategory.BENEFICIAL, 16766527));
-        AIR_SWIM = EFFECTS.register("air_swim", () -> new AirSwimMobEffect(MobEffectCategory.BENEFICIAL, 24991));
-        WARMING = EFFECTS.register("warming", () -> new WarmingMobEffect(MobEffectCategory.BENEFICIAL, 16757504));
-        HOMING = EFFECTS.register("homing", () -> new HomingMobEffect(MobEffectCategory.BENEFICIAL, 16736892));
-        /*
+        UNDYING = EFFECTS.register("undying", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 16766527) {
+            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            }
+
+            public boolean isDurationEffectTick(int duration, int amplifier) {
+                return duration >= 1;
+            }
+
+            public boolean isInstantenous() {
+                return false;
+            }
+        });
+        AIR_SWIM = EFFECTS.register("air_swim", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 24991) {
+            @Override
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                super.applyEffectTick(livingEntity, amplifier);
+                if (livingEntity.isSprinting()) {
+                    if (!livingEntity.isPassenger()) {
+                        if (!livingEntity.hasEffect(MobEffects.DOLPHINS_GRACE)) {
+                            if (!livingEntity.isEyeInFluid(FluidTags.WATER)) {
+                                if (!livingEntity.updateFluidHeightAndDoFluidPushing(FluidTags.WATER, 0.014D)) {
+                                    float f;
+                                    livingEntity.resetFallDistance();
+                                    livingEntity.wasEyeInWater = true;
+                                    livingEntity.wasTouchingWater = true;
+                                    livingEntity.setSwimming(true);
+                                    Vec3 vec32 = livingEntity.getDeltaMovement();
+                                    f = 1.08f;
+                                    if (livingEntity.horizontalCollision && livingEntity.onClimbable()) {
+                                        vec32 = new Vec3(vec32.x, 0.25D, vec32.z);
+                                    }
+                                    livingEntity.setDeltaMovement(vec32.multiply(f, f + 0.05, f));
+                                    livingEntity.gameEvent(GameEvent.SWIM);
+                                }
+                            }
+                        }
+                    }
+                }
+                //livingEntity.updateSwimming();
+            }
+
+            @Override
+            public boolean isDurationEffectTick(int duration, int amplifier) {
+                return duration >= 1;
+            }
+
+            @Override
+            public boolean isInstantenous() {
+                return false;
+            }
+        });
+        WARMING = EFFECTS.register("warming", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 16757504) {
+            @Override
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.getLevel().isClientSide()) {
+                    ServerLevel serverLevel = (ServerLevel) livingEntity.getLevel();
+                    livingEntity.setTicksFrozen(0);
+                    if (livingEntity instanceof SnowGolem && serverLevel.getServer().getTickCount() % 20 == 0) {
+                        livingEntity.hurt(DamageSource.MAGIC, amplifier + 1);
+                    }
+                }
+            }
+
+            @Override
+            public boolean isDurationEffectTick(int duration, int amplifier) {
+                return duration >= 1;
+            }
+
+            @Override
+            public boolean isInstantenous() {
+                return false;
+            }
+        });
+        HOMING = EFFECTS.register("homing", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 16736892) {
+
+            @Override
+            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.getLevel().isClientSide()) {
+                    if (livingEntity instanceof ServerPlayer serverPlayer && !livingEntity.isSpectator()) {
+                        Vec3 pos;
+                        if (serverPlayer.getRespawnPosition() != null && (serverPlayer.getLevel().getBlockState(serverPlayer.getRespawnPosition()).getBlock() instanceof BedBlock)) {
+                            pos = Vec3.atBottomCenterOf(serverPlayer.getRespawnPosition());
+                            serverPlayer.connection.teleport(pos.x, pos.y, pos.z, Mth.wrapDegrees(serverPlayer.getYRot()), Mth.wrapDegrees(serverPlayer.getXRot()));
+                        } else {
+                            pos = Vec3.atBottomCenterOf(serverPlayer.getLevel().getSharedSpawnPos());
+                            serverPlayer.connection.teleport(pos.x, pos.y, pos.z, Mth.wrapDegrees(serverPlayer.getYRot()), Mth.wrapDegrees(serverPlayer.getXRot()));
+                        }
+                    } else {
+                        Vec3 pos = Vec3.atBottomCenterOf(livingEntity.getLevel().getSharedSpawnPos());
+                        livingEntity.teleportTo(pos.x, pos.y, pos.z);
+                    }
+                }
+            }
+
+            @Override
+            public boolean isDurationEffectTick(int duration, int amplifier) {
+                return duration == 1;
+            }
+
+            @Override
+            public boolean isInstantenous() {
+                return true;
+            }
+        });
         RECOVERY = EFFECTS.register("recovery", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 9044042) {
             @Override
             public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
@@ -77,7 +213,7 @@ public class InspireEffects {
         });
         TELEPORTATION = EFFECTS.register("teleportation", () -> new MobEffect(MobEffectCategory.NEUTRAL, 13041919) {
             @Override
-            public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
                 if (!livingEntity.getLevel().isClientSide()) {
                     if (livingEntity.getLevel().getServer() != null) {
                         if (livingEntity.getLevel().getServer().getTickCount() % (20 + livingEntity.getRandom().nextInt(-10, 40)) == 0) {
@@ -122,7 +258,7 @@ public class InspireEffects {
         });
         SLIPPERY = EFFECTS.register("slippery", () -> new MobEffect(MobEffectCategory.NEUTRAL, 1572863) {
             @Override
-            public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
             }
 
             @Override
@@ -137,7 +273,7 @@ public class InspireEffects {
         });
         THUNDEROUS = EFFECTS.register("thunderous", () -> new MobEffect(MobEffectCategory.HARMFUL, 14745599) {
             @Override
-            public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
                 if (!livingEntity.getLevel().isClientSide()) {
                     ServerLevel serverLevel = (ServerLevel) livingEntity.getLevel();
                     Utils.lightning(livingEntity, serverLevel, amplifier);
@@ -156,7 +292,7 @@ public class InspireEffects {
         });
         EXPLOSIVE = EFFECTS.register("explosive", () -> new MobEffect(MobEffectCategory.HARMFUL, 4522008) {
             @Override
-            public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
                 if (!livingEntity.getLevel().isClientSide()) {
                     ServerLevel serverLevel = (ServerLevel) livingEntity.getLevel();
                     if (!livingEntity.isSpectator()) {
@@ -185,7 +321,7 @@ public class InspireEffects {
         });
         BURNING = EFFECTS.register("burning", () -> new MobEffect(MobEffectCategory.HARMFUL, 16740608) {
             @Override
-            public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
                 if (!livingEntity.isInWaterRainOrBubble()) {
                     livingEntity.setSecondsOnFire(1);
                 }
@@ -221,7 +357,7 @@ public class InspireEffects {
         });
         CORROSIVE = EFFECTS.register("corrosive", () -> new MobEffect(MobEffectCategory.HARMFUL, 10157824) {
             @Override
-            public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
                 if (!livingEntity.getLevel().isClientSide()) {
                     ServerLevel serverLevel = (ServerLevel) livingEntity.getLevel();
                     Random random = new Random();
@@ -299,7 +435,7 @@ public class InspireEffects {
         });
         GRAVITATION = EFFECTS.register("gravitation", () -> new MobEffect(MobEffectCategory.HARMFUL, 11350783) {
             @Override
-            public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
             }
 
             @Override
@@ -314,7 +450,7 @@ public class InspireEffects {
         });
         FATAL_POISON = EFFECTS.register("fatal_poison", () -> new MobEffect(MobEffectCategory.HARMFUL, 16711935) {
             @Override
-            public boolean applyEffectTick(@NotNull ServerLevel serverLevel, @NotNull LivingEntity livingEntity, int amplifier) {
+            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
                 livingEntity.hurt(DamageSource.MAGIC, 1.0F);
             }
 
@@ -367,7 +503,7 @@ public class InspireEffects {
             @Override
             public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 for (MobEffectInstance effectInstance : livingEntity.getActiveEffects()) {
-                    if (effectInstance.getEffect() != ModEffects.NULLIFIER.get()) {
+                    if (effectInstance.getEffect() != InspireEffects.NULLIFIER.get()) {
                         livingEntity.removeEffect(effectInstance.getEffect());
                     }
                 }
@@ -618,6 +754,5 @@ public class InspireEffects {
                 return false;
             }
         });
-         */
     }
 }

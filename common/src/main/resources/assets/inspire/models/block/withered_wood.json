@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "inspire:block/withered_log",
+    "side": "inspire:block/withered_log"
+  }
+}

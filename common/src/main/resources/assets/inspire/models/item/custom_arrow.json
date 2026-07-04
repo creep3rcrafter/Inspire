@@ -1,0 +1,816 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "inspire:item/wood_rod",
+    "layer1": "inspire:item/wood_rod_tip",
+    "layer2": "inspire:item/feather_tail"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_0_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_0_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_0_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_0_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_0_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.05
+      },
+      "model": "inspire:item/custom_arrow_1_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_1_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.05,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_1_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.05,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_1_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.05,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_1_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.05,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_1_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.1
+      },
+      "model": "inspire:item/custom_arrow_2_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_2_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.1,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_2_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.1,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_2_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.1,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_2_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.1,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_2_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.15
+      },
+      "model": "inspire:item/custom_arrow_3_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.15,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_3_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.15,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_3_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.15,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_3_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.15,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_3_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.15,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_3_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.2
+      },
+      "model": "inspire:item/custom_arrow_4_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.2,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_4_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.2,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_4_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.2,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_4_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.2,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_4_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.2,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_4_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.25
+      },
+      "model": "inspire:item/custom_arrow_5_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.25,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_5_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.25,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_5_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.25,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_5_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.25,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_5_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.25,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_5_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.3
+      },
+      "model": "inspire:item/custom_arrow_6_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.3,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_6_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.3,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_6_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.3,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_6_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.3,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_6_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.3,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_6_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.35
+      },
+      "model": "inspire:item/custom_arrow_7_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.35,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_7_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.35,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_7_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.35,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_7_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.35,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_7_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.35,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_7_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.4
+      },
+      "model": "inspire:item/custom_arrow_8_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.4,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_8_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.4,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_8_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.4,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_8_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.4,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_8_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.4,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_8_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.45
+      },
+      "model": "inspire:item/custom_arrow_9_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.45,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_9_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.45,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_9_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.45,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_9_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.45,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_9_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.45,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_9_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.5
+      },
+      "model": "inspire:item/custom_arrow_10_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.5,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_10_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.5,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_10_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.5,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_10_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.5,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_10_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.5,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_10_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.55
+      },
+      "model": "inspire:item/custom_arrow_11_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.55,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_11_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.55,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_11_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.55,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_11_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.55,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_11_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.55,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_11_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.6
+      },
+      "model": "inspire:item/custom_arrow_12_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.6,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_12_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.6,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_12_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.6,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_12_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.6,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_12_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.6,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_12_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.65
+      },
+      "model": "inspire:item/custom_arrow_13_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.65,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_13_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.65,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_13_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.65,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_13_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.65,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_13_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.65,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_13_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.7
+      },
+      "model": "inspire:item/custom_arrow_14_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.7,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_14_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.7,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_14_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.7,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_14_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.7,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_14_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.7,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_14_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.75
+      },
+      "model": "inspire:item/custom_arrow_15_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.75,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_15_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.75,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_15_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.75,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_15_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.75,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_15_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.75,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_15_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.8
+      },
+      "model": "inspire:item/custom_arrow_16_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.8,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_16_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.8,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_16_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.8,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_16_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.8,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_16_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.8,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_16_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.85
+      },
+      "model": "inspire:item/custom_arrow_17_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.85,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_17_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.85,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_17_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.85,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_17_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.85,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_17_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.85,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_17_2_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.9
+      },
+      "model": "inspire:item/custom_arrow_18_0_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.9,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_18_0_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.9,
+        "inspire:rod": 0.05
+      },
+      "model": "inspire:item/custom_arrow_18_1_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.9,
+        "inspire:rod": 0.05,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_18_1_1"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.9,
+        "inspire:rod": 0.1
+      },
+      "model": "inspire:item/custom_arrow_18_2_0"
+    },
+    {
+      "predicate": {
+        "inspire:tip": 0.9,
+        "inspire:rod": 0.1,
+        "inspire:tail": 0.05
+      },
+      "model": "inspire:item/custom_arrow_18_2_1"
+    }
+  ]
+}

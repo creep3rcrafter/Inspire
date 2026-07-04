@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "inspire:block/white_carved_pumpkin",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "inspire:block/white_carved_pumpkin"
+    },
+    "facing=south": {
+      "model": "inspire:block/white_carved_pumpkin",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "inspire:block/white_carved_pumpkin",
+      "y": 270
+    }
+  }
+}

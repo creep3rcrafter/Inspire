@@ -1,0 +1,26 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "inspire:item/empty_jar"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "inspire:fill": 0.0
+      },
+      "model": "inspire:item/potion_jar_0"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.1
+      },
+      "model": "inspire:item/potion_jar_1"
+    },
+    {
+      "predicate": {
+        "inspire:fill": 0.2
+      },
+      "model": "inspire:item/potion_jar_2"
+    }
+  ]
+}

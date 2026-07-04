@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "inspire:block/thin_ice"
+    },
+    "type=double": {
+      "model": "inspire:block/thin_ice_full"
+    },
+    "type=top": {
+      "model": "inspire:block/thin_ice_top"
+    }
+  }
+}

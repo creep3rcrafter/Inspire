@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "inspire:block/bluestone_torch_off"
+    },
+    "lit=true": {
+      "model": "inspire:block/bluestone_torch"
+    }
+  }
+}

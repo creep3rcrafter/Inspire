@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "inspire:block/withered_planks",
+    "side": "inspire:block/withered_planks",
+    "top": "inspire:block/withered_planks"
+  }
+}

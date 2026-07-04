@@ -1,0 +1,6 @@
+{
+    "parent": "inspire:block/soulstone_dust_side_alt",
+    "textures": {
+        "line": "inspire:block/soulstone_dust_line1"
+    }
+}

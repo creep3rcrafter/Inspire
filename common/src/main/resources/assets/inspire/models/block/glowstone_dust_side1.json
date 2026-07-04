@@ -1,0 +1,6 @@
+{
+    "parent": "inspire:block/glowstone_dust_side",
+    "textures": {
+        "line": "inspire:block/glowstone_dust_line1"
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "inspire:item/wood_rod",
+    "layer1": "inspire:item/wood_rod_tip",
+    "layer2": "inspire:item/feather_tail"
+  }
+}

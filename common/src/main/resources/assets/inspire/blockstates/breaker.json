@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "inspire:block/breaker_vertical",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "inspire:block/breaker",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "inspire:block/breaker"
+    },
+    "facing=south": {
+      "model": "inspire:block/breaker",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "inspire:block/breaker_vertical"
+    },
+    "facing=west": {
+      "model": "inspire:block/breaker",
+      "y": 270
+    }
+  }
+}

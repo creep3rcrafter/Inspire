@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "brightness=0": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=1": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=2": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=3": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=4": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=5": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=6": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=7": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=8": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=9": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=10": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=11": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=12": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=13": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=14": {
+      "model": "inspire:block/soul_glass"
+    },
+    "brightness=15": {
+      "model": "inspire:block/soul_glass"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "inspire:item/sweet_berry_jelly_jar_5_overlay",
+    "layer1": "inspire:item/empty_jar"
+  }
+}

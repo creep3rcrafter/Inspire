@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "inspire:item/chocolate_milk_jar_4_overlay",
+    "layer1": "inspire:item/empty_jar"
+  }
+}

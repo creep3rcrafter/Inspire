@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "inspire:block/thin_ice",
+    "side": "inspire:block/thin_ice",
+    "top": "inspire:block/thin_ice"
+  }
+}

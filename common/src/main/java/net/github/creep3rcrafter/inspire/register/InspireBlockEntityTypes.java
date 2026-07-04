@@ -13,6 +13,13 @@ import java.util.Set;
 public class InspireBlockEntityTypes {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(InspireCommon.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
 
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(InspireCommon.MOD_ID, Registry.BLOCK_ENTITY_TYPE_REGISTRY);
+    //public static final RegistrySupplier<BlockEntityType<PotionLiquidBlockEntity>> POTION_LIQUID_BLOCK_ENTITY_TYPE;
+    //public static final RegistrySupplier<BlockEntityType<ObsidianChestBlockEntity>> OBSIDIAN_CHEST;
+    public static final RegistrySupplier<BlockEntityType<BreakerBlockEntity>> BREAKER;
+    public static final RegistrySupplier<BlockEntityType<CursedTableBlockEntity>> CURSED_TABLE;
+    public static final RegistrySupplier<BlockEntityType<FilteredHopperBlockEntity>> FILTERED_HOPPER;
+
     // BlockEntityType registration for 1.21.1 - disabled due to constructor signature changes
     // The exact constructor signature is unclear for 1.21.1
     // TODO: Verify correct BlockEntityType construction for 1.21.1
@@ -21,4 +28,21 @@ public class InspireBlockEntityTypes {
             BLOCK_ENTITY_TYPES.register("bed", () -> new BlockEntityType<>(RegularBedBlockEntity::new, InspireBlocks.BED.get()));
     */
     public static RegistrySupplier<BlockEntityType<RegularBedBlockEntity>> BED;
+    static {
+        /*
+        POTION_LIQUID_BLOCK_ENTITY_TYPE = BLOCK_ENTITY_TYPES.register(
+                "potion_liquid_block_entity", () -> BlockEntityType.Builder.of(PotionLiquidBlockEntity::new, InspireBlocks.POTION_FLUID.get()).build(null));
+         */
+        /*
+        OBSIDIAN_CHEST = BLOCK_ENTITY_TYPES.register(
+                "obsidian_chest", () -> BlockEntityType.Builder.of(ObsidianChestBlockEntity::new, InspireBlocks.OBSIDIAN_CHEST.get()).build(null));
+         */
+        BREAKER = BLOCK_ENTITY_TYPES.register(
+                "breaker", () -> BlockEntityType.Builder.of(BreakerBlockEntity::new, InspireBlocks.BREAKER.get()).build(null));
+        CURSED_TABLE = BLOCK_ENTITY_TYPES.register(
+                "cursed_table", () -> BlockEntityType.Builder.of(CursedTableBlockEntity::new, InspireBlocks.CURSED_TABLE.get()).build(null));
+        FILTERED_HOPPER = BLOCK_ENTITY_TYPES.register(
+                "filtered_hopper", () -> BlockEntityType.Builder.of(FilteredHopperBlockEntity::new, InspireBlocks.FILTERED_HOPPER.get()).build(null));
+    }
+    }
 }

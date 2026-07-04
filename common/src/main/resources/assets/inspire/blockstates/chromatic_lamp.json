@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "color=0": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=1": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=2": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=3": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=4": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=5": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=6": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=7": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=8": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=9": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=10": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=11": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=12": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=13": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=14": {
+      "model": "inspire:block/chromatic_lamp"
+    },
+    "color=15": {
+      "model": "inspire:block/chromatic_lamp"
+    }
+  }
+}

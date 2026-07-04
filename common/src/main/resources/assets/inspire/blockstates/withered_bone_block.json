@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "inspire:block/withered_bone_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "inspire:block/withered_bone_block"
+    },
+    "axis=z": {
+      "model": "inspire:block/withered_bone_block",
+      "x": 90
+    }
+  }
+}

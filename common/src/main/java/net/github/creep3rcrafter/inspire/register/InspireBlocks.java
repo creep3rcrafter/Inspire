@@ -1,11 +1,13 @@
 package net.github.creep3rcrafter.inspire.register;
 
+import dev.architectury.core.block.ArchitecturyLiquidBlock;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.github.creep3rcrafter.inspire.block.RegularBedBlock;
 import net.github.creep3rcrafter.inspire.block.ShelfFungiBlock;
 import net.github.creep3rcrafter.inspire.block.entity.IcicleBlock;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -22,6 +24,8 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+
+import java.util.function.ToIntFunction;
 
 public class InspireBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(InspireCommon.MOD_ID, Registries.BLOCK);
@@ -860,6 +864,118 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> POLISHED_CALCITE_BUTTON;
     public static final RegistrySupplier<Block> POLISHED_CALCITE_PRESSURE_PLATE;
     public static final RegistrySupplier<Block> POLISHED_CALCITE_LAMP;
+    public static final RegistrySupplier<Block> WHITE_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> ORANGE_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> MAGENTA_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> LIGHT_BLUE_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> YELLOW_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> LIME_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> PINK_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> GRAY_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> GREEN_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> LIGHT_GRAY_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> CYAN_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> PURPLE_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> BLUE_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> BROWN_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> RED_DYE_GLOB_BLOCK;
+    public static final RegistrySupplier<Block> BLACK_DYE_GLOB_BLOCK;
+    //public static final RegistrySupplier<Block> DRY_CACTUS_BLOCK;
+    //public static final RegistrySupplier<LiquidBlock> POTION_FLUID;
+    //public static final RegistrySupplier<ChromaticLampBlock> CHROMATIC_LAMP;
+    //public static final RegistrySupplier<Block> GLOWSTONE_WIRE;
+    //public static final RegistrySupplier<Block> SOULSTONE_WIRE;
+    public static final RegistrySupplier<Block> BLUESTONE_WIRE;
+    public static final RegistrySupplier<Block> BLUESTONE_TORCH;
+    public static final RegistrySupplier<Block> BLUESTONE_WALL_TORCH;
+    public static final RegistrySupplier<Block> PRISMARINE_LEVER;
+    public static final RegistrySupplier<Block> PRISMARINE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Block> PRISMARINE_BUTTON;
+    public static final RegistrySupplier<Block> BLUESTONE_REPEATER;
+    public static final RegistrySupplier<Block> BLUESTONE_COMPARATOR;
+
+    //public static final RegistrySupplier<Block> OBSIDIAN_CHEST;
+
+    public static final RegistrySupplier<Block> PRISMARINE_LAMP;
+
+    public static final RegistrySupplier<Block> BLUESTONE_ORE;
+    public static final RegistrySupplier<Block> DEEPSLATE_BLUESTONE_ORE;
+    public static final RegistrySupplier<Block> AMETHYST_ORE;
+    public static final RegistrySupplier<Block> DEEPSLATE_AMETHYST_ORE;
+    public static final RegistrySupplier<Block> PRISMARINE_ORE;
+    public static final RegistrySupplier<Block> DEEPSLATE_PRISMARINE_ORE;
+
+    public static final RegistrySupplier<Block> BLUESTONE_BLOCK;
+
+    public static final RegistrySupplier<Block> WITHERED_BONE_BLOCK;
+
+    public static final RegistrySupplier<Block> WITHERED_LOG;
+    public static final RegistrySupplier<Block> STRIPPED_WITHERED_LOG;
+    public static final RegistrySupplier<Block> WITHERED_WOOD;
+    public static final RegistrySupplier<Block> WITHERED_PLANKS;
+    public static final RegistrySupplier<Block> WITHERED_SAPLING;
+    public static final RegistrySupplier<Block> WITHERED_STAIRS;
+    public static final RegistrySupplier<Block> WITHERED_SIGN;
+    public static final RegistrySupplier<Block> WITHERED_DOOR;
+    public static final RegistrySupplier<Block> WITHERED_WALL_SIGN;
+    public static final RegistrySupplier<Block> WITHERED_PRESSURE_PLATE;
+    public static final RegistrySupplier<Block> WITHERED_FENCE;
+    public static final RegistrySupplier<Block> WITHERED_TRAPDOOR;
+    public static final RegistrySupplier<Block> WITHERED_FENCE_GATE;
+    public static final RegistrySupplier<Block> POTTED_WITHERED_SAPLING;
+    public static final RegistrySupplier<Block> WITHERED_BUTTON;
+    public static final RegistrySupplier<Block> WITHERED_SLAB;
+    public static final RegistrySupplier<Block> STRIPPED_WITHERED_WOOD;
+
+    public static final RegistrySupplier<Block> PINE_LOG;
+    public static final RegistrySupplier<Block> STRIPPED_PINE_LOG;
+    public static final RegistrySupplier<Block> PINE_WOOD;
+    public static final RegistrySupplier<Block> PINE_PLANKS;
+    public static final RegistrySupplier<Block> PINE_SAPLING;
+    public static final RegistrySupplier<Block> PINE_STAIRS;
+    public static final RegistrySupplier<Block> PINE_SIGN;
+    public static final RegistrySupplier<Block> PINE_DOOR;
+    public static final RegistrySupplier<Block> PINE_WALL_SIGN;
+    public static final RegistrySupplier<Block> PINE_PRESSURE_PLATE;
+    public static final RegistrySupplier<Block> PINE_FENCE;
+    public static final RegistrySupplier<Block> PINE_TRAPDOOR;
+    public static final RegistrySupplier<Block> PINE_FENCE_GATE;
+    public static final RegistrySupplier<Block> POTTED_PINE_SAPLING;
+    public static final RegistrySupplier<Block> PINE_BUTTON;
+    public static final RegistrySupplier<Block> PINE_SLAB;
+    public static final RegistrySupplier<Block> STRIPPED_PINE_WOOD;
+
+    public static final RegistrySupplier<Block> REDWOOD_LOG;
+    public static final RegistrySupplier<Block> STRIPPED_REDWOOD_LOG;
+    public static final RegistrySupplier<Block> REDWOOD_WOOD;
+    public static final RegistrySupplier<Block> REDWOOD_PLANKS;
+    public static final RegistrySupplier<Block> REDWOOD_SAPLING;
+    public static final RegistrySupplier<Block> REDWOOD_STAIRS;
+    public static final RegistrySupplier<Block> REDWOOD_SIGN;
+    public static final RegistrySupplier<Block> REDWOOD_DOOR;
+    public static final RegistrySupplier<Block> REDWOOD_WALL_SIGN;
+    public static final RegistrySupplier<Block> REDWOOD_PRESSURE_PLATE;
+    public static final RegistrySupplier<Block> REDWOOD_FENCE;
+    public static final RegistrySupplier<Block> REDWOOD_TRAPDOOR;
+    public static final RegistrySupplier<Block> REDWOOD_FENCE_GATE;
+    public static final RegistrySupplier<Block> POTTED_REDWOOD_SAPLING;
+    public static final RegistrySupplier<Block> REDWOOD_BUTTON;
+    public static final RegistrySupplier<Block> REDWOOD_SLAB;
+    public static final RegistrySupplier<Block> STRIPPED_REDWOOD_WOOD;
+
+    public static final RegistrySupplier<Block> BREAKER;
+    public static final RegistrySupplier<Block> FILTER;
+    public static final RegistrySupplier<Block> SOUL_GLASS;
+    public static final RegistrySupplier<Block> CURSED_TABLE;
+    public static final RegistrySupplier<Block> SOUL_FARMLAND;
+    public static final RegistrySupplier<Block> MAGNETIC_REPULSER;
+    public static final RegistrySupplier<LiquidBlock> SOUL_FLUID_BLOCK;
+    public static final RegistrySupplier<LiquidBlock> HONEY_FLUID_BLOCK;
+    public static final RegistrySupplier<LiquidBlock> SCULK_SLUDGE_BLOCK;
+    //public static final RegistrySupplier<Block> REDSTONE_GLASS;
+
+    public static final RegistrySupplier<Block> FILTERED_HOPPER;
+
 
     /*
     public static final RegistrySupplier<Block> POLISHED_RED_NETHER_BRICKS;
@@ -893,6 +1009,157 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> POLISHED_CYAN_NETHER_BRICK_LAMP;
      */
     static {
+        WHITE_DYE_GLOB_BLOCK = BLOCKS.register("white_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.WHITE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.WHITE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        ORANGE_DYE_GLOB_BLOCK = BLOCKS.register("orange_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.ORANGE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.ORANGE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        MAGENTA_DYE_GLOB_BLOCK = BLOCKS.register("magenta_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.MAGENTA.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        LIGHT_BLUE_DYE_GLOB_BLOCK = BLOCKS.register("light_blue_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.LIGHT_BLUE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.LIGHT_BLUE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        YELLOW_DYE_GLOB_BLOCK = BLOCKS.register("yellow_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.YELLOW, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.YELLOW.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        LIME_DYE_GLOB_BLOCK = BLOCKS.register("lime_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.LIME, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.LIME.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        PINK_DYE_GLOB_BLOCK = BLOCKS.register("pink_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.PINK, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.PINK.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        GRAY_DYE_GLOB_BLOCK = BLOCKS.register("gray_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.GRAY, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.GRAY.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        GREEN_DYE_GLOB_BLOCK = BLOCKS.register("green_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.GREEN, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.GREEN.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        LIGHT_GRAY_DYE_GLOB_BLOCK = BLOCKS.register("light_gray_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.LIGHT_GRAY, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.LIGHT_GRAY.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        CYAN_DYE_GLOB_BLOCK = BLOCKS.register("cyan_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.CYAN, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.CYAN.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        PURPLE_DYE_GLOB_BLOCK = BLOCKS.register("purple_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.PURPLE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.PURPLE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        BLUE_DYE_GLOB_BLOCK = BLOCKS.register("blue_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.BLUE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.BLUE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        BROWN_DYE_GLOB_BLOCK = BLOCKS.register("brown_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.BROWN, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.BROWN.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        RED_DYE_GLOB_BLOCK = BLOCKS.register("red_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.RED, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.RED.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+        BLACK_DYE_GLOB_BLOCK = BLOCKS.register("black_dye_glob_block", () ->
+                new DyeGlobBlock(DyeColor.BLACK, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.BLACK.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+
+        BLUESTONE_WIRE = BLOCKS.register("bluestone_wire", () ->
+                new BluestoneWireBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().instabreak()));
+        BLUESTONE_TORCH = BLOCKS.register("bluestone_torch", () ->
+                new BluestoneTorchBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel(litBlockEmission(7)).sound(SoundType.WOOD)));
+        BLUESTONE_WALL_TORCH = BLOCKS.register("bluestone_wall_torch", () ->
+                new BluestoneWallTorchBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel(litBlockEmission(7)).sound(SoundType.WOOD).dropsLike(BLUESTONE_TORCH.get())));
+        PRISMARINE_LEVER = BLOCKS.register("prismarine_lever", () ->
+                new BluestoneLeverBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(1.5F, 6.0F).sound(SoundType.WOOD)));
+        PRISMARINE_PRESSURE_PLATE = BLOCKS.register("prismarine_pressure_plate", () ->
+                new BluestonePressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).noCollission().requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
+        PRISMARINE_BUTTON = BLOCKS.register("prismarine_button", () ->
+                new BluestoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(1.5F, 6.0F)));
+        BLUESTONE_REPEATER = BLOCKS.register("bluestone_repeater", () ->
+                new BluestoneRepeaterBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().sound(SoundType.WOOD)));
+        BLUESTONE_COMPARATOR = BLOCKS.register("bluestone_comparator", () ->
+                new BluestoneComparatorBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().sound(SoundType.WOOD)));
+
+        PRISMARINE_LAMP = BLOCKS.register("prismarine_lamp", () ->
+                new RedstoneLampBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.QUARTZ).lightLevel(litBlockEmission(15)).strength(0.3F).sound(SoundType.GLASS).isValidSpawn(InspireBlocks::always)));
+
+        BLUESTONE_ORE = BLOCKS.register("bluestone_ore", () ->
+                new BluestoneOreBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().randomTicks().lightLevel(litBlockEmission(9)).strength(3.0F, 3.0F)));
+        DEEPSLATE_BLUESTONE_ORE = BLOCKS.register("deepslate_bluestone_ore", () ->
+                new BluestoneOreBlock(BlockBehaviour.Properties.copy(BLUESTONE_ORE.get()).color(MaterialColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE)));
+
+        AMETHYST_ORE = BLOCKS.register("amethyst_ore", () ->
+                new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
+        DEEPSLATE_AMETHYST_ORE = BLOCKS.register("deepslate_amethyst_ore", () ->
+                new DropExperienceBlock(BlockBehaviour.Properties.copy(AMETHYST_ORE.get()).color(MaterialColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE)));
+
+        PRISMARINE_ORE = BLOCKS.register("prismarine_ore", () ->
+                new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
+        DEEPSLATE_PRISMARINE_ORE = BLOCKS.register("deepslate_prismarine_ore", () ->
+                new DropExperienceBlock(BlockBehaviour.Properties.copy(PRISMARINE_ORE.get()).color(MaterialColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE)));
+
+        BLUESTONE_BLOCK = BLOCKS.register("bluestone_block", () ->
+                new PoweredBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL).isRedstoneConductor(InspireBlocks::never)));
+
+        WITHERED_BONE_BLOCK = BLOCKS.register("withered_bone_block", () ->
+                new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(2.5F).sound(SoundType.BONE_BLOCK)));
+
+        WITHERED_LOG = BLOCKS.register("withered_log", () -> netherLog(MaterialColor.COLOR_LIGHT_GRAY));
+        STRIPPED_WITHERED_LOG = BLOCKS.register("stripped_withered_log", () -> netherLog(MaterialColor.COLOR_BLACK));
+        WITHERED_WOOD = BLOCKS.register("withered_wood", () -> netherLog(MaterialColor.COLOR_LIGHT_GRAY));
+        STRIPPED_WITHERED_WOOD = BLOCKS.register("stripped_withered_wood", () -> netherLog(MaterialColor.COLOR_BLACK));
+        WITHERED_PLANKS = BLOCKS.register("withered_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLACK).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        WITHERED_SAPLING = BLOCKS.register("withered_sapling", () -> new SaplingBlock(new OakTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        WITHERED_STAIRS = BLOCKS.register("withered_stairs", () -> new StairBlock(WITHERED_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(WITHERED_PLANKS.get())));
+        WITHERED_SIGN = BLOCKS.register("withered_sign", () -> new StandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), WoodType.OAK));
+        WITHERED_DOOR = BLOCKS.register("withered_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, WITHERED_PLANKS.get().defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
+        WITHERED_WALL_SIGN = BLOCKS.register("withered_wall_sign", () -> new WallSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(WITHERED_SIGN.get()), WoodType.OAK));
+        WITHERED_PRESSURE_PLATE = BLOCKS.register("withered_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, WITHERED_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        WITHERED_FENCE = BLOCKS.register("withered_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, WITHERED_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        WITHERED_TRAPDOOR = BLOCKS.register("withered_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLACK).strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(InspireBlocks::never)));
+        WITHERED_FENCE_GATE = BLOCKS.register("withered_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, WITHERED_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        POTTED_WITHERED_SAPLING = BLOCKS.register("potted_withered_sapling", () -> new FlowerPotBlock(WITHERED_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
+        WITHERED_BUTTON = BLOCKS.register("withered_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        WITHERED_SLAB = BLOCKS.register("withered_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLACK).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+
+        PINE_LOG = BLOCKS.register("pine_log", () -> netherLog(MaterialColor.COLOR_RED));
+        STRIPPED_PINE_LOG = BLOCKS.register("stripped_pine_log", () -> netherLog(MaterialColor.COLOR_RED));
+        PINE_WOOD = BLOCKS.register("pine_wood", () -> netherLog(MaterialColor.COLOR_RED));
+        STRIPPED_PINE_WOOD = BLOCKS.register("stripped_pine_wood", () -> netherLog(MaterialColor.COLOR_RED));
+        PINE_PLANKS = BLOCKS.register("pine_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        PINE_SAPLING = BLOCKS.register("pine_sapling", () -> new SaplingBlock(new OakTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        PINE_STAIRS = BLOCKS.register("pine_stairs", () -> new StairBlock(PINE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(PINE_PLANKS.get())));
+        PINE_SIGN = BLOCKS.register("pine_sign", () -> new StandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), WoodType.OAK));
+        PINE_DOOR = BLOCKS.register("pine_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, PINE_PLANKS.get().defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
+        PINE_WALL_SIGN = BLOCKS.register("pine_wall_sign", () -> new WallSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PINE_SIGN.get()), WoodType.OAK));
+        PINE_PRESSURE_PLATE = BLOCKS.register("pine_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, PINE_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        PINE_FENCE = BLOCKS.register("pine_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, PINE_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        PINE_TRAPDOOR = BLOCKS.register("pine_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(InspireBlocks::never)));
+        PINE_FENCE_GATE = BLOCKS.register("pine_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, PINE_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        POTTED_PINE_SAPLING = BLOCKS.register("potted_pine_sapling", () -> new FlowerPotBlock(PINE_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
+        PINE_BUTTON = BLOCKS.register("pine_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        PINE_SLAB = BLOCKS.register("pine_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+
+        REDWOOD_LOG = BLOCKS.register("redwood_log", () -> netherLog(MaterialColor.COLOR_RED));
+        STRIPPED_REDWOOD_LOG = BLOCKS.register("stripped_redwood_log", () -> netherLog(MaterialColor.COLOR_RED));
+        REDWOOD_WOOD = BLOCKS.register("redwood_wood", () -> netherLog(MaterialColor.COLOR_RED));
+        STRIPPED_REDWOOD_WOOD = BLOCKS.register("stripped_redwood_wood", () -> netherLog(MaterialColor.COLOR_RED));
+        REDWOOD_PLANKS = BLOCKS.register("redwood_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        REDWOOD_SAPLING = BLOCKS.register("redwood_sapling", () -> new SaplingBlock(new OakTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        REDWOOD_STAIRS = BLOCKS.register("redwood_stairs", () -> new StairBlock(REDWOOD_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(REDWOOD_PLANKS.get())));
+        REDWOOD_SIGN = BLOCKS.register("redwood_sign", () -> new StandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), WoodType.OAK));
+        REDWOOD_DOOR = BLOCKS.register("redwood_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
+        REDWOOD_WALL_SIGN = BLOCKS.register("redwood_wall_sign", () -> new WallSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(REDWOOD_SIGN.get()), WoodType.OAK));
+        REDWOOD_PRESSURE_PLATE = BLOCKS.register("redwood_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        REDWOOD_FENCE = BLOCKS.register("redwood_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        REDWOOD_TRAPDOOR = BLOCKS.register("redwood_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(InspireBlocks::never)));
+        REDWOOD_FENCE_GATE = BLOCKS.register("redwood_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+        POTTED_REDWOOD_SAPLING = BLOCKS.register("potted_redwood_sapling", () -> new FlowerPotBlock(REDWOOD_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
+        REDWOOD_BUTTON = BLOCKS.register("redwood_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        REDWOOD_SLAB = BLOCKS.register("redwood_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+
+        BREAKER = BLOCKS.register("breaker", () -> new BreakerBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.5F)));
+        FILTER = BLOCKS.register("filter", () -> new FilterBlock(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().requiresCorrectToolForDrops().strength(3.5F)));
+        SOUL_GLASS = BLOCKS.register("soul_glass", () -> new SoulGlassBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3F).sound(SoundType.GLASS).noOcclusion().randomTicks().isValidSpawn(InspireBlocks::never).isRedstoneConductor(InspireBlocks::never).isSuffocating(InspireBlocks::never).isViewBlocking(InspireBlocks::never).lightLevel(brightnessBlockEmission())));
+        CURSED_TABLE = BLOCKS.register("cursed_table", () -> new CursedTableBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_RED).requiresCorrectToolForDrops().lightLevel((blockStatex) -> 7).strength(5.0F, 1200.0F)));
+        //Blocks
+        SOUL_FLUID_BLOCK = BLOCKS.register("soul_fluid_block", () ->
+                new ArchitecturyLiquidBlock(InspireFluids.SOUL_FLUID, BlockBehaviour.Properties.copy(Blocks.WATER)));//removed .get()
+        HONEY_FLUID_BLOCK = BLOCKS.register("honey_fluid_block", () ->
+                new ArchitecturyLiquidBlock(InspireFluids.HONEY_FLUID, BlockBehaviour.Properties.copy(Blocks.WATER)));//removed .get()
+        SOUL_FARMLAND = BLOCKS.register("soul_farmland", () ->
+                new SoulFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));//removed .get()
+        MAGNETIC_REPULSER = BLOCKS.register("magnetic_repulser", () ->
+                new MagneticRepulser(BlockBehaviour.Properties.copy(Blocks.STONE)));//removed .get()
+
+        SCULK_SLUDGE_BLOCK = BLOCKS.register("sculk_sludge_block", () ->
+                new ArchitecturyLiquidBlock(InspireFluids.SCULK_SLUDGE, BlockBehaviour.Properties.copy(Blocks.WATER)));//removed .get()
+        FILTERED_HOPPER = BLOCKS.register("filtered_hopper", () ->
+                new FilteredHopperBlock(BlockBehaviour.Properties.copy(Blocks.HOPPER)));//removed .get()
+
+        /*
+        REDSTONE_GLASS = BLOCKS.register("redstone_glass", () ->
+                new RedstoneGlassBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));//removed .get()
+         */
         AMARANTH_FROGLIGHT = BLOCKS.register("amaranth_froglight", ()-> new RotatedPillarBlock(basicProperties("amaranth_froglight").mapColor(MapColor.SAND).strength(0.3F).lightLevel((blockStatex) -> 15).sound(SoundType.FROGLIGHT)));
         BLUSH_FROGLIGHT = BLOCKS.register("blush_froglight", ()-> new RotatedPillarBlock(basicProperties("blush_froglight").mapColor(MapColor.SAND).strength(0.3F).lightLevel((blockStatex) -> 15).sound(SoundType.FROGLIGHT)));
         CELADON_FROGLIGHT = BLOCKS.register("celadon_froglight", ()-> new RotatedPillarBlock(basicProperties("celadon_froglight").mapColor(MapColor.SAND).strength(0.3F).lightLevel((blockStatex) -> 15).sound(SoundType.FROGLIGHT)));
@@ -1788,7 +2055,9 @@ public class InspireBlocks {
         // setId() is not available in Minecraft 1.21.1
         return BlockBehaviour.Properties.of();
     }
-
+    public static ToIntFunction<BlockState> brightnessBlockEmission() {
+        return (blockState) -> (Integer) blockState.getValue(InspireBlockStateProperties.BRIGHTNESS);
+    }
     private static boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
         return true;
     }

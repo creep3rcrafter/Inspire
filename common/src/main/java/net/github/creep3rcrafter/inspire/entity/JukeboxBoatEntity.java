@@ -25,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.BiConsumer;
 
-public class JukeboxBoat extends Boat implements Clearable {
+public class JukeboxBoatEntity extends Boat implements Clearable {
     //Dismount Location for Passenger ______________________________________________________________---__-___________________--_-__
     private static final EntityDataAccessor<ItemStack> RECORD;
     private static final EntityDataAccessor<Integer> TICKS_SINCE_LAST_EVENT;
@@ -35,46 +35,46 @@ public class JukeboxBoat extends Boat implements Clearable {
     private static final EntityDataAccessor<Boolean> HAS_RECORD;
 
     static {
-        RECORD = SynchedEntityData.defineId(JukeboxBoat.class, EntityDataSerializers.ITEM_STACK);
-        TICKS_SINCE_LAST_EVENT = SynchedEntityData.defineId(JukeboxBoat.class, EntityDataSerializers.INT);
-        //TICK_COUNT = SynchedEntityData.defineId(JukeboxBoat.class, InspireEntityDataSerializers.LONG);
-        RECORD_STARTED_TICK = SynchedEntityData.defineId(JukeboxBoat.class, InspireEntityDataSerializers.LONG);
-        IS_PLAYING = SynchedEntityData.defineId(JukeboxBoat.class, EntityDataSerializers.BOOLEAN);
-        HAS_RECORD = SynchedEntityData.defineId(JukeboxBoat.class, EntityDataSerializers.BOOLEAN);
+        RECORD = SynchedEntityData.defineId(JukeboxBoatEntity.class, EntityDataSerializers.ITEM_STACK);
+        TICKS_SINCE_LAST_EVENT = SynchedEntityData.defineId(JukeboxBoatEntity.class, EntityDataSerializers.INT);
+        //TICK_COUNT = SynchedEntityData.defineId(JukeboxBoatEntity.class, InspireEntityDataSerializers.LONG);
+        RECORD_STARTED_TICK = SynchedEntityData.defineId(JukeboxBoatEntity.class, InspireEntityDataSerializers.LONG);
+        IS_PLAYING = SynchedEntityData.defineId(JukeboxBoatEntity.class, EntityDataSerializers.BOOLEAN);
+        HAS_RECORD = SynchedEntityData.defineId(JukeboxBoatEntity.class, EntityDataSerializers.BOOLEAN);
     }
 
-    public JukeboxBoat(EntityType<? extends Boat> entityType, Level level) {
+    public JukeboxBoatEntity(EntityType<? extends Boat> entityType, Level level) {
         super(entityType, level);
     }
 
-    public JukeboxBoat(Level level, double d, double e, double f) {
+    public JukeboxBoatEntity(Level level, double d, double e, double f) {
         super(level, d, e, f);
     }
 
-    public static void playRecordTick(BiConsumer<GameEvent, Entity> biConsumer, JukeboxBoat jukeboxBoat) {
-        jukeboxBoat.setTicksSinceLastEvent(jukeboxBoat.getTicksSinceLastEvent() + 1);
-        if (recordIsPlaying(jukeboxBoat)) {
-            Item item = jukeboxBoat.getRecord().getItem();
+    public static void playRecordTick(BiConsumer<GameEvent, Entity> biConsumer, JukeboxBoatEntity jukeboxBoatEntity) {
+        jukeboxBoatEntity.setTicksSinceLastEvent(jukeboxBoatEntity.getTicksSinceLastEvent() + 1);
+        if (recordIsPlaying(jukeboxBoatEntity)) {
+            Item item = jukeboxBoatEntity.getRecord().getItem();
             if (item instanceof RecordItem recordItem) {
-                if (recordShouldStopPlaying(jukeboxBoat, recordItem)) {
-                    biConsumer.accept(GameEvent.JUKEBOX_STOP_PLAY, jukeboxBoat);
-                    jukeboxBoat.setIsPlaying(false);
-                } else if (shouldSendJukeboxPlayingEvent(jukeboxBoat)) {
-                    jukeboxBoat.setTicksSinceLastEvent(0);
-                    biConsumer.accept(GameEvent.JUKEBOX_PLAY, jukeboxBoat);
+                if (recordShouldStopPlaying(jukeboxBoatEntity, recordItem)) {
+                    biConsumer.accept(GameEvent.JUKEBOX_STOP_PLAY, jukeboxBoatEntity);
+                    jukeboxBoatEntity.setIsPlaying(false);
+                } else if (shouldSendJukeboxPlayingEvent(jukeboxBoatEntity)) {
+                    jukeboxBoatEntity.setTicksSinceLastEvent(0);
+                    biConsumer.accept(GameEvent.JUKEBOX_PLAY, jukeboxBoatEntity);
                 }
             }
         }
 
-        //jukeboxBoat.setTickCount(jukeboxBoat.getTickCount() + 1);
+        //jukeboxBoatEntity.setTickCount(jukeboxBoatEntity.getTickCount() + 1);
     }
 
-    private static boolean recordIsPlaying(JukeboxBoat jukeboxBoat) {
-        return (Boolean) jukeboxBoat.getHasRecord() && jukeboxBoat.getIsPlaying();
+    private static boolean recordIsPlaying(JukeboxBoatEntity jukeboxBoatEntity) {
+        return (Boolean) jukeboxBoatEntity.getHasRecord() && jukeboxBoatEntity.getIsPlaying();
     }
 
-    private static boolean recordShouldStopPlaying(JukeboxBoat jukeboxBoat, RecordItem recordItem) {
-        return jukeboxBoat.tickCount >= jukeboxBoat.getRecordStartedTick() + (long) recordItem.getLengthInTicks();
+    private static boolean recordShouldStopPlaying(JukeboxBoatEntity jukeboxBoatEntity, RecordItem recordItem) {
+        return jukeboxBoatEntity.tickCount >= jukeboxBoatEntity.getRecordStartedTick() + (long) recordItem.getLengthInTicks();
     }
 
     /*
@@ -88,8 +88,8 @@ public class JukeboxBoat extends Boat implements Clearable {
 
      */
 
-    private static boolean shouldSendJukeboxPlayingEvent(JukeboxBoat jukeboxBoat) {
-        return jukeboxBoat.getTicksSinceLastEvent() >= 20;
+    private static boolean shouldSendJukeboxPlayingEvent(JukeboxBoatEntity jukeboxBoatEntity) {
+        return jukeboxBoatEntity.getTicksSinceLastEvent() >= 20;
     }
 
     public ItemStack getRecord() {
@@ -142,10 +142,10 @@ public class JukeboxBoat extends Boat implements Clearable {
         super.defineSynchedData();
     }
 
-    public void setAndPlayRecord(JukeboxBoat jukeboxBoat, ItemStack itemStack) {
-        jukeboxBoat.setRecord(itemStack.copy());
-        jukeboxBoat.playRecord();
-        jukeboxBoat.setHasRecord(true);
+    public void setAndPlayRecord(JukeboxBoatEntity jukeboxBoatEntity, ItemStack itemStack) {
+        jukeboxBoatEntity.setRecord(itemStack.copy());
+        jukeboxBoatEntity.playRecord();
+        jukeboxBoatEntity.setHasRecord(true);
 
     }
 

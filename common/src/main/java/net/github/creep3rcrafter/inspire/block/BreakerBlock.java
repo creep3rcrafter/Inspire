@@ -2,7 +2,6 @@ package net.github.creep3rcrafter.inspire.block;
 
 import net.github.creep3rcrafter.inspire.block.entity.BreakerBlockEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockSourceImpl;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
@@ -14,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.HopperBlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
@@ -47,7 +45,7 @@ public class BreakerBlock extends DispenserBlock {
 
     @Override
     protected void dispenseFrom(ServerLevel serverLevel, BlockPos blockPos) {
-        BlockSourceImpl blockSourceImpl = new BlockSourceImpl(serverLevel, blockPos);
+        //BlockSourceImpl blockSourceImpl = new BlockSourceImpl(serverLevel, blockPos);
         BreakerBlockEntity dispenserBlockEntity = blockSourceImpl.getEntity();
         int i = dispenserBlockEntity.getRandomSlot(serverLevel.random);
         if (i < 0) {
@@ -59,7 +57,7 @@ public class BreakerBlock extends DispenserBlock {
                 Container container = HopperBlockEntity.getContainerAt(serverLevel, blockPos.relative(direction));
                 ItemStack itemStack2;
                 if (container == null) {
-                    itemStack2 = BREAKER_BEHAVIOUR.dispense(blockSourceImpl, itemStack);
+                    //itemStack2 = BREAKER_BEHAVIOUR.dispense(blockSourceImpl, itemStack);
                 } else {
                     itemStack2 = HopperBlockEntity.addItem(dispenserBlockEntity, container, itemStack.copy().split(1), direction.getOpposite());
                     if (itemStack2.isEmpty()) {

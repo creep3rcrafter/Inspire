@@ -4,7 +4,6 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.github.creep3rcrafter.inspire.entity.*;
 import net.github.creep3rcrafter.inspire.entity.animal.horse.WitherSkeletonHorse;
-import net.github.creep3rcrafter.inspire.entity.projectile.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -21,7 +20,7 @@ public class InspireEntityTypes {
     public static final RegistrySupplier<EntityType<ThrownDyeGlob>> DYE_GLOB;
     public static final RegistrySupplier<EntityType<EnderChestBoat>> ENDER_CHEST_BOAT;
     public static final RegistrySupplier<EntityType<TrappedChestBoat>> TRAPPED_CHEST_BOAT;
-    public static final RegistrySupplier<EntityType<JukeboxBoat>> JUKEBOX_BOAT;
+    public static final RegistrySupplier<EntityType<JukeboxBoatEntity>> JUKEBOX_BOAT;
     public static final RegistrySupplier<EntityType<WitherSkeletonHorse>> WITHER_SKELETON_HORSE;
     public static final RegistrySupplier<EntityType<TrappedChestMinecart>> TRAPPED_CHEST_MINECART;
     public static final RegistrySupplier<EntityType<EnderChestMinecart>> ENDER_CHEST_MINECART;
@@ -55,7 +54,7 @@ public class InspireEntityTypes {
                 EntityType.Builder.<TrappedChestBoat>of(TrappedChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(
                         new ResourceLocation(InspireCommon.MOD_ID, "trapped_chest_boat").toString()));
         JUKEBOX_BOAT = ENTITY_TYPES.register("jukebox_boat", () ->
-                EntityType.Builder.<JukeboxBoat>of(JukeboxBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(
+                EntityType.Builder.<JukeboxBoatEntity>of(JukeboxBoatEntity::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(
                         new ResourceLocation(InspireCommon.MOD_ID, "jukebox_boat").toString()));
 
         WITHER_SKELETON_HORSE = ENTITY_TYPES.register("wither_skeleton_horse", () ->

@@ -59,6 +59,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> TINTED_GLASS_PANE;
     public static final RegistrySupplier<Block> FROGLIGHT;
     public static final RegistrySupplier<Block> ICICLE;
+    public static final RegistrySupplier<Block> HYDRO_FIRE;
 
     public static final RegistrySupplier<Block> OAK_WALL;
     public static final RegistrySupplier<Block> SPRUCE_WALL;

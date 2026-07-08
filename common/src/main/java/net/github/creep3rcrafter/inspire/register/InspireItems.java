@@ -4,6 +4,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.github.creep3rcrafter.inspire.item.*;
+import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -11,12 +12,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
-
+@SuppressWarnings("UnstableApiUsage")
 public class InspireItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(InspireCommon.MOD_ID, Registries.ITEM);
     public static final RegistrySupplier<Item> MUSIC_DISC_A_FAMILIAR_ROOM;
@@ -352,16 +354,14 @@ public class InspireItems {
     public static final RegistrySupplier<Item> NETHERITE_HOE_HEAD;
     public static final RegistrySupplier<Item> NETHERITE_SWORD_BLADE;
     public static final RegistrySupplier<Item> WAND_OF_LIGHT;
+    public static final RegistrySupplier<Item> CRAFTING_TABLET;//Locates Ore
 
     //public static final RegistrySupplier<Item> FOUNDRY;
     //public static final RegistrySupplier<Item> DIS_ENCHANTING_TABLE; EnchantmentTableBlock
     //public static final RegistrySupplier<Item> CURSED_TABLE;//wither skull as book and wither bones to curse
     //public static final RegistrySupplier<Item> CONJERING_TABLE;//wither skull as book and wither bones to curse
-
     //public static final RegistrySupplier<Item> WHITE_PUMPKIN;
     //public static final RegistrySupplier<Item> GREEN_PUMPKIN;
-
-    public static final RegistrySupplier<Item> WAND_OF_LIGHT;
     //public static final RegistrySupplier<Item> GOLDEN_CROWN;
     //public static final RegistrySupplier<Item> GOLDEN_CROWN;//Trade with Piglin Like villigers
     //public static final RegistrySupplier<Item> NETHERITE_CROWN;//Trade with Piglin Like villigers and they will defend you
@@ -369,7 +369,6 @@ public class InspireItems {
     //public static final RegistrySupplier<Item> PUR_PUR_CROWN;//ENDERMEN will defend you
     //public static final RegistrySupplier<Item> TRAVEL_STONE;//teleports user
     //public static final RegistrySupplier<Item> MINERS_COMPASS;//Locates Ore
-    public static final RegistrySupplier<Item> CRAFTING_TABLET;//Locates Ore
     //public static final RegistrySupplier<Item> SMELTING_TABLET;//Locates Ore
     //public static final RegistrySupplier<Item> ENDER_BOX;//Locates Ore
     //public static final RegistrySupplier<Item> REDSTONE_HEART;//Locates Ore
@@ -1188,30 +1187,30 @@ public class InspireItems {
 
     static {
         // Legacy throwable behavior temporarily disabled for 1.21.1 compile stability.
-        DYNAMITE = ITEMS.register("dynamite", () -> new Item(new Item.Properties().stacksTo(16).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CUSTOM_ARROW = ITEMS.register("custom_arrow", () -> new Item(new Item.Properties().stacksTo(64).tab(ModCreativeTabs.TAB_INSPIRE)));
+        DYNAMITE = ITEMS.register("dynamite", () -> new Item(new Item.Properties().stacksTo(16).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CUSTOM_ARROW = ITEMS.register("custom_arrow", () -> new Item(new Item.Properties().stacksTo(64).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        STRIDER_SCALE = ITEMS.register("strider_scale", () -> new Item(new Item.Properties().stacksTo(64).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BAKED_BEETROOT = ITEMS.register("baked_beetroot", () -> new Item(new Item.Properties().food(ModFoods.BAKED_BEETROOT).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BAKED_CARROT = ITEMS.register("baked_carrot", () -> new Item(new Item.Properties().food(ModFoods.BAKED_CARROT).tab(ModCreativeTabs.TAB_INSPIRE)));
-        COOKED_TROPICAL_FISH = ITEMS.register("cooked_tropical_fish", () -> new Item(new Item.Properties().food(ModFoods.COOKED_TROPICAL_FISH).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DOUGH = ITEMS.register("dough", () -> new Item(new Item.Properties().food(ModFoods.DOUGH).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHER_POTATO = ITEMS.register("nether_potato", () -> new Item(new Item.Properties().food(ModFoods.NETHER_POTATO).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BAKED_NETHER_POTATO = ITEMS.register("baked_nether_potato", () -> new Item(new Item.Properties().food(ModFoods.BAKED_NETHER_POTATO).tab(ModCreativeTabs.TAB_INSPIRE)));
-        POISONOUS_NETHER_POTATO = ITEMS.register("poisonous_nether_potato", () -> new Item(new Item.Properties().food(ModFoods.POISONOUS_NETHER_POTATO).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHER_CARROT = ITEMS.register("nether_carrot", () -> new Item(new Item.Properties().food(ModFoods.NETHER_CARROT).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BAKED_NETHER_CARROT = ITEMS.register("baked_nether_carrot", () -> new Item(new Item.Properties().food(ModFoods.BAKED_NETHER_CARROT).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHER_BEETROOT = ITEMS.register("nether_beetroot", () -> new Item(new Item.Properties().food(ModFoods.NETHER_BEETROOT).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BAKED_NETHER_BEETROOT = ITEMS.register("baked_nether_beetroot", () -> new Item(new Item.Properties().food(ModFoods.BAKED_NETHER_BEETROOT).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CARROT_SOUP = ITEMS.register("carrot_soup", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.CARROT_SOUP).tab(ModCreativeTabs.TAB_INSPIRE)));
-        POTATO_SOUP = ITEMS.register("potato_soup", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.POTATO_SOUP).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BEEF_STEW = ITEMS.register("beef_stew", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.BEEF_STEW).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CHICKEN_STEW = ITEMS.register("chicken_stew", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.CHICKEN_STEW).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MUTTON_STEW = ITEMS.register("mutton_stew", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.MUTTON_STEW).tab(ModCreativeTabs.TAB_INSPIRE)));
-        EMPTY_JAR = ITEMS.register("empty_jar", () -> new Item(new Item.Properties().stacksTo(64).tab(ModCreativeTabs.TAB_INSPIRE)));
-        POTION_JAR = ITEMS.register("potion_jar", () -> new Item(new Item.Properties().stacksTo(1).defaultDurability(3).tab(ModCreativeTabs.TAB_INSPIRE).craftRemainder(InspireItems.EMPTY_JAR.get())));
-        MILK_JAR = ITEMS.register("milk_jar", () -> new MilkJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).craftRemainder(InspireItems.EMPTY_JAR.get())));
-        HONEY_JAR = ITEMS.register("honey_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(Foods.HONEY_BOTTLE).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        STRIDER_SCALE = ITEMS.register("strider_scale", () -> new Item(new Item.Properties().stacksTo(64).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BAKED_BEETROOT = ITEMS.register("baked_beetroot", () -> new Item(new Item.Properties().food(InspireFoods.BAKED_BEETROOT).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BAKED_CARROT = ITEMS.register("baked_carrot", () -> new Item(new Item.Properties().food(InspireFoods.BAKED_CARROT).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        COOKED_TROPICAL_FISH = ITEMS.register("cooked_tropical_fish", () -> new Item(new Item.Properties().food(InspireFoods.COOKED_TROPICAL_FISH).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DOUGH = ITEMS.register("dough", () -> new Item(new Item.Properties().food(InspireFoods.DOUGH).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHER_POTATO = ITEMS.register("nether_potato", () -> new Item(new Item.Properties().food(InspireFoods.NETHER_POTATO).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BAKED_NETHER_POTATO = ITEMS.register("baked_nether_potato", () -> new Item(new Item.Properties().food(InspireFoods.BAKED_NETHER_POTATO).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        POISONOUS_NETHER_POTATO = ITEMS.register("poisonous_nether_potato", () -> new Item(new Item.Properties().food(InspireFoods.POISONOUS_NETHER_POTATO).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHER_CARROT = ITEMS.register("nether_carrot", () -> new Item(new Item.Properties().food(InspireFoods.NETHER_CARROT).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BAKED_NETHER_CARROT = ITEMS.register("baked_nether_carrot", () -> new Item(new Item.Properties().food(InspireFoods.BAKED_NETHER_CARROT).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHER_BEETROOT = ITEMS.register("nether_beetroot", () -> new Item(new Item.Properties().food(InspireFoods.NETHER_BEETROOT).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BAKED_NETHER_BEETROOT = ITEMS.register("baked_nether_beetroot", () -> new Item(new Item.Properties().food(InspireFoods.BAKED_NETHER_BEETROOT).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CARROT_SOUP = ITEMS.register("carrot_soup", () -> new Item(new Item.Properties().food(InspireFoods.CARROT_SOUP).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        POTATO_SOUP = ITEMS.register("potato_soup", () -> new Item(new Item.Properties().food(InspireFoods.POTATO_SOUP).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BEEF_STEW = ITEMS.register("beef_stew", () -> new Item(new Item.Properties().food(InspireFoods.BEEF_STEW).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CHICKEN_STEW = ITEMS.register("chicken_stew", () -> new Item(new Item.Properties().food(InspireFoods.CHICKEN_STEW).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        MUTTON_STEW = ITEMS.register("mutton_stew", () -> new Item(new Item.Properties().food(InspireFoods.MUTTON_STEW).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        EMPTY_JAR = ITEMS.register("empty_jar", () -> new Item(new Item.Properties().stacksTo(64).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        POTION_JAR = ITEMS.register("potion_jar", () -> new Item(new Item.Properties().stacksTo(1).durability(3).arch$tab(InspireCreativeTabs.TAB_INSPIRE).craftRemainder(InspireItems.EMPTY_JAR.get())));
+        MILK_JAR = ITEMS.register("milk_jar", () -> new MilkJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).craftRemainder(InspireItems.EMPTY_JAR.get())));
+        HONEY_JAR = ITEMS.register("honey_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(Foods.HONEY_BOTTLE).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public boolean isHoney() {
                 return true;
@@ -1223,7 +1222,7 @@ public class InspireItems {
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 40;
             }
 
@@ -1232,14 +1231,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        BEETROOT_SOUP_JAR = ITEMS.register("beetroot_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(Foods.BEETROOT_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        BEETROOT_SOUP_JAR = ITEMS.register("beetroot_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(Foods.BEETROOT_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1248,14 +1247,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        CARROT_SOUP_JAR = ITEMS.register("carrot_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.CARROT_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        CARROT_SOUP_JAR = ITEMS.register("carrot_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.CARROT_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1264,14 +1263,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        POTATO_SOUP_JAR = ITEMS.register("potato_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.POTATO_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        POTATO_SOUP_JAR = ITEMS.register("potato_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.POTATO_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1280,14 +1279,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        BEEF_STEW_JAR = ITEMS.register("beef_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.BEEF_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        BEEF_STEW_JAR = ITEMS.register("beef_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.BEEF_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1296,14 +1295,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        CHICKEN_STEW_JAR = ITEMS.register("chicken_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.CHICKEN_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        CHICKEN_STEW_JAR = ITEMS.register("chicken_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.CHICKEN_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1312,14 +1311,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        MUTTON_STEW_JAR = ITEMS.register("mutton_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.MUTTON_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        MUTTON_STEW_JAR = ITEMS.register("mutton_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.MUTTON_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1328,14 +1327,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        SUSPICIOUS_STEW_JAR = ITEMS.register("suspicious_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(Foods.SUSPICIOUS_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        SUSPICIOUS_STEW_JAR = ITEMS.register("suspicious_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(Foods.SUSPICIOUS_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1344,14 +1343,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        MUSHROOM_STEW_JAR = ITEMS.register("mushroom_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(Foods.MUSHROOM_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        MUSHROOM_STEW_JAR = ITEMS.register("mushroom_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(Foods.MUSHROOM_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1360,14 +1359,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        RABBIT_STEW_JAR = ITEMS.register("rabbit_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(Foods.RABBIT_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        RABBIT_STEW_JAR = ITEMS.register("rabbit_stew_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(Foods.RABBIT_STEW).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1376,101 +1375,101 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        WOODEN_CLUB = ITEMS.register("wooden_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STONE_CLUB = ITEMS.register("stone_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        IRON_CLUB = ITEMS.register("iron_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GOLD_CLUB = ITEMS.register("gold_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DIAMOND_CLUB = ITEMS.register("diamond_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHERITE_CLUB = ITEMS.register("netherite_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WHITE_DYE_GLOB = ITEMS.register("white_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ORANGE_DYE_GLOB = ITEMS.register("orange_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MAGENTA_DYE_GLOB = ITEMS.register("magenta_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIGHT_BLUE_DYE_GLOB = ITEMS.register("light_blue_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        YELLOW_DYE_GLOB = ITEMS.register("yellow_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIME_DYE_GLOB = ITEMS.register("lime_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINK_DYE_GLOB = ITEMS.register("pink_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GRAY_DYE_GLOB = ITEMS.register("gray_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GREEN_DYE_GLOB = ITEMS.register("green_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIGHT_GRAY_DYE_GLOB = ITEMS.register("light_gray_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CYAN_DYE_GLOB = ITEMS.register("cyan_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PURPLE_DYE_GLOB = ITEMS.register("purple_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLUE_DYE_GLOB = ITEMS.register("blue_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BROWN_DYE_GLOB = ITEMS.register("brown_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        RED_DYE_GLOB = ITEMS.register("red_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLACK_DYE_GLOB = ITEMS.register("black_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WHITE_DYE_GLOB_BLOCK = ITEMS.register("white_dye_glob_block", () -> new BlockItem(InspireBlocks.WHITE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ORANGE_DYE_GLOB_BLOCK = ITEMS.register("orange_dye_glob_block", () -> new BlockItem(InspireBlocks.ORANGE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MAGENTA_DYE_GLOB_BLOCK = ITEMS.register("magenta_dye_glob_block", () -> new BlockItem(InspireBlocks.MAGENTA_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIGHT_BLUE_DYE_GLOB_BLOCK = ITEMS.register("light_blue_dye_glob_block", () -> new BlockItem(InspireBlocks.LIGHT_BLUE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        YELLOW_DYE_GLOB_BLOCK = ITEMS.register("yellow_dye_glob_block", () -> new BlockItem(InspireBlocks.YELLOW_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIME_DYE_GLOB_BLOCK = ITEMS.register("lime_dye_glob_block", () -> new BlockItem(InspireBlocks.LIME_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINK_DYE_GLOB_BLOCK = ITEMS.register("pink_dye_glob_block", () -> new BlockItem(InspireBlocks.PINK_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GRAY_DYE_GLOB_BLOCK = ITEMS.register("gray_dye_glob_block", () -> new BlockItem(InspireBlocks.GRAY_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GREEN_DYE_GLOB_BLOCK = ITEMS.register("green_dye_glob_block", () -> new BlockItem(InspireBlocks.GREEN_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIGHT_GRAY_DYE_GLOB_BLOCK = ITEMS.register("light_gray_dye_glob_block", () -> new BlockItem(InspireBlocks.LIGHT_GRAY_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CYAN_DYE_GLOB_BLOCK = ITEMS.register("cyan_dye_glob_block", () -> new BlockItem(InspireBlocks.CYAN_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PURPLE_DYE_GLOB_BLOCK = ITEMS.register("purple_dye_glob_block", () -> new BlockItem(InspireBlocks.PURPLE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLUE_DYE_GLOB_BLOCK = ITEMS.register("blue_dye_glob_block", () -> new BlockItem(InspireBlocks.BLUE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BROWN_DYE_GLOB_BLOCK = ITEMS.register("brown_dye_glob_block", () -> new BlockItem(InspireBlocks.BROWN_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        RED_DYE_GLOB_BLOCK = ITEMS.register("red_dye_glob_block", () -> new BlockItem(InspireBlocks.RED_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLACK_DYE_GLOB_BLOCK = ITEMS.register("black_dye_glob_block", () -> new BlockItem(InspireBlocks.BLACK_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        //DRY_CACTUS_BLOCK = ITEMS.register("dry_cactus_block", () -> new BlockItem(InspireBlocks.DRY_CACTUS_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CRAFTED_ELYTRA = ITEMS.register("crafted_elytra", () -> new CustomElytraItem((new Item.Properties()).stacksTo(1).durability(64).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CRIMSON_BOAT = ITEMS.register("crimson_boat", () -> new BoatItem(false, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WARPED_BOAT = ITEMS.register("warped_boat", () -> new BoatItem(false, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WITHERED_BOAT = ITEMS.register("withered_boat", () -> new BoatItem(false, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        PINE_BOAT = ITEMS.register("pine_boat", () -> new BoatItem(false, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_BOAT = ITEMS.register("redwood_boat", () -> new BoatItem(false, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CRIMSON_CHEST_BOAT = ITEMS.register("crimson_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WARPED_CHEST_BOAT = ITEMS.register("warped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WITHERED_CHEST_BOAT = ITEMS.register("withered_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        PINE_CHEST_BOAT = ITEMS.register("pine_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_CHEST_BOAT = ITEMS.register("redwood_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        OAK_ENDER_CHEST_BOAT = ITEMS.register("oak_ender_chest_boat", () -> new BoatItem(true, Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SPRUCE_ENDER_CHEST_BOAT = ITEMS.register("spruce_ender_chest_boat", () -> new BoatItem(true, Boat.Type.SPRUCE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BIRCH_ENDER_CHEST_BOAT = ITEMS.register("birch_ender_chest_boat", () -> new BoatItem(true, Boat.Type.BIRCH, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        JUNGLE_ENDER_CHEST_BOAT = ITEMS.register("jungle_ender_chest_boat", () -> new BoatItem(true, Boat.Type.JUNGLE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ACACIA_ENDER_CHEST_BOAT = ITEMS.register("acacia_ender_chest_boat", () -> new BoatItem(true, Boat.Type.ACACIA, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DARK_OAK_ENDER_CHEST_BOAT = ITEMS.register("dark_oak_ender_chest_boat", () -> new BoatItem(true, Boat.Type.DARK_OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MANGROVE_ENDER_CHEST_BOAT = ITEMS.register("mangrove_ender_chest_boat", () -> new BoatItem(true, Boat.Type.MANGROVE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CRIMSON_ENDER_CHEST_BOAT = ITEMS.register("crimson_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WARPED_ENDER_CHEST_BOAT = ITEMS.register("warped_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WITHERED_ENDER_CHEST_BOAT = ITEMS.register("withered_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        PINE_ENDER_CHEST_BOAT = ITEMS.register("pine_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_ENDER_CHEST_BOAT = ITEMS.register("redwood_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        OAK_TRAPPED_CHEST_BOAT = ITEMS.register("oak_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SPRUCE_TRAPPED_CHEST_BOAT = ITEMS.register("spruce_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.SPRUCE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BIRCH_TRAPPED_CHEST_BOAT = ITEMS.register("birch_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.BIRCH, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        JUNGLE_TRAPPED_CHEST_BOAT = ITEMS.register("jungle_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.JUNGLE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ACACIA_TRAPPED_CHEST_BOAT = ITEMS.register("acacia_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.ACACIA, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DARK_OAK_TRAPPED_CHEST_BOAT = ITEMS.register("dark_oak_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.DARK_OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MANGROVE_TRAPPED_CHEST_BOAT = ITEMS.register("mangrove_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.MANGROVE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CRIMSON_TRAPPED_CHEST_BOAT = ITEMS.register("crimson_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WARPED_TRAPPED_CHEST_BOAT = ITEMS.register("warped_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WITHERED_TRAPPED_CHEST_BOAT = ITEMS.register("withered_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        PINE_TRAPPED_CHEST_BOAT = ITEMS.register("pine_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_TRAPPED_CHEST_BOAT = ITEMS.register("redwood_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STRIDER_SCALE_BOOTS = ITEMS.register("strider_scale_boots", () -> new ArmorItem(InspireArmorMaterials.STRIDER_SCALE, EquipmentSlot.FEET, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        //CHROMATIC_LAMP = ITEMS.register("chromatic_lamp", () -> new ItemNameBlockItem(InspireBlocks.CHROMATIC_LAMP.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        WOODEN_CLUB = ITEMS.register("wooden_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STONE_CLUB = ITEMS.register("stone_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        IRON_CLUB = ITEMS.register("iron_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GOLD_CLUB = ITEMS.register("gold_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DIAMOND_CLUB = ITEMS.register("diamond_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHERITE_CLUB = ITEMS.register("netherite_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WHITE_DYE_GLOB = ITEMS.register("white_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        ORANGE_DYE_GLOB = ITEMS.register("orange_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        MAGENTA_DYE_GLOB = ITEMS.register("magenta_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        LIGHT_BLUE_DYE_GLOB = ITEMS.register("light_blue_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        YELLOW_DYE_GLOB = ITEMS.register("yellow_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        LIME_DYE_GLOB = ITEMS.register("lime_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINK_DYE_GLOB = ITEMS.register("pink_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GRAY_DYE_GLOB = ITEMS.register("gray_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GREEN_DYE_GLOB = ITEMS.register("green_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        LIGHT_GRAY_DYE_GLOB = ITEMS.register("light_gray_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CYAN_DYE_GLOB = ITEMS.register("cyan_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PURPLE_DYE_GLOB = ITEMS.register("purple_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLUE_DYE_GLOB = ITEMS.register("blue_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BROWN_DYE_GLOB = ITEMS.register("brown_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        RED_DYE_GLOB = ITEMS.register("red_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLACK_DYE_GLOB = ITEMS.register("black_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WHITE_DYE_GLOB_BLOCK = ITEMS.register("white_dye_glob_block", () -> new BlockItem(InspireBlocks.WHITE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        ORANGE_DYE_GLOB_BLOCK = ITEMS.register("orange_dye_glob_block", () -> new BlockItem(InspireBlocks.ORANGE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        MAGENTA_DYE_GLOB_BLOCK = ITEMS.register("magenta_dye_glob_block", () -> new BlockItem(InspireBlocks.MAGENTA_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        LIGHT_BLUE_DYE_GLOB_BLOCK = ITEMS.register("light_blue_dye_glob_block", () -> new BlockItem(InspireBlocks.LIGHT_BLUE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        YELLOW_DYE_GLOB_BLOCK = ITEMS.register("yellow_dye_glob_block", () -> new BlockItem(InspireBlocks.YELLOW_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        LIME_DYE_GLOB_BLOCK = ITEMS.register("lime_dye_glob_block", () -> new BlockItem(InspireBlocks.LIME_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINK_DYE_GLOB_BLOCK = ITEMS.register("pink_dye_glob_block", () -> new BlockItem(InspireBlocks.PINK_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GRAY_DYE_GLOB_BLOCK = ITEMS.register("gray_dye_glob_block", () -> new BlockItem(InspireBlocks.GRAY_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GREEN_DYE_GLOB_BLOCK = ITEMS.register("green_dye_glob_block", () -> new BlockItem(InspireBlocks.GREEN_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        LIGHT_GRAY_DYE_GLOB_BLOCK = ITEMS.register("light_gray_dye_glob_block", () -> new BlockItem(InspireBlocks.LIGHT_GRAY_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CYAN_DYE_GLOB_BLOCK = ITEMS.register("cyan_dye_glob_block", () -> new BlockItem(InspireBlocks.CYAN_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PURPLE_DYE_GLOB_BLOCK = ITEMS.register("purple_dye_glob_block", () -> new BlockItem(InspireBlocks.PURPLE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLUE_DYE_GLOB_BLOCK = ITEMS.register("blue_dye_glob_block", () -> new BlockItem(InspireBlocks.BLUE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BROWN_DYE_GLOB_BLOCK = ITEMS.register("brown_dye_glob_block", () -> new BlockItem(InspireBlocks.BROWN_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        RED_DYE_GLOB_BLOCK = ITEMS.register("red_dye_glob_block", () -> new BlockItem(InspireBlocks.RED_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLACK_DYE_GLOB_BLOCK = ITEMS.register("black_dye_glob_block", () -> new BlockItem(InspireBlocks.BLACK_DYE_GLOB_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        //DRY_CACTUS_BLOCK = ITEMS.register("dry_cactus_block", () -> new BlockItem(InspireBlocks.DRY_CACTUS_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CRAFTED_ELYTRA = ITEMS.register("crafted_elytra", () -> new CustomElytraItem((new Item.Properties()).stacksTo(1).durability(64).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CRIMSON_BOAT = ITEMS.register("crimson_boat", () -> new BoatItem(false, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WARPED_BOAT = ITEMS.register("warped_boat", () -> new BoatItem(false, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WITHERED_BOAT = ITEMS.register("withered_boat", () -> new BoatItem(false, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        PINE_BOAT = ITEMS.register("pine_boat", () -> new BoatItem(false, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_BOAT = ITEMS.register("redwood_boat", () -> new BoatItem(false, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CRIMSON_CHEST_BOAT = ITEMS.register("crimson_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WARPED_CHEST_BOAT = ITEMS.register("warped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WITHERED_CHEST_BOAT = ITEMS.register("withered_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        PINE_CHEST_BOAT = ITEMS.register("pine_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_CHEST_BOAT = ITEMS.register("redwood_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        OAK_ENDER_CHEST_BOAT = ITEMS.register("oak_ender_chest_boat", () -> new BoatItem(true, Boat.Type.OAK, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SPRUCE_ENDER_CHEST_BOAT = ITEMS.register("spruce_ender_chest_boat", () -> new BoatItem(true, Boat.Type.SPRUCE, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BIRCH_ENDER_CHEST_BOAT = ITEMS.register("birch_ender_chest_boat", () -> new BoatItem(true, Boat.Type.BIRCH, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        JUNGLE_ENDER_CHEST_BOAT = ITEMS.register("jungle_ender_chest_boat", () -> new BoatItem(true, Boat.Type.JUNGLE, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        ACACIA_ENDER_CHEST_BOAT = ITEMS.register("acacia_ender_chest_boat", () -> new BoatItem(true, Boat.Type.ACACIA, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DARK_OAK_ENDER_CHEST_BOAT = ITEMS.register("dark_oak_ender_chest_boat", () -> new BoatItem(true, Boat.Type.DARK_OAK, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        MANGROVE_ENDER_CHEST_BOAT = ITEMS.register("mangrove_ender_chest_boat", () -> new BoatItem(true, Boat.Type.MANGROVE, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CRIMSON_ENDER_CHEST_BOAT = ITEMS.register("crimson_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WARPED_ENDER_CHEST_BOAT = ITEMS.register("warped_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WITHERED_ENDER_CHEST_BOAT = ITEMS.register("withered_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        PINE_ENDER_CHEST_BOAT = ITEMS.register("pine_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_ENDER_CHEST_BOAT = ITEMS.register("redwood_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        OAK_TRAPPED_CHEST_BOAT = ITEMS.register("oak_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.OAK, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SPRUCE_TRAPPED_CHEST_BOAT = ITEMS.register("spruce_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.SPRUCE, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BIRCH_TRAPPED_CHEST_BOAT = ITEMS.register("birch_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.BIRCH, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        JUNGLE_TRAPPED_CHEST_BOAT = ITEMS.register("jungle_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.JUNGLE, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        ACACIA_TRAPPED_CHEST_BOAT = ITEMS.register("acacia_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.ACACIA, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DARK_OAK_TRAPPED_CHEST_BOAT = ITEMS.register("dark_oak_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.DARK_OAK, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        MANGROVE_TRAPPED_CHEST_BOAT = ITEMS.register("mangrove_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.MANGROVE, (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CRIMSON_TRAPPED_CHEST_BOAT = ITEMS.register("crimson_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WARPED_TRAPPED_CHEST_BOAT = ITEMS.register("warped_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WITHERED_TRAPPED_CHEST_BOAT = ITEMS.register("withered_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        PINE_TRAPPED_CHEST_BOAT = ITEMS.register("pine_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_TRAPPED_CHEST_BOAT = ITEMS.register("redwood_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIDER_SCALE_BOOTS = ITEMS.register("strider_scale_boots", () -> new ArmorItem(InspireArmorMaterials.STRIDER_SCALE, EquipmentSlot.FEET, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        //CHROMATIC_LAMP = ITEMS.register("chromatic_lamp", () -> new ItemNameBlockItem(InspireBlocks.CHROMATIC_LAMP.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         /*
-    CARAMEL = ITEMS.register("caramel", () -> new Item(new Item.Properties().food(ModFoods.CARAMEL).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CREEPER_COOKIE = ITEMS.register("creeper_cookie", () -> new Item(new Item.Properties().food(ModFoods.CREEPER_COOKIE).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CHOCOLATE_COOKIE = ITEMS.register("chocolate_cookie", () -> new Item(new Item.Properties().food(ModFoods.CHOCOLATE_COOKIE).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SUGAR_COOKIE = ITEMS.register("sugar_cookie", () -> new Item(new Item.Properties().food(ModFoods.SUGAR_COOKIE).tab(ModCreativeTabs.TAB_INSPIRE)));
+    CARAMEL = ITEMS.register("caramel", () -> new Item(new Item.Properties().food(InspireFoods.CARAMEL).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CREEPER_COOKIE = ITEMS.register("creeper_cookie", () -> new Item(new Item.Properties().food(InspireFoods.CREEPER_COOKIE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CHOCOLATE_COOKIE = ITEMS.register("chocolate_cookie", () -> new Item(new Item.Properties().food(InspireFoods.CHOCOLATE_COOKIE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SUGAR_COOKIE = ITEMS.register("sugar_cookie", () -> new Item(new Item.Properties().food(InspireFoods.SUGAR_COOKIE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-    HOT_PEPPER = ITEMS.register("hot_pepper", () -> new Item(new Item.Properties().food(ModFoods.DOUGH).tab(ModCreativeTabs.TAB_INSPIRE)));
-        TOMATO = ITEMS.register("tomato", () -> new Item(new Item.Properties().food(ModFoods.DOUGH).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GARLIC = ITEMS.register("garlic", () -> new Item(new Item.Properties().food(ModFoods.DOUGH).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ONION = ITEMS.register("onion", () -> new Item(new Item.Properties().food(ModFoods.DOUGH).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHER_BEETROOT_SOUP = ITEMS.register("nether_beetroot_soup", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.NETHER_BEETROOT_SOUP).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHER_CARROT_SOUP = ITEMS.register("nether_carrot_soup", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.NETHER_CARROT_SOUP).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHER_POTATO_SOUP = ITEMS.register("nether_potato_soup", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.NETHER_POTATO_SOUP).tab(ModCreativeTabs.TAB_INSPIRE)));
+    HOT_PEPPER = ITEMS.register("hot_pepper", () -> new Item(new Item.Properties().food(InspireFoods.DOUGH).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        TOMATO = ITEMS.register("tomato", () -> new Item(new Item.Properties().food(InspireFoods.DOUGH).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GARLIC = ITEMS.register("garlic", () -> new Item(new Item.Properties().food(InspireFoods.DOUGH).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        ONION = ITEMS.register("onion", () -> new Item(new Item.Properties().food(InspireFoods.DOUGH).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHER_BEETROOT_SOUP = ITEMS.register("nether_beetroot_soup", () -> new BowlFoodItem(new Item.Properties().food(InspireFoods.NETHER_BEETROOT_SOUP).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHER_CARROT_SOUP = ITEMS.register("nether_carrot_soup", () -> new BowlFoodItem(new Item.Properties().food(InspireFoods.NETHER_CARROT_SOUP).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHER_POTATO_SOUP = ITEMS.register("nether_potato_soup", () -> new BowlFoodItem(new Item.Properties().food(InspireFoods.NETHER_POTATO_SOUP).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
 
-        CHOCOLATE_MILK_JAR = ITEMS.register("chocolate_milk_jar", () -> new MilkJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.CHOCOLATE_MILK).craftRemainder(InspireItems.EMPTY_JAR.get())));
-        SWEET_BERRY_JAR = ITEMS.register("sweet_berry_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(Foods.SWEET_BERRIES).craftRemainder(InspireItems.EMPTY_JAR.get())));
-        GLOW_BERRY_JAR = ITEMS.register("glow_berry_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(Foods.GLOW_BERRIES).craftRemainder(InspireItems.EMPTY_JAR.get())));
-        SWEET_BERRY_JELLY_JAR = ITEMS.register("sweet_berry_jelly_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.SWEET_BERRY_JELLY).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        CHOCOLATE_MILK_JAR = ITEMS.register("chocolate_milk_jar", () -> new MilkJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.CHOCOLATE_MILK).craftRemainder(InspireItems.EMPTY_JAR.get())));
+        SWEET_BERRY_JAR = ITEMS.register("sweet_berry_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(Foods.SWEET_BERRIES).craftRemainder(InspireItems.EMPTY_JAR.get())));
+        GLOW_BERRY_JAR = ITEMS.register("glow_berry_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(Foods.GLOW_BERRIES).craftRemainder(InspireItems.EMPTY_JAR.get())));
+        SWEET_BERRY_JELLY_JAR = ITEMS.register("sweet_berry_jelly_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.SWEET_BERRY_JELLY).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.HONEY_DRINK;
@@ -1486,7 +1485,7 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        GLOW_BERRY_JELLY_JAR = ITEMS.register("glow_berry_jelly_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.GLOW_BERRY_JELLY).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        GLOW_BERRY_JELLY_JAR = ITEMS.register("glow_berry_jelly_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.GLOW_BERRY_JELLY).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.HONEY_DRINK;
@@ -1502,14 +1501,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        NETHER_BEETROOT_SOUP_JAR = ITEMS.register("nether_beetroot_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.NETHER_BEETROOT_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        NETHER_BEETROOT_SOUP_JAR = ITEMS.register("nether_beetroot_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.NETHER_BEETROOT_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1518,14 +1517,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        NETHER_CARROT_SOUP_JAR = ITEMS.register("nether_carrot_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.NETHER_CARROT_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        NETHER_CARROT_SOUP_JAR = ITEMS.register("nether_carrot_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.NETHER_CARROT_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1534,14 +1533,14 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        NETHER_POTATO_SOUP_JAR = ITEMS.register("nether_potato_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(ModFoods.NETHER_POTATO_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
+        NETHER_POTATO_SOUP_JAR = ITEMS.register("nether_potato_soup_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE).food(InspireFoods.NETHER_POTATO_SOUP).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
             public @NotNull SoundEvent getEatingSound() {
                 return SoundEvents.GENERIC_DRINK;
             }
 
             @Override
-            public int getUseDuration(ItemStack itemStack) {
+            public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
                 return 16;
             }
 
@@ -1550,16 +1549,16 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        SOULSTONE = ITEMS.register("soulstone", () -> new ItemNameBlockItem(InspireBlocks.SOULSTONE_WIRE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        SOULSTONE = ITEMS.register("soulstone", () -> new ItemNameBlockItem(InspireBlocks.SOULSTONE_WIRE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        CARAMEL_APPLE = ITEMS.register("caramel_apple", () -> new Item(new Item.Properties().food(ModFoods.CARAMEL_APPLE).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CARAMEL_GOLDEN_APPLE = ITEMS.register("caramel_golden_apple", () -> new Item(new Item.Properties().food(ModFoods.CARAMEL_GOLDEN_APPLE).tab(ModCreativeTabs.TAB_INSPIRE)) {
+        CARAMEL_APPLE = ITEMS.register("caramel_apple", () -> new Item(new Item.Properties().food(InspireFoods.CARAMEL_APPLE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CARAMEL_GOLDEN_APPLE = ITEMS.register("caramel_golden_apple", () -> new Item(new Item.Properties().food(InspireFoods.CARAMEL_GOLDEN_APPLE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)) {
             @Override
             public @NotNull Rarity getRarity(ItemStack itemStack) {
                 return Rarity.RARE;
             }
         });
-        CARAMEL_ENCHANTED_GOLDEN_APPLE = ITEMS.register("caramel_enchanted_golden_apple", () -> new Item(new Item.Properties().food(ModFoods.CARAMEL_ENCHANTED_GOLDEN_APPLE).tab(ModCreativeTabs.TAB_INSPIRE)) {
+        CARAMEL_ENCHANTED_GOLDEN_APPLE = ITEMS.register("caramel_enchanted_golden_apple", () -> new Item(new Item.Properties().food(InspireFoods.CARAMEL_ENCHANTED_GOLDEN_APPLE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)) {
 
             @Override
             public boolean isFoil(ItemStack itemStack) {
@@ -1571,18 +1570,18 @@ public class InspireItems {
                 return Rarity.EPIC;
             }
         });
-    public static final RegistrySupplier<Item> COOKIE_JAR = ITEMS.register("cookie_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE)
+    public static final RegistrySupplier<Item> COOKIE_JAR = ITEMS.register("cookie_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
                     .food(Foods.COOKIE).craftRemainder(InspireItems.EMPTY_JAR.get())));
-    public static final RegistrySupplier<Item> APPLE_JAR = ITEMS.register("apple_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(1).tab(ModCreativeTabs.TAB_INSPIRE)
+    public static final RegistrySupplier<Item> APPLE_JAR = ITEMS.register("apple_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
                     .food(Foods.APPLE).craftRemainder(InspireItems.EMPTY_JAR.get())));
-    public static final RegistrySupplier<Item> GOLDEN_APPLE_JAR = ITEMS.register("golden_apple_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(1).tab(ModCreativeTabs.TAB_INSPIRE)
+    public static final RegistrySupplier<Item> GOLDEN_APPLE_JAR = ITEMS.register("golden_apple_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
                     .food(Foods.GOLDEN_APPLE).craftRemainder(InspireItems.EMPTY_JAR.get())){
                 @Override
                 public Rarity getRarity(ItemStack itemStack) {
                     return Rarity.RARE;
                 }
             });
-    public static final RegistrySupplier<Item> ENCHANTED_GOLDEN_APPLE_JAR = ITEMS.register("enchanted_golden_apple_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(1).tab(ModCreativeTabs.TAB_INSPIRE)
+    public static final RegistrySupplier<Item> ENCHANTED_GOLDEN_APPLE_JAR = ITEMS.register("enchanted_golden_apple_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
                     .food(Foods.ENCHANTED_GOLDEN_APPLE).craftRemainder(InspireItems.EMPTY_JAR.get())){
                 @Override
                 public boolean isFoil(ItemStack itemStack) {
@@ -1593,8 +1592,8 @@ public class InspireItems {
                     return Rarity.EPIC;
                 }
             });
-    public static final RegistrySupplier<Item> APPLE_SAUCE_JAR = ITEMS.register("apple_sauce_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE)
-                    .food(ModFoods.APPLE_SAUCE).craftRemainder(InspireItems.EMPTY_JAR.get())){
+    public static final RegistrySupplier<Item> APPLE_SAUCE_JAR = ITEMS.register("apple_sauce_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
+                    .food(InspireFoods.APPLE_SAUCE).craftRemainder(InspireItems.EMPTY_JAR.get())){
                 @Override
                 public @NotNull SoundEvent getEatingSound() {
                     return SoundEvents.HONEY_DRINK;
@@ -1608,8 +1607,8 @@ public class InspireItems {
                     return UseAnim.DRINK;
                 }
             });
-    public static final RegistrySupplier<Item> GOLDEN_APPLE_SAUCE_JAR = ITEMS.register("golden_apple_sauce_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE)
-                    .food(ModFoods.GOLDEN_APPLE_SAUCE).craftRemainder(InspireItems.EMPTY_JAR.get())){
+    public static final RegistrySupplier<Item> GOLDEN_APPLE_SAUCE_JAR = ITEMS.register("golden_apple_sauce_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
+                    .food(InspireFoods.GOLDEN_APPLE_SAUCE).craftRemainder(InspireItems.EMPTY_JAR.get())){
                 @Override
                 public Rarity getRarity(ItemStack itemStack) {
                     return Rarity.RARE;
@@ -1627,8 +1626,8 @@ public class InspireItems {
                     return UseAnim.DRINK;
                 }
             });
-    public static final RegistrySupplier<Item> ENCHANTED_GOLDEN_APPLE_SAUCE_JAR = ITEMS.register("enchanted_golden_apple_sauce_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE)
-                    .food(ModFoods.ENCHANTED_GOLDEN_APPLE_SAUCE).craftRemainder(InspireItems.EMPTY_JAR.get())){
+    public static final RegistrySupplier<Item> ENCHANTED_GOLDEN_APPLE_SAUCE_JAR = ITEMS.register("enchanted_golden_apple_sauce_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(8).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
+                    .food(InspireFoods.ENCHANTED_GOLDEN_APPLE_SAUCE).craftRemainder(InspireItems.EMPTY_JAR.get())){
                 @Override
                 public boolean isFoil(ItemStack itemStack) {
                     return true;
@@ -1650,17 +1649,17 @@ public class InspireItems {
                     return UseAnim.DRINK;
                 }
             });
-    public static final RegistrySupplier<Item> APPLE_SLICES_JAR = ITEMS.register("apple_slices_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(6).tab(ModCreativeTabs.TAB_INSPIRE)
-                    .food(ModFoods.APPLE_SLICES).craftRemainder(InspireItems.EMPTY_JAR.get())));
-    public static final RegistrySupplier<Item> GOLDEN_APPLE_SLICES_JAR = ITEMS.register("golden_apple_slices_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(6).tab(ModCreativeTabs.TAB_INSPIRE)
-                    .food(ModFoods.GOLDEN_APPLE_SLICES).craftRemainder(InspireItems.EMPTY_JAR.get())){
+    public static final RegistrySupplier<Item> APPLE_SLICES_JAR = ITEMS.register("apple_slices_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(6).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
+                    .food(InspireFoods.APPLE_SLICES).craftRemainder(InspireItems.EMPTY_JAR.get())));
+    public static final RegistrySupplier<Item> GOLDEN_APPLE_SLICES_JAR = ITEMS.register("golden_apple_slices_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(6).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
+                    .food(InspireFoods.GOLDEN_APPLE_SLICES).craftRemainder(InspireItems.EMPTY_JAR.get())){
                 @Override
                 public Rarity getRarity(ItemStack itemStack) {
                     return Rarity.RARE;
                 }
             });
-    public static final RegistrySupplier<Item> ENCHANTED_GOLDEN_APPLE_SLICES_JAR = ITEMS.register("enchanted_golden_apple_slices_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(6).tab(ModCreativeTabs.TAB_INSPIRE)
-                    .food(ModFoods.ENCHANTED_GOLDEN_APPLE_SLICES).craftRemainder(InspireItems.EMPTY_JAR.get())){
+    public static final RegistrySupplier<Item> ENCHANTED_GOLDEN_APPLE_SLICES_JAR = ITEMS.register("enchanted_golden_apple_slices_jar", () ->new FoodJarItem(new Item.Properties().stacksTo(1).durability(6).arch$tab(InspireCreativeTabs.TAB_INSPIRE)
+                    .food(InspireFoods.ENCHANTED_GOLDEN_APPLE_SLICES).craftRemainder(InspireItems.EMPTY_JAR.get())){
                 @Override
                 public boolean isFoil(ItemStack itemStack) {
                     return true;
@@ -1671,139 +1670,134 @@ public class InspireItems {
                 }
             });
 
-    //public static final RegistrySupplier<Item> GREEN_APPLE = ITEMS.register("green_apple", () -> new Item(new Item.Properties().food(Foods.APPLE).tab(ModCreativeTabs.TAB_INSPIRE)));
+    //public static final RegistrySupplier<Item> GREEN_APPLE = ITEMS.register("green_apple", () -> new Item(new Item.Properties().food(Foods.APPLE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
      *///unused items
-        BLUESTONE = ITEMS.register("bluestone", () -> new ItemNameBlockItem(InspireBlocks.BLUESTONE_WIRE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLUESTONE_TORCH = ITEMS.register("bluestone_torch", () -> new StandingAndWallBlockItem(InspireBlocks.BLUESTONE_TORCH.get(), InspireBlocks.BLUESTONE_WALL_TORCH.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PRISMARINE_LEVER = ITEMS.register("prismarine_lever", () -> new BlockItem(InspireBlocks.PRISMARINE_LEVER.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PRISMARINE_PRESSURE_PLATE = ITEMS.register("prismarine_pressure_plate", () -> new BlockItem(InspireBlocks.PRISMARINE_PRESSURE_PLATE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PRISMARINE_BUTTON = ITEMS.register("prismarine_button", () -> new BlockItem(InspireBlocks.PRISMARINE_BUTTON.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLUESTONE_REPEATER = ITEMS.register("bluestone_repeater", () -> new BlockItem(InspireBlocks.BLUESTONE_REPEATER.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLUESTONE_COMPARATOR = ITEMS.register("bluestone_comparator", () -> new BlockItem(InspireBlocks.BLUESTONE_COMPARATOR.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PRISMARINE_LAMP_BLOCK = ITEMS.register("prismarine_lamp", () -> new BlockItem(InspireBlocks.PRISMARINE_LAMP.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLUESTONE_ORE_BLOCK = ITEMS.register("bluestone_ore", () -> new BlockItem(InspireBlocks.BLUESTONE_ORE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DEEPSLATE_BLUESTONE_ORE_BLOCK = ITEMS.register("deepslate_bluestone_ore", () -> new BlockItem(InspireBlocks.DEEPSLATE_BLUESTONE_ORE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        AMETHYST_ORE_BLOCK = ITEMS.register("amethyst_ore", () -> new BlockItem(InspireBlocks.AMETHYST_ORE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DEEPSLATE_AMETHYST_ORE_BLOCK = ITEMS.register("deepslate_amethyst_ore", () -> new BlockItem(InspireBlocks.DEEPSLATE_AMETHYST_ORE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PRISMARINE_ORE_BLOCK = ITEMS.register("prismarine_ore", () -> new BlockItem(InspireBlocks.PRISMARINE_ORE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DEEPSLATE_PRISMARINE_ORE_BLOCK = ITEMS.register("deepslate_prismarine_ore", () -> new BlockItem(InspireBlocks.DEEPSLATE_PRISMARINE_ORE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLUESTONE_BLOCK_BLOCK = ITEMS.register("bluestone_block", () -> new BlockItem(InspireBlocks.BLUESTONE_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        BLUESTONE = ITEMS.register("bluestone", () -> new ItemNameBlockItem(InspireBlocks.BLUESTONE_WIRE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLUESTONE_TORCH = ITEMS.register("bluestone_torch", () -> new StandingAndWallBlockItem(InspireBlocks.BLUESTONE_TORCH.get(), InspireBlocks.BLUESTONE_WALL_TORCH.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE), Direction.DOWN));
+        PRISMARINE_LEVER = ITEMS.register("prismarine_lever", () -> new BlockItem(InspireBlocks.PRISMARINE_LEVER.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PRISMARINE_PRESSURE_PLATE = ITEMS.register("prismarine_pressure_plate", () -> new BlockItem(InspireBlocks.PRISMARINE_PRESSURE_PLATE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PRISMARINE_BUTTON = ITEMS.register("prismarine_button", () -> new BlockItem(InspireBlocks.PRISMARINE_BUTTON.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLUESTONE_REPEATER = ITEMS.register("bluestone_repeater", () -> new BlockItem(InspireBlocks.BLUESTONE_REPEATER.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLUESTONE_COMPARATOR = ITEMS.register("bluestone_comparator", () -> new BlockItem(InspireBlocks.BLUESTONE_COMPARATOR.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PRISMARINE_LAMP_BLOCK = ITEMS.register("prismarine_lamp", () -> new BlockItem(InspireBlocks.PRISMARINE_LAMP.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLUESTONE_ORE_BLOCK = ITEMS.register("bluestone_ore", () -> new BlockItem(InspireBlocks.BLUESTONE_ORE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DEEPSLATE_BLUESTONE_ORE_BLOCK = ITEMS.register("deepslate_bluestone_ore", () -> new BlockItem(InspireBlocks.DEEPSLATE_BLUESTONE_ORE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        AMETHYST_ORE_BLOCK = ITEMS.register("amethyst_ore", () -> new BlockItem(InspireBlocks.AMETHYST_ORE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DEEPSLATE_AMETHYST_ORE_BLOCK = ITEMS.register("deepslate_amethyst_ore", () -> new BlockItem(InspireBlocks.DEEPSLATE_AMETHYST_ORE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PRISMARINE_ORE_BLOCK = ITEMS.register("prismarine_ore", () -> new BlockItem(InspireBlocks.PRISMARINE_ORE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DEEPSLATE_PRISMARINE_ORE_BLOCK = ITEMS.register("deepslate_prismarine_ore", () -> new BlockItem(InspireBlocks.DEEPSLATE_PRISMARINE_ORE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BLUESTONE_BLOCK_BLOCK = ITEMS.register("bluestone_block", () -> new BlockItem(InspireBlocks.BLUESTONE_BLOCK.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        WITHERED_BONE_BLOCK_BLOCK = ITEMS.register("withered_bone_block", () -> new BlockItem(InspireBlocks.WITHERED_BONE_BLOCK.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_BONE_MEAL = ITEMS.register("withered_bone_meal", () -> new WitheredBoneMealItem((new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_BONE = ITEMS.register("withered_bone", () -> new Item((new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        WITHERED_BONE_BLOCK_BLOCK = ITEMS.register("withered_bone_block", () -> new BlockItem(InspireBlocks.WITHERED_BONE_BLOCK.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_BONE_MEAL = ITEMS.register("withered_bone_meal", () -> new WitheredBoneMealItem((new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_BONE = ITEMS.register("withered_bone", () -> new Item((new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        WITHERED_PLANKS = ITEMS.register("withered_planks", () -> new BlockItem(InspireBlocks.WITHERED_PLANKS.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_SAPLING = ITEMS.register("withered_sapling", () -> new BlockItem(InspireBlocks.WITHERED_SAPLING.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_LOG = ITEMS.register("withered_log", () -> new BlockItem(InspireBlocks.WITHERED_LOG.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STRIPPED_WITHERED_LOG = ITEMS.register("stripped_withered_log", () -> new BlockItem(InspireBlocks.STRIPPED_WITHERED_LOG.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_WOOD = ITEMS.register("withered_wood", () -> new BlockItem(InspireBlocks.WITHERED_WOOD.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STRIPPED_WITHERED_WOOD = ITEMS.register("stripped_withered_wood", () -> new BlockItem(InspireBlocks.STRIPPED_WITHERED_WOOD.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_STAIRS = ITEMS.register("withered_stairs", () -> new BlockItem(InspireBlocks.WITHERED_STAIRS.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_SIGN = ITEMS.register("withered_sign", () -> new SignItem((new Item.Properties().fireResistant()).stacksTo(16).tab(ModCreativeTabs.TAB_INSPIRE), InspireBlocks.WITHERED_SIGN.get(), InspireBlocks.WITHERED_WALL_SIGN.get()));
-        WITHERED_DOOR = ITEMS.register("withered_door", () -> new DoubleHighBlockItem(InspireBlocks.WITHERED_DOOR.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_PRESSURE_PLATE = ITEMS.register("withered_pressure_plate", () -> new BlockItem(InspireBlocks.WITHERED_PRESSURE_PLATE.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_FENCE = ITEMS.register("withered_fence", () -> new BlockItem(InspireBlocks.WITHERED_FENCE.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_TRAPDOOR = ITEMS.register("withered_trapdoor", () -> new BlockItem(InspireBlocks.WITHERED_TRAPDOOR.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_FENCE_GATE = ITEMS.register("withered_fence_gate", () -> new BlockItem(InspireBlocks.WITHERED_FENCE_GATE.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_BUTTON = ITEMS.register("withered_button", () -> new BlockItem(InspireBlocks.WITHERED_BUTTON.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_SLAB = ITEMS.register("withered_slab", () -> new BlockItem(InspireBlocks.WITHERED_SLAB.get(), (new Item.Properties().fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        WITHERED_PLANKS = ITEMS.register("withered_planks", () -> new BlockItem(InspireBlocks.WITHERED_PLANKS.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_SAPLING = ITEMS.register("withered_sapling", () -> new BlockItem(InspireBlocks.WITHERED_SAPLING.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_LOG = ITEMS.register("withered_log", () -> new BlockItem(InspireBlocks.WITHERED_LOG.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIPPED_WITHERED_LOG = ITEMS.register("stripped_withered_log", () -> new BlockItem(InspireBlocks.STRIPPED_WITHERED_LOG.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_WOOD = ITEMS.register("withered_wood", () -> new BlockItem(InspireBlocks.WITHERED_WOOD.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIPPED_WITHERED_WOOD = ITEMS.register("stripped_withered_wood", () -> new BlockItem(InspireBlocks.STRIPPED_WITHERED_WOOD.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_STAIRS = ITEMS.register("withered_stairs", () -> new BlockItem(InspireBlocks.WITHERED_STAIRS.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_SIGN = ITEMS.register("withered_sign", () -> new SignItem((new Item.Properties().fireResistant()).stacksTo(16).arch$tab(InspireCreativeTabs.TAB_INSPIRE), InspireBlocks.WITHERED_SIGN.get(), InspireBlocks.WITHERED_WALL_SIGN.get()));
+        WITHERED_DOOR = ITEMS.register("withered_door", () -> new DoubleHighBlockItem(InspireBlocks.WITHERED_DOOR.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_PRESSURE_PLATE = ITEMS.register("withered_pressure_plate", () -> new BlockItem(InspireBlocks.WITHERED_PRESSURE_PLATE.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_FENCE = ITEMS.register("withered_fence", () -> new BlockItem(InspireBlocks.WITHERED_FENCE.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_TRAPDOOR = ITEMS.register("withered_trapdoor", () -> new BlockItem(InspireBlocks.WITHERED_TRAPDOOR.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_FENCE_GATE = ITEMS.register("withered_fence_gate", () -> new BlockItem(InspireBlocks.WITHERED_FENCE_GATE.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_BUTTON = ITEMS.register("withered_button", () -> new BlockItem(InspireBlocks.WITHERED_BUTTON.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_SLAB = ITEMS.register("withered_slab", () -> new BlockItem(InspireBlocks.WITHERED_SLAB.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        PINE_PLANKS = ITEMS.register("pine_planks", () -> new BlockItem(InspireBlocks.PINE_PLANKS.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_SAPLING = ITEMS.register("pine_sapling", () -> new BlockItem(InspireBlocks.PINE_SAPLING.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_LOG = ITEMS.register("pine_log", () -> new BlockItem(InspireBlocks.PINE_LOG.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STRIPPED_PINE_LOG = ITEMS.register("stripped_pine_log", () -> new BlockItem(InspireBlocks.STRIPPED_PINE_LOG.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_WOOD = ITEMS.register("pine_wood", () -> new BlockItem(InspireBlocks.PINE_WOOD.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STRIPPED_PINE_WOOD = ITEMS.register("stripped_pine_wood", () -> new BlockItem(InspireBlocks.STRIPPED_PINE_WOOD.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_STAIRS = ITEMS.register("pine_stairs", () -> new BlockItem(InspireBlocks.PINE_STAIRS.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_SIGN = ITEMS.register("pine_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).tab(ModCreativeTabs.TAB_INSPIRE), InspireBlocks.PINE_SIGN.get(), InspireBlocks.PINE_WALL_SIGN.get()));
-        PINE_DOOR = ITEMS.register("pine_door", () -> new DoubleHighBlockItem(InspireBlocks.PINE_DOOR.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_PRESSURE_PLATE = ITEMS.register("pine_pressure_plate", () -> new BlockItem(InspireBlocks.PINE_PRESSURE_PLATE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_FENCE = ITEMS.register("pine_fence", () -> new BlockItem(InspireBlocks.PINE_FENCE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_TRAPDOOR = ITEMS.register("pine_trapdoor", () -> new BlockItem(InspireBlocks.PINE_TRAPDOOR.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_FENCE_GATE = ITEMS.register("pine_fence_gate", () -> new BlockItem(InspireBlocks.PINE_FENCE_GATE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_BUTTON = ITEMS.register("pine_button", () -> new BlockItem(InspireBlocks.PINE_BUTTON.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_SLAB = ITEMS.register("pine_slab", () -> new BlockItem(InspireBlocks.PINE_SLAB.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        PINE_PLANKS = ITEMS.register("pine_planks", () -> new BlockItem(InspireBlocks.PINE_PLANKS.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_SAPLING = ITEMS.register("pine_sapling", () -> new BlockItem(InspireBlocks.PINE_SAPLING.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_LOG = ITEMS.register("pine_log", () -> new BlockItem(InspireBlocks.PINE_LOG.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIPPED_PINE_LOG = ITEMS.register("stripped_pine_log", () -> new BlockItem(InspireBlocks.STRIPPED_PINE_LOG.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_WOOD = ITEMS.register("pine_wood", () -> new BlockItem(InspireBlocks.PINE_WOOD.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIPPED_PINE_WOOD = ITEMS.register("stripped_pine_wood", () -> new BlockItem(InspireBlocks.STRIPPED_PINE_WOOD.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_STAIRS = ITEMS.register("pine_stairs", () -> new BlockItem(InspireBlocks.PINE_STAIRS.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_SIGN = ITEMS.register("pine_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).arch$tab(InspireCreativeTabs.TAB_INSPIRE), InspireBlocks.PINE_SIGN.get(), InspireBlocks.PINE_WALL_SIGN.get()));
+        PINE_DOOR = ITEMS.register("pine_door", () -> new DoubleHighBlockItem(InspireBlocks.PINE_DOOR.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_PRESSURE_PLATE = ITEMS.register("pine_pressure_plate", () -> new BlockItem(InspireBlocks.PINE_PRESSURE_PLATE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_FENCE = ITEMS.register("pine_fence", () -> new BlockItem(InspireBlocks.PINE_FENCE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_TRAPDOOR = ITEMS.register("pine_trapdoor", () -> new BlockItem(InspireBlocks.PINE_TRAPDOOR.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_FENCE_GATE = ITEMS.register("pine_fence_gate", () -> new BlockItem(InspireBlocks.PINE_FENCE_GATE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_BUTTON = ITEMS.register("pine_button", () -> new BlockItem(InspireBlocks.PINE_BUTTON.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_SLAB = ITEMS.register("pine_slab", () -> new BlockItem(InspireBlocks.PINE_SLAB.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        REDWOOD_PLANKS = ITEMS.register("redwood_planks", () -> new BlockItem(InspireBlocks.REDWOOD_PLANKS.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_SAPLING = ITEMS.register("redwood_sapling", () -> new BlockItem(InspireBlocks.REDWOOD_SAPLING.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_LOG = ITEMS.register("redwood_log", () -> new BlockItem(InspireBlocks.REDWOOD_LOG.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STRIPPED_REDWOOD_LOG = ITEMS.register("stripped_redwood_log", () -> new BlockItem(InspireBlocks.STRIPPED_REDWOOD_LOG.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_WOOD = ITEMS.register("redwood_wood", () -> new BlockItem(InspireBlocks.REDWOOD_WOOD.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STRIPPED_REDWOOD_WOOD = ITEMS.register("stripped_redwood_wood", () -> new BlockItem(InspireBlocks.STRIPPED_REDWOOD_WOOD.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_STAIRS = ITEMS.register("redwood_stairs", () -> new BlockItem(InspireBlocks.REDWOOD_STAIRS.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_SIGN = ITEMS.register("redwood_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).tab(ModCreativeTabs.TAB_INSPIRE), InspireBlocks.REDWOOD_SIGN.get(), InspireBlocks.REDWOOD_WALL_SIGN.get()));
-        REDWOOD_DOOR = ITEMS.register("redwood_door", () -> new DoubleHighBlockItem(InspireBlocks.REDWOOD_DOOR.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_PRESSURE_PLATE = ITEMS.register("redwood_pressure_plate", () -> new BlockItem(InspireBlocks.REDWOOD_PRESSURE_PLATE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_FENCE = ITEMS.register("redwood_fence", () -> new BlockItem(InspireBlocks.REDWOOD_FENCE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_TRAPDOOR = ITEMS.register("redwood_trapdoor", () -> new BlockItem(InspireBlocks.REDWOOD_TRAPDOOR.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_FENCE_GATE = ITEMS.register("redwood_fence_gate", () -> new BlockItem(InspireBlocks.REDWOOD_FENCE_GATE.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_BUTTON = ITEMS.register("redwood_button", () -> new BlockItem(InspireBlocks.REDWOOD_BUTTON.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_SLAB = ITEMS.register("redwood_slab", () -> new BlockItem(InspireBlocks.REDWOOD_SLAB.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_PLANKS = ITEMS.register("redwood_planks", () -> new BlockItem(InspireBlocks.REDWOOD_PLANKS.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_SAPLING = ITEMS.register("redwood_sapling", () -> new BlockItem(InspireBlocks.REDWOOD_SAPLING.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_LOG = ITEMS.register("redwood_log", () -> new BlockItem(InspireBlocks.REDWOOD_LOG.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIPPED_REDWOOD_LOG = ITEMS.register("stripped_redwood_log", () -> new BlockItem(InspireBlocks.STRIPPED_REDWOOD_LOG.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_WOOD = ITEMS.register("redwood_wood", () -> new BlockItem(InspireBlocks.REDWOOD_WOOD.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIPPED_REDWOOD_WOOD = ITEMS.register("stripped_redwood_wood", () -> new BlockItem(InspireBlocks.STRIPPED_REDWOOD_WOOD.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_STAIRS = ITEMS.register("redwood_stairs", () -> new BlockItem(InspireBlocks.REDWOOD_STAIRS.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_SIGN = ITEMS.register("redwood_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).arch$tab(InspireCreativeTabs.TAB_INSPIRE), InspireBlocks.REDWOOD_SIGN.get(), InspireBlocks.REDWOOD_WALL_SIGN.get()));
+        REDWOOD_DOOR = ITEMS.register("redwood_door", () -> new DoubleHighBlockItem(InspireBlocks.REDWOOD_DOOR.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_PRESSURE_PLATE = ITEMS.register("redwood_pressure_plate", () -> new BlockItem(InspireBlocks.REDWOOD_PRESSURE_PLATE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_FENCE = ITEMS.register("redwood_fence", () -> new BlockItem(InspireBlocks.REDWOOD_FENCE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_TRAPDOOR = ITEMS.register("redwood_trapdoor", () -> new BlockItem(InspireBlocks.REDWOOD_TRAPDOOR.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_FENCE_GATE = ITEMS.register("redwood_fence_gate", () -> new BlockItem(InspireBlocks.REDWOOD_FENCE_GATE.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_BUTTON = ITEMS.register("redwood_button", () -> new BlockItem(InspireBlocks.REDWOOD_BUTTON.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_SLAB = ITEMS.register("redwood_slab", () -> new BlockItem(InspireBlocks.REDWOOD_SLAB.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        OAK_BARK = ITEMS.register("oak_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SPRUCE_BARK = ITEMS.register("spruce_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BIRCH_BARK = ITEMS.register("birch_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        JUNGLE_BARK = ITEMS.register("jungle_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ACACIA_BARK = ITEMS.register("acacia_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DARK_OAK_BARK = ITEMS.register("dark_oak_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MANGROVE_BARK = ITEMS.register("mangrove_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        //CHERRY_BARK = ITEMS.register("cherry_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        //PALE_BARK = ITEMS.register("pale_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WITHERED_BARK = ITEMS.register("withered_bark", () -> new Item((new Item.Properties().stacksTo(64).fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINE_BARK = ITEMS.register("pine_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_BARK = ITEMS.register("redwood_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SOUL_GLASS = ITEMS.register("soul_glass", () -> new BlockItem(InspireBlocks.SOUL_GLASS.get(), (new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SOUL_BOTTLE = ITEMS.register("soul_bottle", () -> new Item(new Item.Properties().tab(ModCreativeTabs.TAB_INSPIRE)) {
-            @Override
-            public @NotNull Rarity getRarity(ItemStack itemStack) {
-                return Rarity.RARE;
-            }
-
+        OAK_BARK = ITEMS.register("oak_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SPRUCE_BARK = ITEMS.register("spruce_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BIRCH_BARK = ITEMS.register("birch_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        JUNGLE_BARK = ITEMS.register("jungle_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        ACACIA_BARK = ITEMS.register("acacia_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DARK_OAK_BARK = ITEMS.register("dark_oak_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        MANGROVE_BARK = ITEMS.register("mangrove_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        //CHERRY_BARK = ITEMS.register("cherry_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        //PALE_BARK = ITEMS.register("pale_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WITHERED_BARK = ITEMS.register("withered_bark", () -> new Item((new Item.Properties().stacksTo(64).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        PINE_BARK = ITEMS.register("pine_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_BARK = ITEMS.register("redwood_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_GLASS = ITEMS.register("soul_glass", () -> new BlockItem(InspireBlocks.SOUL_GLASS.get(), (new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_BOTTLE = ITEMS.register("soul_bottle", () -> new Item(new Item.Properties().rarity(Rarity.RARE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)) {
             @Override
             public boolean isFoil(ItemStack itemStack) {
                 return true;
             }
         });
 
-        //PORTABLE_JUKEBOX = ITEMS.register("portable_jukebox", () -> new PortableJukeboxItem((new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CHEESE = ITEMS.register("cheese", () -> new Item((new Item.Properties().stacksTo(64).food(ModFoods.CHEESE)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CORN = ITEMS.register("corn", () -> new Item((new Item.Properties().stacksTo(64).food(ModFoods.CORN)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BAKED_CORN = ITEMS.register("baked_corn", () -> new Item((new Item.Properties().stacksTo(64).food(ModFoods.BAKED_CORN)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        POPPED_CORN = ITEMS.register("popped_corn", () -> new Item((new Item.Properties().stacksTo(64).food(ModFoods.POPPED_CORN)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CARMEL_CORN = ITEMS.register("carmel_corn", () -> new Item((new Item.Properties().stacksTo(64).food(ModFoods.CARAMEL_CORN)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DRIED_CORN = ITEMS.register("dried_corn", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
+        //PORTABLE_JUKEBOX = ITEMS.register("portable_jukebox", () -> new PortableJukeboxItem((new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CHEESE = ITEMS.register("cheese", () -> new Item((new Item.Properties().stacksTo(64).food(InspireFoods.CHEESE)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CORN = ITEMS.register("corn", () -> new Item((new Item.Properties().stacksTo(64).food(InspireFoods.CORN)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        BAKED_CORN = ITEMS.register("baked_corn", () -> new Item((new Item.Properties().stacksTo(64).food(InspireFoods.BAKED_CORN)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        POPPED_CORN = ITEMS.register("popped_corn", () -> new Item((new Item.Properties().stacksTo(64).food(InspireFoods.POPPED_CORN)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        CARMEL_CORN = ITEMS.register("carmel_corn", () -> new Item((new Item.Properties().stacksTo(64).food(InspireFoods.CARAMEL_CORN)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DRIED_CORN = ITEMS.register("dried_corn", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        IRON_PICKAXE_HEAD = ITEMS.register("iron_pickaxe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        IRON_AXE_HEAD = ITEMS.register("iron_axe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        IRON_SHOVEL_HEAD = ITEMS.register("iron_shovel_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        IRON_HOE_HEAD = ITEMS.register("iron_hoe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        IRON_SWORD_BLADE = ITEMS.register("iron_sword_blade", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
+        IRON_PICKAXE_HEAD = ITEMS.register("iron_pickaxe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        IRON_AXE_HEAD = ITEMS.register("iron_axe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        IRON_SHOVEL_HEAD = ITEMS.register("iron_shovel_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        IRON_HOE_HEAD = ITEMS.register("iron_hoe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        IRON_SWORD_BLADE = ITEMS.register("iron_sword_blade", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        GOLD_PICKAXE_HEAD = ITEMS.register("gold_pickaxe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GOLD_AXE_HEAD = ITEMS.register("gold_axe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GOLD_SHOVEL_HEAD = ITEMS.register("gold_shovel_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GOLD_HOE_HEAD = ITEMS.register("gold_hoe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GOLD_SWORD_BLADE = ITEMS.register("gold_sword_blade", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
+        GOLD_PICKAXE_HEAD = ITEMS.register("gold_pickaxe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GOLD_AXE_HEAD = ITEMS.register("gold_axe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GOLD_SHOVEL_HEAD = ITEMS.register("gold_shovel_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GOLD_HOE_HEAD = ITEMS.register("gold_hoe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GOLD_SWORD_BLADE = ITEMS.register("gold_sword_blade", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        DIAMOND_PICKAXE_HEAD = ITEMS.register("diamond_pickaxe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DIAMOND_AXE_HEAD = ITEMS.register("diamond_axe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DIAMOND_SHOVEL_HEAD = ITEMS.register("diamond_shovel_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DIAMOND_HOE_HEAD = ITEMS.register("diamond_hoe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DIAMOND_SWORD_BLADE = ITEMS.register("diamond_sword_blade", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).tab(ModCreativeTabs.TAB_INSPIRE)));
+        DIAMOND_PICKAXE_HEAD = ITEMS.register("diamond_pickaxe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DIAMOND_AXE_HEAD = ITEMS.register("diamond_axe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DIAMOND_SHOVEL_HEAD = ITEMS.register("diamond_shovel_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DIAMOND_HOE_HEAD = ITEMS.register("diamond_hoe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DIAMOND_SWORD_BLADE = ITEMS.register("diamond_sword_blade", () -> new ToolPartItem((new Item.Properties().stacksTo(1)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        NETHERITE_PICKAXE_HEAD = ITEMS.register("netherite_pickaxe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHERITE_AXE_HEAD = ITEMS.register("netherite_axe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHERITE_SHOVEL_HEAD = ITEMS.register("netherite_shovel_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHERITE_HOE_HEAD = ITEMS.register("netherite_hoe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHERITE_SWORD_BLADE = ITEMS.register("netherite_sword_blade", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        NETHERITE_PICKAXE_HEAD = ITEMS.register("netherite_pickaxe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHERITE_AXE_HEAD = ITEMS.register("netherite_axe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHERITE_SHOVEL_HEAD = ITEMS.register("netherite_shovel_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHERITE_HOE_HEAD = ITEMS.register("netherite_hoe_head", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHERITE_SWORD_BLADE = ITEMS.register("netherite_sword_blade", () -> new ToolPartItem((new Item.Properties().stacksTo(1).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        CRAFTING_TABLET = ITEMS.register("crafting_tablet", () -> new CraftingTabletItem((new Item.Properties().stacksTo(1).fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WAND_OF_LIGHT = ITEMS.register("wand_of_light", () -> new Item((new Item.Properties().stacksTo(1).fireResistant()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        CRAFTING_TABLET = ITEMS.register("crafting_tablet", () -> new CraftingTabletItem((new Item.Properties().stacksTo(1).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WAND_OF_LIGHT = ITEMS.register("wand_of_light", () -> new Item((new Item.Properties().stacksTo(1).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
-        SOUL_BUCKET = ITEMS.register("soul_bucket", () -> new BucketItem(InspireFluids.SOUL_FLUID.get(), (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));//removed .get()
-        HONEY_BUCKET = ITEMS.register("honey_bucket", () -> new BucketItem(InspireFluids.HONEY_FLUID.get(), (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));//removed .get()
-        SCULK_SLUDGE_BUCKET = ITEMS.register("sculk_sludge_bucket", () -> new BucketItem(InspireFluids.SCULK_SLUDGE.get(), (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));//removed .get()
+        SOUL_BUCKET = ITEMS.register("soul_bucket", () -> new BucketItem(InspireFluids.SOUL_FLUID.get(), (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));//removed .get()
+        HONEY_BUCKET = ITEMS.register("honey_bucket", () -> new BucketItem(InspireFluids.HONEY_FLUID.get(), (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));//removed .get()
+        SCULK_SLUDGE_BUCKET = ITEMS.register("sculk_sludge_bucket", () -> new BucketItem(InspireFluids.SCULK_SLUDGE.get(), (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));//removed .get()
 
         WARPED_NYLIUM_SHELF = ITEMS.register("warped_nylium_shelf", () -> new BlockItem(InspireBlocks.WARPED_NYLIUM_SHELF.get(), basicProperties("warped_nylium_shelf").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
         CRIMSON_NYLIUM_SHELF = ITEMS.register("crimson_nylium_shelf", () -> new BlockItem(InspireBlocks.CRIMSON_NYLIUM_SHELF.get(), basicProperties("crimson_nylium_shelf").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));

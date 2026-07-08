@@ -3,17 +3,15 @@ package net.github.creep3rcrafter.inspire.register;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.block.entity.BreakerBlockEntity;
+import net.github.creep3rcrafter.inspire.block.entity.CursedTableBlockEntity;
+import net.github.creep3rcrafter.inspire.block.entity.FilteredHopperBlockEntity;
 import net.github.creep3rcrafter.inspire.block.entity.RegularBedBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Set;
 
 public class InspireBlockEntityTypes {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(InspireCommon.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
-
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(InspireCommon.MOD_ID, Registry.BLOCK_ENTITY_TYPE_REGISTRY);
     //public static final RegistrySupplier<BlockEntityType<PotionLiquidBlockEntity>> POTION_LIQUID_BLOCK_ENTITY_TYPE;
     //public static final RegistrySupplier<BlockEntityType<ObsidianChestBlockEntity>> OBSIDIAN_CHEST;
     public static final RegistrySupplier<BlockEntityType<BreakerBlockEntity>> BREAKER;
@@ -43,6 +41,5 @@ public class InspireBlockEntityTypes {
                 "cursed_table", () -> BlockEntityType.Builder.of(CursedTableBlockEntity::new, InspireBlocks.CURSED_TABLE.get()).build(null));
         FILTERED_HOPPER = BLOCK_ENTITY_TYPES.register(
                 "filtered_hopper", () -> BlockEntityType.Builder.of(FilteredHopperBlockEntity::new, InspireBlocks.FILTERED_HOPPER.get()).build(null));
-    }
     }
 }

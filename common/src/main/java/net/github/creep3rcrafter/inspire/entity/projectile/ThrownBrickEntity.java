@@ -1,32 +1,33 @@
 package net.github.creep3rcrafter.inspire.entity.projectile;
 
-import com.github.creep3rcrafter.inspire.register.InspireEntityTypes;
-import com.github.creep3rcrafter.inspire.utils.ColorUtils;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.particle.ItemStackParticleEffect;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.world.World;
+import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.github.creep3rcrafter.inspire.utils.ColorUtils;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 
-public class ThrownBrickEntity extends ThrownItemEntity {
-    public ThrownBrickEntity(EntityType<? extends ThrownBrickEntity> entityType, World world) {
-        super(entityType, world);
+public class ThrownBrickEntity extends ThrowableItemProjectile {
+    public ThrownBrickEntity(EntityType<? extends ThrownBrickEntity> entityType, Level level) {
+        super(entityType, level);
     }
 
-    public ThrownBrickEntity(World world, LivingEntity livingEntity) {
-        super(InspireEntityTypes.BRICK.get(), livingEntity, world);
+    public ThrownBrickEntity(Level level, LivingEntity livingEntity) {
+        super(InspireEntityTypes.BRICK.get(), livingEntity, level);
     }
 
-    public ThrownBrickEntity(World level, double x, double y, double z) {
+    public ThrownBrickEntity(Level level, double x, double y, double z) {
         super(InspireEntityTypes.BRICK.get(), x, y, z, level);
     }
 
@@ -35,52 +36,52 @@ public class ThrownBrickEntity extends ThrownItemEntity {
         return Items.BRICK;
     }
 
-    private ParticleEffect getParticleParameters() {
+    private ParticleOptions getParticleParameters() {
         ItemStack itemStack = this.getItem();
-        return (ParticleEffect) (itemStack.isEmpty() ? ParticleTypes.DUST : new ItemStackParticleEffect(ParticleTypes.ITEM, itemStack));
+        return itemStack.isEmpty() ? ParticleTypes.DUST : new ItemParticleOption(ParticleTypes.ITEM, itemStack);
     }
 
-    public void handleStatus(byte status) {
+    @Override
+    public void handleEntityEvent(byte status) {
         if (status == 3) {
-            ParticleEffect particleEffect = this.getParticleParameters();
+            ParticleOptions particleEffect = this.getParticleParameters();
 
             for (int i = 0; i < 8; ++i) {
-                this.getWorld().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), (double) 0.0F, (double) 0.0F, (double) 0.0F);
+                this.level().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F, 0.0F);
             }
         }
-
     }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), (float) 4);
-        discard();
+        entity.hurt(this.damageSources().thrown(this, this.getOwner()), (float) 4);
+        this.discard();
     }
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         super.onBlockHit(blockHitResult);
-        World world = this.getWorld();
-        if (!this.getWorld().isClient()) {
-            if (ColorUtils.isGlass(world, blockHitResult.getBlockPos())) {
-                world.breakBlock(blockHitResult.getBlockPos(), true, this);
-                if (random.nextBoolean()) {
-                    discard();
+        Level level = this.level();
+        if (!level.isClientSide) {
+            if (ColorUtils.isGlass(level, blockHitResult.getBlockPos())) {
+                level.destroyBlock(blockHitResult.getBlockPos(), true, this);
+                if (this.random.nextBoolean()) {
+                    this.discard();
                 }
-            } else if (ColorUtils.isGlassPane(world, blockHitResult.getBlockPos())) {
-                world.breakBlock(blockHitResult.getBlockPos(), true, this);
-                if (random.nextBoolean()) {
-                    discard();
+            } else if (ColorUtils.isGlassPane(level, blockHitResult.getBlockPos())) {
+                level.destroyBlock(blockHitResult.getBlockPos(), true, this);
+                if (this.random.nextBoolean()) {
+                    this.discard();
                 }
-            } else if (world.getBlockState(blockHitResult.getBlockPos()).isOf(Blocks.FLOWER_POT)) {
-                world.breakBlock(blockHitResult.getBlockPos(), true, this);
-                if (random.nextBoolean()) {
-                    discard();
+            } else if (level.getBlockState(blockHitResult.getBlockPos()).is(Blocks.FLOWER_POT)) {
+                level.destroyBlock(blockHitResult.getBlockPos(), true, this);
+                if (this.random.nextBoolean()) {
+                    this.discard();
                 }
             } else {
-                discard();
+                this.discard();
             }
         }
     }

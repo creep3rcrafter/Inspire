@@ -1,70 +1,71 @@
 package net.github.creep3rcrafter.inspire.entity;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ChestBlock;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.PiglinBrain;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.vehicle.ChestMinecartEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.screen.GenericContainerScreenHandler;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.AbstractMinecart;
+import net.minecraft.world.entity.vehicle.MinecartChest;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 
-public class EnderChestMinecartEntity extends ChestMinecartEntity {
-    public EnderChestMinecartEntity(EntityType<? extends EnderChestMinecartEntity> entityType, World level) {
+public class EnderChestMinecartEntity extends MinecartChest {
+    public EnderChestMinecartEntity(EntityType<? extends EnderChestMinecartEntity> entityType, Level level) {
         super(entityType, level);
     }
 
     @Override
-    protected Item getItem() {
+    protected Item getDropItem() {
         return Items.CHEST_MINECART;
     }
 
     @Override
-    public int size() {
+    public int getContainerSize() {
         return 27;
     }
 
     @Override
-    public Type getMinecartType() {
-        return Type.CHEST;
+    public AbstractMinecart.Type getMinecartType() {
+        return AbstractMinecart.Type.CHEST;
     }
 
     @Override
-    public BlockState getDefaultContainedBlock() {
-        return Blocks.ENDER_CHEST.getDefaultState().with(ChestBlock.FACING, Direction.NORTH);
+    public BlockState getDefaultDisplayBlockState() {
+        return Blocks.ENDER_CHEST.defaultBlockState().setValue(ChestBlock.FACING, Direction.NORTH);
     }
 
     @Override
-    public int getDefaultBlockOffset() {
+    public int getDefaultDisplayOffset() {
         return 8;
     }
 
 
     @Override
-    public ScreenHandler getScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return GenericContainerScreenHandler.createGeneric9x3(syncId, playerInventory, this);
+    public AbstractContainerMenu createMenu(int syncId, Inventory playerInventory) {
+        return ChestMenu.threeRows(syncId, playerInventory, this);
     }
 
     @Override
-    public void onClose(PlayerEntity player) {
-        this.getWorld().emitGameEvent(GameEvent.CONTAINER_CLOSE, this.getPos(), GameEvent.Emitter.of(player));
+    public void stopOpen(Player player) {
+        this.level().gameEvent(GameEvent.CONTAINER_CLOSE, this.position(), GameEvent.Context.of(player));
     }
 
     @Override
-    public ActionResult interact(PlayerEntity player, Hand hand) {
-        ActionResult actionResult = this.open(player);
-        if (actionResult.isAccepted()) {
-            this.emitGameEvent(GameEvent.CONTAINER_OPEN, player);
-            PiglinBrain.onGuardedBlockInteracted(player, true);
+    public InteractionResult interact(Player player, InteractionHand hand) {
+        InteractionResult actionResult = this.interact(player);
+        if (actionResult.consumesAction()) {
+            this.gameEvent(GameEvent.CONTAINER_OPEN, player);
+            PiglinAi.angerNearbyPiglins(player, true);
         }
 
         return actionResult;

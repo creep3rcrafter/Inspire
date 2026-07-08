@@ -1,97 +1,97 @@
 package net.github.creep3rcrafter.inspire.entity.animal;
 
-import net.minecraft.entity.EntityGroup;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributeInstance;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.passive.AbstractHorseEntity;
-import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.EntityView;
-import net.minecraft.world.World;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class WitherSkeletonHorseEntity extends AbstractHorseEntity {
+public class WitherSkeletonHorseEntity extends AbstractHorse {
 
-    public WitherSkeletonHorseEntity(EntityType<? extends WitherSkeletonHorseEntity> entityType, World world) {
-        super(entityType, world);
+    public WitherSkeletonHorseEntity(EntityType<? extends WitherSkeletonHorseEntity> entityType, Level level) {
+        super(entityType, level);
     }
 
-    public static DefaultAttributeContainer.Builder createSkeletonHorseAttributes() {
-        return createBaseHorseAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, (double) 20.0F).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, (double) 0.3F);
+    public static AttributeSupplier.Builder createSkeletonHorseAttributes() {
+        return createBaseHorseAttributes().add(Attributes.MAX_HEALTH, 20.0F).add(Attributes.MOVEMENT_SPEED, 0.3F);
     }
 
     @Override
-    public boolean isFireImmune() {
+    public boolean fireImmune() {
         return true;
     }
 
     @Override
-    protected void initAttributes(Random random) {
-        EntityAttributeInstance var10000 = this.getAttributeInstance(EntityAttributes.HORSE_JUMP_STRENGTH);
+    protected void randomizeAttributes(RandomSource random) {
+        AttributeInstance attributeInstance = this.getAttribute(Attributes.JUMP_STRENGTH);
         Objects.requireNonNull(random);
-        var10000.setBaseValue(getChildJumpStrengthBonus(random::nextDouble) + 1f);
+        if (attributeInstance != null) {
+            attributeInstance.setBaseValue(getOffspringAttribute(random::nextDouble) + 1f);
+        }
     }
 
     @Override
-    protected void initCustomGoals() {
+    protected void addBehaviourGoals() {
     }
 
 
     @Override
     protected SoundEvent getAmbientSound() {
         super.getAmbientSound();
-        return this.isSubmergedIn(FluidTags.WATER) ? SoundEvents.ENTITY_SKELETON_HORSE_AMBIENT_WATER : SoundEvents.ENTITY_SKELETON_HORSE_AMBIENT;
+        return this.isEyeInFluid(FluidTags.WATER) ? SoundEvents.SKELETON_HORSE_AMBIENT_WATER : SoundEvents.SKELETON_HORSE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
         super.getDeathSound();
-        return SoundEvents.ENTITY_SKELETON_HORSE_DEATH;
+        return SoundEvents.SKELETON_HORSE_DEATH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
         super.getHurtSound(damageSource);
-        return SoundEvents.ENTITY_SKELETON_HORSE_HURT;
+        return SoundEvents.SKELETON_HORSE_HURT;
     }
 
     @Override
     protected SoundEvent getSwimSound() {
-        if (this.isOnGround()) {
-            if (!this.hasPassengers()) {
-                return SoundEvents.ENTITY_SKELETON_HORSE_STEP_WATER;
+        if (this.onGround()) {
+            if (!this.hasExactlyOnePlayerPassenger()) {
+                return SoundEvents.SKELETON_HORSE_STEP_WATER;
             }
 
-            ++this.soundTicks;
-            if (this.soundTicks > 5 && this.soundTicks % 3 == 0) {
-                return SoundEvents.ENTITY_SKELETON_HORSE_GALLOP_WATER;
+            ++this.gallopSoundCounter;
+            if (this.gallopSoundCounter > 5 && this.gallopSoundCounter % 3 == 0) {
+                return SoundEvents.SKELETON_HORSE_GALLOP_WATER;
             }
 
-            if (this.soundTicks <= 5) {
-                return SoundEvents.ENTITY_SKELETON_HORSE_STEP_WATER;
+            if (this.gallopSoundCounter <= 5) {
+                return SoundEvents.SKELETON_HORSE_STEP_WATER;
             }
         }
 
-        return SoundEvents.ENTITY_SKELETON_HORSE_SWIM;
+        return SoundEvents.SKELETON_HORSE_SWIM;
     }
 
     @Override
     protected void playSwimSound(float f) {
-        if (this.isOnGround()) {
+        if (this.onGround()) {
             super.playSwimSound(0.3F);
         } else {
             super.playSwimSound(Math.min(0.1F, f * 25.0F));
@@ -101,8 +101,8 @@ public class WitherSkeletonHorseEntity extends AbstractHorseEntity {
 
     @Override
     protected void playJumpSound() {
-        if (this.isTouchingWater()) {
-            this.playSound(SoundEvents.ENTITY_SKELETON_HORSE_JUMP_WATER, 0.4F, 1.0F);
+        if (this.isInWater()) {
+            this.playSound(SoundEvents.SKELETON_HORSE_JUMP_WATER, 0.4F, 1.0F);
         } else {
             super.playJumpSound();
         }
@@ -110,72 +110,62 @@ public class WitherSkeletonHorseEntity extends AbstractHorseEntity {
     }
 
     @Override
-    public EntityGroup getGroup() {
-        return EntityGroup.UNDEAD;
-    }
-
-    @Override
-    protected void displaySoulSpeedEffects() {
-        super.displaySoulSpeedEffects();
+    protected void spawnSoulSpeedParticle() {
+        super.spawnSoulSpeedParticle();
     }
 
 
     @Override
-    public double getMountedHeightOffset() {
-        return super.getMountedHeightOffset() + 0.05;
+    public double getPassengersRidingOffset() {
+        return super.getPassengersRidingOffset() + 0.05;
     }
 
     @Override
-    protected float getVelocityMultiplier() {
-        return this.isOnSoulSpeedBlock() ? 1.0f : super.getVelocityMultiplier();
+    protected float getBlockSpeedFactor() {
+        return this.onSoulSpeedBlock() ? 1.0f : super.getBlockSpeedFactor();
     }
 
     @Override
-    public boolean shouldDisplaySoulSpeedEffects() {
-        return this.age % 5 == 0 && this.getVelocity().x != (double) 0.0F && this.getVelocity().z != (double) 0.0F && !this.isSpectator() && this.isOnSoulSpeedBlock();
+    public boolean canSpawnSprintParticle() {
+        return this.tickCount % 5 == 0 && this.getDeltaMovement().x != 0.0F && this.getDeltaMovement().z != 0.0F && !this.isSpectator() && this.onSoulSpeedBlock();
     }
 
     @Override
-    public boolean shouldDismountUnderwater() {
+    public boolean canBeControlledByRider() {
         return false;
     }
 
     @Override
     @Nullable
-    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return (PassiveEntity) EntityType.SKELETON_HORSE.create(world);
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob ageableMob) {
+        return EntityType.SKELETON_HORSE.create(level);
     }
 
     @Override
-    public ActionResult interactMob(PlayerEntity player, Hand hand) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        if (!this.isTame()) {
-            return ActionResult.PASS;
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        ItemStack itemStack = player.getItemInHand(hand);
+        if (!this.isTamed()) {
+            return InteractionResult.PASS;
         } else if (this.isBaby()) {
-            return super.interactMob(player, hand);
-        } else if (player.shouldCancelInteraction()) {
-            this.openInventory(player);
-            return ActionResult.success(this.getWorld().isClient());
-        } else if (this.hasPassengers()) {
-            return super.interactMob(player, hand);
+            return super.mobInteract(player, hand);
+        } else if (player.isSecondaryUseActive()) {
+            this.openCustomInventoryScreen(player);
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        } else if (this.isVehicle()) {
+            return super.mobInteract(player, hand);
         } else {
             if (!itemStack.isEmpty()) {
-                if (itemStack.isOf(Items.SADDLE) && !this.isSaddled()) {
-                    this.openInventory(player);
-                    return ActionResult.success(this.getWorld().isClient());
+                if (itemStack.is(Items.SADDLE) && !this.isSaddled()) {
+                    this.openCustomInventoryScreen(player);
+                    return InteractionResult.sidedSuccess(this.level().isClientSide);
                 }
-                ActionResult interactionResult = itemStack.useOnEntity(player, this, hand);
-                if (interactionResult.isAccepted()) {
+                InteractionResult interactionResult = itemStack.interactLivingEntity(player, this, hand);
+                if (interactionResult.consumesAction()) {
                     return interactionResult;
                 }
             }
-            this.putPlayerOnBack(player);
-            return ActionResult.success(this.getWorld().isClient());
+            this.doPlayerRide(player);
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
-    }
-
-    @Override
-    public EntityView method_48926() {
-        return null;
     }
 }

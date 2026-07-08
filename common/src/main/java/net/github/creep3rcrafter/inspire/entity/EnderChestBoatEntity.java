@@ -1,49 +1,44 @@
 package net.github.creep3rcrafter.inspire.entity;
 
-import com.github.creep3rcrafter.inspire.register.InspireEntityTypes;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.RideableInventory;
-import net.minecraft.entity.mob.PiglinBrain;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.inventory.EnderChestInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.screen.GenericContainerScreenHandler;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
+import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.inventory.PlayerEnderChestContainer;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.BiConsumer;
 
-public class EnderChestBoatEntity extends BoatEntity implements RideableInventory, NamedScreenHandlerFactory {
-    public static final Text CONTAINER_TITLE;
+public class EnderChestBoatEntity extends Boat implements MenuProvider {
+    public static final Component CONTAINER_TITLE = Component.translatable("container.enderchest");
 
-    static {
-        CONTAINER_TITLE = Text.translatable("container.enderchest");
-    }
-
-    public EnderChestBoatEntity(EntityType<? extends EnderChestBoatEntity> entityType, World level) {
+    public EnderChestBoatEntity(EntityType<? extends EnderChestBoatEntity> entityType, Level level) {
         super(entityType, level);
     }
 
-    public EnderChestBoatEntity(World world, double d, double e, double f) {
-        this(InspireEntityTypes.ENDER_CHEST_BOAT.get(), world);
+    public EnderChestBoatEntity(Level level, double d, double e, double f) {
+        this(InspireEntityTypes.ENDER_CHEST_BOAT.get(), level);
         this.setPos(d, e, f);
-        this.prevX = d;
-        this.prevY = e;
-        this.prevZ = f;
+        this.xo = d;
+        this.yo = e;
+        this.zo = f;
     }
 
     @Override
-    protected float getPassengerHorizontalOffset() {
+    protected float getSinglePassengerXOffset() {
         return 0.15F;
     }
 
@@ -53,29 +48,34 @@ public class EnderChestBoatEntity extends BoatEntity implements RideableInventor
     }
 
     @Override
-    public ActionResult interact(PlayerEntity player, Hand hand) {
-        return this.canAddPassenger(player) && !player.shouldCancelInteraction() ? super.interact(player, hand) : this.interactWithChestVehicle(this::emitGameEvent, player);
+    public InteractionResult interact(Player player, InteractionHand hand) {
+        return this.canAddPassenger(player) && !player.isSecondaryUseActive() ? super.interact(player, hand) : this.interactWithChestVehicle(this::gameEvent, player);
     }
 
-    public ActionResult interactWithChestVehicle(BiConsumer<GameEvent, Entity> biConsumer, PlayerEntity player) {
-        player.openHandledScreen(this);
-        if (!player.getWorld().isClient()) {
+    public InteractionResult interactWithChestVehicle(BiConsumer<GameEvent, Entity> biConsumer, Player player) {
+        player.openMenu(this);
+        if (!player.level().isClientSide) {
             biConsumer.accept(GameEvent.CONTAINER_OPEN, player);
-            PiglinBrain.onGuardedBlockInteracted(player, true);
-            return ActionResult.CONSUME;
+            PiglinAi.angerNearbyPiglins(player, true);
+            return InteractionResult.CONSUME;
         } else {
-            return ActionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
     }
 
     @Override
+    public Component getDisplayName() {
+        return CONTAINER_TITLE;
+    }
+
+    @Override
     @Nullable
-    public ScreenHandler createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-        if (playerEntity.isSpectator()) {
+    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+        if (player.isSpectator()) {
             return null;
         } else {
-            EnderChestInventory EnderChestInventory = playerEntity.getEnderChestInventory();
-            return GenericContainerScreenHandler.createGeneric9x3(i, playerInventory, EnderChestInventory);
+            PlayerEnderChestContainer enderChestInventory = player.getEnderChestInventory();
+            return ChestMenu.threeRows(i, inventory, enderChestInventory);
         }
     }
 
@@ -97,17 +97,16 @@ public class EnderChestBoatEntity extends BoatEntity implements RideableInventor
         return item;
     }
 
-    @Override
-    public void openInventory(PlayerEntity player) {
-        player.openHandledScreen(this);
-        if (!player.getWorld().isClient()) {
-            this.emitGameEvent(GameEvent.CONTAINER_OPEN, player);
-            PiglinBrain.onGuardedBlockInteracted(player, true);
+    public void openInventory(Player player) {
+        player.openMenu(this);
+        if (!player.level().isClientSide) {
+            this.gameEvent(GameEvent.CONTAINER_OPEN, player);
+            PiglinAi.angerNearbyPiglins(player, true);
         }
     }
 
     @Override
-    public boolean cannotBeSilenced() {
-        return super.cannotBeSilenced();
+    public boolean isFlapping() {
+        return super.isFlapping();
     }
 }

@@ -1,36 +1,36 @@
 package net.github.creep3rcrafter.inspire.entity;
 
 
-import com.github.creep3rcrafter.inspire.register.InspireEntityTypes;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.vehicle.ChestBoatEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
+import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.ChestBoat;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
-import static net.minecraft.block.RedstoneWireBlock.POWER;
+import static net.minecraft.world.level.block.RedStoneWireBlock.POWER;
 
-public class TrappedChestBoatEntity extends ChestBoatEntity {
+public class TrappedChestBoatEntity extends ChestBoat {
 
-    public TrappedChestBoatEntity(EntityType<? extends TrappedChestBoatEntity> entityType, World level) {
+    public TrappedChestBoatEntity(EntityType<? extends TrappedChestBoatEntity> entityType, Level level) {
         super(entityType, level);
     }
 
-    public TrappedChestBoatEntity(World world, double d, double e, double f) {
-        this(InspireEntityTypes.TRAPPED_CHEST_BOAT.get(), world);
+    public TrappedChestBoatEntity(Level level, double d, double e, double f) {
+        this(InspireEntityTypes.TRAPPED_CHEST_BOAT.get(), level);
         this.setPos(d, e, f);
-        this.prevX = d;
-        this.prevY = e;
-        this.prevZ = f;
+        this.xo = d;
+        this.yo = e;
+        this.zo = f;
     }
 
 
     @Override
-    public void openInventory(PlayerEntity player) {
-        super.openInventory(player);
+    public void openCustomInventoryScreen(Player player) {
+        super.openCustomInventoryScreen(player);
     }
 
 
@@ -82,32 +82,28 @@ public class TrappedChestBoatEntity extends ChestBoatEntity {
 
 
     @Override
-    public void onOpen(PlayerEntity player) {
-        World world = getWorld();
-        if (!world.isClient()) {
-            BlockState blockState = world.getBlockState(this.getBlockPos().down());
-            if (blockState.contains(POWER)) {
-                if (!(blockState.get(POWER) >= 1)) {
-                    world.setBlockState(this.getBlockPos(), blockState.with(POWER, 15), 3);
-                    world.updateNeighbors(this.getBlockPos(), blockState.getBlock());
-                    //world.setBlock(blockPosition(), blockState.setValue(POWER, 0), 3);
-                    //world.updateNeighborsAt(blockPosition(), blockState.getBlock());
+    public void startOpen(Player player) {
+        Level level = this.level();
+        if (!level.isClientSide) {
+            BlockState blockState = level.getBlockState(this.blockPosition().below());
+            if (blockState.hasProperty(POWER)) {
+                if (!(blockState.getValue(POWER) >= 1)) {
+                    level.setBlockAndUpdate(this.blockPosition(), blockState.setValue(POWER, 15));
+                    level.updateNeighborsAt(this.blockPosition(), blockState.getBlock());
                 }
             }
-            for (Direction direction : net.minecraft.util.math.Direction.values()) {
+            for (Direction direction : Direction.values()) {
                 if (direction != Direction.UP) {
-                    BlockState blockState2 = world.getBlockState(this.getBlockPos().offset(direction));
-                    if (blockState2.contains(POWER)) {
-                        if (!(blockState2.get(POWER) >= 1)) {
-                            world.setBlockState(this.getBlockPos().offset(direction), blockState2.with(POWER, 15), 3);
-                            world.updateNeighbors(this.getBlockPos().offset(direction), blockState2.getBlock());
-                            //world.setBlock(blockPosition().relative(direction), blockState2.setValue(POWER, 0), 3);
-                            //world.updateNeighborsAt(blockPosition().relative(direction), blockState.getBlock());
+                    BlockState blockState2 = level.getBlockState(this.blockPosition().relative(direction));
+                    if (blockState2.hasProperty(POWER)) {
+                        if (!(blockState2.getValue(POWER) >= 1)) {
+                            level.setBlockAndUpdate(this.blockPosition().relative(direction), blockState2.setValue(POWER, 15));
+                            level.updateNeighborsAt(this.blockPosition().relative(direction), blockState2.getBlock());
                         }
                     }
                 }
             }
         }
-        super.onOpen(player);
+        super.startOpen(player);
     }
 }

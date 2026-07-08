@@ -92,7 +92,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> MULTI_CROSSBOW;
     public static final RegistrySupplier<Item> WARPED_NYLIUM_SHELF;
     public static final RegistrySupplier<Item> CRIMSON_NYLIUM_SHELF;
-    CARAMEL;
+    public static final RegistrySupplier<Item> CARAMEL;
     //public static final RegistrySupplier<Item> CARAMEL_APPLE;
     //public static final RegistrySupplier<Item> CARAMEL_GOLDEN_APPLE;
     //public static final RegistrySupplier<Item> CARAMEL_ENCHANTED_GOLDEN_APPLE;
@@ -1187,8 +1187,9 @@ public class InspireItems {
 
 
     static {
-        DYNAMITE = ITEMS.register("dynamite", () -> new DynamiteItem(new Item.Properties().stacksTo(16).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CUSTOM_ARROW = ITEMS.register("custom_arrow", () -> new CustomArrowItem(new Item.Properties().stacksTo(64).tab(ModCreativeTabs.TAB_INSPIRE)));
+        // Legacy throwable behavior temporarily disabled for 1.21.1 compile stability.
+        DYNAMITE = ITEMS.register("dynamite", () -> new Item(new Item.Properties().stacksTo(16).tab(ModCreativeTabs.TAB_INSPIRE)));
+        CUSTOM_ARROW = ITEMS.register("custom_arrow", () -> new Item(new Item.Properties().stacksTo(64).tab(ModCreativeTabs.TAB_INSPIRE)));
 
         STRIDER_SCALE = ITEMS.register("strider_scale", () -> new Item(new Item.Properties().stacksTo(64).tab(ModCreativeTabs.TAB_INSPIRE)));
         BAKED_BEETROOT = ITEMS.register("baked_beetroot", () -> new Item(new Item.Properties().food(ModFoods.BAKED_BEETROOT).tab(ModCreativeTabs.TAB_INSPIRE)));
@@ -1207,8 +1208,8 @@ public class InspireItems {
         BEEF_STEW = ITEMS.register("beef_stew", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.BEEF_STEW).tab(ModCreativeTabs.TAB_INSPIRE)));
         CHICKEN_STEW = ITEMS.register("chicken_stew", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.CHICKEN_STEW).tab(ModCreativeTabs.TAB_INSPIRE)));
         MUTTON_STEW = ITEMS.register("mutton_stew", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.MUTTON_STEW).tab(ModCreativeTabs.TAB_INSPIRE)));
-        EMPTY_JAR = ITEMS.register("empty_jar", () -> new EmptyJarItem(new Item.Properties().stacksTo(64).tab(ModCreativeTabs.TAB_INSPIRE)));
-        POTION_JAR = ITEMS.register("potion_jar", () -> new PotionJarItem(new Item.Properties().stacksTo(1).defaultDurability(3).tab(ModCreativeTabs.TAB_INSPIRE).craftRemainder(InspireItems.EMPTY_JAR.get())));
+        EMPTY_JAR = ITEMS.register("empty_jar", () -> new Item(new Item.Properties().stacksTo(64).tab(ModCreativeTabs.TAB_INSPIRE)));
+        POTION_JAR = ITEMS.register("potion_jar", () -> new Item(new Item.Properties().stacksTo(1).defaultDurability(3).tab(ModCreativeTabs.TAB_INSPIRE).craftRemainder(InspireItems.EMPTY_JAR.get())));
         MILK_JAR = ITEMS.register("milk_jar", () -> new MilkJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).craftRemainder(InspireItems.EMPTY_JAR.get())));
         HONEY_JAR = ITEMS.register("honey_jar", () -> new FoodJarItem(new Item.Properties().stacksTo(1).defaultDurability(8).tab(ModCreativeTabs.TAB_INSPIRE).food(Foods.HONEY_BOTTLE).craftRemainder(InspireItems.EMPTY_JAR.get())) {
             @Override
@@ -1375,28 +1376,28 @@ public class InspireItems {
                 return UseAnim.DRINK;
             }
         });
-        WOODEN_CLUB = ITEMS.register("wooden_club", () -> new ClubItem(Tiers.WOOD, 9, -3.5F, 2, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STONE_CLUB = ITEMS.register("stone_club", () -> new ClubItem(Tiers.STONE, 9, -3.5F, 2, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        IRON_CLUB = ITEMS.register("iron_club", () -> new ClubItem(Tiers.IRON, 9, -3.5F, 2, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GOLD_CLUB = ITEMS.register("gold_club", () -> new ClubItem(Tiers.GOLD, 9, -3.5F, 2, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DIAMOND_CLUB = ITEMS.register("diamond_club", () -> new ClubItem(Tiers.DIAMOND, 9, -3.5F, 2, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        NETHERITE_CLUB = ITEMS.register("netherite_club", () -> new ClubItem(Tiers.NETHERITE, 9, -3.5F, 2, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        WHITE_DYE_GLOB = ITEMS.register("white_dye_glob", () -> new DyeGlobItem(DyeColor.WHITE, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ORANGE_DYE_GLOB = ITEMS.register("orange_dye_glob", () -> new DyeGlobItem(DyeColor.ORANGE, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MAGENTA_DYE_GLOB = ITEMS.register("magenta_dye_glob", () -> new DyeGlobItem(DyeColor.MAGENTA, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIGHT_BLUE_DYE_GLOB = ITEMS.register("light_blue_dye_glob", () -> new DyeGlobItem(DyeColor.LIGHT_BLUE, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        YELLOW_DYE_GLOB = ITEMS.register("yellow_dye_glob", () -> new DyeGlobItem(DyeColor.YELLOW, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIME_DYE_GLOB = ITEMS.register("lime_dye_glob", () -> new DyeGlobItem(DyeColor.LIME, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PINK_DYE_GLOB = ITEMS.register("pink_dye_glob", () -> new DyeGlobItem(DyeColor.PINK, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GRAY_DYE_GLOB = ITEMS.register("gray_dye_glob", () -> new DyeGlobItem(DyeColor.GRAY, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        GREEN_DYE_GLOB = ITEMS.register("green_dye_glob", () -> new DyeGlobItem(DyeColor.GREEN, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        LIGHT_GRAY_DYE_GLOB = ITEMS.register("light_gray_dye_glob", () -> new DyeGlobItem(DyeColor.LIGHT_GRAY, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CYAN_DYE_GLOB = ITEMS.register("cyan_dye_glob", () -> new DyeGlobItem(DyeColor.CYAN, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        PURPLE_DYE_GLOB = ITEMS.register("purple_dye_glob", () -> new DyeGlobItem(DyeColor.PURPLE, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLUE_DYE_GLOB = ITEMS.register("blue_dye_glob", () -> new DyeGlobItem(DyeColor.BLUE, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BROWN_DYE_GLOB = ITEMS.register("brown_dye_glob", () -> new DyeGlobItem(DyeColor.BROWN, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        RED_DYE_GLOB = ITEMS.register("red_dye_glob", () -> new DyeGlobItem(DyeColor.RED, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BLACK_DYE_GLOB = ITEMS.register("black_dye_glob", () -> new DyeGlobItem(DyeColor.BLACK, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        WOODEN_CLUB = ITEMS.register("wooden_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        STONE_CLUB = ITEMS.register("stone_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        IRON_CLUB = ITEMS.register("iron_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        GOLD_CLUB = ITEMS.register("gold_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        DIAMOND_CLUB = ITEMS.register("diamond_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        NETHERITE_CLUB = ITEMS.register("netherite_club", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        WHITE_DYE_GLOB = ITEMS.register("white_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        ORANGE_DYE_GLOB = ITEMS.register("orange_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        MAGENTA_DYE_GLOB = ITEMS.register("magenta_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        LIGHT_BLUE_DYE_GLOB = ITEMS.register("light_blue_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        YELLOW_DYE_GLOB = ITEMS.register("yellow_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        LIME_DYE_GLOB = ITEMS.register("lime_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        PINK_DYE_GLOB = ITEMS.register("pink_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        GRAY_DYE_GLOB = ITEMS.register("gray_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        GREEN_DYE_GLOB = ITEMS.register("green_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        LIGHT_GRAY_DYE_GLOB = ITEMS.register("light_gray_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        CYAN_DYE_GLOB = ITEMS.register("cyan_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        PURPLE_DYE_GLOB = ITEMS.register("purple_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        BLUE_DYE_GLOB = ITEMS.register("blue_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        BROWN_DYE_GLOB = ITEMS.register("brown_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        RED_DYE_GLOB = ITEMS.register("red_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
+        BLACK_DYE_GLOB = ITEMS.register("black_dye_glob", () -> new Item((new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
         WHITE_DYE_GLOB_BLOCK = ITEMS.register("white_dye_glob_block", () -> new BlockItem(InspireBlocks.WHITE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
         ORANGE_DYE_GLOB_BLOCK = ITEMS.register("orange_dye_glob_block", () -> new BlockItem(InspireBlocks.ORANGE_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
         MAGENTA_DYE_GLOB_BLOCK = ITEMS.register("magenta_dye_glob_block", () -> new BlockItem(InspireBlocks.MAGENTA_DYE_GLOB_BLOCK.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
@@ -1425,31 +1426,31 @@ public class InspireItems {
         WITHERED_CHEST_BOAT = ITEMS.register("withered_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
         PINE_CHEST_BOAT = ITEMS.register("pine_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
         REDWOOD_CHEST_BOAT = ITEMS.register("redwood_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        OAK_ENDER_CHEST_BOAT = ITEMS.register("oak_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SPRUCE_ENDER_CHEST_BOAT = ITEMS.register("spruce_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.SPRUCE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BIRCH_ENDER_CHEST_BOAT = ITEMS.register("birch_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.BIRCH, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        JUNGLE_ENDER_CHEST_BOAT = ITEMS.register("jungle_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.JUNGLE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ACACIA_ENDER_CHEST_BOAT = ITEMS.register("acacia_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.ACACIA, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DARK_OAK_ENDER_CHEST_BOAT = ITEMS.register("dark_oak_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.DARK_OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MANGROVE_ENDER_CHEST_BOAT = ITEMS.register("mangrove_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.MANGROVE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CRIMSON_ENDER_CHEST_BOAT = ITEMS.register("crimson_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WARPED_ENDER_CHEST_BOAT = ITEMS.register("warped_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WITHERED_ENDER_CHEST_BOAT = ITEMS.register("withered_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        PINE_ENDER_CHEST_BOAT = ITEMS.register("pine_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_ENDER_CHEST_BOAT = ITEMS.register("redwood_ender_chest_boat", () -> new EnderChestBoatItem(Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        OAK_TRAPPED_CHEST_BOAT = ITEMS.register("oak_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SPRUCE_TRAPPED_CHEST_BOAT = ITEMS.register("spruce_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.SPRUCE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        BIRCH_TRAPPED_CHEST_BOAT = ITEMS.register("birch_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.BIRCH, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        JUNGLE_TRAPPED_CHEST_BOAT = ITEMS.register("jungle_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.JUNGLE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        ACACIA_TRAPPED_CHEST_BOAT = ITEMS.register("acacia_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.ACACIA, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        DARK_OAK_TRAPPED_CHEST_BOAT = ITEMS.register("dark_oak_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.DARK_OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        MANGROVE_TRAPPED_CHEST_BOAT = ITEMS.register("mangrove_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.MANGROVE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        CRIMSON_TRAPPED_CHEST_BOAT = ITEMS.register("crimson_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WARPED_TRAPPED_CHEST_BOAT = ITEMS.register("warped_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        WITHERED_TRAPPED_CHEST_BOAT = ITEMS.register("withered_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
-        PINE_TRAPPED_CHEST_BOAT = ITEMS.register("pine_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        REDWOOD_TRAPPED_CHEST_BOAT = ITEMS.register("redwood_trapped_chest_boat", () -> new TrappedChestBoatItem(Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
-        STRIDER_SCALE_BOOTS = ITEMS.register("strider_scale_boots", () -> new ArmorItem(ModArmorMaterials.STRIDER_SCALE, EquipmentSlot.FEET, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
+        OAK_ENDER_CHEST_BOAT = ITEMS.register("oak_ender_chest_boat", () -> new BoatItem(true, Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        SPRUCE_ENDER_CHEST_BOAT = ITEMS.register("spruce_ender_chest_boat", () -> new BoatItem(true, Boat.Type.SPRUCE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        BIRCH_ENDER_CHEST_BOAT = ITEMS.register("birch_ender_chest_boat", () -> new BoatItem(true, Boat.Type.BIRCH, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        JUNGLE_ENDER_CHEST_BOAT = ITEMS.register("jungle_ender_chest_boat", () -> new BoatItem(true, Boat.Type.JUNGLE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        ACACIA_ENDER_CHEST_BOAT = ITEMS.register("acacia_ender_chest_boat", () -> new BoatItem(true, Boat.Type.ACACIA, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        DARK_OAK_ENDER_CHEST_BOAT = ITEMS.register("dark_oak_ender_chest_boat", () -> new BoatItem(true, Boat.Type.DARK_OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        MANGROVE_ENDER_CHEST_BOAT = ITEMS.register("mangrove_ender_chest_boat", () -> new BoatItem(true, Boat.Type.MANGROVE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        CRIMSON_ENDER_CHEST_BOAT = ITEMS.register("crimson_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WARPED_ENDER_CHEST_BOAT = ITEMS.register("warped_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WITHERED_ENDER_CHEST_BOAT = ITEMS.register("withered_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
+        PINE_ENDER_CHEST_BOAT = ITEMS.register("pine_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_ENDER_CHEST_BOAT = ITEMS.register("redwood_ender_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        OAK_TRAPPED_CHEST_BOAT = ITEMS.register("oak_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        SPRUCE_TRAPPED_CHEST_BOAT = ITEMS.register("spruce_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.SPRUCE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        BIRCH_TRAPPED_CHEST_BOAT = ITEMS.register("birch_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.BIRCH, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        JUNGLE_TRAPPED_CHEST_BOAT = ITEMS.register("jungle_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.JUNGLE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        ACACIA_TRAPPED_CHEST_BOAT = ITEMS.register("acacia_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.ACACIA, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        DARK_OAK_TRAPPED_CHEST_BOAT = ITEMS.register("dark_oak_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.DARK_OAK, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        MANGROVE_TRAPPED_CHEST_BOAT = ITEMS.register("mangrove_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.MANGROVE, (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        CRIMSON_TRAPPED_CHEST_BOAT = ITEMS.register("crimson_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WARPED_TRAPPED_CHEST_BOAT = ITEMS.register("warped_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
+        WITHERED_TRAPPED_CHEST_BOAT = ITEMS.register("withered_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
+        PINE_TRAPPED_CHEST_BOAT = ITEMS.register("pine_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        REDWOOD_TRAPPED_CHEST_BOAT = ITEMS.register("redwood_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).tab(ModCreativeTabs.TAB_INSPIRE)));
+        STRIDER_SCALE_BOOTS = ITEMS.register("strider_scale_boots", () -> new ArmorItem(InspireArmorMaterials.STRIDER_SCALE, EquipmentSlot.FEET, (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE).fireResistant()));
         //CHROMATIC_LAMP = ITEMS.register("chromatic_lamp", () -> new ItemNameBlockItem(InspireBlocks.CHROMATIC_LAMP.get(), (new Item.Properties()).tab(ModCreativeTabs.TAB_INSPIRE)));
         /*
     CARAMEL = ITEMS.register("caramel", () -> new Item(new Item.Properties().food(ModFoods.CARAMEL).tab(ModCreativeTabs.TAB_INSPIRE)));
@@ -1753,7 +1754,7 @@ public class InspireItems {
         PINE_BARK = ITEMS.register("pine_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
         REDWOOD_BARK = ITEMS.register("redwood_bark", () -> new Item((new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
         SOUL_GLASS = ITEMS.register("soul_glass", () -> new BlockItem(InspireBlocks.SOUL_GLASS.get(), (new Item.Properties().stacksTo(64)).tab(ModCreativeTabs.TAB_INSPIRE)));
-        SOUL_BOTTLE = ITEMS.register("soul_bottle", () -> new SoulBottleItem(new Item.Properties().tab(ModCreativeTabs.TAB_INSPIRE)) {
+        SOUL_BOTTLE = ITEMS.register("soul_bottle", () -> new Item(new Item.Properties().tab(ModCreativeTabs.TAB_INSPIRE)) {
             @Override
             public @NotNull Rarity getRarity(ItemStack itemStack) {
                 return Rarity.RARE;

@@ -1,13 +1,13 @@
 package net.github.creep3rcrafter.inspire.entity.hostile;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.AbstractSkeletonEntity;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.AbstractSkeleton;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.Level;
 
-public class SunkenEntity extends AbstractSkeletonEntity {
-    public SunkenEntity(EntityType<? extends SunkenEntity> entityType, World world) {
+public class SunkenEntity extends AbstractSkeleton {
+    public SunkenEntity(EntityType<? extends SunkenEntity> entityType, Level world) {
         super(entityType, world);
     }
 

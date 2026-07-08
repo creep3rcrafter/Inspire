@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.item;
 
-import net.github.creep3rcrafter.inspire.entity.projectile.ThrownDynamite;
+import net.github.creep3rcrafter.inspire.entity.projectile.ThrownDynamiteEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -21,7 +21,7 @@ public class DynamiteItem extends Item {
         ItemStack itemStack = player.getItemInHand(interactionHand);
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!level.isClientSide) {
-            ThrownDynamite thrownDynamite = new ThrownDynamite(level, player);
+            ThrownDynamiteEntity thrownDynamite = new ThrownDynamiteEntity(level, player);
             thrownDynamite.setItem(itemStack);
             thrownDynamite.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.0F, 1.0F);
             level.addFreshEntity(thrownDynamite);

@@ -29,7 +29,7 @@ public class InspireEvents {
                         if (serverLevel != null) {
                             BlockState blockState2 = serverLevel.getBlockState(blockPos2);
                             BlockEntity blockEntity = serverLevel.getBlockEntity(blockPos2);
-                            if (EnchantmentHelper.getItemEnchantmentLevel(InspireEnchantments.MOMENTUM_ENCHANTMENT.get(), itemStack) > 0) {
+                            if (EnchantmentHelper.getItemEnchantmentLevel(InspireEnchantments.MOMENTUM_ENCHANTMENT, itemStack) > 0) {
                                 Random random = new Random();
                                 if (random.nextFloat(1f) > 0.6f) {
                                     if (blockState2.getBlock() == blockState.getBlock()) {
@@ -42,7 +42,7 @@ public class InspireEvents {
                             }
                             if (compoundTag != null) {
 
-                                if (EnchantmentHelper.getItemEnchantmentLevel(InspireEnchantments.RHYTHM_ENCHANTMENT.get(), itemStack) > 0) {
+                                if (EnchantmentHelper.getItemEnchantmentLevel(InspireEnchantments.RHYTHM_ENCHANTMENT, itemStack) > 0) {
                                     if (level.getServer().getTickCount() < compoundTag.getInt("lastTick") + 40) {
                                         if (compoundTag.getInt("rhythmBlockCount") >= 99) {
                                             compoundTag.putInt("rhythmBlockCount", 100);
@@ -56,7 +56,7 @@ public class InspireEvents {
                                         compoundTag.putInt("lastTick", level.getServer().getTickCount());
                                     }
                                 }
-                                if (EnchantmentHelper.getItemEnchantmentLevel(InspireEnchantments.COUNTING_ENCHANTMENT.get(), itemStack) > 0) {
+                                if (EnchantmentHelper.getItemEnchantmentLevel(InspireEnchantments.COUNTING_ENCHANTMENT, itemStack) > 0) {
                                     compoundTag.putInt("blockCount", compoundTag.getInt("blockCount") + 1);
                                     List<Component> components = itemStack.getTooltipLines(serverPlayer, TooltipFlag.Default.NORMAL);
                                     components.add(Component.translatable("Blocks Mined: " + compoundTag.getString("blockCount")));

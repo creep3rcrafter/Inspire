@@ -1,28 +1,30 @@
 package net.github.creep3rcrafter.inspire.entity.hostile;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.CreeperEntity;
-import net.minecraft.entity.passive.WolfEntity;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.world.entity.ai.goal.FleeSunGoal;
+import net.minecraft.world.entity.ai.goal.RestrictSunGoal;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class SkeletonCreeperEntity extends CreeperEntity {
+public class SkeletonCreeperEntity extends Creeper {
 
-    public SkeletonCreeperEntity(EntityType<? extends SkeletonCreeperEntity> entityType, World world) {
-        super(entityType, world);
+    public SkeletonCreeperEntity(EntityType<? extends SkeletonCreeperEntity> entityType, Level level) {
+        super(entityType, level);
     }
 
     @Override
-    protected void initGoals() {
-        this.goalSelector.add(2, new AvoidSunlightGoal(this));
-        this.goalSelector.add(3, new EscapeSunlightGoal(this, (double)1.0F));
-        this.goalSelector.add(3, new FleeEntityGoal(this, WolfEntity.class, 6.0F, (double)1.0F, 1.2));
-        super.initGoals();
-        //this.goalSelector.add(6, new CrossbowAttackGoal<>(this, 1, 20));
+    protected void registerGoals() {
+        this.goalSelector.addGoal(2, new RestrictSunGoal(this));
+        this.goalSelector.addGoal(3, new FleeSunGoal(this, 1.0F));
+        this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Wolf.class, 6.0F, 1.0F, 1.2));
+        super.registerGoals();
     }
 
     @Override
@@ -32,20 +34,20 @@ public class SkeletonCreeperEntity extends CreeperEntity {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_SKELETON_AMBIENT;
+        return SoundEvents.SKELETON_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        if (this.getRandom().nextInt(10)> 5){
+        if (this.getRandom().nextInt(10) > 5) {
             return super.getHurtSound(source);
-        }else {
-            return SoundEvents.ENTITY_SKELETON_HURT;
+        } else {
+            return SoundEvents.SKELETON_HURT;
         }
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(SoundEvents.ENTITY_SKELETON_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.SKELETON_STEP, 0.15F, 1.0F);
     }
 }

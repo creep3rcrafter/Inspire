@@ -1,40 +1,35 @@
 package net.github.creep3rcrafter.inspire.client.gui.screens.inventory;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.github.creep3rcrafter.inspire.Inspire;
-import net.github.creep3rcrafter.inspire.inventory.FilteredHopperMenu;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 
-@Environment(EnvType.CLIENT)
-public class FilteredHopperScreen extends AbstractContainerScreen<FilteredHopperMenu> {
-    private static final ResourceLocation HOPPER_LOCATION = new ResourceLocation(InspireCommon.MOD_ID, "textures/gui/container/filtered_hopper.png");
+public class FilteredHopperScreen extends AbstractContainerScreen<AbstractContainerMenu> {
+    private static final ResourceLocation HOPPER_LOCATION = ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/gui/container/filtered_hopper.png");
 
-    public FilteredHopperScreen(FilteredHopperMenu hopperMenu, Inventory inventory, Component component) {
-        super(hopperMenu, inventory, component);
+    public FilteredHopperScreen(AbstractContainerMenu menu, Inventory inventory, Component component) {
+        super(menu, inventory, component);
         this.passEvents = false;
         this.imageHeight = 150;
         this.inventoryLabelY = this.imageHeight - 94;
     }
 
-    public void render(PoseStack poseStack, int i, int j, float f) {
-        this.renderBackground(poseStack);
-        super.render(poseStack, i, j, f);
-        this.renderTooltip(poseStack, i, j);
+    @Override
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        this.renderBackground(guiGraphics, mouseX, mouseY, partialTick);
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+        this.renderTooltip(guiGraphics, mouseX, mouseY);
     }
 
-    protected void renderBg(PoseStack poseStack, float f, int i, int j) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, HOPPER_LOCATION);
-        int k = (this.width - this.imageWidth) / 2;
-        int l = (this.height - this.imageHeight) / 2;
-        this.blit(poseStack, k, l, 0, 0, this.imageWidth, this.imageHeight);
+    @Override
+    protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+        int left = (this.width - this.imageWidth) / 2;
+        int top = (this.height - this.imageHeight) / 2;
+        guiGraphics.blit(RenderType::guiTextured, HOPPER_LOCATION, left, top, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
     }
 }

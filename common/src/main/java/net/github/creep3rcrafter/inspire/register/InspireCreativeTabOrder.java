@@ -1,8 +1,10 @@
 package net.github.creep3rcrafter.inspire.register;
 
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class InspireCreativeTabOrder {
     public static final Map<Item, ItemStack[]> ITEM_MAP = new HashMap<>();

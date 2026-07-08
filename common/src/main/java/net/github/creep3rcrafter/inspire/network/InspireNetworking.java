@@ -4,7 +4,6 @@ import dev.architectury.networking.NetworkManager;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.github.creep3rcrafter.inspire.InspireCommon;
-import net.github.creep3rcrafter.inspire.client.InspireCommonClient;
 import net.github.creep3rcrafter.inspire.sound.EntityTrackingHoldingSoundInstance;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
@@ -29,6 +28,8 @@ import java.util.List;
 
 public class InspireNetworking {
     public static final Int2ObjectMap<InteractionHand> SERVER_LAST_HAND = new Int2ObjectOpenHashMap<>();
+    public static final Int2ObjectMap<InteractionHand> CLIENT_ACTIVE_JUKEBOX_HAND = new Int2ObjectOpenHashMap<>();
+    public static final Int2ObjectMap<InteractionHand> CLIENT_PLAYING_HAND = new Int2ObjectOpenHashMap<>();
 
     static {
         /*
@@ -95,8 +96,8 @@ public class InspireNetworking {
                         Entity entity = level.getEntity(id);
                         if (!(entity instanceof LivingEntity living)) return;
                         // TRACK THIS PLAYER AS "PLAYING A SONG"
-                        InspireCommonClient.ACTIVE_JUKEBOX_PLAYERS.add(id);
-                        InspireCommonClient.PLAYING_HAND.put(id, payload.hand());
+                        CLIENT_ACTIVE_JUKEBOX_HAND.put(id, payload.hand());
+                        CLIENT_PLAYING_HAND.put(id, payload.hand());
                         JukeboxSong song = payload.song().value();
                         EntityTrackingHoldingSoundInstance sound =
                                 new EntityTrackingHoldingSoundInstance(
@@ -118,7 +119,8 @@ public class InspireNetworking {
             Minecraft.getInstance().execute(() -> {
                 Holder<SoundEvent> songHolder = payload.song();
                 int id = payload.playerId();
-                InspireCommonClient.ACTIVE_JUKEBOX_PLAYERS.remove(id);
+                CLIENT_ACTIVE_JUKEBOX_HAND.remove(id);
+                CLIENT_PLAYING_HAND.remove(id);
                 // In 1.21.1, stop() method signature changed - disabled for now
                 // TODO: Verify correct method to stop sounds by holder
                 // Minecraft.getInstance().getSoundManager().stop(songHolder, SoundSource.RECORDS);

@@ -2,7 +2,7 @@ package net.github.creep3rcrafter.inspire.client.render.entity;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import net.github.creep3rcrafter.inspire.Inspire;
+import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.github.creep3rcrafter.inspire.client.model.WitherSkeletonHorseModel;
 import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
 import net.minecraft.client.model.geom.ModelLayerLocation;

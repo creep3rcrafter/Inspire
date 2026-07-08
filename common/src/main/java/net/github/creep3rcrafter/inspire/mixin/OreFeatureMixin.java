@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import com.github.creep3rcrafter.inspire.register.InspireBlocks;
+import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;

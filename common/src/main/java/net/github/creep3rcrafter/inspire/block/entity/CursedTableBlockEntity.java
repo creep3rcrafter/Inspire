@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.block.entity;
 
-import net.github.creep3rcrafter.inspire.Inspire;
+import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.github.creep3rcrafter.inspire.register.InspireBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

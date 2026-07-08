@@ -1,14 +1,13 @@
 package net.github.creep3rcrafter.inspire.block.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -58,7 +57,7 @@ public class PotionLiquidBlockEntity extends BlockEntity {
 
     @Override
     protected void saveAdditional(CompoundTag compoundTag) {
-        ResourceLocation resourceLocation = Registry.POTION.getKey(potion);
+        ResourceLocation resourceLocation = BuiltInRegistries.POTION.getKey(potion);
         compoundTag.putString("Potion", resourceLocation.toString());
         compoundTag.putInt("startTicks", startTicks);
         super.saveAdditional(compoundTag);
@@ -68,7 +67,8 @@ public class PotionLiquidBlockEntity extends BlockEntity {
     public void load(CompoundTag compoundTag) {
         super.load(compoundTag);
         if (compoundTag.get("Potion") != null) {
-            potion = PotionUtils.getPotion(compoundTag);
+            ResourceLocation resourceLocation = ResourceLocation.tryParse(compoundTag.getString("Potion"));
+            potion = resourceLocation != null ? BuiltInRegistries.POTION.get(resourceLocation) : Potions.EMPTY;
         } else {
             potion = Potions.EMPTY;
         }
@@ -76,7 +76,7 @@ public class PotionLiquidBlockEntity extends BlockEntity {
     }
 
     public CompoundTag save(CompoundTag compoundTag) {
-        ResourceLocation resourceLocation = Registry.POTION.getKey(potion);
+        ResourceLocation resourceLocation = BuiltInRegistries.POTION.getKey(potion);
         compoundTag.putString("Potion", resourceLocation.toString());
         compoundTag.putInt("startTicks", startTicks);
         return compoundTag;

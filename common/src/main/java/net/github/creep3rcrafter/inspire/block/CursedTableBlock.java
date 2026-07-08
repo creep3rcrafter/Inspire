@@ -1,7 +1,6 @@
 package net.github.creep3rcrafter.inspire.block;
 
 import net.github.creep3rcrafter.inspire.block.entity.CursedTableBlockEntity;
-import net.github.creep3rcrafter.inspire.inventory.CurseMenu;
 import net.github.creep3rcrafter.inspire.register.InspireBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -11,6 +10,7 @@ import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.EnchantmentMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -91,7 +91,8 @@ public class CursedTableBlock extends BaseEntityBlock {
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
         if (blockEntity instanceof CursedTableBlockEntity) {
             Component component = ((Nameable) blockEntity).getDisplayName();
-            return new SimpleMenuProvider((i, inventory, player) -> new CurseMenu(i, inventory, ContainerLevelAccess.create(level, blockPos)), component);
+            // Legacy CurseMenu is temporarily disabled for 1.21.1 compile stability.
+            return new SimpleMenuProvider((i, inventory, player) -> new EnchantmentMenu(i, inventory, ContainerLevelAccess.create(level, blockPos)), component);
         } else {
             return null;
         }

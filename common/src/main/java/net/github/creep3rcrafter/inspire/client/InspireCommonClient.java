@@ -5,8 +5,7 @@ import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import it.unimi.dsi.fastutil.ints.Int2LongMap;
 import it.unimi.dsi.fastutil.ints.Int2LongOpenHashMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import net.github.creep3rcrafter.inspire.network.InspireNetworking;
 import net.github.creep3rcrafter.inspire.client.renderer.RegularBedRenderer;
 import net.github.creep3rcrafter.inspire.item.PortableJukeboxItem;
 import net.github.creep3rcrafter.inspire.register.InspireBlockEntityTypes;
@@ -16,16 +15,8 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 public class InspireCommonClient {
-    public static final Int2ObjectMap<InteractionHand> ACTIVE_JUKEBOX_HAND = new Int2ObjectOpenHashMap<>();
-    public static final Set<Integer> ACTIVE_JUKEBOX_PLAYERS = new HashSet<>();
     public static final Int2LongMap LAST_PARTICLE = new Int2LongOpenHashMap();
-    public static final Map<Integer, InteractionHand> PLAYING_HAND = new HashMap<>();
     public static void init(){
         // ChunkSectionLayer.CUTOUT and TRANSLUCENT not available in 1.21.1
         // RenderTypeRegistry.register(ChunkSectionLayer.CUTOUT, InspireBlocks.WARPED_NYLIUM_SHELF.get());
@@ -90,10 +81,10 @@ public class InspireCommonClient {
 
             long now = System.currentTimeMillis();
 
-            for (int playerId : ACTIVE_JUKEBOX_PLAYERS) {
+            for (int playerId : InspireNetworking.CLIENT_ACTIVE_JUKEBOX_HAND.keySet()) {
                 Entity entity = client.level.getEntity(playerId);
                 if (entity instanceof Player player){
-                    InteractionHand hand = ACTIVE_JUKEBOX_HAND.getOrDefault(playerId, InteractionHand.MAIN_HAND);
+                    InteractionHand hand = InspireNetworking.CLIENT_ACTIVE_JUKEBOX_HAND.getOrDefault(playerId, InteractionHand.MAIN_HAND);
 
                     long last = LAST_PARTICLE.getOrDefault(playerId, 0);
                     if (now - last >= 1000) {

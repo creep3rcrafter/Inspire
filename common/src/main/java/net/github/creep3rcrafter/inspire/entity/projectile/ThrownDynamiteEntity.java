@@ -1,32 +1,32 @@
 package net.github.creep3rcrafter.inspire.entity.projectile;
 
 
-import com.github.creep3rcrafter.inspire.register.InspireEntityTypes;
-import com.github.creep3rcrafter.inspire.utils.Utils;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.particle.ItemStackParticleEffect;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.world.World;
+import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.github.creep3rcrafter.inspire.utils.Utils;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 
-public class ThrownDynamiteEntity extends ThrownItemEntity {
-    public ThrownDynamiteEntity(EntityType<? extends ThrownDynamiteEntity> entityType, World world) {
-        super(entityType, world);
+public class ThrownDynamiteEntity extends ThrowableItemProjectile {
+    public ThrownDynamiteEntity(EntityType<? extends ThrownDynamiteEntity> entityType, Level level) {
+        super(entityType, level);
     }
 
-    public ThrownDynamiteEntity(World world, LivingEntity livingEntity) {
-        super(InspireEntityTypes.DYNAMITE.get(), livingEntity, world);
+    public ThrownDynamiteEntity(Level level, LivingEntity livingEntity) {
+        super(InspireEntityTypes.DYNAMITE.get(), livingEntity, level);
     }
 
-    public ThrownDynamiteEntity(World level, double x, double y, double z) {
+    public ThrownDynamiteEntity(Level level, double x, double y, double z) {
         super(InspireEntityTypes.DYNAMITE.get(), x, y, z, level);
     }
 
@@ -35,37 +35,37 @@ public class ThrownDynamiteEntity extends ThrownItemEntity {
         return Items.TNT;
     }
 
-    private ParticleEffect getParticleParameters() {
+    private ParticleOptions getParticleParameters() {
         ItemStack itemStack = this.getItem();
-        return (ParticleEffect) (itemStack.isEmpty() ? ParticleTypes.ASH : new ItemStackParticleEffect(ParticleTypes.ITEM, itemStack));
+        return itemStack.isEmpty() ? ParticleTypes.ASH : new ItemParticleOption(ParticleTypes.ITEM, itemStack);
     }
 
-    public void handleStatus(byte status) {
+    @Override
+    public void handleEntityEvent(byte status) {
         if (status == 3) {
-            ParticleEffect particleEffect = this.getParticleParameters();
+            ParticleOptions particleEffect = this.getParticleParameters();
 
             for (int i = 0; i < 8; ++i) {
-                this.getWorld().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), (double) 0.0F, (double) 0.0F, (double) 0.0F);
+                this.level().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F, 0.0F);
             }
         }
-
     }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), (float) 1);
-        Utils.explode(this.getWorld(), entityHitResult.getEntity().getBlockPos(), 2f);
-        discard();
+        entity.hurt(this.damageSources().thrown(this, this.getOwner()), 1);
+        Utils.explode(this.level(), entity.blockPosition(), 2f);
+        this.discard();
     }
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         super.onBlockHit(blockHitResult);
-        if (!this.getWorld().isClient()) {
-            Utils.explode(this.getWorld(), blockHitResult.getBlockPos(), 2f);
-            discard();
+        if (!this.level().isClientSide) {
+            Utils.explode(this.level(), blockHitResult.getBlockPos(), 2f);
+            this.discard();
         }
     }
 }

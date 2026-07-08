@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.item;
 
-import com.github.creep3rcrafter.inspire.block.HydroFireBlock;
+import net.github.creep3rcrafter.inspire.block.HydroFireBlock;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;

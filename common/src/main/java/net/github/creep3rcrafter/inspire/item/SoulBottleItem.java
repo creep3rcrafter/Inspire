@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.item;
 
-import net.github.creep3rcrafter.inspire.entity.projectile.ThrownSoulBottle;
+import net.github.creep3rcrafter.inspire.entity.projectile.ThrownSoulBottleEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -21,7 +21,7 @@ public class SoulBottleItem extends Item {
         ItemStack itemStack = player.getItemInHand(interactionHand);
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.EXPERIENCE_BOTTLE_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!level.isClientSide) {
-            ThrownSoulBottle thrownSoulBottle = new ThrownSoulBottle(level, player);
+            ThrownSoulBottleEntity thrownSoulBottle = new ThrownSoulBottleEntity(level, player);
             thrownSoulBottle.setItem(itemStack);
             thrownSoulBottle.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.0F, 1.0F);
             level.addFreshEntity(thrownSoulBottle);

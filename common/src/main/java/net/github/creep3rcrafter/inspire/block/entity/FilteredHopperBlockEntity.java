@@ -1,7 +1,6 @@
 package net.github.creep3rcrafter.inspire.block.entity;
 
 import net.github.creep3rcrafter.inspire.block.FilteredHopperBlock;
-import net.github.creep3rcrafter.inspire.inventory.FilteredHopperMenu;
 import net.github.creep3rcrafter.inspire.register.InspireBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,6 +17,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.HopperMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -395,6 +395,7 @@ public class FilteredHopperBlockEntity extends RandomizableContainerBlockEntity 
     }
 
     protected AbstractContainerMenu createMenu(int i, Inventory inventory) {
-        return new FilteredHopperMenu(i, inventory, this);
+        // Legacy FilteredHopperMenu is temporarily disabled for 1.21.1 compile stability.
+        return new HopperMenu(i, inventory, this);
     }
 }

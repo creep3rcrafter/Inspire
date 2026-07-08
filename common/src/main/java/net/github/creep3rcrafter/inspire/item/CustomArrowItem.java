@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.item;
 
-import net.github.creep3rcrafter.inspire.entity.projectile.CustomArrow;
+import net.github.creep3rcrafter.inspire.entity.projectile.CustomArrowEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -29,7 +29,7 @@ public class CustomArrowItem extends BaseArrowItem {
 
     @Override
     public @NotNull AbstractArrow createArrow(@NotNull Level level, @NotNull ItemStack itemStack, @NotNull LivingEntity livingEntity) {
-        CustomArrow arrow = new CustomArrow(level, livingEntity);
+        CustomArrowEntity arrow = new CustomArrowEntity(level, livingEntity);
         arrow.pickup = AbstractArrow.Pickup.ALLOWED;
         CompoundTag compoundTag = itemStack.getOrCreateTag();
         if (compoundTag.contains("tip")) {

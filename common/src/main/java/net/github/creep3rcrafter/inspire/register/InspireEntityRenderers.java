@@ -2,8 +2,14 @@ package net.github.creep3rcrafter.inspire.register;
 
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
-import net.github.creep3rcrafter.inspire.entity.EnderChestMinecart;
-import net.github.creep3rcrafter.inspire.entity.TrappedChestMinecart;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.client.model.WitherSkeletonHorseModel;
+import net.github.creep3rcrafter.inspire.client.render.entity.EnderChestBoatRenderer;
+import net.github.creep3rcrafter.inspire.client.render.entity.TrappedChestBoatRenderer;
+import net.github.creep3rcrafter.inspire.client.render.entity.WitherSkeletonHorseRenderer;
+import net.github.creep3rcrafter.inspire.client.render.entity.projectile.CustomArrowRenderer;
+import net.github.creep3rcrafter.inspire.entity.EnderChestMinecartEntity;
+import net.github.creep3rcrafter.inspire.entity.TrappedChestMinecartEntity;
 import net.minecraft.client.model.MinecartModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -41,11 +47,11 @@ public class InspireEntityRenderers {
         });
 
         EntityRendererRegistry.register(InspireEntityTypes.TRAPPED_CHEST_MINECART, context -> {
-            return new MinecartRenderer<TrappedChestMinecart>(context, TRAPPED_CHEST_MINECART_MODEL_LAYER);
+            return new MinecartRenderer<TrappedChestMinecartEntity>(context, TRAPPED_CHEST_MINECART_MODEL_LAYER);
         });
 
         EntityRendererRegistry.register(InspireEntityTypes.ENDER_CHEST_MINECART, context -> {
-            return new MinecartRenderer<EnderChestMinecart>(context, ENDER_CHEST_MINECART_MODEL_LAYER);
+            return new MinecartRenderer<EnderChestMinecartEntity>(context, ENDER_CHEST_MINECART_MODEL_LAYER);
         });
         //EntityRendererRegistry.register(InspireEntityTypes.SPEAR, ThrownSpearRenderer::new);
     }

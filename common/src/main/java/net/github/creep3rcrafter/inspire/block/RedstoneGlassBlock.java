@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AbstractGlassBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,7 +15,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import java.util.Set;
 
 @SuppressWarnings("deprecation")
-public class RedstoneGlassBlock extends AbstractGlassBlock {
+public class RedstoneGlassBlock extends Block {
     public static final IntegerProperty POWER;
     private boolean shouldSignal = true;
 

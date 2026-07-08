@@ -1,7 +1,7 @@
 package net.github.creep3rcrafter.inspire.item;
 
 import com.google.common.collect.Maps;
-import net.github.creep3rcrafter.inspire.entity.projectile.ThrownDyeGlob;
+import net.github.creep3rcrafter.inspire.entity.projectile.ThrownDyeGlobEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -30,7 +30,7 @@ public class DyeGlobItem extends Item {
         ItemStack itemStack = player.getItemInHand(interactionHand);
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!level.isClientSide) {
-            ThrownDyeGlob thrownDyeGlob = new ThrownDyeGlob(level, player);
+            ThrownDyeGlobEntity thrownDyeGlob = new ThrownDyeGlobEntity(level, player);
             thrownDyeGlob.setItem(itemStack);
             thrownDyeGlob.setColorID(dyeColor.getId());
             thrownDyeGlob.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.0F, 1.0F);

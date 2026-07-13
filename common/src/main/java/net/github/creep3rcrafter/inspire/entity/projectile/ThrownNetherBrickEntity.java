@@ -52,16 +52,16 @@ public class ThrownNetherBrickEntity extends ThrowableItemProjectile {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), 5);
         this.discard();
     }
 
     @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        super.onHitBlock(blockHitResult);
         Level level = this.level();
         if (!level.isClientSide) {
             if (ColorUtils.isGlass(level, blockHitResult.getBlockPos())) {

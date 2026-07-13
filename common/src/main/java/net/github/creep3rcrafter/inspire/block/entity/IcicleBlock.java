@@ -450,16 +450,16 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         refreshThicknessAt(level, blockPos.below());
     }
 
-    private static void refreshThicknessAt(LevelAccessor level, BlockPos blockPos) {
-        BlockState state = level.getBlockState(blockPos);
+    private static void refreshThicknessAt(LevelAccessor levelAccessor, BlockPos blockPos) {
+        BlockState state = levelAccessor.getBlockState(blockPos);
         if (!state.is(InspireBlocks.ICICLE.get())) {
             return;
         }
         Direction direction = state.getValue(TIP_DIRECTION);
         boolean mergedTip = state.getValue(THICKNESS) == DripstoneThickness.TIP_MERGE;
-        DripstoneThickness newThickness = calculateDripstoneThickness(level, blockPos, direction, mergedTip);
+        DripstoneThickness newThickness = calculateDripstoneThickness(levelAccessor, blockPos, direction, mergedTip);
         if (state.getValue(THICKNESS) != newThickness) {
-            level.setBlock(blockPos, state.setValue(THICKNESS, newThickness), 2);
+            levelAccessor.setBlock(blockPos, state.setValue(THICKNESS, newThickness), 2);
         }
     }
 
@@ -590,15 +590,15 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
         }
     }
 
-    private static boolean shouldMelt(ServerLevel level, BlockPos blockPos) {
-        if (level.getBrightness(LightLayer.BLOCK, blockPos) > 11) {
+    private static boolean shouldMelt(ServerLevel serverLevel, BlockPos blockPos) {
+        if (serverLevel.getBrightness(LightLayer.BLOCK, blockPos) > 11) {
             return true;
         }
 
         for (Direction direction : Direction.values()) {
             BlockPos adjacentPos = blockPos.relative(direction);
-            BlockState adjacentState = level.getBlockState(adjacentPos);
-            FluidState adjacentFluidState = level.getFluidState(adjacentPos);
+            BlockState adjacentState = serverLevel.getBlockState(adjacentPos);
+            FluidState adjacentFluidState = serverLevel.getFluidState(adjacentPos);
 
             if (adjacentFluidState.is(FluidTags.LAVA)) {
                 return true;

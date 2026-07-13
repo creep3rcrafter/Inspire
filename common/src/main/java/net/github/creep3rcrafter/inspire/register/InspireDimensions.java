@@ -10,10 +10,10 @@ import net.minecraft.world.level.dimension.DimensionType;
 import java.util.OptionalLong;
 
 public class InspireDimensions {
-    public static final DeferredRegister<DimensionType> DIMENSION_TYPES = DeferredRegister.create(InspireCommon.MOD_ID, Registry.DIMENSION_TYPE_REGISTRY);
-    //public static final DeferredRegister<ResourceKey> DIMENSION_TYPES = DeferredRegister.create(InspireCommon.MOD_ID, Registry.);
+    public static final DeferredRegister<DimensionType> DIMENSION_TYPES = DeferredRegister.create(InspireCommon.MOD_ID,Registries.DIMENSION_TYPE_REGISTRY);
+    //public static final DeferredRegister<ResourceKey> DIMENSION_TYPES = DeferredRegister.create(InspireCommon.MOD_ID,Registries.);
 
-    //public static final DeferredRegister<DimensionType> DIMENSION_TYPES = DeferredRegister.create(InspireCommon.MOD_ID, Registry.);
+    //public static final DeferredRegister<DimensionType> DIMENSION_TYPES = DeferredRegister.create(InspireCommon.MOD_ID,Registries.);
     public static final RegistrySupplier<DimensionType> ETHER_DIMENSION;
 
     static {

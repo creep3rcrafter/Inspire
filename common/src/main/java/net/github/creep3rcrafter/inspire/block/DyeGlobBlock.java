@@ -67,7 +67,7 @@ public class DyeGlobBlock extends Block {
         if (entity.isSuppressingBounce()) {
             super.fallOn(level, blockState, blockPos, entity, f);
         } else {
-            entity.causeFallDamage(f, 0.0F, DamageSource.FALL);
+            entity.causeFallDamage(f, 0.0F, entity.damageSources().fall());
         }
         dyeEntity(entity, dyeColor.getId());
     }

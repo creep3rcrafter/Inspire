@@ -24,7 +24,7 @@ public class PrismarineAndSteelItem extends Item {
         PlayerEntity playerEntity = context.getPlayer();
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();
-        //BlockState blockState = world.getBlockState(blockPos);
+        //BlockState blockState = world.state(blockPos);
         BlockPos blockPos2 = blockPos.offset(context.getSide());
         if (HydroFireBlock.canPlaceAt(world, blockPos2, context.getHorizontalPlayerFacing())) {
             world.playSound(playerEntity, blockPos2, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);

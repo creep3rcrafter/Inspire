@@ -24,7 +24,7 @@ public class ColorUtils {
 
     public static void dyeEntity(Entity entity, int colorID) {
         if (entity instanceof LivingEntity livingEntity) {
-            if (!livingEntity.getLevel().isClientSide) {
+            if (!livingEntity.level().isClientSide) {
                 if (livingEntity instanceof Sheep sheep) {
                     if (sheep.isAlive() && !sheep.isSheared() && sheep.getColor() != DyeColor.byId(colorID)) {
                         sheep.setColor(DyeColor.byId(colorID));

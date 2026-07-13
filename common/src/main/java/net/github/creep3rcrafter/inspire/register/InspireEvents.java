@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -30,7 +31,7 @@ public class InspireEvents {
                             BlockState blockState2 = serverLevel.getBlockState(blockPos2);
                             BlockEntity blockEntity = serverLevel.getBlockEntity(blockPos2);
                             if (EnchantmentHelper.getItemEnchantmentLevel(InspireEnchantments.MOMENTUM_ENCHANTMENT, itemStack) > 0) {
-                                Random random = new Random();
+                                RandomSource random = new RandomSource();
                                 if (random.nextFloat(1f) > 0.6f) {
                                     if (blockState2.getBlock() == blockState.getBlock()) {
                                         if (itemStack.isCorrectToolForDrops(blockState2)) {

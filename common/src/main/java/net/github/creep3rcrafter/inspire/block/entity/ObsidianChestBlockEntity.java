@@ -84,7 +84,7 @@ public class ObsidianChestBlockEntity extends RandomizableContainerBlockEntity i
     }
 
     public static int getOpenCount(BlockGetter blockGetter, BlockPos blockPos) {
-        BlockState blockState = blockGetter.getBlockState(blockPos);
+        BlockState blockState = blockGetter.state(blockPos);
         if (blockState.hasBlockEntity()) {
             BlockEntity blockEntity = blockGetter.getBlockEntity(blockPos);
             if (blockEntity instanceof ObsidianChestBlockEntity) {
@@ -137,14 +137,14 @@ public class ObsidianChestBlockEntity extends RandomizableContainerBlockEntity i
 
     public void startOpen(Player player) {
         if (!this.remove && !player.isSpectator()) {
-            this.openersCounter.incrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
+            this.openersCounter.incrementOpeners(player, this.getLevel(), this.getBlockPos(), this.state());
         }
 
     }
 
     public void stopOpen(Player player) {
         if (!this.remove && !player.isSpectator()) {
-            this.openersCounter.decrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
+            this.openersCounter.decrementOpeners(player, this.getLevel(), this.getBlockPos(), this.state());
         }
 
     }
@@ -167,7 +167,7 @@ public class ObsidianChestBlockEntity extends RandomizableContainerBlockEntity i
 
     public void recheckOpen() {
         if (!this.remove) {
-            this.openersCounter.recheckOpeners(this.getLevel(), this.getBlockPos(), this.getBlockState());
+            this.openersCounter.recheckOpeners(this.getLevel(), this.getBlockPos(), this.state());
         }
 
     }

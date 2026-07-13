@@ -3,11 +3,9 @@ package net.github.creep3rcrafter.inspire.register;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.github.creep3rcrafter.inspire.InspireCommon;
-import net.github.creep3rcrafter.inspire.effect.AirSwimMobEffect;
-import net.github.creep3rcrafter.inspire.effect.HomingMobEffect;
-import net.github.creep3rcrafter.inspire.effect.UndyingMobEffect;
-import net.github.creep3rcrafter.inspire.effect.WarmingMobEffect;
+import net.github.creep3rcrafter.inspire.utils.Utils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -17,7 +15,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -36,6 +34,7 @@ import net.minecraft.world.entity.monster.hoglin.Hoglin;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -51,7 +50,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class InspireEffects {
-    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(InspireCommon.MOD_ID, Registry.MOB_EFFECT_REGISTRY);
+    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(InspireCommon.MOD_ID, Registries.MOB_EFFECT);
 
     public static final RegistrySupplier<MobEffect> UNDYING;
     public static final RegistrySupplier<MobEffect> AIR_SWIM;
@@ -83,10 +82,11 @@ public class InspireEffects {
 
     static {
         UNDYING = EFFECTS.register("undying", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 16766527) {
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int i) {
+                return super.applyEffectTick(livingEntity, i);
             }
 
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -96,8 +96,7 @@ public class InspireEffects {
         });
         AIR_SWIM = EFFECTS.register("air_swim", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 24991) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-                super.applyEffectTick(livingEntity, amplifier);
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
                 if (livingEntity.isSprinting()) {
                     if (!livingEntity.isPassenger()) {
                         if (!livingEntity.hasEffect(MobEffects.DOLPHINS_GRACE)) {
@@ -120,11 +119,11 @@ public class InspireEffects {
                         }
                     }
                 }
-                //livingEntity.updateSwimming();
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -135,18 +134,19 @@ public class InspireEffects {
         });
         WARMING = EFFECTS.register("warming", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 16757504) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-                if (!livingEntity.getLevel().isClientSide()) {
-                    ServerLevel serverLevel = (ServerLevel) livingEntity.getLevel();
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.level().isClientSide()) {
+                    ServerLevel serverLevel = (ServerLevel) livingEntity.level();
                     livingEntity.setTicksFrozen(0);
                     if (livingEntity instanceof SnowGolem && serverLevel.getServer().getTickCount() % 20 == 0) {
-                        livingEntity.hurt(DamageSource.MAGIC, amplifier + 1);
+                        livingEntity.hurt(livingEntity.damageSources().magic(), amplifier + 1);
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -158,26 +158,27 @@ public class InspireEffects {
         HOMING = EFFECTS.register("homing", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 16736892) {
 
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
-                if (!livingEntity.getLevel().isClientSide()) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.level().isClientSide()) {
                     if (livingEntity instanceof ServerPlayer serverPlayer && !livingEntity.isSpectator()) {
                         Vec3 pos;
-                        if (serverPlayer.getRespawnPosition() != null && (serverPlayer.getLevel().getBlockState(serverPlayer.getRespawnPosition()).getBlock() instanceof BedBlock)) {
+                        if (serverPlayer.getRespawnPosition() != null && (serverPlayer.level().getBlockState(serverPlayer.getRespawnPosition()).getBlock() instanceof BedBlock)) {
                             pos = Vec3.atBottomCenterOf(serverPlayer.getRespawnPosition());
                             serverPlayer.connection.teleport(pos.x, pos.y, pos.z, Mth.wrapDegrees(serverPlayer.getYRot()), Mth.wrapDegrees(serverPlayer.getXRot()));
                         } else {
-                            pos = Vec3.atBottomCenterOf(serverPlayer.getLevel().getSharedSpawnPos());
+                            pos = Vec3.atBottomCenterOf(serverPlayer.level().getSharedSpawnPos());
                             serverPlayer.connection.teleport(pos.x, pos.y, pos.z, Mth.wrapDegrees(serverPlayer.getYRot()), Mth.wrapDegrees(serverPlayer.getXRot()));
                         }
                     } else {
-                        Vec3 pos = Vec3.atBottomCenterOf(livingEntity.getLevel().getSharedSpawnPos());
+                        Vec3 pos = Vec3.atBottomCenterOf(livingEntity.level().getSharedSpawnPos());
                         livingEntity.teleportTo(pos.x, pos.y, pos.z);
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration == 1;
             }
 
@@ -188,21 +189,22 @@ public class InspireEffects {
         });
         RECOVERY = EFFECTS.register("recovery", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 9044042) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
-                if (!livingEntity.getLevel().isClientSide()) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.level().isClientSide()) {
                     if (livingEntity instanceof ServerPlayer serverPlayer && !livingEntity.isSpectator()) {
                         if (serverPlayer.getLastDeathLocation().isPresent()) {
-                            if (serverPlayer.getLevel().dimension() == serverPlayer.getLastDeathLocation().get().dimension()) {
+                            if (serverPlayer.level().dimension() == serverPlayer.getLastDeathLocation().get().dimension()) {
                                 Vec3 pos = Vec3.atBottomCenterOf(serverPlayer.getLastDeathLocation().get().pos());
                                 serverPlayer.connection.teleport(pos.x, pos.y, pos.z, Mth.wrapDegrees(serverPlayer.getYRot()), Mth.wrapDegrees(serverPlayer.getXRot()));
                             }
                         }
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration == 1;
             }
 
@@ -213,11 +215,11 @@ public class InspireEffects {
         });
         TELEPORTATION = EFFECTS.register("teleportation", () -> new MobEffect(MobEffectCategory.NEUTRAL, 13041919) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-                if (!livingEntity.getLevel().isClientSide()) {
-                    if (livingEntity.getLevel().getServer() != null) {
-                        if (livingEntity.getLevel().getServer().getTickCount() % (20 + livingEntity.getRandom().nextInt(-10, 40)) == 0) {
-                            ServerLevel level = livingEntity.getLevel().getServer().getLevel(livingEntity.getLevel().dimension());
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.level().isClientSide()) {
+                    if (livingEntity.level().getServer() != null) {
+                        if (livingEntity.level().getServer().getTickCount() % (20 + livingEntity.getRandom().nextInt(-10, 40)) == 0) {
+                            ServerLevel level = livingEntity.level().getServer().getLevel(livingEntity.level().dimension());
                             assert level != null;
                             if (!level.isClientSide) {
                                 double d = livingEntity.getX();
@@ -244,10 +246,11 @@ public class InspireEffects {
                         }
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -258,11 +261,12 @@ public class InspireEffects {
         });
         SLIPPERY = EFFECTS.register("slippery", () -> new MobEffect(MobEffectCategory.NEUTRAL, 1572863) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration > 1;
             }
 
@@ -273,15 +277,16 @@ public class InspireEffects {
         });
         THUNDEROUS = EFFECTS.register("thunderous", () -> new MobEffect(MobEffectCategory.HARMFUL, 14745599) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-                if (!livingEntity.getLevel().isClientSide()) {
-                    ServerLevel serverLevel = (ServerLevel) livingEntity.getLevel();
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.level().isClientSide()) {
+                    ServerLevel serverLevel = (ServerLevel) livingEntity.level();
                     Utils.lightning(livingEntity, serverLevel, amplifier);
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration == 1;
             }
 
@@ -292,11 +297,11 @@ public class InspireEffects {
         });
         EXPLOSIVE = EFFECTS.register("explosive", () -> new MobEffect(MobEffectCategory.HARMFUL, 4522008) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-                if (!livingEntity.getLevel().isClientSide()) {
-                    ServerLevel serverLevel = (ServerLevel) livingEntity.getLevel();
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.level().isClientSide()) {
+                    ServerLevel serverLevel = (ServerLevel) livingEntity.level();
                     if (!livingEntity.isSpectator()) {
-                        if (livingEntity.getLevel().dimension() == Level.NETHER) {
+                        if (livingEntity.level().dimension() == Level.NETHER) {
                             Utils.explode(serverLevel, livingEntity.blockPosition(), amplifier, true);
                         } else {
                             if (amplifier > 4) {
@@ -307,10 +312,11 @@ public class InspireEffects {
                         }
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration == 1;
             }
 
@@ -321,14 +327,15 @@ public class InspireEffects {
         });
         BURNING = EFFECTS.register("burning", () -> new MobEffect(MobEffectCategory.HARMFUL, 16740608) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
                 if (!livingEntity.isInWaterRainOrBubble()) {
-                    livingEntity.setSecondsOnFire(1);
+                    livingEntity.setRemainingFireTicks(1);
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -339,14 +346,15 @@ public class InspireEffects {
         });
         FREEZING = EFFECTS.register("freezing", () -> new MobEffect(MobEffectCategory.HARMFUL, 1572863) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 if (livingEntity.canFreeze()) {
                     livingEntity.setIsInPowderSnow(true);
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -357,10 +365,9 @@ public class InspireEffects {
         });
         CORROSIVE = EFFECTS.register("corrosive", () -> new MobEffect(MobEffectCategory.HARMFUL, 10157824) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-                if (!livingEntity.getLevel().isClientSide()) {
-                    ServerLevel serverLevel = (ServerLevel) livingEntity.getLevel();
-                    Random random = new Random();
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                if (!livingEntity.level().isClientSide()) {
+                    ServerLevel serverLevel = (ServerLevel) livingEntity.level();
                     if (!livingEntity.isSpectator() && serverLevel.getServer().getTickCount() % 10 == 0) {
                         MinecraftServer server = serverLevel.getServer();
                         if (livingEntity instanceof ServerPlayer) {
@@ -389,8 +396,8 @@ public class InspireEffects {
                                 if (itemStack.isDamageableItem()) {
                                     Utils.damageItem(livingEntity, itemStack, 1 + amplifier);
                                 } else if (!itemStack.isDamageableItem() && resultsWithoutDuplicates.contains(item)) {
-                                    if (random.nextInt(100) >= 90) {
-                                        if (random.nextInt(3) <= amplifier) {
+                                    if (livingEntity.getRandom().nextInt(100) >= 90) {
+                                        if (livingEntity.getRandom().nextInt(3) <= amplifier) {
                                             itemStack.shrink(1);
                                             //livingEntity.playSound(Registry.SOUND_EVENT.get(new ResourceLocation("entity.item.break")));
                                         }
@@ -398,7 +405,7 @@ public class InspireEffects {
                                 }
                             }
                         } else if (livingEntity instanceof IronGolem) {
-                            livingEntity.hurt(DamageSource.MAGIC, 1f + amplifier);//take iron damage
+                            livingEntity.hurt(livingEntity.damageSources().magic(), 1f + amplifier);//take iron damage
                         } else {
                             if (livingEntity.hasItemInSlot(EquipmentSlot.MAINHAND)) {
                                 Utils.damageItem(livingEntity, EquipmentSlot.MAINHAND, 1 + amplifier);
@@ -421,10 +428,11 @@ public class InspireEffects {
                         }
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -435,11 +443,12 @@ public class InspireEffects {
         });
         GRAVITATION = EFFECTS.register("gravitation", () -> new MobEffect(MobEffectCategory.HARMFUL, 11350783) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -450,12 +459,13 @@ public class InspireEffects {
         });
         FATAL_POISON = EFFECTS.register("fatal_poison", () -> new MobEffect(MobEffectCategory.HARMFUL, 16711935) {
             @Override
-            public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-                livingEntity.hurt(DamageSource.MAGIC, 1.0F);
+            public boolean applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
+                livingEntity.hurt(livingEntity.damageSources().magic(), 1.0F);
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 int k;
                 k = 25 >> amplifier;
                 if (k > 0) {
@@ -467,14 +477,15 @@ public class InspireEffects {
         });
         PROTECTION = EFFECTS.register("protection", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 8751501) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 if (livingEntity.getAttributes().hasAttribute(Attributes.ARMOR)) {
-                    addAttributeModifier(Attributes.ARMOR, "9aa8ab7f-3f42-4c2d-acc9-30a56847c3fc", 1, AttributeModifier.Operation.ADDITION);
+                    addAttributeModifier(Attributes.ARMOR, "9aa8ab7f-3f42-4c2d-acc9-30a56847c3fc", 1, AttributeModifier.Operation.ADD_VALUE);
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -485,12 +496,13 @@ public class InspireEffects {
         });
         SILENCE = EFFECTS.register("silence", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 92) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 livingEntity.setSilent(true);
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -501,17 +513,18 @@ public class InspireEffects {
         });
         NULLIFIER = EFFECTS.register("nullifier", () -> new MobEffect(MobEffectCategory.NEUTRAL, 13691391) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 for (MobEffectInstance effectInstance : livingEntity.getActiveEffects()) {
                     if (effectInstance.getEffect() != InspireEffects.NULLIFIER.get()) {
                         livingEntity.removeEffect(effectInstance.getEffect());
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -522,9 +535,9 @@ public class InspireEffects {
         });
         INFECTION = EFFECTS.register("infection", () -> new MobEffect(MobEffectCategory.HARMFUL, 14848) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
-                if (livingEntity.hasEffect(this)) {
-                    MobEffectInstance mobEffectInstance = livingEntity.getEffect(this);
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                if (livingEntity.hasEffect(Holder.direct(this))) {
+                    MobEffectInstance mobEffectInstance = livingEntity.getEffect(Holder.direct(this));
                     int duration = 0;
                     if (mobEffectInstance != null) {
                         duration = mobEffectInstance.getDuration();
@@ -537,9 +550,9 @@ public class InspireEffects {
                         livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200));
                     } else if (duration == 1) {
                         if (livingEntity instanceof Player && !((Player) livingEntity).isCreative()) {
-                            livingEntity.hurt(DamageSource.MAGIC, 5f);
+                            livingEntity.hurt(livingEntity.damageSources().magic(), 5f);
                             if ((livingEntity.isDeadOrDying())) {
-                                Zombie zombie = new Zombie(EntityType.ZOMBIE, livingEntity.getLevel());
+                                Zombie zombie = new Zombie(EntityType.ZOMBIE, livingEntity.level());
                                 zombie.copyPosition(livingEntity);
                                 zombie.setCustomName(livingEntity.getCustomName());
                                 zombie.setCanPickUpLoot(true);
@@ -552,42 +565,43 @@ public class InspireEffects {
                                         itemStack.setCount(0);
                                     }
                                 }
-                                livingEntity.getLevel().addFreshEntity(zombie);
+                                livingEntity.level().addFreshEntity(zombie);
                                 if (livingEntity.isPassenger()) {
                                     Entity entity = livingEntity.getVehicle();
                                     livingEntity.stopRiding();
                                     zombie.startRiding(entity, true);
                                 }
-                                zombie.addEffect(new MobEffectInstance(this, 1200));
+                                zombie.addEffect(new MobEffectInstance(Holder.direct(this), 1200));
                                 livingEntity.discard();
                             }
                         } else if (livingEntity instanceof Mob mob) {
                             if (livingEntity instanceof Villager) {
                                 mob.convertTo(EntityType.ZOMBIE_VILLAGER, true);
-                                mob.addEffect(new MobEffectInstance(this, 1200));
+                                mob.addEffect(new MobEffectInstance(Holder.direct(this), 1200));
                             } else if (livingEntity instanceof Piglin) {
                                 mob.convertTo(EntityType.ZOMBIFIED_PIGLIN, true);
-                                mob.addEffect(new MobEffectInstance(this, 1200));
+                                mob.addEffect(new MobEffectInstance(Holder.direct(this), 1200));
                             } else if (livingEntity instanceof Hoglin) {
                                 mob.convertTo(EntityType.ZOGLIN, true);
-                                mob.addEffect(new MobEffectInstance(this, 1200));
+                                mob.addEffect(new MobEffectInstance(Holder.direct(this), 1200));
                             } else if (livingEntity instanceof Horse) {
                                 mob.convertTo(EntityType.ZOMBIE_HORSE, true);
-                                mob.addEffect(new MobEffectInstance(this, 1200));
+                                mob.addEffect(new MobEffectInstance(Holder.direct(this), 1200));
                             } else {
                                 if (!(livingEntity instanceof Zombie) && !(livingEntity instanceof ZombieHorse) && !(livingEntity instanceof Zoglin)) {
-                                    livingEntity.hurt(DamageSource.MAGIC, 5);
+                                    livingEntity.hurt(livingEntity.damageSources().magic(), 5);
                                 }
                             }
                         } else {
-                            livingEntity.hurt(DamageSource.MAGIC, 5);
+                            livingEntity.hurt(livingEntity.damageSources().magic(), 5);
                         }
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -598,12 +612,13 @@ public class InspireEffects {
         });
         SUFFOCATION = EFFECTS.register("suffocation", () -> new MobEffect(MobEffectCategory.HARMFUL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 livingEntity.setAirSupply(livingEntity.decreaseAirSupply(livingEntity.getAirSupply()));
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -614,11 +629,12 @@ public class InspireEffects {
         });
         ARCHER = EFFECTS.register("archer", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -629,16 +645,17 @@ public class InspireEffects {
         });
         CURING = EFFECTS.register("curing", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 for (MobEffectInstance mobEffectInstance : livingEntity.getActiveEffects()) {
-                    if (mobEffectInstance.getEffect().getCategory().equals(MobEffectCategory.HARMFUL)) {
+                    if (mobEffectInstance.getEffect().value().getCategory().equals(MobEffectCategory.HARMFUL)) {
                         livingEntity.removeEffect(mobEffectInstance.getEffect());
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration == 1;
             }
 
@@ -649,16 +666,17 @@ public class InspireEffects {
         });
         NEUTRALIZING = EFFECTS.register("neutralizing", () -> new MobEffect(MobEffectCategory.NEUTRAL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 for (MobEffectInstance mobEffectInstance : livingEntity.getActiveEffects()) {
-                    if (mobEffectInstance.getEffect().getCategory().equals(MobEffectCategory.NEUTRAL)) {
+                    if (mobEffectInstance.getEffect().value().getCategory().equals(MobEffectCategory.NEUTRAL)) {
                         livingEntity.removeEffect(mobEffectInstance.getEffect());
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration == 1;
             }
 
@@ -669,16 +687,17 @@ public class InspireEffects {
         });
         DESTRUCTION = EFFECTS.register("destruction", () -> new MobEffect(MobEffectCategory.HARMFUL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 for (MobEffectInstance mobEffectInstance : livingEntity.getActiveEffects()) {
-                    if (mobEffectInstance.getEffect().getCategory().equals(MobEffectCategory.BENEFICIAL)) {
+                    if (mobEffectInstance.getEffect().value().getCategory().equals(MobEffectCategory.BENEFICIAL)) {
                         livingEntity.removeEffect(mobEffectInstance.getEffect());
                     }
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration == 1;
             }
 
@@ -689,11 +708,12 @@ public class InspireEffects {
         });
         FERTILIZING = EFFECTS.register("fertilization", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration == 1;
             }
 
@@ -704,12 +724,12 @@ public class InspireEffects {
         });
         REDSTONEACTIVE = EFFECTS.register("redstoneactive", () -> new MobEffect(MobEffectCategory.NEUTRAL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
-
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -720,11 +740,12 @@ public class InspireEffects {
         });
         NIMBLE = EFFECTS.register("nimble", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 
@@ -735,17 +756,18 @@ public class InspireEffects {
         });
         SPONGY = EFFECTS.register("spongy", () -> new MobEffect(MobEffectCategory.NEUTRAL, 0) {
             @Override
-            public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
-                Level level = livingEntity.getLevel();
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                Level level = livingEntity.level();
                 BlockPos blockPos = livingEntity.blockPosition();
                 if (Utils.removeWaterBreadthFirstSearch(level, blockPos)) {
                     //level.setBlock(blockPos, Blocks.WET_SPONGE.defaultBlockState(), 2);
                     //level.levelEvent(2001, blockPos, Block.getId(Blocks.WATER.defaultBlockState()));
                 }
+                return super.applyEffectTick(livingEntity, amplifier);
             }
 
             @Override
-            public boolean isDurationEffectTick(int duration, int amplifier) {
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
                 return duration >= 1;
             }
 

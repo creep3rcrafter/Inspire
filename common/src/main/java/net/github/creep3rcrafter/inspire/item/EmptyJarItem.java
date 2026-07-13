@@ -9,16 +9,10 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Cow;
-import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
-import net.minecraft.world.item.SuspiciousStewItem;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -54,19 +48,19 @@ public class EmptyJarItem extends Item {
                 if (level.getFluidState(blockPos).is(FluidTags.WATER)) {
                     level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
                     level.gameEvent(player, GameEvent.FLUID_PICKUP, blockPos);
-                    return InteractionResultHolder.sidedSuccess(this.turnJarIntoItem(itemStack, player, PotionUtils.setPotion(new ItemStack(InspireItems.POTION_JAR.get()), Potions.WATER)), level.isClientSide());
+                    return InteractionResultHolder.sidedSuccess(this.turnJarIntoItem(itemStack, player, PotionContents.createItemStack(InspireItems.POTION_JAR.get(), Potions.WATER)), level.isClientSide());
                 }
             }
-
             return InteractionResultHolder.pass(itemStack);
         }
     }
 
     @Override
     public @NotNull InteractionResult interactLivingEntity(ItemStack itemStack, Player player, LivingEntity livingEntity, InteractionHand interactionHand) {
+        /*
         if (livingEntity instanceof MushroomCow && !livingEntity.isBaby()) {
             ItemStack itemStack2 = new ItemStack(InspireItems.MUSHROOM_STEW_JAR.get());
-            MobEffect effect = ((MushroomCow) livingEntity).effect;
+            MobEffect effect = ((MushroomCow) livingEntity).stewEffects.effects();
             int effectDuration = ((MushroomCow) livingEntity).effectDuration;
             SuspiciousStewItem.saveMobEffect(itemStack2, effect, effectDuration);
             this.turnJarIntoItem(itemStack, player, itemStack2.copy());
@@ -76,6 +70,7 @@ public class EmptyJarItem extends Item {
             this.turnJarIntoItem(itemStack, player, new ItemStack(InspireItems.MILK_JAR.get()).copy());
             return InteractionResult.sidedSuccess(player.level.isClientSide());
         }
+         */
         return super.interactLivingEntity(itemStack, player, livingEntity, interactionHand);
     }
 

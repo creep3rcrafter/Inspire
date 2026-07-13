@@ -10,7 +10,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.material.FlowingFluid;
 
 public class InspireFluids {
-    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(InspireCommon.MOD_ID, Registry.FLUID_REGISTRY);
+    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(InspireCommon.MOD_ID,Registries.FLUID_REGISTRY);
     public static final ArchitecturyFluidAttributes LIQUID_SOUL_FLUID_ATTRIBUTES;
     public static final ArchitecturyFluidAttributes LIQUID_HONEY_FLUID_ATTRIBUTES;
     public static final ArchitecturyFluidAttributes SCULK_SLUDGE_ATTRIBUTES;

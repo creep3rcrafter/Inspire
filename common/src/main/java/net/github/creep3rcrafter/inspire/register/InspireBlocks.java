@@ -4,8 +4,7 @@ import dev.architectury.core.block.ArchitecturyLiquidBlock;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.github.creep3rcrafter.inspire.InspireCommon;
-import net.github.creep3rcrafter.inspire.block.RegularBedBlock;
-import net.github.creep3rcrafter.inspire.block.ShelfFungiBlock;
+import net.github.creep3rcrafter.inspire.block.*;
 import net.github.creep3rcrafter.inspire.block.entity.IcicleBlock;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
@@ -59,7 +58,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> TINTED_GLASS_PANE;
     public static final RegistrySupplier<Block> FROGLIGHT;
     public static final RegistrySupplier<Block> ICICLE;
-    public static final RegistrySupplier<Block> HYDRO_FIRE;
+    //public static final RegistrySupplier<Block> HYDRO_FIRE;
 
     public static final RegistrySupplier<Block> OAK_WALL;
     public static final RegistrySupplier<Block> SPRUCE_WALL;
@@ -1011,54 +1010,54 @@ public class InspireBlocks {
      */
     static {
         WHITE_DYE_GLOB_BLOCK = BLOCKS.register("white_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.WHITE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.WHITE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.WHITE, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         ORANGE_DYE_GLOB_BLOCK = BLOCKS.register("orange_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.ORANGE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.ORANGE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.ORANGE, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         MAGENTA_DYE_GLOB_BLOCK = BLOCKS.register("magenta_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.MAGENTA.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         LIGHT_BLUE_DYE_GLOB_BLOCK = BLOCKS.register("light_blue_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.LIGHT_BLUE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.LIGHT_BLUE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.LIGHT_BLUE, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         YELLOW_DYE_GLOB_BLOCK = BLOCKS.register("yellow_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.YELLOW, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.YELLOW.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.YELLOW, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         LIME_DYE_GLOB_BLOCK = BLOCKS.register("lime_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.LIME, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.LIME.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.LIME, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         PINK_DYE_GLOB_BLOCK = BLOCKS.register("pink_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.PINK, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.PINK.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.PINK, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         GRAY_DYE_GLOB_BLOCK = BLOCKS.register("gray_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.GRAY, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.GRAY.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.GRAY, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         GREEN_DYE_GLOB_BLOCK = BLOCKS.register("green_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.GREEN, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.GREEN.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.GREEN, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         LIGHT_GRAY_DYE_GLOB_BLOCK = BLOCKS.register("light_gray_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.LIGHT_GRAY, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.LIGHT_GRAY.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.LIGHT_GRAY, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         CYAN_DYE_GLOB_BLOCK = BLOCKS.register("cyan_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.CYAN, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.CYAN.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.CYAN, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         PURPLE_DYE_GLOB_BLOCK = BLOCKS.register("purple_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.PURPLE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.PURPLE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.PURPLE, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         BLUE_DYE_GLOB_BLOCK = BLOCKS.register("blue_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.BLUE, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.BLUE.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.BLUE, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         BROWN_DYE_GLOB_BLOCK = BLOCKS.register("brown_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.BROWN, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.BROWN.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.BROWN, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         RED_DYE_GLOB_BLOCK = BLOCKS.register("red_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.RED, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.RED.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.RED, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
         BLACK_DYE_GLOB_BLOCK = BLOCKS.register("black_dye_glob_block", () ->
-                new DyeGlobBlock(DyeColor.BLACK, BlockBehaviour.Properties.of(Material.CLAY, DyeColor.BLACK.getMaterialColor()).friction(0.8F).sound(SoundType.SLIME_BLOCK)));
+                new DyeGlobBlock(DyeColor.BLACK, BlockBehaviour.Properties.of().friction(0.8F).sound(SoundType.SLIME_BLOCK)));
 
         BLUESTONE_WIRE = BLOCKS.register("bluestone_wire", () ->
-                new BluestoneWireBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().instabreak()));
+                new BluestoneWireBlock(BlockBehaviour.Properties.of().noCollission().instabreak()));
         BLUESTONE_TORCH = BLOCKS.register("bluestone_torch", () ->
-                new BluestoneTorchBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel(litBlockEmission(7)).sound(SoundType.WOOD)));
+                new BluestoneTorchBlock(BlockBehaviour.Properties.of().noCollission().instabreak().lightLevel(litBlockEmission(7)).sound(SoundType.WOOD)));
         BLUESTONE_WALL_TORCH = BLOCKS.register("bluestone_wall_torch", () ->
-                new BluestoneWallTorchBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel(litBlockEmission(7)).sound(SoundType.WOOD).dropsLike(BLUESTONE_TORCH.get())));
+                new BluestoneWallTorchBlock(BlockBehaviour.Properties.of().noCollission().instabreak().lightLevel(litBlockEmission(7)).sound(SoundType.WOOD).dropsLike(BLUESTONE_TORCH.get())));
         PRISMARINE_LEVER = BLOCKS.register("prismarine_lever", () ->
-                new BluestoneLeverBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(1.5F, 6.0F).sound(SoundType.WOOD)));
+                new BluestoneLeverBlock(BlockBehaviour.Properties.of().noCollission().strength(1.5F, 6.0F).sound(SoundType.WOOD)));
         PRISMARINE_PRESSURE_PLATE = BLOCKS.register("prismarine_pressure_plate", () ->
                 new BluestonePressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).noCollission().requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
         PRISMARINE_BUTTON = BLOCKS.register("prismarine_button", () ->
-                new BluestoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(1.5F, 6.0F)));
+                new BluestoneButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(1.5F, 6.0F)));
         BLUESTONE_REPEATER = BLOCKS.register("bluestone_repeater", () ->
-                new BluestoneRepeaterBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().sound(SoundType.WOOD)));
+                new BluestoneRepeaterBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD)));
         BLUESTONE_COMPARATOR = BLOCKS.register("bluestone_comparator", () ->
-                new BluestoneComparatorBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().sound(SoundType.WOOD)));
+                new BluestoneComparatorBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD)));
 
         PRISMARINE_LAMP = BLOCKS.register("prismarine_lamp", () ->
                 new RedstoneLampBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.QUARTZ).lightLevel(litBlockEmission(15)).strength(0.3F).sound(SoundType.GLASS).isValidSpawn(InspireBlocks::always)));
@@ -1098,8 +1097,8 @@ public class InspireBlocks {
         WITHERED_FENCE = BLOCKS.register("withered_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, WITHERED_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
         WITHERED_TRAPDOOR = BLOCKS.register("withered_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLACK).strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(InspireBlocks::never)));
         WITHERED_FENCE_GATE = BLOCKS.register("withered_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, WITHERED_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
-        POTTED_WITHERED_SAPLING = BLOCKS.register("potted_withered_sapling", () -> new FlowerPotBlock(WITHERED_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
-        WITHERED_BUTTON = BLOCKS.register("withered_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        POTTED_WITHERED_SAPLING = BLOCKS.register("potted_withered_sapling", () -> new FlowerPotBlock(WITHERED_SAPLING.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion()));
+        WITHERED_BUTTON = BLOCKS.register("withered_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD)));
         WITHERED_SLAB = BLOCKS.register("withered_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLACK).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
         PINE_LOG = BLOCKS.register("pine_log", () -> netherLog(MaterialColor.COLOR_RED));
@@ -1116,8 +1115,8 @@ public class InspireBlocks {
         PINE_FENCE = BLOCKS.register("pine_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, PINE_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
         PINE_TRAPDOOR = BLOCKS.register("pine_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(InspireBlocks::never)));
         PINE_FENCE_GATE = BLOCKS.register("pine_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, PINE_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
-        POTTED_PINE_SAPLING = BLOCKS.register("potted_pine_sapling", () -> new FlowerPotBlock(PINE_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
-        PINE_BUTTON = BLOCKS.register("pine_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        POTTED_PINE_SAPLING = BLOCKS.register("potted_pine_sapling", () -> new FlowerPotBlock(PINE_SAPLING.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion()));
+        PINE_BUTTON = BLOCKS.register("pine_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD)));
         PINE_SLAB = BLOCKS.register("pine_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
         REDWOOD_LOG = BLOCKS.register("redwood_log", () -> netherLog(MaterialColor.COLOR_RED));
@@ -1134,8 +1133,8 @@ public class InspireBlocks {
         REDWOOD_FENCE = BLOCKS.register("redwood_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
         REDWOOD_TRAPDOOR = BLOCKS.register("redwood_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(InspireBlocks::never)));
         REDWOOD_FENCE_GATE = BLOCKS.register("redwood_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
-        POTTED_REDWOOD_SAPLING = BLOCKS.register("potted_redwood_sapling", () -> new FlowerPotBlock(REDWOOD_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
-        REDWOOD_BUTTON = BLOCKS.register("redwood_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
+        POTTED_REDWOOD_SAPLING = BLOCKS.register("potted_redwood_sapling", () -> new FlowerPotBlock(REDWOOD_SAPLING.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion()));
+        REDWOOD_BUTTON = BLOCKS.register("redwood_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD)));
         REDWOOD_SLAB = BLOCKS.register("redwood_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
         BREAKER = BLOCKS.register("breaker", () -> new BreakerBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.5F)));

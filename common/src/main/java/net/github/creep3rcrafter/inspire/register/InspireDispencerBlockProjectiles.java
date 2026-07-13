@@ -14,15 +14,15 @@ public class InspireDispencerBlockProjectiles {
         DispenserBlock.registerBehavior(Items.DIRT, new DefaultDispenseItemBehavior() {
             @Override
             protected @NotNull ItemStack execute(BlockSource blockSource, ItemStack itemStack) {
-                Direction direction = (Direction) blockSource.getBlockState().getValue(DispenserBlock.FACING);
-                if (!blockSource.getLevel().isClientSide()) {
-                    BlockState blockState = blockSource.getLevel().getBlockState(blockSource.getPos().relative(direction));
+                Direction direction = (Direction) blockSource.state().getValue(DispenserBlock.FACING);
+                if (!blockSource.level().isClientSide()) {
+                    BlockState blockState = blockSource.level().state(blockSource.pos().relative(direction));
                     if (blockState.getMaterial().isReplaceable() || blockState.is(Blocks.AIR)) {
-                        ServerLevel serverLevel = blockSource.getLevel();
+                        ServerLevel serverLevel = blockSource.level();
                         if (itemStack.getItem() instanceof BlockItem blockItem) {
                             Block block = blockItem.getBlock();
-                            serverLevel.setBlock(blockSource.getPos().relative(direction), block.defaultBlockState(), 3);
-                            blockSource.getLevel().gameEvent((Entity) null, GameEvent.BLOCK_PLACE, blockSource.getPos());
+                            serverLevel.setBlock(blockSource.pos().relative(direction), block.defaultBlockState(), 3);
+                            blockSource.level().gameEvent((Entity) null, GameEvent.BLOCK_PLACE, blockSource.pos());
                             itemStack.shrink(1);
                         }
                     }

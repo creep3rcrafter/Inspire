@@ -52,8 +52,8 @@ public class ThrownDynamiteEntity extends ThrowableItemProjectile {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), 1);
         Utils.explode(this.level(), entity.blockPosition(), 2f);
@@ -61,8 +61,8 @@ public class ThrownDynamiteEntity extends ThrowableItemProjectile {
     }
 
     @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        super.onHitBlock(blockHitResult);
         if (!this.level().isClientSide) {
             Utils.explode(this.level(), blockHitResult.getBlockPos(), 2f);
             this.discard();

@@ -53,8 +53,8 @@ public class ThrownSlimeballEntity extends ThrowableItemProjectile {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.hurt(this.damageSources().thrown(this, this.getOwner()), 0.5f);
@@ -68,8 +68,8 @@ public class ThrownSlimeballEntity extends ThrowableItemProjectile {
     }
 
     @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        super.onHitBlock(blockHitResult);
         if (!this.level().isClientSide) {
             this.discard();
         }

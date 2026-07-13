@@ -2,6 +2,7 @@ package net.github.creep3rcrafter.inspire.entity.projectile;
 
 import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
 import net.github.creep3rcrafter.inspire.utils.ColorUtils;
+import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -36,15 +37,14 @@ public class ThrownBrickEntity extends ThrowableItemProjectile {
         return Items.BRICK;
     }
 
-    private ParticleOptions getParticleParameters() {
+    private ParticleOptions getParticle() {
         ItemStack itemStack = this.getItem();
-        return itemStack.isEmpty() ? ParticleTypes.DUST : new ItemParticleOption(ParticleTypes.ITEM, itemStack);
+        return (ParticleOptions)(!itemStack.isEmpty() && !itemStack.is(this.getDefaultItem()) ? new ItemParticleOption(ParticleTypes.ITEM, itemStack) : ParticleTypes.DUST);
     }
-
     @Override
     public void handleEntityEvent(byte status) {
         if (status == 3) {
-            ParticleOptions particleEffect = this.getParticleParameters();
+            ParticleOptions particleEffect = this.getParticle();
 
             for (int i = 0; i < 8; ++i) {
                 this.level().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F, 0.0F);
@@ -53,16 +53,16 @@ public class ThrownBrickEntity extends ThrowableItemProjectile {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), (float) 4);
         this.discard();
     }
 
     @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        super.onHitBlock(blockHitResult);
         Level level = this.level();
         if (!level.isClientSide) {
             if (ColorUtils.isGlass(level, blockHitResult.getBlockPos())) {

@@ -7,6 +7,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.*;
@@ -58,7 +59,7 @@ public class Utils {
         lightning(livingEntity, level);
         if (!livingEntity.isSpectator() && level != null) {
             for (int i = 0; i < amplifier; i++) {
-                Random random = new Random();
+                RandomSource random = new Random();
                 BlockPos entityPos = livingEntity.blockPosition();
                 BlockPos blockPos = entityPos.offset(random.nextInt(amplifier) - (amplifier / 2), random.nextInt(amplifier) - (amplifier / 2), random.nextInt(amplifier) - (amplifier / 2));
                 lightning(blockPos, level, livingEntity);
@@ -75,7 +76,7 @@ public class Utils {
     }
 
     public static void explode(ServerLevel level, BlockPos blockPos, float radius, boolean fire) {
-        level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), radius, fire, Explosion.BlockInteraction.BREAK);
+        level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), radius, fire, Explosion.BlockInteraction.DESTROY);
     }
 
     public static void explode(Level level, BlockPos blockPos) {
@@ -87,7 +88,7 @@ public class Utils {
     }
 
     public static void explode(Level level, BlockPos blockPos, float radius, boolean fire) {
-        level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), radius, fire, Explosion.BlockInteraction.BREAK);
+        level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), radius, fire, Explosion.BlockInteraction.DESTROY);
     }
 
     public static <C extends Container, T extends Recipe<C>> List<Item> recipesContainsItems(MinecraftServer server, RecipeType<T> recipeType, List<Item> containsList) {
@@ -205,7 +206,7 @@ public class Utils {
     }
 
     public boolean tickTime(ServerPlayer serverPlayer, int ticks) {
-        return serverPlayer.getLevel().getServer().getTickCount() % ticks == 0;
+        return serverPlayer.level().getServer().getTickCount() % ticks == 0;
     }
 
     public boolean tickTime(MinecraftServer server, int ticks) {

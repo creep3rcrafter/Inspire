@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -103,7 +104,7 @@ public class WitheredBoneMealItem extends Item {
                     Holder<Biome> holder = level.getBiome(blockPos2);
                     if (holder.is(BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL)) {
                         if (i == 0 && direction != null && direction.getAxis().isHorizontal()) {
-                            blockState = (BlockState) Registry.BLOCK.getTag(BlockTags.WALL_CORALS).flatMap((named) -> {
+                            blockState = (BlockState)Registries.BLOCK.getTag(BlockTags.WALL_CORALS).flatMap((named) -> {
                                 return named.getRandomElement(level.random);
                             }).map((holderx) -> {
                                 return ((Block) holderx.value()).defaultBlockState();
@@ -112,7 +113,7 @@ public class WitheredBoneMealItem extends Item {
                                 blockState = (BlockState) blockState.setValue(BaseCoralWallFanBlock.FACING, direction);
                             }
                         } else if (randomSource.nextInt(4) == 0) {
-                            blockState = (BlockState) Registry.BLOCK.getTag(BlockTags.UNDERWATER_BONEMEALS).flatMap((named) -> {
+                            blockState = (BlockState) Registries.BLOCK.getTag(BlockTags.UNDERWATER_BONEMEALS).flatMap((named) -> {
                                 return named.getRandomElement(level.random);
                             }).map((holderx) -> {
                                 return ((Block) holderx.value()).defaultBlockState();

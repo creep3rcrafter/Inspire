@@ -7,7 +7,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
 
 public class InspirePotions {
-    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(InspireCommon.MOD_ID, Registry.POTION_REGISTRY);
+    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(InspireCommon.MOD_ID,Registries.POTION_REGISTRY);
     public static final RegistrySupplier<Potion> THUNDEROUS_POTION;
     public static final RegistrySupplier<Potion> STRONG_THUNDEROUS_POTION;
     public static final RegistrySupplier<Potion> EXPLOSIVE_POTION;

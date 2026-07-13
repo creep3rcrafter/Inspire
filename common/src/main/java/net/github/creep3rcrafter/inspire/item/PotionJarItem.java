@@ -2,8 +2,9 @@ package net.github.creep3rcrafter.inspire.item;
 
 import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -11,10 +12,11 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -33,7 +35,7 @@ public class PotionJarItem extends PotionItem {
     }
 
     public static boolean isEmptyPotion(Potion potion) {
-        if (potion == Potions.EMPTY) {
+        if (potion == Potions.WATER) {
             return true;
         } else {
             return false;
@@ -48,11 +50,11 @@ public class PotionJarItem extends PotionItem {
         }
 
         if (!level.isClientSide) {
-            List<MobEffectInstance> list = PotionUtils.getMobEffects(itemStack);
+            List<MobEffectInstance> list = PotionContents.getMobEffects(itemStack);
 
             for (MobEffectInstance mobEffectInstance : list) {
-                if (mobEffectInstance.getEffect().isInstantenous()) {
-                    mobEffectInstance.getEffect().applyInstantenousEffect(player, player, livingEntity, mobEffectInstance.getAmplifier(), 1.0);
+                if (mobEffectInstance.getEffect().value().isInstantenous()) {
+                    mobEffectInstance.getEffect().value().applyInstantenousEffect(player, player, livingEntity, mobEffectInstance.getAmplifier(), 1.0);
                 } else {
                     livingEntity.addEffect(new MobEffectInstance(mobEffectInstance));
                 }
@@ -78,15 +80,15 @@ public class PotionJarItem extends PotionItem {
     @Override
     public void fillItemCategory(@NotNull CreativeModeTab creativeModeTab, @NotNull NonNullList<ItemStack> nonNullList) {
         if (this.allowedIn(creativeModeTab)) {
-            for (Potion potion : Registry.POTION) {
-                if (potion != Potions.EMPTY) {
-                    nonNullList.add(PotionUtils.setPotion(new ItemStack(this), potion));
+            for (Potion potion : Registries.POTION) {
+                if (potion != Potions.WATER) {
+                    nonNullList.add(PotionContents.createItemStack((Item) this, Holder.direct(potion)));
                 }
             }
             /*
-            for (Potion potion1 : Registry.POTION) {
-                for (Potion potion2 : Registry.POTION) {
-                    for (Potion potion3 : Registry.POTION) {
+            for (Potion potion1 :Registries.POTION) {
+                for (Potion potion2 :Registries.POTION) {
+                    for (Potion potion3 :Registries.POTION) {
                         Collection<MobEffectInstance> mobEffectInstances = new ArrayList<>();
                         if(!isEmptyPotion(potion1) && isValidPotion(potion1)){
                             for (MobEffectInstance mobEffectInstance : potion1.getEffects()){

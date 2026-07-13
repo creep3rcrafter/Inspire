@@ -12,14 +12,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-public class ClubItem extends TieredItem implements Vanishable {
+public class ClubItem extends TieredItem {
     protected static final UUID BASE_KNOCKBACK_UUID = UUID.fromString("b7375055-def7-4e26-bef4-cbb303415e3e");
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 

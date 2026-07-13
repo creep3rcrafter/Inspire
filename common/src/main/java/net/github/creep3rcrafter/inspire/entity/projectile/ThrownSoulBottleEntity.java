@@ -35,16 +35,16 @@ public class ThrownSoulBottleEntity extends ThrowableItemProjectile {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
         if (this.level() instanceof ServerLevel) {
             this.discard();
         }
     }
 
     @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        super.onHitBlock(blockHitResult);
         if (this.level() instanceof ServerLevel) {
             /*
             if (serverLevel.getBlockState(blockHitResult.getBlockPos()).getBlock() instanceof SoulGlassBlock) {

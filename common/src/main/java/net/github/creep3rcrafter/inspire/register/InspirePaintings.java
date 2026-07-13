@@ -5,7 +5,7 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 
 public class InspirePaintings {
-    public static final DeferredRegister<PaintingVariant> PAINTINGS = DeferredRegister.create(InspireCommon.MOD_ID, Registry.PAINTING_VARIANT_REGISTRY);
+    public static final DeferredRegister<PaintingVariant> PAINTINGS = DeferredRegister.create(InspireCommon.MOD_ID,Registries.PAINTING_VARIANT_REGISTRY);
     public static final RegistrySupplier<PaintingVariant> CREATIVE1;
     public static final RegistrySupplier<PaintingVariant> CREATIVE2;
     public static final RegistrySupplier<PaintingVariant> NIRVANA;

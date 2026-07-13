@@ -1,5 +1,6 @@
 package net.github.creep3rcrafter.inspire.block;
 
+import com.mojang.serialization.MapCodec;
 import net.github.creep3rcrafter.inspire.block.entity.ObsidianChestBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,7 +28,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -44,6 +44,7 @@ import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings({"deprecation", "unused"})
 public class ObsidianChestBlock extends AbstractChestBlock<ObsidianChestBlockEntity> implements SimpleWaterloggedBlock {
+    public static final MapCodec<ObsidianChestBlock> CODEC = simpleCodec(ObsidianChestBlock::new);
     public static final DirectionProperty FACING;
     public static final BooleanProperty WATERLOGGED;
     protected static final VoxelShape SHAPE;
@@ -61,6 +62,11 @@ public class ObsidianChestBlock extends AbstractChestBlock<ObsidianChestBlockEnt
             return null;//InspireBlockEntityTypes.OBSIDIAN_CHEST.get();
         });
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    protected @NotNull MapCodec<? extends AbstractChestBlock<ObsidianChestBlockEntity>> codec() {
+        return CODEC;
     }
 
     public DoubleBlockCombiner.@NotNull NeighborCombineResult<? extends ChestBlockEntity> combine(BlockState blockState, Level level, BlockPos blockPos, boolean bl) {

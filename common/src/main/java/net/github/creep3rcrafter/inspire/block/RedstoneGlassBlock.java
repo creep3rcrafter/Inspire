@@ -35,7 +35,7 @@ public class RedstoneGlassBlock extends Block {
 
     @Override
     public int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos blockPos) {
-        return level.getBlockState(blockPos).getValue(POWER);
+        return level.getBlockState((blockPos)).getValue(POWER);
     }
 
     @Override
@@ -53,8 +53,7 @@ public class RedstoneGlassBlock extends Block {
     }
     public int getSignal(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
         if (this.shouldSignal) {
-            int i = (Integer)blockState.getValue(POWER);
-            return i;
+            return (Integer)blockState.getValue(POWER);
         } else {
             return 0;
         }

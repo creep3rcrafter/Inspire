@@ -1,4 +1,4 @@
-package net.github.creep3rcrafter.inspire.client.model;
+package net.github.creep3rcrafter.inspire.client.model.entity;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.model.AgeableListModel;

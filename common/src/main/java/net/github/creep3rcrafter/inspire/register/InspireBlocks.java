@@ -1051,7 +1051,7 @@ public class InspireBlocks {
         PRISMARINE_LEVER = BLOCKS.register("prismarine_lever", () ->
                 new BluestoneLeverBlock(BlockBehaviour.Properties.of().noCollission().strength(1.5F, 6.0F).sound(SoundType.WOOD)));
         PRISMARINE_PRESSURE_PLATE = BLOCKS.register("prismarine_pressure_plate", () ->
-                new BluestonePressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).noCollission().requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
+                new BluestonePressurePlateBlock(BlockBehaviour.Properties.of(Material.STONE).noCollission().requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
         PRISMARINE_BUTTON = BLOCKS.register("prismarine_button", () ->
                 new BluestoneButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(1.5F, 6.0F)));
         BLUESTONE_REPEATER = BLOCKS.register("bluestone_repeater", () ->

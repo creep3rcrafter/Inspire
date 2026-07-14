@@ -1,7 +1,7 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
 
-import net.github.creep3rcrafter.inspire.register.InspireBlocks;
+import com.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.minecraft.block.*;
 import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;

@@ -3,7 +3,7 @@ package net.github.creep3rcrafter.inspire.register;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import net.github.creep3rcrafter.inspire.InspireCommon;
-import net.github.creep3rcrafter.inspire.client.model.WitherSkeletonHorseModel;
+import net.github.creep3rcrafter.inspire.client.model.entity.WitherSkeletonHorseModel;
 import net.github.creep3rcrafter.inspire.client.render.entity.EnderChestBoatRenderer;
 import net.github.creep3rcrafter.inspire.client.render.entity.TrappedChestBoatRenderer;
 import net.github.creep3rcrafter.inspire.client.render.entity.WitherSkeletonHorseRenderer;

@@ -1,0 +1,54 @@
+package net.github.creep3rcrafter.inspire.mixin;
+
+import dev.architectury.registry.registries.RegistrySupplier;
+import net.creep3rcrafter.theupdatemod.register.ModBlocks;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.gen.Invoker;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+@Mixin(Boat.Type.class)
+public abstract class BoatTypesMixin {
+    @Shadow
+    @Mutable
+    @Final
+    private static Boat.Type[] $VALUES;
+    @Unique
+    private static final Boat.Type CRIMSON = addType(Blocks.CRIMSON_PLANKS, "crimson");
+    @Unique
+    private static final Boat.Type WARPED = addType(Blocks.WARPED_PLANKS, "warped");
+    @Unique
+    private static final Boat.Type WITHERED = addType(ModBlocks.WITHERED_PLANKS.getOrNull(), "withered");
+    @Unique
+    private static final Boat.Type PINE = addType(ModBlocks.PINE_PLANKS.getOrNull(), "pine");
+    @Unique
+    private static final Boat.Type REDWOOD = addType(ModBlocks.REDWOOD_PLANKS.getOrNull(), "redwood");
+
+    @Invoker("<init>")
+    private static Boat.Type invokeInit(String enumName, int internalId, Block wood, String name) {
+        throw new AssertionError();
+    }
+
+    @Unique
+    private static Boat.Type addType(Block block, String name) {
+        List<Boat.Type> variants = new ArrayList<>(Arrays.asList($VALUES));
+        Boat.Type type = invokeInit(name.toUpperCase(), variants.get(variants.size() - 1).ordinal() + 1, block, name);
+        variants.add(type);
+        $VALUES = variants.toArray(new Boat.Type[0]);
+        return type;
+    }
+
+    @Unique
+    private static Boat.Type addType(RegistrySupplier<Block> blockRegistrySupplier, String name) {
+        List<Boat.Type> variants = new ArrayList<>(Arrays.asList($VALUES));
+        Boat.Type type = invokeInit(name.toUpperCase(), variants.get(variants.size() - 1).ordinal() + 1, blockRegistrySupplier.get(), name);
+        variants.add(type);
+        $VALUES = variants.toArray(new Boat.Type[0]);
+        return type;
+    }
+}

@@ -1,7 +1,7 @@
 package net.github.creep3rcrafter.inspire.client.render.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.github.creep3rcrafter.inspire.client.model.WitherSkeletonHorseModel;
+import net.github.creep3rcrafter.inspire.client.model.entity.WitherSkeletonHorseModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

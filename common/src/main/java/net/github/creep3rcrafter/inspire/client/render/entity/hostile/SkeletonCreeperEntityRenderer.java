@@ -1,53 +1,51 @@
 package net.github.creep3rcrafter.inspire.client.render.entity.hostile;
 
-import com.github.creep3rcrafter.inspire.InspireCommon;
-import com.github.creep3rcrafter.inspire.client.model.entity.SkeletonCreeperEntityModel;
-import com.github.creep3rcrafter.inspire.client.register.InspireEntityRenderers;
-import com.github.creep3rcrafter.inspire.client.render.entity.feature.SkeletonCreeperChargeFeatureRenderer;
-import com.github.creep3rcrafter.inspire.entity.hostile.SkeletonCreeperEntity;
-import com.github.creep3rcrafter.inspire.register.InspireEntityTypes;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EntityType;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.client.model.entity.SkeletonCreeperEntityModel;
+import net.github.creep3rcrafter.inspire.client.register.InspireEntityRenderers;
+import net.github.creep3rcrafter.inspire.client.render.entity.feature.SkeletonCreeperChargeFeatureRenderer;
+import net.github.creep3rcrafter.inspire.entity.hostile.SkeletonCreeperEntity;
+import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.EntityType;
 
 import java.util.Map;
 
-public class SkeletonCreeperEntityRenderer extends MobEntityRenderer<SkeletonCreeperEntity, SkeletonCreeperEntityModel<SkeletonCreeperEntity>> {
-    private static final Map<EntityType<?>, Identifier> MAP;
+public class SkeletonCreeperEntityRenderer extends MobRenderer<SkeletonCreeperEntity, SkeletonCreeperEntityModel<SkeletonCreeperEntity>> {
+    private static final Map<EntityType<?>, ResourceLocation> MAP = Map.of(
+            InspireEntityTypes.SKELETON_CREEPER.get(),
+            new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/hostile/skeleton_creeper/skeleton_creeper.png")
+    );
 
-    static {
-        MAP = Maps.newHashMap(ImmutableMap.of(InspireEntityTypes.SKELETON_CREEPER.get(), new Identifier(InspireCommon.MOD_ID, "textures/entity/hostile/skeleton_creeper/skeleton_creeper.png")));
-    }
-
-    public SkeletonCreeperEntityRenderer(EntityRendererFactory.Context ctx) {
-        super(ctx, new SkeletonCreeperEntityModel<>(ctx.getPart(InspireEntityRenderers.SKELETON_CREEPER_MODEL_LAYER)), 0.5F);
-        this.addFeature(new SkeletonCreeperChargeFeatureRenderer(this, ctx.getModelLoader()));
+    public SkeletonCreeperEntityRenderer(EntityRendererProvider.Context context) {
+        super(context, new SkeletonCreeperEntityModel<>(context.bakeLayer(InspireEntityRenderers.SKELETON_CREEPER_MODEL_LAYER)), 0.5F);
+        this.addLayer(new SkeletonCreeperChargeFeatureRenderer(this, context.getModelSet()));
     }
 
     @Override
-    protected void scale(SkeletonCreeperEntity creeperEntity, MatrixStack matrixStack, float f) {
-        float g = creeperEntity.getClientFuseTime(f);
-        float h = 1.0F + MathHelper.sin(g * 100.0F) * g * 0.01F;
-        g = MathHelper.clamp(g, 0.0F, 1.0F);
-        g *= g;
-        g *= g;
-        float i = (1.0F + g * 0.4F) * h;
-        float j = (1.0F + g * 0.1F) / h;
-        matrixStack.scale(i, j, i);
-    }
-    @Override
-    protected float getAnimationCounter(SkeletonCreeperEntity creeperEntity, float f) {
-        float g = creeperEntity.getClientFuseTime(f);
-        return (int)(g * 10.0F) % 2 == 0 ? 0.0F : MathHelper.clamp(g, 0.5F, 1.0F);
-    }
-    @Override
-    public Identifier getTexture(SkeletonCreeperEntity entity) {
-        return (Identifier) MAP.get(entity.getType());
+    protected void scale(SkeletonCreeperEntity creeperEntity, PoseStack poseStack, float partialTick) {
+        float fuse = creeperEntity.getClientFuseTime(partialTick);
+        float wave = 1.0F + Mth.sin(fuse * 100.0F) * fuse * 0.01F;
+        fuse = Mth.clamp(fuse, 0.0F, 1.0F);
+        fuse *= fuse;
+        fuse *= fuse;
+        float xzScale = (1.0F + fuse * 0.4F) * wave;
+        float yScale = (1.0F + fuse * 0.1F) / wave;
+        poseStack.scale(xzScale, yScale, xzScale);
     }
 
+    @Override
+    protected float getWhiteOverlayProgress(SkeletonCreeperEntity creeperEntity, float partialTick) {
+        float fuse = creeperEntity.getClientFuseTime(partialTick);
+        return (int) (fuse * 10.0F) % 2 == 0 ? 0.0F : Mth.clamp(fuse, 0.5F, 1.0F);
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(SkeletonCreeperEntity entity) {
+        return MAP.get(entity.getType());
+    }
 }

@@ -1,31 +1,31 @@
 package net.github.creep3rcrafter.inspire.client.render.entity.animal;
 
-import com.github.creep3rcrafter.inspire.InspireCommon;
-import com.github.creep3rcrafter.inspire.client.model.entity.WitherSkeletonHorseEntityModel;
-import com.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.client.model.entity.WitherSkeletonHorseEntityModel;
+import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.AbstractHorseEntity;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.Map;
 
-public class WitherSkeletonHorseEntityRenderer extends AbstractWitherSkeletonHorseEntityRenderer<AbstractHorseEntity, WitherSkeletonHorseEntityModel<AbstractHorseEntity>> {
-    private static final Map<EntityType<?>, Identifier> MAP;
+public class WitherSkeletonHorseEntityRenderer extends AbstractWitherSkeletonHorseEntityRenderer<AbstractHorse, WitherSkeletonHorseEntityModel<AbstractHorse>> {
+    private static final Map<EntityType<?>, ResourceLocation> MAP;
 
     static {
-        MAP = Maps.newHashMap(ImmutableMap.of(InspireEntityTypes.WITHER_SKELETON_HORSE.get(), new Identifier(InspireCommon.MOD_ID, "textures/entity/animal/wither_skeleton_horse/horse_wither_skeleton.png")));
+        MAP = Maps.newHashMap(ImmutableMap.of(InspireEntityTypes.WITHER_SKELETON_HORSE.get(), new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/animal/wither_skeleton_horse/horse_wither_skeleton.png")));
     }
 
-    public WitherSkeletonHorseEntityRenderer(EntityRendererFactory.Context context, EntityModelLayer modelLayerLocation) {
-        super(context, new WitherSkeletonHorseEntityModel<>(context.getPart(modelLayerLocation)), 1.15F);
+    public WitherSkeletonHorseEntityRenderer(EntityRendererProvider.Context context, ModelLayerLocation modelLayerLocation) {
+        super(context, new WitherSkeletonHorseEntityModel<>(context.bakeLayer(modelLayerLocation)), 1.15F);
     }
 
     @Override
-    public Identifier getTexture(AbstractHorseEntity abstractHorseEntity) {
-        return (Identifier) MAP.get(abstractHorseEntity.getType());
+    public ResourceLocation getTextureLocation(AbstractHorse abstractHorseEntity) {
+        return MAP.get(abstractHorseEntity.getType());
     }
 }

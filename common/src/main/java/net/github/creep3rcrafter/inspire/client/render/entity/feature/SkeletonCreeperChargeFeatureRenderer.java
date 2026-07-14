@@ -1,32 +1,35 @@
 package net.github.creep3rcrafter.inspire.client.render.entity.feature;
 
-import com.github.creep3rcrafter.inspire.client.model.entity.SkeletonCreeperEntityModel;
-import com.github.creep3rcrafter.inspire.entity.hostile.SkeletonCreeperEntity;
-import net.minecraft.client.render.entity.feature.EnergySwirlOverlayFeatureRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
-import net.minecraft.client.render.entity.model.EntityModelLoader;
-import net.minecraft.util.Identifier;
+import net.github.creep3rcrafter.inspire.client.model.entity.SkeletonCreeperEntityModel;
+import net.github.creep3rcrafter.inspire.entity.hostile.SkeletonCreeperEntity;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.EnergySwirlLayer;
+import net.minecraft.resources.ResourceLocation;
 
-public class SkeletonCreeperChargeFeatureRenderer extends EnergySwirlOverlayFeatureRenderer<SkeletonCreeperEntity, SkeletonCreeperEntityModel<SkeletonCreeperEntity>> {
-    private static final Identifier SKIN = new Identifier("textures/entity/creeper/creeper_armor.png");
+public class SkeletonCreeperChargeFeatureRenderer extends EnergySwirlLayer<SkeletonCreeperEntity, SkeletonCreeperEntityModel<SkeletonCreeperEntity>> {
+    private static final ResourceLocation SKIN = new ResourceLocation("minecraft", "textures/entity/creeper/creeper_armor.png");
     private final SkeletonCreeperEntityModel<SkeletonCreeperEntity> model;
 
-    public SkeletonCreeperChargeFeatureRenderer(FeatureRendererContext<SkeletonCreeperEntity, SkeletonCreeperEntityModel<SkeletonCreeperEntity>> context, EntityModelLoader loader) {
+    public SkeletonCreeperChargeFeatureRenderer(RenderLayerParent<SkeletonCreeperEntity, SkeletonCreeperEntityModel<SkeletonCreeperEntity>> context, EntityModelSet modelSet) {
         super(context);
-        this.model = new SkeletonCreeperEntityModel<>(loader.getModelPart(EntityModelLayers.CREEPER_ARMOR));
+        this.model = new SkeletonCreeperEntityModel<>(modelSet.bakeLayer(ModelLayers.CREEPER_ARMOR));
     }
 
-    protected float getEnergySwirlX(float partialAge) {
+    @Override
+    protected float xOffset(float partialAge) {
         return partialAge * 0.01F;
     }
 
-    protected Identifier getEnergySwirlTexture() {
+    @Override
+    protected ResourceLocation getTextureLocation() {
         return SKIN;
     }
 
-    protected EntityModel<SkeletonCreeperEntity> getEnergySwirlModel() {
+    @Override
+    protected EntityModel<SkeletonCreeperEntity> model() {
         return this.model;
     }
 }

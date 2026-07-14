@@ -1,69 +1,76 @@
 package net.github.creep3rcrafter.inspire.client.render.entity.feature;
 
-import com.github.creep3rcrafter.inspire.InspireCommon;
-import com.github.creep3rcrafter.inspire.client.model.entity.fleep.FleepEntityModel;
-import com.github.creep3rcrafter.inspire.client.register.InspireEntityRenderers;
-import com.github.creep3rcrafter.inspire.entity.animal.FleepEntity;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.LivingEntityRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.EntityModelLoader;
-import net.minecraft.client.render.entity.model.SheepWoolEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.DyeColor;
-import net.minecraft.util.Identifier;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.client.model.entity.fleep.FleepEntityModel;
+import net.github.creep3rcrafter.inspire.client.register.InspireEntityRenderers;
+import net.github.creep3rcrafter.inspire.entity.animal.FleepEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.SheepFurModel;
+import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 
-public class FleepWoolFeatureRenderer extends FeatureRenderer<FleepEntity, FleepEntityModel<FleepEntity>> {
-    private static final Identifier SKIN = new Identifier(InspireCommon.MOD_ID, "textures/entity/animal/fleep/fleep_fur.png");
-    private final SheepWoolEntityModel<FleepEntity> model;
+public class FleepWoolFeatureRenderer extends RenderLayer<FleepEntity, FleepEntityModel<FleepEntity>> {
+    private static final ResourceLocation SKIN = new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/animal/fleep/fleep_fur.png");
+    private final SheepFurModel<FleepEntity> model;
 
-    public FleepWoolFeatureRenderer(FeatureRendererContext<FleepEntity, FleepEntityModel<FleepEntity>> context, EntityModelLoader loader) {
+    public FleepWoolFeatureRenderer(RenderLayerParent<FleepEntity, FleepEntityModel<FleepEntity>> context, EntityModelSet modelSet) {
         super(context);
-        this.model = new SheepWoolEntityModel<>(loader.getModelPart(InspireEntityRenderers.FLEEP_FUR_MODEL_LAYER));
+        this.model = new SheepFurModel<>(modelSet.bakeLayer(InspireEntityRenderers.FLEEP_FUR_MODEL_LAYER));
     }
 
-    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, FleepEntity fleepEntity, float f, float g, float h, float j, float k, float l) {
-        if (!fleepEntity.isSheared()) {
-            if (fleepEntity.isInvisible()) {
-                MinecraftClient minecraftClient = MinecraftClient.getInstance();
-                boolean bl = minecraftClient.hasOutline(fleepEntity);
-                if (bl) {
-                    this.getContextModel().copyStateTo(this.model);
-                    this.model.animateModel(fleepEntity, f, g, h);
-                    this.model.setAngles(fleepEntity, f, g, j, k, l);
-                    VertexConsumer vertexConsumer = vertexConsumerProvider.getBuffer(RenderLayer.getOutline(SKIN));
-                    this.model.render(matrixStack, vertexConsumer, i, LivingEntityRenderer.getOverlay(fleepEntity, 0.0F), 0.0F, 0.0F, 0.0F, 1.0F);
-                }
-
-            } else {
-                float s;
-                float t;
-                float u;
-                if (fleepEntity.hasCustomName() && "jeb_".equals(fleepEntity.getName().getString())) {
-                    int m = 25;
-                    int n = fleepEntity.age / 25 + fleepEntity.getId();
-                    int o = DyeColor.values().length;
-                    int p = n % o;
-                    int q = (n + 1) % o;
-                    float r = ((float)(fleepEntity.age % 25) + h) / 25.0F;
-                    float[] fs = FleepEntity.getRgbColor(DyeColor.byId(p));
-                    float[] gs = FleepEntity.getRgbColor(DyeColor.byId(q));
-                    s = fs[0] * (1.0F - r) + gs[0] * r;
-                    t = fs[1] * (1.0F - r) + gs[1] * r;
-                    u = fs[2] * (1.0F - r) + gs[2] * r;
-                } else {
-                    float[] hs = FleepEntity.getRgbColor(fleepEntity.getColor());
-                    s = hs[0];
-                    t = hs[1];
-                    u = hs[2];
-                }
-
-                render(this.getContextModel(), this.model, SKIN, matrixStack, vertexConsumerProvider, i, fleepEntity, f, g, j, k, l, h, s, t, u);
-            }
+    @Override
+    public void render(PoseStack poseStack, MultiBufferSource buffer, int light, FleepEntity fleepEntity, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
+        if (fleepEntity.isSheared()) {
+            return;
         }
+
+        if (fleepEntity.isInvisible()) {
+            if (!Minecraft.getInstance().shouldEntityAppearGlowing(fleepEntity)) {
+                return;
+            }
+
+            this.getParentModel().copyPropertiesTo(this.model);
+            this.model.prepareMobModel(fleepEntity, limbSwing, limbSwingAmount, partialTick);
+            this.model.setupAnim(fleepEntity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+            VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.outline(SKIN));
+            this.model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(fleepEntity, 0.0F), 0.0F, 0.0F, 0.0F, 1.0F);
+            return;
+        }
+
+        float red;
+        float green;
+        float blue;
+        if (fleepEntity.hasCustomName() && "jeb_".equals(fleepEntity.getName().getString())) {
+            int colorCycleLength = 25;
+            int colorIndexBase = fleepEntity.tickCount / colorCycleLength + fleepEntity.getId();
+            int colorCount = DyeColor.values().length;
+            int firstColorIndex = colorIndexBase % colorCount;
+            int secondColorIndex = (colorIndexBase + 1) % colorCount;
+            float blend = ((float) (fleepEntity.tickCount % colorCycleLength) + partialTick) / (float) colorCycleLength;
+            float[] firstColor = FleepEntity.getRgbColor(DyeColor.byId(firstColorIndex));
+            float[] secondColor = FleepEntity.getRgbColor(DyeColor.byId(secondColorIndex));
+            red = firstColor[0] * (1.0F - blend) + secondColor[0] * blend;
+            green = firstColor[1] * (1.0F - blend) + secondColor[1] * blend;
+            blue = firstColor[2] * (1.0F - blend) + secondColor[2] * blend;
+        } else {
+            float[] color = FleepEntity.getRgbColor(fleepEntity.getColor());
+            red = color[0];
+            green = color[1];
+            blue = color[2];
+        }
+
+        this.getParentModel().copyPropertiesTo(this.model);
+        this.model.prepareMobModel(fleepEntity, limbSwing, limbSwingAmount, partialTick);
+        this.model.setupAnim(fleepEntity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+        VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityCutoutNoCull(SKIN));
+        this.model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(fleepEntity, 0.0F), red, green, blue, 1.0F);
     }
 }

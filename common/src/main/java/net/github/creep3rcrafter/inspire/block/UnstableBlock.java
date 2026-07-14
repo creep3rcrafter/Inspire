@@ -1,71 +1,69 @@
 package net.github.creep3rcrafter.inspire.block;
 
-import com.github.creep3rcrafter.inspire.register.InspireBlocks;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.LandingBlock;
-import net.minecraft.client.util.ParticleUtil;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.FallingBlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.BlockStateParticleEffect;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.github.creep3rcrafter.inspire.register.InspireBlocks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.FallingBlockEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Fallable;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class UnstableBlock extends Block implements LandingBlock {
-    public UnstableBlock(AbstractBlock.Settings settings) {
+public class UnstableBlock extends Block implements Fallable {
+    public UnstableBlock(BlockBehaviour.Properties settings) {
         super(settings);
     }
 
     public static boolean canFallThrough(BlockState state) {
-        return state.isAir() || state.isIn(BlockTags.FIRE) || state.isLiquid() || state.isReplaceable();
+        return state.isAir() || state.is(BlockTags.FIRE) || state.liquid() || state.canBeReplaced();
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!canFallThrough(world.getBlockState(pos.down()))) {
+    public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        if (!canFallThrough(world.getBlockState(pos.below()))) {
             int offset = -1;
-            for (int i = 0; world.getBlockState(pos.down(i)).isOf(InspireBlocks.UNSTABLE_COBBLESTONE.get()); ++i) {
+            for (int i = 0; world.getBlockState(pos.below(i)).is(InspireBlocks.UNSTABLE_COBBLESTONE.get()); ++i) {
                 offset++;
             }
-            if (canFallThrough(world.getBlockState(pos.down(offset + 1)))) {
-                if (world.getBlockState(pos.down(offset)).isOf(InspireBlocks.UNSTABLE_COBBLESTONE.get())) {
-                    world.scheduleBlockTick(pos.down(offset), InspireBlocks.UNSTABLE_COBBLESTONE.get(), this.getFallDelay() / 4);
+            if (canFallThrough(world.getBlockState(pos.below(offset + 1)))) {
+                if (world.getBlockState(pos.below(offset)).is(InspireBlocks.UNSTABLE_COBBLESTONE.get())) {
+                    world.scheduleTick(pos.below(offset), InspireBlocks.UNSTABLE_COBBLESTONE.get(), this.getFallDelay() / 4);
                 }
             }
-        } else if (canFallThrough(world.getBlockState(pos.down())) && pos.getY() >= world.getBottomY()) {
-            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);
+        } else if (canFallThrough(world.getBlockState(pos.below())) && pos.getY() >= world.getMinBuildHeight()) {
+            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.fall(world, pos, state);
             this.configureFallingBlockEntity(fallingBlockEntity);
         }
     }
 
     @Override
-    public void onEntityLand(BlockView world, Entity entity) {
-        super.onEntityLand(world, entity);
-        if (world instanceof ServerWorld serverWorld) {
-            serverWorld.scheduleBlockTick(entity.getBlockPos().down(), this, this.getFallDelay());
+    public void fallOn(Level world, BlockState state, BlockPos pos, Entity entity, float distance) {
+        super.fallOn(world, state, pos, entity, distance);
+        if (world instanceof ServerLevel serverWorld) {
+            serverWorld.scheduleTick(entity.blockPosition().below(), this, this.getFallDelay());
         }
     }
 
     @Override
-    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-        super.onSteppedOn(world, pos, state, entity);
-        if (world instanceof ServerWorld serverWorld) {
-            serverWorld.scheduleBlockTick(pos, this, this.getFallDelay());
+    public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
+        super.stepOn(world, pos, state, entity);
+        if (world instanceof ServerLevel serverWorld) {
+            serverWorld.scheduleTick(pos, this, this.getFallDelay());
         }
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        super.onBreak(world, pos, state, player);
-        if (world instanceof ServerWorld serverWorld) {
-            serverWorld.scheduleBlockTick(pos, this, this.getFallDelay());
+    public void playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player) {
+        super.playerWillDestroy(world, pos, state, player);
+        if (world instanceof ServerLevel serverWorld) {
+            serverWorld.scheduleTick(pos, this, this.getFallDelay());
         }
     }
 
@@ -76,11 +74,14 @@ public class UnstableBlock extends Block implements LandingBlock {
         return 10;
     }
 
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
         if (random.nextInt(16) == 0) {
-            BlockPos blockPos = pos.down();
+            BlockPos blockPos = pos.below();
             if (canFallThrough(world.getBlockState(blockPos))) {
-                ParticleUtil.spawnParticle(world, pos, random, new BlockStateParticleEffect(ParticleTypes.FALLING_DUST, state));
+                double x = pos.getX() + random.nextDouble();
+                double y = pos.getY() - 0.05D;
+                double z = pos.getZ() + random.nextDouble();
+                world.addParticle(new BlockParticleOption(ParticleTypes.FALLING_DUST, state), x, y, z, 0.0D, 0.0D, 0.0D);
             }
         }
 

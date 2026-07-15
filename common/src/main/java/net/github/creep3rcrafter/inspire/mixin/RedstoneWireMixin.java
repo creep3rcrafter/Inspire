@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModBlocks;
+import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -27,9 +27,9 @@ public abstract class RedstoneWireMixin extends Block {
     @Inject(method = "shouldConnectTo(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;)Z", at = @At(value = "RETURN"), cancellable = true)
     private static void InjectShouldConnectTo(BlockState blockState, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         // || blockState.is(ModBlocks.GLOWSTONE_WIRE.get()) || blockState.is(ModBlocks.SOULSTONE_WIRE.get())
-        if (blockState.is(ModBlocks.BLUESTONE_WIRE.get()) || blockState.is(Blocks.REDSTONE_WIRE)) {
+        if (blockState.is(InspireBlocks.BLUESTONE_WIRE.get()) || blockState.is(Blocks.REDSTONE_WIRE)) {
             cir.setReturnValue(true);
-        } else if (blockState.is(ModBlocks.BLUESTONE_REPEATER.get()) || blockState.is(Blocks.REPEATER)) {
+        } else if (blockState.is(InspireBlocks.BLUESTONE_REPEATER.get()) || blockState.is(Blocks.REPEATER)) {
             Direction direction2 = (Direction) blockState.getValue(RepeaterBlock.FACING);
             cir.setReturnValue(direction2 == direction || direction2.getOpposite() == direction);
         }
@@ -38,7 +38,7 @@ public abstract class RedstoneWireMixin extends Block {
     @Redirect(method = {"checkCornerChangeAt", "updateIndirectNeighbourShapes", "getWireSignal"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"), require = 5)
     private boolean redirectCheckCornerChangeAt(BlockState blockState, Block block) {
         // || blockState.is(ModBlocks.GLOWSTONE_WIRE.get()) || blockState.is(ModBlocks.SOULSTONE_WIRE.get())
-        if (blockState.is(ModBlocks.BLUESTONE_WIRE.get()) || blockState.is(Blocks.REDSTONE_WIRE)) {
+        if (blockState.is(InspireBlocks.BLUESTONE_WIRE.get()) || blockState.is(Blocks.REDSTONE_WIRE)) {
             return true;
         }
         return blockState.is(block);

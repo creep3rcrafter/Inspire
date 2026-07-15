@@ -66,9 +66,6 @@ remapJar {
 sourceSets {
     main {
         java {
-            // Temporary: datagen and legacy client mixin imports depend on currently-unported classes.
-            exclude "net/github/creep3rcrafter/inspire/fabric/datagen/**"
-            exclude "net/github/creep3rcrafter/inspire/fabric/client/mixin/**"
         }
     }
 }

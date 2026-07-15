@@ -1,14 +1,16 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.item.PotionJarItem;
-import net.creep3rcrafter.theupdatemod.register.ModItems;
+import net.github.creep3rcrafter.inspire.item.PotionJarItem;
+import net.github.creep3rcrafter.inspire.register.InspireItems;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.alchemy.PotionBrewing;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,10 +24,8 @@ public abstract class PotionBrewingMixin {
 
     @Inject(method = "hasMix", at = @At("HEAD"), cancellable = true)
     private static void injectHasMix(ItemStack containerItemStack, ItemStack ingredientItemStack, CallbackInfoReturnable<Boolean> cir) {
-        //System.out.println("hasMixTest");
-        if (containerItemStack.is(ModItems.POTION_JAR.get())) {
+        if (containerItemStack.is(InspireItems.POTION_JAR.get())) {
             if (ingredientItemStack.is(Items.POTION)) {
-                System.out.println("hasMix");
                 cir.setReturnValue(true);
             }
         }
@@ -34,8 +34,8 @@ public abstract class PotionBrewingMixin {
     @Inject(method = "isIngredient", at = @At("HEAD"), cancellable = true)
     private static void injectIsIngredient(ItemStack itemStack, CallbackInfoReturnable<Boolean> cir) {
         if (itemStack.is(Items.POTION)) {
-            if (!(PotionUtils.getMobEffects(itemStack)).isEmpty()) {
-                //System.out.println("isIngredient");
+            PotionContents contents = itemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+            if (!contents.customEffects().isEmpty() || contents.potion().isPresent()) {
                 cir.setReturnValue(true);
             }
         }
@@ -46,29 +46,28 @@ public abstract class PotionBrewingMixin {
         if (!itemStack2.isEmpty()) {
             if (itemStack.getItem() instanceof PotionItem) {
                 if (itemStack2.getItem() instanceof PotionJarItem) {
-                    List<MobEffectInstance> ingredientMobEffectInstances = new ArrayList<>();
-                    ingredientMobEffectInstances.addAll(PotionUtils.getMobEffects(itemStack));
-                    ingredientMobEffectInstances.addAll(PotionUtils.getCustomEffects(itemStack));
-                    List<MobEffectInstance> baseMobEffectInstances = new ArrayList<>();
-                    baseMobEffectInstances.addAll(PotionUtils.getMobEffects(itemStack2));
-                    baseMobEffectInstances.addAll(PotionUtils.getCustomEffects(itemStack2));
-                    List<MobEffectInstance> totalMobEffectInstances = new ArrayList<>();
-                    totalMobEffectInstances.addAll(PotionUtils.getMobEffects(itemStack));
-                    totalMobEffectInstances.addAll(PotionUtils.getCustomEffects(itemStack2));
-                    totalMobEffectInstances.addAll(PotionUtils.getCustomEffects(itemStack));
-                    List<MobEffect> baseMobEffects = new ArrayList<>();
-                    for (MobEffectInstance mobEffectInstance : baseMobEffectInstances) {
-                        baseMobEffects.add(mobEffectInstance.getEffect());
-                    }
-                    List<MobEffect> ingredientMobEffects = new ArrayList<>();
-                    for (MobEffectInstance mobEffectInstance : ingredientMobEffectInstances) {
-                        ingredientMobEffects.add(mobEffectInstance.getEffect());
-                    }
+                    PotionContents ingredientContents = itemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+                    PotionContents baseContents = itemStack2.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
 
-                    if (!(baseMobEffects.containsAll(ingredientMobEffects))) {
+                    List<MobEffectInstance> ingredientEffects = new ArrayList<>();
+                    for (MobEffectInstance mei : ingredientContents.getAllEffects()) ingredientEffects.add(mei);
+
+                    List<MobEffectInstance> baseEffects = new ArrayList<>();
+                    for (MobEffectInstance mei : baseContents.getAllEffects()) baseEffects.add(mei);
+
+                    List<MobEffectInstance> totalEffects = new ArrayList<>(baseContents.customEffects());
+                    for (MobEffectInstance mei : ingredientContents.getAllEffects()) totalEffects.add(mei);
+
+                    List<Holder<MobEffect>> baseMobEffects = new ArrayList<>();
+                    for (MobEffectInstance mei : baseEffects) baseMobEffects.add(mei.getEffect());
+
+                    List<Holder<MobEffect>> ingredientMobEffects = new ArrayList<>();
+                    for (MobEffectInstance mei : ingredientEffects) ingredientMobEffects.add(mei.getEffect());
+
+                    if (!baseMobEffects.containsAll(ingredientMobEffects)) {
                         if ((baseMobEffects.size() + ingredientMobEffects.size()) <= 4) {
-                            PotionUtils.setCustomEffects(itemStack2, totalMobEffectInstances);
-                            //System.out.println("Brewed");
+                            PotionContents updated = new PotionContents(baseContents.potion(), baseContents.customColor(), totalEffects);
+                            itemStack2.set(DataComponents.POTION_CONTENTS, updated);
                             cir.setReturnValue(itemStack2);
                         }
                     }

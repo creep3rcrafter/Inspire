@@ -104,81 +104,81 @@ public class CustomArrowRenderer<T extends CustomArrowEntity> extends EntityRend
 
     @Override
     public @NotNull ResourceLocation getTextureLocation(T entity) {
-        return new ResourceLocation("textures/entity/projectiles/arrow.png");
+        return ResourceLocation.withDefaultNamespace("textures/entity/projectiles/arrow.png");
     }
 
 
     public void vertex(org.joml.Matrix4f matrix4f, org.joml.Matrix3f matrix3f, VertexConsumer vertexConsumer, int i, int j, int k, float f, float g, int l, int m, int n, int o) {
-        vertexConsumer.vertex(matrix4f, (float) i, (float) j, (float) k).color(255, 255, 255, 255).uv(f, g).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(o).normal(matrix3f, (float) l, (float) n, (float) m).endVertex();
+        vertexConsumer.addVertex(matrix4f, (float) i, (float) j, (float) k).setColor(255, 255, 255, 255).setUv(f, g).setOverlay(OverlayTexture.NO_OVERLAY).setLight(o).setNormal((float) l, (float) n, (float) m);
     }
 
     public @NotNull ResourceLocation getTipTextureLocation(CustomArrowEntity arrow) {
         if (arrow.getTip() == 0.0f) {
             if (arrow.getRod() == 0.0f) {
-                return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/wood_tip.png");
+                return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/wood_tip.png");
             } else if (arrow.getRod() == 0.05f) {
-                return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/bamboo_tip.png");
+                return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/bamboo_tip.png");
             } else {
-                return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/blaze_tip.png");
+                return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/blaze_tip.png");
             }
         } else if (arrow.getTip() == 0.05f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/flint_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/flint_tip.png");
         } else if (arrow.getTip() == 0.1f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/bone_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/bone_tip.png");
         } else if (arrow.getTip() == 0.15f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/copper_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/copper_tip.png");
         } else if (arrow.getTip() == 0.2f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/iron_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/iron_tip.png");
         } else if (arrow.getTip() == 0.25f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/gold_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/gold_tip.png");
         } else if (arrow.getTip() == 0.3f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/diamond_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/diamond_tip.png");
         } else if (arrow.getTip() == 0.35f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/netherite_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/netherite_tip.png");
         } else if (arrow.getTip() == 0.4f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/obsidian_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/obsidian_tip.png");
         } else if (arrow.getTip() == 0.45f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/nether_quartz_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/nether_quartz_tip.png");
         } else if (arrow.getTip() == 0.5f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/amethyst_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/amethyst_tip.png");
         } else if (arrow.getTip() == 0.55f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/prismarine_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/prismarine_tip.png");
         } else if (arrow.getTip() == 0.6f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/slime_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/slime_tip.png");
         } else if (arrow.getTip() == 0.65f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/cobweb_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/cobweb_tip.png");
         } else if (arrow.getTip() == 0.7f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/chorus_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/chorus_tip.png");
         } else if (arrow.getTip() == 0.75f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/tnt_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/tnt_tip.png");
         } else if (arrow.getTip() == 0.8f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/ender_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/ender_tip.png");
         } else if (arrow.getTip() == 0.85f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/echo_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/echo_tip.png");
         } else {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/soul_tip.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/soul_tip.png");
         }
     }
 
     public @NotNull ResourceLocation getRodTextureLocation(CustomArrowEntity arrow) {
         if (arrow.getRod() == 0.0f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/wood_rod.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/wood_rod.png");
         } else if (arrow.getRod() == 0.05f) {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/bamboo_rod.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/bamboo_rod.png");
         } else {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/blaze_rod.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/blaze_rod.png");
         }
     }
 
     public @NotNull ResourceLocation getTailTextureLocation(CustomArrowEntity arrow) {
         if (arrow.getTail() == 0.0f) {
             if (arrow.getRod() == 0.1f) {
-                return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/burnt_feather_tail.png");
+                return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/burnt_feather_tail.png");
             } else {
-                return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/feather_tail.png");
+                return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/feather_tail.png");
             }
         } else {
-            return new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/projectiles/strider_scale_tail.png");
+            return ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/projectiles/strider_scale_tail.png");
         }
     }
 }

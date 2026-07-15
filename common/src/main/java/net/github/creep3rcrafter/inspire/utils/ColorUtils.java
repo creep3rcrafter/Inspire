@@ -2,6 +2,7 @@ package net.github.creep3rcrafter.inspire.utils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -12,9 +13,11 @@ import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
@@ -44,16 +47,16 @@ public class ColorUtils {
                 ItemStack itemStackLegs = livingEntity.getItemBySlot(EquipmentSlot.LEGS);
                 ItemStack itemStackFeet = livingEntity.getItemBySlot(EquipmentSlot.FEET);
                 if (itemStackHead.is(Items.LEATHER_HELMET)) {
-                    itemStackHead.getOrCreateTagElement("display").putInt("color", DyeColor.byId(colorID).getTextColor());
+                    itemStackHead.set(DataComponents.DYED_COLOR, new DyedItemColor(DyeColor.byId(colorID).getTextColor(), false));
                 }
                 if (itemStackChest.is(Items.LEATHER_CHESTPLATE) || itemStackChest.is(Items.LEATHER_HORSE_ARMOR)) {
-                    itemStackChest.getOrCreateTagElement("display").putInt("color", DyeColor.byId(colorID).getTextColor());
+                    itemStackChest.set(DataComponents.DYED_COLOR, new DyedItemColor(DyeColor.byId(colorID).getTextColor(), false));
                 }
                 if (itemStackLegs.is(Items.LEATHER_LEGGINGS)) {
-                    itemStackLegs.getOrCreateTagElement("display").putInt("color", DyeColor.byId(colorID).getTextColor());
+                    itemStackLegs.set(DataComponents.DYED_COLOR, new DyedItemColor(DyeColor.byId(colorID).getTextColor(), false));
                 }
                 if (itemStackFeet.is(Items.LEATHER_BOOTS)) {
-                    itemStackFeet.getOrCreateTagElement("display").putInt("color", DyeColor.byId(colorID).getTextColor());
+                    itemStackFeet.set(DataComponents.DYED_COLOR, new DyedItemColor(DyeColor.byId(colorID).getTextColor(), false));
                 }
             }
         }
@@ -255,112 +258,112 @@ public class ColorUtils {
                 level.setBlock(blockPos, Blocks.ORANGE_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 2:
                 level.setBlock(blockPos, Blocks.MAGENTA_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 3:
                 level.setBlock(blockPos, Blocks.LIGHT_BLUE_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 4:
                 level.setBlock(blockPos, Blocks.YELLOW_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 5:
                 level.setBlock(blockPos, Blocks.LIME_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 6:
                 level.setBlock(blockPos, Blocks.PINK_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 7:
                 level.setBlock(blockPos, Blocks.GRAY_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 8:
                 level.setBlock(blockPos, Blocks.LIGHT_GRAY_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 9:
                 level.setBlock(blockPos, Blocks.CYAN_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 10:
                 level.setBlock(blockPos, Blocks.PURPLE_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 11:
                 level.setBlock(blockPos, Blocks.BLUE_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 12:
                 level.setBlock(blockPos, Blocks.BROWN_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 13:
                 level.setBlock(blockPos, Blocks.GREEN_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 14:
                 level.setBlock(blockPos, Blocks.RED_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             case 15:
                 level.setBlock(blockPos, Blocks.BLACK_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
             default:
                 level.setBlock(blockPos, Blocks.WHITE_SHULKER_BOX.withPropertiesOf(blockState), 3);
                 shulkerBoxBlockEntity = (ShulkerBoxBlockEntity) level.getBlockEntity(blockPos);
                 shulkerBoxBlockEntity.setItems(itemStacks);
-                shulkerBoxBlockEntity.setCustomName(name);
+                ((BaseContainerBlockEntity) shulkerBoxBlockEntity).name = name;
                 shulkerBoxBlockEntity.setChanged();
                 break;
         }

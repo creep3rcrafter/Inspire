@@ -120,6 +120,7 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         customBlockFamily(BetterBlockFamilies.DARK_OAK_FAMILY, blockStateModelGenerator);
         customBlockFamily(BetterBlockFamilies.MANGROVE_FAMILY, blockStateModelGenerator);
         customBlockFamily(BetterBlockFamilies.CHERRY_FAMILY, blockStateModelGenerator);
+        customBlockFamily(BetterBlockFamilies.BRICKS_FAMILY, blockStateModelGenerator);
 
     }
     public static void customBlockFamily(BetterBlockFamily betterBlockFamily, BlockModelGenerators blockStateModelGenerator) {

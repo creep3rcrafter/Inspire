@@ -1,11 +1,11 @@
 package net.github.creep3rcrafter.inspire.register;
 
 import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.alchemy.PotionContents;
 import org.jetbrains.annotations.NotNull;
-
-import java.awt.*;
 
 public class InspireItemColors {
     public static ItemColor POTION_JAR;
@@ -15,17 +15,17 @@ public class InspireItemColors {
         POTION_JAR = new ItemColor() {
             @Override
             public int getColor(@NotNull ItemStack itemStack, int i) {
-                return i == 0 ? PotionUtils.getColor(itemStack) : -1;
+                return i == 0 ? itemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).getColor() : -1;
             }
         };
         SOUL_GLASS = new ItemColor() {
             @Override
             public int getColor(@NotNull ItemStack itemStack, int i) {
                 //int brightness = itemStack.getOrCreateTag().getCompound("BlockStateTag").getInt("brightness");
-                float r = 0.5F;//Mth.map(0f, 15f, 0f, 0.3f, f);
+                float r = 0.5F;
                 float g = (0.4f + 1) * 0.6f;
                 float b = (0.4f + 1) * 0.7f;
-                return Color.ofRGB(r, g, b).getColor();
+                return ((int)(r * 255) & 0xFF) << 16 | ((int)(g * 255) & 0xFF) << 8 | ((int)(b * 255) & 0xFF);
             }
         };
         ColorHandlerRegistry.registerItemColors(POTION_JAR, InspireItems.POTION_JAR.get());

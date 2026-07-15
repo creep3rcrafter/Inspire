@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -46,9 +45,9 @@ public class BluestoneLeverBlock extends LeverBlock implements SimpleWaterlogged
     private static void spawnParticles(BlockState state, Level world, BlockPos pos, float alpha) {
         Direction direction = state.getValue(FACING).getOpposite();
         Direction direction2 = getConnectedDirection(state).getOpposite();
-        double d = (double) pos.getX() + 0.5 + 0.1 * (double) direction.getOffsetX() + 0.2 * (double) direction2.getOffsetX();
-        double e = (double) pos.getY() + 0.5 + 0.1 * (double) direction.getOffsetY() + 0.2 * (double) direction2.getOffsetY();
-        double g = (double) pos.getZ() + 0.5 + 0.1 * (double) direction.getOffsetZ() + 0.2 * (double) direction2.getOffsetZ();
+        double d = (double) pos.getX() + 0.5 + 0.1 * (double) direction.getStepX() + 0.2 * (double) direction2.getStepX();
+        double e = (double) pos.getY() + 0.5 + 0.1 * (double) direction.getStepY() + 0.2 * (double) direction2.getStepY();
+        double g = (double) pos.getZ() + 0.5 + 0.1 * (double) direction.getStepZ() + 0.2 * (double) direction2.getStepZ();
         if (state.getValue(WATERLOGGED)) {
             world.addParticle(new DustParticleOptions(COLOR, alpha), d, e, g, 0.0, 0.0, 0.0);
         } else {
@@ -100,21 +99,15 @@ public class BluestoneLeverBlock extends LeverBlock implements SimpleWaterlogged
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        BlockState state2;
+    public @NotNull InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
         if (world.isClientSide) {
-            state2 = state.cycle(POWERED);
+            BlockState state2 = state.cycle(POWERED);
             if (state2.getValue(POWERED)) {
                 spawnParticles(state2, world, pos, 1.0F);
             }
-
             return InteractionResult.SUCCESS;
         } else {
-            state2 = this.togglePower(state, world, pos);
-            float f = state2.getValue(POWERED) ? 0.6F : 0.5F;
-            world.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, f);
-            world.gameEvent(player, state2.getValue(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
-            return InteractionResult.CONSUME;
+            return super.useWithoutItem(state, world, pos, player, hit);
         }
     }
 }

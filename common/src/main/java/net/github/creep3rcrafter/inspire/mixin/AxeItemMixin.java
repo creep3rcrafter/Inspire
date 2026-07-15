@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModWoodBark;
+import net.github.creep3rcrafter.inspire.register.InspireWoodBark;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -21,8 +21,8 @@ public abstract class AxeItemMixin {
         Level level = useOnContext.getLevel();
         if (!level.isClientSide()) {
             Block block = level.getBlockState(useOnContext.getClickedPos()).getBlock();
-            if (ModWoodBark.BLOCK_ITEM_STACK_MAP.containsKey(block)) {
-                level.addFreshEntity(new ItemEntity(level, blockPos.getX() + 0.5f, blockPos.getY() + 0.5f, blockPos.getZ() + 0.5f, ModWoodBark.BLOCK_ITEM_STACK_MAP.get(block)));
+            if (InspireWoodBark.BLOCK_ITEM_STACK_MAP.containsKey(block)) {
+                level.addFreshEntity(new ItemEntity(level, blockPos.getX() + 0.5f, blockPos.getY() + 0.5f, blockPos.getZ() + 0.5f, InspireWoodBark.BLOCK_ITEM_STACK_MAP.get(block)));
             }
         }
     }

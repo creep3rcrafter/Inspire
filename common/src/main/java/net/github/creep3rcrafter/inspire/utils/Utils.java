@@ -14,6 +14,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
@@ -23,8 +24,8 @@ import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.*;
@@ -59,7 +60,7 @@ public class Utils {
         lightning(livingEntity, level);
         if (!livingEntity.isSpectator() && level != null) {
             for (int i = 0; i < amplifier; i++) {
-                RandomSource random = new Random();
+                RandomSource random = RandomSource.create();
                 BlockPos entityPos = livingEntity.blockPosition();
                 BlockPos blockPos = entityPos.offset(random.nextInt(amplifier) - (amplifier / 2), random.nextInt(amplifier) - (amplifier / 2), random.nextInt(amplifier) - (amplifier / 2));
                 lightning(blockPos, level, livingEntity);
@@ -76,7 +77,7 @@ public class Utils {
     }
 
     public static void explode(ServerLevel level, BlockPos blockPos, float radius, boolean fire) {
-        level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), radius, fire, Explosion.BlockInteraction.DESTROY);
+        level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), radius, Level.ExplosionInteraction.BLOCK);
     }
 
     public static void explode(Level level, BlockPos blockPos) {
@@ -88,16 +89,17 @@ public class Utils {
     }
 
     public static void explode(Level level, BlockPos blockPos, float radius, boolean fire) {
-        level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), radius, fire, Explosion.BlockInteraction.DESTROY);
+        level.explode(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), radius, Level.ExplosionInteraction.BLOCK);
     }
 
-    public static <C extends Container, T extends Recipe<C>> List<Item> recipesContainsItems(MinecraftServer server, RecipeType<T> recipeType, List<Item> containsList) {
+    public static <I extends RecipeInput, T extends Recipe<I>> List<Item> recipesContainsItems(MinecraftServer server, RecipeType<T> recipeType, List<Item> containsList) {
         List<Item> results = new ArrayList<Item>();
-        server.getRecipeManager().getAllRecipesFor(recipeType).forEach(recipe -> {
+        server.getRecipeManager().getAllRecipesFor(recipeType).forEach(recipeHolder -> {
+            T recipe = recipeHolder.value();
             recipe.getIngredients().forEach(ingredient -> {
                 for (Item item : containsList) {
                     if (ingredient.test(new ItemStack(item))) {
-                        results.add(recipe.getResultItem().getItem());
+                        results.add(recipe.getResultItem(server.registryAccess()).getItem());
                     }
                 }
             });
@@ -127,19 +129,19 @@ public class Utils {
     }
 
     public static void damageItem(LivingEntity livingEntity, EquipmentSlot equipmentSlot, int damage) {
-        if (livingEntity.getItemBySlot(equipmentSlot).isDamageableItem()) {
-            //Item item = livingEntity.getItemBySlot(equipmentSlot).getItem();
-            livingEntity.getItemBySlot(equipmentSlot).hurtAndBreak(damage, livingEntity, source -> {
-                source.broadcastBreakEvent(equipmentSlot);
-            });
+        ItemStack stack = livingEntity.getItemBySlot(equipmentSlot);
+        if (stack.isDamageableItem() && livingEntity.level() instanceof ServerLevel serverLevel) {
+            stack.hurtAndBreak(damage, serverLevel,
+                    livingEntity instanceof ServerPlayer sp ? sp : null,
+                    item -> {});
         }
     }
 
     public static void damageItem(LivingEntity livingEntity, ItemStack itemStack, int damage) {
-        if (itemStack.isDamageableItem()) {
-            itemStack.hurtAndBreak(damage, livingEntity, source -> {
-                source.broadcastBreakEvent(EquipmentSlot.CHEST);
-            });
+        if (itemStack.isDamageableItem() && livingEntity.level() instanceof ServerLevel serverLevel) {
+            itemStack.hurtAndBreak(damage, serverLevel,
+                    livingEntity instanceof ServerPlayer sp ? sp : null,
+                    item -> {});
         }
     }
 
@@ -160,9 +162,8 @@ public class Utils {
                 BlockPos blockPos3 = blockPos2.relative(direction);
                 BlockState blockState = level.getBlockState(blockPos3);
                 FluidState fluidState = level.getFluidState(blockPos3);
-                Material material = blockState.getMaterial();
                 if (fluidState.is(FluidTags.WATER)) {
-                    if (blockState.getBlock() instanceof BucketPickup && !((BucketPickup) blockState.getBlock()).pickupBlock(level, blockPos3, blockState).isEmpty()) {
+                    if (blockState.getBlock() instanceof BucketPickup && !((BucketPickup) blockState.getBlock()).pickupBlock(null, level, blockPos3, blockState).isEmpty()) {
                         ++i;
                         if (j < 6) {
                             queue.add(new Tuple(blockPos3, j + 1));
@@ -173,7 +174,7 @@ public class Utils {
                         if (j < 6) {
                             queue.add(new Tuple(blockPos3, j + 1));
                         }
-                    } else if (material == Material.WATER_PLANT || material == Material.REPLACEABLE_WATER_PLANT) {
+                    } else if (blockState.canBeReplaced()) {
                         BlockEntity blockEntity = blockState.hasBlockEntity() ? level.getBlockEntity(blockPos3) : null;
                         Block.dropResources(blockState, level, blockPos3, blockEntity);
                         level.setBlock(blockPos3, Blocks.AIR.defaultBlockState(), 3);

@@ -37,7 +37,7 @@ public class ThrownNetherBrickEntity extends ThrowableItemProjectile {
 
     private ParticleOptions getParticleParameters() {
         ItemStack itemStack = this.getItem();
-        return itemStack.isEmpty() ? ParticleTypes.DUST : new ItemParticleOption(ParticleTypes.ITEM, itemStack);
+        return itemStack.isEmpty() ? (ParticleOptions) new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(0.5f, 0.1f, 0.1f), 1.0f) : new ItemParticleOption(ParticleTypes.ITEM, itemStack);
     }
 
     @Override

@@ -42,15 +42,11 @@ public class SunkenCoralEntityModel<T extends SunkenEntity> extends HumanoidMode
 
     @Override
     public void renderToBuffer(PoseStack matrices, VertexConsumer vertices, int light, int overlay, int color) {
-        float red = 1.0F;
-        float green = 1.0F;
-        float blue = 1.0F;
-        float alpha = 1.0F;
-        coral1.render(matrices, vertices, light, overlay, red, green, blue, alpha);
-        coral2.render(matrices, vertices, light, overlay, red, green, blue, alpha);
-        coral3.render(matrices, vertices, light, overlay, red, green, blue, alpha);
-        coral4.render(matrices, vertices, light, overlay, red, green, blue, alpha);
-        coral5.render(matrices, vertices, light, overlay, red, green, blue, alpha);
+        coral1.render(matrices, vertices, light, overlay, color);
+        coral2.render(matrices, vertices, light, overlay, color);
+        coral3.render(matrices, vertices, light, overlay, color);
+        coral4.render(matrices, vertices, light, overlay, color);
+        coral5.render(matrices, vertices, light, overlay, color);
     }
 
     @Override

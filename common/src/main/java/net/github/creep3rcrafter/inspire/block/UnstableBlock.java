@@ -60,11 +60,12 @@ public class UnstableBlock extends Block implements Fallable {
     }
 
     @Override
-    public void playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player) {
-        super.playerWillDestroy(world, pos, state, player);
+    public BlockState playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player) {
+        BlockState result = super.playerWillDestroy(world, pos, state, player);
         if (world instanceof ServerLevel serverWorld) {
             serverWorld.scheduleTick(pos, this, this.getFallDelay());
         }
+        return result;
     }
 
     protected void configureFallingBlockEntity(FallingBlockEntity fallingBlockEntity) {

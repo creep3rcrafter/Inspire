@@ -30,6 +30,7 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.server.level.ServerLevel;
 import org.jetbrains.annotations.Nullable;
 
 public class SkeletonPiglinEntity extends AbstractSkeleton implements CrossbowAttackMob {
@@ -100,8 +101,13 @@ public class SkeletonPiglinEntity extends AbstractSkeleton implements CrossbowAt
     }
 
     @Override
-    protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
-        super.dropEquipment(source, lootingMultiplier, allowDrops);
+    protected void dropEquipment() {
+        super.dropEquipment();
+    }
+
+    @Override
+    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
+        super.dropCustomDeathLoot(level, source, recentlyHit);
         Entity entity = source.getEntity();
         if (entity instanceof Creeper creeperEntity) {
             if (creeperEntity.canDropMobsSkull()) {
@@ -109,7 +115,6 @@ public class SkeletonPiglinEntity extends AbstractSkeleton implements CrossbowAt
                 this.spawnAtLocation(Items.SKELETON_SKULL);
             }
         }
-
     }
 
     @Override
@@ -123,11 +128,6 @@ public class SkeletonPiglinEntity extends AbstractSkeleton implements CrossbowAt
             this.setItemSlot(slot, stack);
         }
 
-    }
-
-    @Override
-    public double getMyRidingOffset() {
-        return this.getBbHeight() * 0.92;
     }
 
     @Override
@@ -154,13 +154,8 @@ public class SkeletonPiglinEntity extends AbstractSkeleton implements CrossbowAt
     }
 
     @Override
-    public void shoot(LivingEntity target, float pullProgress) {
+    public void performRangedAttack(LivingEntity target, float pullProgress) {
         this.performCrossbowAttack(this, 1.6F);
-    }
-
-    @Override
-    public void shootCrossbowProjectile(LivingEntity target, ItemStack crossbow, Projectile projectile, float multiShotSpray) {
-        this.shootCrossbowProjectile(this, target, projectile, multiShotSpray, 1.6F);
     }
 
     @Override

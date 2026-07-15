@@ -8,7 +8,11 @@ import net.github.creep3rcrafter.inspire.entity.EnderChestMinecartEntity;
 import net.github.creep3rcrafter.inspire.entity.JukeboxBoatEntity;
 import net.github.creep3rcrafter.inspire.entity.TrappedChestBoatEntity;
 import net.github.creep3rcrafter.inspire.entity.TrappedChestMinecartEntity;
+import net.github.creep3rcrafter.inspire.entity.animal.FleepEntity;
 import net.github.creep3rcrafter.inspire.entity.animal.WitherSkeletonHorseEntity;
+import net.github.creep3rcrafter.inspire.entity.hostile.SkeletonCreeperEntity;
+import net.github.creep3rcrafter.inspire.entity.hostile.SkeletonPiglinEntity;
+import net.github.creep3rcrafter.inspire.entity.hostile.SunkenEntity;
 import net.github.creep3rcrafter.inspire.entity.projectile.CustomArrowEntity;
 import net.github.creep3rcrafter.inspire.entity.projectile.ThrownBrickEntity;
 import net.github.creep3rcrafter.inspire.entity.projectile.ThrownDyeGlobEntity;
@@ -37,6 +41,10 @@ public class InspireEntityTypes {
     public static final RegistrySupplier<EntityType<WitherSkeletonHorseEntity>> WITHER_SKELETON_HORSE;
     public static final RegistrySupplier<EntityType<TrappedChestMinecartEntity>> TRAPPED_CHEST_MINECART;
     public static final RegistrySupplier<EntityType<EnderChestMinecartEntity>> ENDER_CHEST_MINECART;
+    public static final RegistrySupplier<EntityType<SkeletonPiglinEntity>> SKELETON_PIGLIN;
+    public static final RegistrySupplier<EntityType<SkeletonCreeperEntity>> SKELETON_CREEPER;
+    public static final RegistrySupplier<EntityType<SunkenEntity>> SUNKEN;
+    public static final RegistrySupplier<EntityType<FleepEntity>> FLEEP;
 
     static {
         DYNAMITE = ENTITY_TYPES.register("dynamite", () ->
@@ -81,6 +89,19 @@ public class InspireEntityTypes {
         ENDER_CHEST_MINECART = ENTITY_TYPES.register("ender_chest_minecart", () ->
                 EntityType.Builder.<EnderChestMinecartEntity>of(EnderChestMinecartEntity::new, MobCategory.MISC).sized(0.98F, 0.7F).clientTrackingRange(8).build(
                         ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "ender_chest_minecart").toString()));
+
+        SKELETON_PIGLIN = ENTITY_TYPES.register("skeleton_piglin", () ->
+                EntityType.Builder.<SkeletonPiglinEntity>of(SkeletonPiglinEntity::new, MobCategory.MONSTER).sized(0.6F, 1.99F).clientTrackingRange(8).build(
+                        ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "skeleton_piglin").toString()));
+        SKELETON_CREEPER = ENTITY_TYPES.register("skeleton_creeper", () ->
+                EntityType.Builder.<SkeletonCreeperEntity>of(SkeletonCreeperEntity::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(8).build(
+                        ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "skeleton_creeper").toString()));
+        SUNKEN = ENTITY_TYPES.register("sunken", () ->
+                EntityType.Builder.<SunkenEntity>of(SunkenEntity::new, MobCategory.MONSTER).sized(0.6F, 1.99F).clientTrackingRange(8).build(
+                        ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "sunken").toString()));
+        FLEEP = ENTITY_TYPES.register("fleep", () ->
+                EntityType.Builder.<FleepEntity>of(FleepEntity::new, MobCategory.CREATURE).sized(0.9F, 1.3F).clientTrackingRange(10).build(
+                        ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "fleep").toString()));
     }
     /*
     public static final RegistrySupplier<EntityType<MobBoat>> MOB_BOAT = ENTITY_TYPES.register("mob_boat", () ->

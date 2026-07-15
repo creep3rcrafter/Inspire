@@ -15,10 +15,11 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.item.DyeColor;
 
 public class FleepWoolFeatureRenderer extends RenderLayer<FleepEntity, FleepEntityModel<FleepEntity>> {
-    private static final ResourceLocation SKIN = new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/animal/fleep/fleep_fur.png");
+    private static final ResourceLocation SKIN = ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/animal/fleep/fleep_fur.png");
     private final SheepFurModel<FleepEntity> model;
 
     public FleepWoolFeatureRenderer(RenderLayerParent<FleepEntity, FleepEntityModel<FleepEntity>> context, EntityModelSet modelSet) {
@@ -41,7 +42,7 @@ public class FleepWoolFeatureRenderer extends RenderLayer<FleepEntity, FleepEnti
             this.model.prepareMobModel(fleepEntity, limbSwing, limbSwingAmount, partialTick);
             this.model.setupAnim(fleepEntity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.outline(SKIN));
-            this.model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(fleepEntity, 0.0F), 0.0F, 0.0F, 0.0F, 1.0F);
+            this.model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(fleepEntity, 0.0F), 0xFF000000);
             return;
         }
 
@@ -71,6 +72,6 @@ public class FleepWoolFeatureRenderer extends RenderLayer<FleepEntity, FleepEnti
         this.model.prepareMobModel(fleepEntity, limbSwing, limbSwingAmount, partialTick);
         this.model.setupAnim(fleepEntity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityCutoutNoCull(SKIN));
-        this.model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(fleepEntity, 0.0F), red, green, blue, 1.0F);
+        this.model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(fleepEntity, 0.0F), FastColor.ARGB32.color(255, (int)(red * 255), (int)(green * 255), (int)(blue * 255)));
     }
 }

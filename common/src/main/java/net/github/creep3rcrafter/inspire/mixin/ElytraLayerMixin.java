@@ -2,8 +2,8 @@ package net.github.creep3rcrafter.inspire.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.creep3rcrafter.theupdatemod.TheUpdateMod;
-import net.creep3rcrafter.theupdatemod.register.ModItems;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.client.model.ElytraModel;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -29,7 +29,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ElytraLayer.class)
 public class ElytraLayerMixin<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
     @Unique
-    private static final ResourceLocation BASIC_ELYTRA = new ResourceLocation(TheUpdateMod.MOD_ID, "textures/entity/crafted_elytra.png");
+    private static final ResourceLocation BASIC_ELYTRA = ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/crafted_elytra.png");
     @Shadow
     @Final
     private static ResourceLocation WINGS_LOCATION;
@@ -83,18 +83,14 @@ public class ElytraLayerMixin<T extends LivingEntity, M extends EntityModel<T>> 
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V", at = @At(value = "HEAD"))
     private void injectRender(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, T livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo ci) {
         ItemStack itemStack = livingEntity.getItemBySlot(EquipmentSlot.CHEST);
-        if (itemStack.is(ModItems.CRAFTED_ELYTRA.get())) {
+        if (itemStack.is(InspireItems.CRAFTED_ELYTRA.get())) {
             ResourceLocation resourceLocation = BASIC_ELYTRA;
-            AbstractClientPlayer abstractClientPlayer = (AbstractClientPlayer) livingEntity;
-            if (abstractClientPlayer.isElytraLoaded()) {
-                resourceLocation = BASIC_ELYTRA;
-            }
             poseStack.pushPose();
             poseStack.translate(0.0, 0.0, 0.125);
             this.getParentModel().copyPropertiesTo(this.elytraModel);
             this.elytraModel.setupAnim(livingEntity, f, g, j, k, l);
-            VertexConsumer vertexConsumer = ItemRenderer.getArmorFoilBuffer(multiBufferSource, RenderType.armorCutoutNoCull(resourceLocation), false, itemStack.hasFoil());
-            this.elytraModel.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            VertexConsumer vertexConsumer = ItemRenderer.getArmorFoilBuffer(multiBufferSource, RenderType.armorCutoutNoCull(resourceLocation), itemStack.hasFoil());
+            this.elytraModel.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY);
             poseStack.popPose();
         }
     }

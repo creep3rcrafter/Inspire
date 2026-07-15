@@ -1,70 +1,39 @@
 package net.github.creep3rcrafter.inspire.register;
 
-import net.minecraft.sounds.SoundEvent;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.LazyLoadedValue;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
+import java.util.List;
+import java.util.Map;
 
-public enum InspireArmorMaterials {
-    STRIDER_SCALE("strider_scale", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ARMOR_EQUIP_GENERIC, 2.0F, 0.0F, () -> {
-        return Ingredient.of(new ItemLike[]{InspireItems.STRIDER_SCALE.get()});
-    });
-    private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
-    private final String name;
-    private final int durabilityMultiplier;
-    private final int[] slotProtections;
-    private final int enchantmentValue;
-    private final SoundEvent sound;
-    private final float toughness;
-    private final float knockbackResistance;
-    private final LazyLoadedValue<Ingredient> repairIngredient;
+public class InspireArmorMaterials {
+    public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS =
+            DeferredRegister.create(InspireCommon.MOD_ID, Registries.ARMOR_MATERIAL);
 
-    InspireArmorMaterials(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-        this.name = name;
-        this.durabilityMultiplier = durabilityMultiplier;
-        this.slotProtections = slotProtections;
-        this.enchantmentValue = enchantmentValue;
-        this.sound = sound;
-        this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
-        this.repairIngredient = new LazyLoadedValue<Ingredient>(repairIngredient);
+    public static final RegistrySupplier<ArmorMaterial> STRIDER_SCALE;
+
+    static {
+        STRIDER_SCALE = ARMOR_MATERIALS.register("strider_scale", () -> new ArmorMaterial(
+                Map.of(
+                        ArmorItem.Type.BOOTS, 3,
+                        ArmorItem.Type.LEGGINGS, 6,
+                        ArmorItem.Type.CHESTPLATE, 8,
+                        ArmorItem.Type.HELMET, 3
+                ),
+                10,
+                SoundEvents.ARMOR_EQUIP_GENERIC,
+                () -> Ingredient.of(InspireItems.STRIDER_SCALE.get()),
+                List.of(new ArmorMaterial.Layer(
+                        ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "strider_scale"))),
+                2.0F,
+                0.0F
+        ));
     }
-
-    public int getDurabilityForSlot(EquipmentSlot equipmentSlot) {
-        return HEALTH_PER_SLOT[equipmentSlot.getIndex()] * this.durabilityMultiplier;
-    }
-
-    public int getDefenseForSlot(EquipmentSlot equipmentSlot) {
-        return this.slotProtections[equipmentSlot.getIndex()];
-    }
-
-    public int getEnchantmentValue() {
-        return this.enchantmentValue;
-    }
-
-    public @NotNull SoundEvent getEquipSound() {
-        return this.sound;
-    }
-
-    public @NotNull Ingredient getRepairIngredient() {
-        return (Ingredient) this.repairIngredient.get();
-    }
-
-    public @NotNull String getName() {
-        return this.name;
-    }
-
-    public float getToughness() {
-        return this.toughness;
-    }
-
-    public float getKnockbackResistance() {
-        return this.knockbackResistance;
-    }
-
 }

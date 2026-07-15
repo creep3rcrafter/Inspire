@@ -4,8 +4,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.CrossbowAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.CrossbowItem;
@@ -13,6 +13,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.ChargedProjectiles;
+import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
@@ -57,10 +60,10 @@ public class LauncherItem extends CrossbowItem {
                 projectile = new FireworkRocketEntity(level, itemStack2, livingEntity, livingEntity.getX(), livingEntity.getEyeY() - 0.15000000596046448, livingEntity.getZ(), true);
             } else if (fire_charge) {
                 System.out.println("fire_charge");
-                projectile = new LargeFireball(level, livingEntity, livingEntity.getX(), livingEntity.getEyeY() - 0.15000000596046448, livingEntity.getZ(), 2);
+                projectile = new LargeFireball(level, livingEntity, livingEntity.getViewVector(1.0F), 2);
             } else if (blaze_powder) {
                 System.out.println("blaze_powder");
-                projectile = new SmallFireball(level, livingEntity, livingEntity.getX(), livingEntity.getEyeY() - 0.15000000596046448, livingEntity.getZ());
+                projectile = new SmallFireball(level, livingEntity.getX(), livingEntity.getEyeY() - 0.15000000596046448, livingEntity.getZ(), livingEntity.getViewVector(1.0F));
             } else if (snowball) {
                 System.out.println("snowball");
                 projectile = new Snowball(level, livingEntity.getX(), livingEntity.getEyeY() - 0.15000000596046448, livingEntity.getZ());
@@ -83,33 +86,28 @@ public class LauncherItem extends CrossbowItem {
                 projectile = new FireworkRocketEntity(level, itemStack2, livingEntity, livingEntity.getX(), livingEntity.getEyeY() - 0.15000000596046448, livingEntity.getZ(), true);
             } else {
                 System.out.println("arrow");
-                projectile = getArrow(level, livingEntity, itemStack, itemStack2);
+                projectile = new Arrow(level, livingEntity, itemStack2, itemStack);
                 if (bl || i != 0.0F) {
                     ((AbstractArrow) projectile).pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                 }
             }
 
-            if (livingEntity instanceof CrossbowAttackMob crossbowAttackMob) {
-                crossbowAttackMob.shootCrossbowProjectile(crossbowAttackMob.getTarget(), itemStack, projectile, i);
-            } else {
-                Vec3 vec3 = livingEntity.getUpVector(1.0F);
-                Quaternion quaternion = new Quaternion(new Vector3f(vec3), i, true);
-                Vec3 vec32 = livingEntity.getViewVector(1.0F);
-                Vector3f vector3f = new Vector3f(vec32);
-                vector3f.transform(quaternion);
-                projectile.shoot(vector3f.x(), vector3f.y(), vector3f.z(), g, h);
+            Vec3 vec32 = livingEntity.getViewVector(1.0F);
+            Vector3f vector3f = new Vector3f((float)vec32.x, (float)vec32.y, (float)vec32.z);
+            if (i != 0.0F) {
+                Vector3f upVec = livingEntity.getUpVector(1.0F).toVector3f();
+                vector3f.rotateAxis(i * (float)(Math.PI / 180.0), upVec.x, upVec.y, upVec.z);
             }
+            projectile.shoot(vector3f.x(), vector3f.y(), vector3f.z(), g, h);
 
-            itemStack.hurtAndBreak(firework ? 3 : 1, livingEntity, (livingEntityx) -> {
-                livingEntityx.broadcastBreakEvent(interactionHand);
-            });
+            itemStack.hurtAndBreak(firework ? 3 : 1, livingEntity, interactionHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
             level.addFreshEntity(projectile);
             level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, f);
         }
     }
 
     public static void performShooting(Level level, LivingEntity livingEntity, InteractionHand interactionHand, ItemStack itemStack, float f, float g) {
-        List<ItemStack> list = getChargedProjectiles(itemStack);
+        List<ItemStack> list = itemStack.getOrDefault(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY).getItems();
         float[] fs = getShotPitches(livingEntity.getRandom());
 
         for (int i = 0; i < list.size(); ++i) {
@@ -126,7 +124,7 @@ public class LauncherItem extends CrossbowItem {
             }
         }
 
-        onCrossbowShot(level, livingEntity, itemStack);
+        itemStack.remove(DataComponents.CHARGED_PROJECTILES);
     }
 
     @Override
@@ -147,13 +145,10 @@ public class LauncherItem extends CrossbowItem {
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemStack = player.getItemInHand(interactionHand);
         if (isCharged(itemStack)) {
-            performShooting(level, player, interactionHand, itemStack, getShootingPower(itemStack), 1.0F);
-            setCharged(itemStack, false);
+            performShooting(level, player, interactionHand, itemStack, getShootingPower(itemStack), 1.0F, null);
             return InteractionResultHolder.consume(itemStack);
         } else if (!player.getProjectile(itemStack).isEmpty()) {
             if (!isCharged(itemStack)) {
-                this.startSoundPlayed = false;
-                this.midLoadSoundPlayed = false;
                 player.startUsingItem(interactionHand);
             }
 
@@ -161,5 +156,18 @@ public class LauncherItem extends CrossbowItem {
         } else {
             return InteractionResultHolder.fail(itemStack);
         }
+    }
+
+    private static float[] getShotPitches(RandomSource random) {
+        boolean bl = random.nextBoolean();
+        return new float[]{1.0F, (random.nextFloat() * 2.0F - 1.0F) * 0.2F + 1.0F, (random.nextFloat() * 2.0F - 1.0F) * 0.2F + (bl ? 1.0F : 0.82F)};
+    }
+
+    private static float getShootingPower(ItemStack chargedItemStack) {
+        ChargedProjectiles charged = chargedItemStack.getOrDefault(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY);
+        if (!charged.getItems().isEmpty() && charged.getItems().get(0).is(Items.FIREWORK_ROCKET)) {
+            return 1.6F;
+        }
+        return 3.15F;
     }
 }

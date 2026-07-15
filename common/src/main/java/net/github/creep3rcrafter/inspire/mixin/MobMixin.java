@@ -1,12 +1,12 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModEffects;
-import net.creep3rcrafter.theupdatemod.register.ModItems;
+import net.github.creep3rcrafter.inspire.register.InspireEffects;
+import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -23,24 +23,24 @@ public abstract class MobMixin extends LivingEntity {
     }
 
     @Shadow
-    public abstract void setPathfindingMalus(BlockPathTypes blockPathTypes, float f);
+    public abstract void setPathfindingMalus(PathType pathType, float f);
 
     @Shadow
     public abstract @NotNull ItemStack getItemBySlot(EquipmentSlot equipmentSlot);
 
     @Inject(method = "tick", at = @At("RETURN"))
     public void injectTick(CallbackInfo ci) {
-        if (getItemBySlot(EquipmentSlot.FEET).is(ModItems.STRIDER_SCALE_BOOTS.get())) {
-            setPathfindingMalus(BlockPathTypes.LAVA, 0.0F);
-            setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
+        if (getItemBySlot(EquipmentSlot.FEET).is(InspireItems.STRIDER_SCALE_BOOTS.get())) {
+            setPathfindingMalus(PathType.LAVA, 0.0F);
+            setPathfindingMalus(PathType.DANGER_FIRE, 0.0F);
         }
     }
 
     @Inject(method = "doHurtTarget", at = @At("RETURN"))
     public void injectDoHurtTarget(Entity entity, CallbackInfoReturnable<Boolean> cir) {
-        if (this.hasEffect(ModEffects.INFECTION.get())) {
+        if (this.hasEffect(InspireEffects.INFECTION)) {
             if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addEffect(new MobEffectInstance(ModEffects.INFECTION.get(), 1200));
+                ((LivingEntity) entity).addEffect(new MobEffectInstance(InspireEffects.INFECTION, 1200));
             }
         }
     }

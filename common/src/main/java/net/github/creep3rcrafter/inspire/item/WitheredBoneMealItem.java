@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -39,7 +40,7 @@ public class WitheredBoneMealItem extends Item {
     public static boolean growCrop(ItemStack itemStack, Level level, BlockPos blockPos) {
         BlockState blockState = level.getBlockState(blockPos);
         if (blockState.getBlock() instanceof BonemealableBlock bonemealableBlock) {
-            if (bonemealableBlock.isValidBonemealTarget(level, blockPos, blockState, level.isClientSide)) {
+            if (bonemealableBlock.isValidBonemealTarget(level, blockPos, blockState)) {
                 if (level instanceof ServerLevel) {
                     if (bonemealableBlock.isBonemealSuccess(level, level.random, blockPos, blockState)) {
                         performBonemeal((ServerLevel) level, level.random, blockPos, blockState);
@@ -57,7 +58,7 @@ public class WitheredBoneMealItem extends Item {
 
     public static void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
         BlockPos blockPos2 = blockPos.above();
-        BlockState blockState2 = Blocks.GRASS.defaultBlockState();
+        BlockState blockState2 = Blocks.SHORT_GRASS.defaultBlockState();
 
         label46:
         for (int i = 0; i < 128; ++i) {
@@ -104,7 +105,7 @@ public class WitheredBoneMealItem extends Item {
                     Holder<Biome> holder = level.getBiome(blockPos2);
                     if (holder.is(BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL)) {
                         if (i == 0 && direction != null && direction.getAxis().isHorizontal()) {
-                            blockState = (BlockState)Registries.BLOCK.getTag(BlockTags.WALL_CORALS).flatMap((named) -> {
+                            blockState = (BlockState)BuiltInRegistries.BLOCK.getTag(BlockTags.WALL_CORALS).flatMap((named) -> {
                                 return named.getRandomElement(level.random);
                             }).map((holderx) -> {
                                 return ((Block) holderx.value()).defaultBlockState();
@@ -113,7 +114,7 @@ public class WitheredBoneMealItem extends Item {
                                 blockState = (BlockState) blockState.setValue(BaseCoralWallFanBlock.FACING, direction);
                             }
                         } else if (randomSource.nextInt(4) == 0) {
-                            blockState = (BlockState) Registries.BLOCK.getTag(BlockTags.UNDERWATER_BONEMEALS).flatMap((named) -> {
+                            blockState = (BlockState) BuiltInRegistries.BLOCK.getTag(BlockTags.UNDERWATER_BONEMEALS).flatMap((named) -> {
                                 return named.getRandomElement(level.random);
                             }).map((holderx) -> {
                                 return ((Block) holderx.value()).defaultBlockState();
@@ -182,7 +183,7 @@ public class WitheredBoneMealItem extends Item {
                 double l = (double) blockPos.getX() + k + randomSource.nextDouble() * d * 2.0;
                 double m = (double) blockPos.getY() + randomSource.nextDouble() * e;
                 double n = (double) blockPos.getZ() + k + randomSource.nextDouble() * d * 2.0;
-                if (!levelAccessor.getBlockState((new BlockPos(l, m, n)).below()).isAir()) {
+                if (!levelAccessor.getBlockState(BlockPos.containing(l, m, n).below()).isAir()) {
                     levelAccessor.addParticle(ParticleTypes.SMOKE, l, m, n, f, g, h);
                     if (randomSource.nextFloat() > 0.95f) {
                         levelAccessor.addParticle(ParticleTypes.SOUL, l, m, n, f, g, h);
@@ -201,7 +202,7 @@ public class WitheredBoneMealItem extends Item {
             if (level.isClientSide) {
                 //level.levelEvent(1505, blockPos, 0);
                 addGrowthParticles(level, blockPos, 0);
-                level.playSound(useOnContext.getPlayer(), blockPos, SoundEvents.SOUL_ESCAPE, SoundSource.BLOCKS, 1.0f, 1.0f);
+                level.playSound(useOnContext.getPlayer(), blockPos, SoundEvents.SOUL_ESCAPE.value(), SoundSource.BLOCKS, 1.0f, 1.0f);
             }
 
             return InteractionResult.sidedSuccess(level.isClientSide);
@@ -212,7 +213,7 @@ public class WitheredBoneMealItem extends Item {
                 if (level.isClientSide) {
                     //level.levelEvent(1505, blockPos2, 0);
                     addGrowthParticles(level, blockPos, 0);
-                    level.playSound(useOnContext.getPlayer(), blockPos, SoundEvents.SOUL_ESCAPE, SoundSource.BLOCKS, 1.0f, 1.0f);
+                    level.playSound(useOnContext.getPlayer(), blockPos, SoundEvents.SOUL_ESCAPE.value(), SoundSource.BLOCKS, 1.0f, 1.0f);
                 }
 
                 return InteractionResult.sidedSuccess(level.isClientSide);

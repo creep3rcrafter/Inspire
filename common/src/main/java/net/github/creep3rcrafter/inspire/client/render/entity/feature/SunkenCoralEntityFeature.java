@@ -16,7 +16,7 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class SunkenCoralEntityFeature extends RenderLayer<SunkenEntity, SkeletonModel<SunkenEntity>> {
-    private static final ResourceLocation SKIN = new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/hostile/sunken/sunken_1_coral.png");
+    private static final ResourceLocation SKIN = ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/hostile/sunken/sunken_1_coral.png");
     private final SunkenCoralEntityModel<SunkenEntity> model;
 
     public SunkenCoralEntityFeature(RenderLayerParent<SunkenEntity, SkeletonModel<SunkenEntity>> context, EntityModelSet modelSet) {
@@ -30,6 +30,6 @@ public class SunkenCoralEntityFeature extends RenderLayer<SunkenEntity, Skeleton
         this.model.prepareMobModel(mobEntity, limbSwing, limbSwingAmount, partialTick);
         this.model.setupAnim(mobEntity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityCutoutNoCull(SKIN));
-        this.model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(mobEntity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+        this.model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(mobEntity, 0.0F), -1);
     }
 }

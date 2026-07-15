@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.inventory.FletchingMenu;
+import net.github.creep3rcrafter.inspire.inventory.FletchingMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;

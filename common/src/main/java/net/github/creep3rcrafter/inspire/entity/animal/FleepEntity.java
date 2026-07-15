@@ -6,7 +6,10 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.Level;
@@ -20,7 +23,9 @@ public class FleepEntity extends Sheep {
     public FleepEntity(EntityType<? extends FleepEntity> entityType, Level level) {
         super(entityType, level);
     }
-
+    public static AttributeSupplier.Builder createFleepAttributes() {
+        return Sheep.createAttributes();
+    }
     @Override
     public float getWalkTargetValue(BlockPos blockPos, LevelReader levelReader) {
         return levelReader.getBlockState(blockPos.below()).is(Blocks.GRASS_BLOCK) ? 10.0F : super.getWalkTargetValue(blockPos, levelReader);
@@ -55,6 +60,15 @@ public class FleepEntity extends Sheep {
     @Override
     public DyeColor getColor() {
         return this.getVariant().getColor();
+    }
+
+    public static float[] getRgbColor(DyeColor dyeColor) {
+        int color = dyeColor.getTextureDiffuseColor();
+        return new float[]{
+            FastColor.ARGB32.red(color) / 255.0f,
+            FastColor.ARGB32.green(color) / 255.0f,
+            FastColor.ARGB32.blue(color) / 255.0f
+        };
     }
 
     public enum Type implements StringRepresentable {

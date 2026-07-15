@@ -2,12 +2,14 @@ package net.github.creep3rcrafter.inspire.register;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
 
 public class InspirePotions {
-    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(InspireCommon.MOD_ID,Registries.POTION_REGISTRY);
+    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(InspireCommon.MOD_ID,Registries.POTION);
     public static final RegistrySupplier<Potion> THUNDEROUS_POTION;
     public static final RegistrySupplier<Potion> STRONG_THUNDEROUS_POTION;
     public static final RegistrySupplier<Potion> EXPLOSIVE_POTION;
@@ -84,19 +86,19 @@ public class InspirePotions {
     public static final RegistrySupplier<Potion> DESTRUCTION;
 
     static {
-        THUNDEROUS_POTION = POTIONS.register("thunderous", () -> new Potion("thunderous", new MobEffectInstance(InspireEffects.THUNDEROUS.get(), 1)));
-        STRONG_THUNDEROUS_POTION = POTIONS.register("strong_thunderous", () -> new Potion("thunderous", new MobEffectInstance(InspireEffects.THUNDEROUS.get(), 1, 4)));
-        EXPLOSIVE_POTION = POTIONS.register("explosive", () -> new Potion("explosive", new MobEffectInstance(InspireEffects.EXPLOSIVE.get(), 2, 2)));
-        STRONG_EXPLOSIVE_POTION = POTIONS.register("strong_explosive", () -> new Potion("explosive", new MobEffectInstance(InspireEffects.EXPLOSIVE.get(), 2, 3)));
-        EXTRA_STRONG_EXPLOSIVE_POTION = POTIONS.register("extra_strong_explosive", () -> new Potion("explosive", new MobEffectInstance(InspireEffects.EXPLOSIVE.get(), 2, 5)));
-        BURNING_POTION = POTIONS.register("burning", () -> new Potion("burning", new MobEffectInstance(InspireEffects.BURNING.get(), 400)));
-        LONG_BURNING_POTION = POTIONS.register("long_burning", () -> new Potion("burning", new MobEffectInstance(InspireEffects.BURNING.get(), 500)));
-        WARMING_POTION = POTIONS.register("warming", () -> new Potion("warming", new MobEffectInstance(InspireEffects.WARMING.get(), 1800)));
-        LONG_WARMING_POTION = POTIONS.register("long_warming", () -> new Potion("warming", new MobEffectInstance(InspireEffects.WARMING.get(), 2400)));
-        FREEZING_POTION = POTIONS.register("freezing", () -> new Potion("freezing", new MobEffectInstance(InspireEffects.FREEZING.get(), 600)));
-        LONG_FREEZING_POTION = POTIONS.register("long_freezing", () -> new Potion("freezing", new MobEffectInstance(InspireEffects.FREEZING.get(), 1200)));
-        CORROSIVE_POTION = POTIONS.register("corrosive", () -> new Potion("corrosive", new MobEffectInstance(InspireEffects.CORROSIVE.get(), 500)));
-        STRONG_CORROSIVE_POTION = POTIONS.register("strong_corrosive", () -> new Potion("corrosive", new MobEffectInstance(InspireEffects.CORROSIVE.get(), 500, 2)));
+        THUNDEROUS_POTION = POTIONS.register("thunderous", () -> new Potion("thunderous", new MobEffectInstance(InspireEffects.THUNDEROUS, 1)));
+        STRONG_THUNDEROUS_POTION = POTIONS.register("strong_thunderous", () -> new Potion("thunderous", new MobEffectInstance(InspireEffects.THUNDEROUS, 1, 4)));
+        EXPLOSIVE_POTION = POTIONS.register("explosive", () -> new Potion("explosive", new MobEffectInstance(InspireEffects.EXPLOSIVE, 2, 2)));
+        STRONG_EXPLOSIVE_POTION = POTIONS.register("strong_explosive", () -> new Potion("explosive", new MobEffectInstance(InspireEffects.EXPLOSIVE, 2, 3)));
+        EXTRA_STRONG_EXPLOSIVE_POTION = POTIONS.register("extra_strong_explosive", () -> new Potion("explosive", new MobEffectInstance(InspireEffects.EXPLOSIVE, 2, 5)));
+        BURNING_POTION = POTIONS.register("burning", () -> new Potion("burning", new MobEffectInstance(InspireEffects.BURNING, 400)));
+        LONG_BURNING_POTION = POTIONS.register("long_burning", () -> new Potion("burning", new MobEffectInstance(InspireEffects.BURNING, 500)));
+        WARMING_POTION = POTIONS.register("warming", () -> new Potion("warming", new MobEffectInstance(InspireEffects.WARMING, 1800)));
+        LONG_WARMING_POTION = POTIONS.register("long_warming", () -> new Potion("warming", new MobEffectInstance(InspireEffects.WARMING, 2400)));
+        FREEZING_POTION = POTIONS.register("freezing", () -> new Potion("freezing", new MobEffectInstance(InspireEffects.FREEZING, 600)));
+        LONG_FREEZING_POTION = POTIONS.register("long_freezing", () -> new Potion("freezing", new MobEffectInstance(InspireEffects.FREEZING, 1200)));
+        CORROSIVE_POTION = POTIONS.register("corrosive", () -> new Potion("corrosive", new MobEffectInstance(InspireEffects.CORROSIVE, 500)));
+        STRONG_CORROSIVE_POTION = POTIONS.register("strong_corrosive", () -> new Potion("corrosive", new MobEffectInstance(InspireEffects.CORROSIVE, 500, 2)));
         BLINDNESS_POTION = POTIONS.register("blindness", () -> new Potion("blindness", new MobEffectInstance(MobEffects.BLINDNESS, 900)));
         LONG_BLINDNESS_POTION = POTIONS.register("long_blindness", () -> new Potion("blindness", new MobEffectInstance(MobEffects.BLINDNESS, 1800)));
         DECAY_POTION = POTIONS.register("decay", () -> new Potion("decay", new MobEffectInstance(MobEffects.WITHER, 360)));
@@ -104,28 +106,28 @@ public class InspirePotions {
         STRONG_DECAY_POTION = POTIONS.register("strong_decay", () -> new Potion("decay", new MobEffectInstance(MobEffects.WITHER, 360, 1)));
         DARKNESS_POTION = POTIONS.register("darkness", () -> new Potion("darkness", new MobEffectInstance(MobEffects.DARKNESS, 900)));
         LONG_DARKNESS_POTION = POTIONS.register("long_darkness", () -> new Potion("darkness", new MobEffectInstance(MobEffects.DARKNESS, 1800)));
-        HOMING_POTION = POTIONS.register("homing", () -> new Potion("homing", new MobEffectInstance(InspireEffects.HOMING.get(), 1)));
-        RECOVERY_POTION = POTIONS.register("recovery", () -> new Potion("recovery", new MobEffectInstance(InspireEffects.RECOVERY.get(), 1)));
-        UNDYING_POTION = POTIONS.register("undying", () -> new Potion("undying", new MobEffectInstance(InspireEffects.UNDYING.get(), 12000)));
-        LONG_UNDYING_POTION = POTIONS.register("long_undying", () -> new Potion("undying", new MobEffectInstance(InspireEffects.UNDYING.get(), 13000)));
-        AIR_SWIM_POTION = POTIONS.register("air_swim", () -> new Potion("air_swim", new MobEffectInstance(InspireEffects.AIR_SWIM.get(), 1200)));
-        LONG_AIR_SWIM_POTION = POTIONS.register("long_air_swim", () -> new Potion("air_swim", new MobEffectInstance(InspireEffects.AIR_SWIM.get(), 1600)));
+        HOMING_POTION = POTIONS.register("homing", () -> new Potion("homing", new MobEffectInstance(InspireEffects.HOMING, 1)));
+        RECOVERY_POTION = POTIONS.register("recovery", () -> new Potion("recovery", new MobEffectInstance(InspireEffects.RECOVERY, 1)));
+        UNDYING_POTION = POTIONS.register("undying", () -> new Potion("undying", new MobEffectInstance(InspireEffects.UNDYING, 12000)));
+        LONG_UNDYING_POTION = POTIONS.register("long_undying", () -> new Potion("undying", new MobEffectInstance(InspireEffects.UNDYING, 13000)));
+        AIR_SWIM_POTION = POTIONS.register("air_swim", () -> new Potion("air_swim", new MobEffectInstance(InspireEffects.AIR_SWIM, 1200)));
+        LONG_AIR_SWIM_POTION = POTIONS.register("long_air_swim", () -> new Potion("air_swim", new MobEffectInstance(InspireEffects.AIR_SWIM, 1600)));
         DOLPHINS_GRACE_POTION = POTIONS.register("dolphins_grace", () -> new Potion("dolphins_grace", new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 600)));
         STRONG_DOLPHINS_GRACE_POTION = POTIONS.register("strong_dolphins_grace", () -> new Potion("dolphins_grace", new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 400, 2)));
         LONG_DOLPHINS_GRACE_POTION = POTIONS.register("long_dolphins_grace", () -> new Potion("dolphins_grace", new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 800)));
-        TELEPORTATION_POTION = POTIONS.register("teleportation", () -> new Potion("teleportation", new MobEffectInstance(InspireEffects.TELEPORTATION.get(), 150)));
-        LONG_TELEPORTATION_POTION = POTIONS.register("long_teleportation", () -> new Potion("teleportation", new MobEffectInstance(InspireEffects.TELEPORTATION.get(), 300)));
+        TELEPORTATION_POTION = POTIONS.register("teleportation", () -> new Potion("teleportation", new MobEffectInstance(InspireEffects.TELEPORTATION, 150)));
+        LONG_TELEPORTATION_POTION = POTIONS.register("long_teleportation", () -> new Potion("teleportation", new MobEffectInstance(InspireEffects.TELEPORTATION, 300)));
         LEVITATION_POTION = POTIONS.register("levitation", () -> new Potion("levitation", new MobEffectInstance(MobEffects.LEVITATION, 200)));
         LONG_LEVITATION_POTION = POTIONS.register("long_levitation", () -> new Potion("levitation", new MobEffectInstance(MobEffects.LEVITATION, 300)));
-        GRAVITATION_POTION = POTIONS.register("gravitation", () -> new Potion("gravitation", new MobEffectInstance(InspireEffects.GRAVITATION.get(), 200)));
-        SlIPPERY_POTION = POTIONS.register("slippery", () -> new Potion("slippery", new MobEffectInstance(InspireEffects.SLIPPERY.get(), 300)));
-        LONG_SlIPPERY_POTION = POTIONS.register("long_slippery", () -> new Potion("slippery", new MobEffectInstance(InspireEffects.SLIPPERY.get(), 400)));
+        GRAVITATION_POTION = POTIONS.register("gravitation", () -> new Potion("gravitation", new MobEffectInstance(InspireEffects.GRAVITATION, 200)));
+        SlIPPERY_POTION = POTIONS.register("slippery", () -> new Potion("slippery", new MobEffectInstance(InspireEffects.SLIPPERY, 300)));
+        LONG_SlIPPERY_POTION = POTIONS.register("long_slippery", () -> new Potion("slippery", new MobEffectInstance(InspireEffects.SLIPPERY, 400)));
         ABSORPTION_POTION = POTIONS.register("absorption", () -> new Potion("absorption", new MobEffectInstance(MobEffects.ABSORPTION, 400)));
         LONG_ABSORPTION_POTION = POTIONS.register("long_absorption", () -> new Potion("absorption", new MobEffectInstance(MobEffects.ABSORPTION, 800)));
         STRONG_ABSORPTION_POTION = POTIONS.register("strong_absorption", () -> new Potion("absorption", new MobEffectInstance(MobEffects.ABSORPTION, 400, 1)));
-        PROTECTION_POTION = POTIONS.register("protection", () -> new Potion("protection", new MobEffectInstance(InspireEffects.PROTECTION.get(), 600, 1)));
-        LONG_PROTECTION_POTION = POTIONS.register("long_protection", () -> new Potion("protection", new MobEffectInstance(InspireEffects.PROTECTION.get(), 1200, 1)));
-        STRONG_PROTECTION_POTION = POTIONS.register("strong_protection", () -> new Potion("protection", new MobEffectInstance(InspireEffects.PROTECTION.get(), 400, 3)));
+        PROTECTION_POTION = POTIONS.register("protection", () -> new Potion("protection", new MobEffectInstance(InspireEffects.PROTECTION, 600, 1)));
+        LONG_PROTECTION_POTION = POTIONS.register("long_protection", () -> new Potion("protection", new MobEffectInstance(InspireEffects.PROTECTION, 1200, 1)));
+        STRONG_PROTECTION_POTION = POTIONS.register("strong_protection", () -> new Potion("protection", new MobEffectInstance(InspireEffects.PROTECTION, 400, 3)));
         HEALTH_BOOST_POTION = POTIONS.register("health_boost", () -> new Potion("health_boost", new MobEffectInstance(MobEffects.HEALTH_BOOST, 400)));
         LONG_HEALTH_BOOST_POTION = POTIONS.register("long_health_boost", () -> new Potion("health_boost", new MobEffectInstance(MobEffects.HEALTH_BOOST, 800)));
         STRONG_HEALTH_BOOST_POTION = POTIONS.register("strong_health_boost", () -> new Potion("health_boost", new MobEffectInstance(MobEffects.HEALTH_BOOST, 400, 1)));
@@ -145,30 +147,30 @@ public class InspirePotions {
         HASTE_POTION = POTIONS.register("haste", () -> new Potion("haste", new MobEffectInstance(MobEffects.DIG_SPEED, 800)));
         LONG_HASTE_POTION = POTIONS.register("long_haste", () -> new Potion("haste", new MobEffectInstance(MobEffects.DIG_SPEED, 1600)));
         STRONG_HASTE_POTION = POTIONS.register("strong_haste", () -> new Potion("haste", new MobEffectInstance(MobEffects.DIG_SPEED, 800, 1)));
-        FATAL_POISON_POTION = POTIONS.register("fatal_poison", () -> new Potion("fatal_poison", new MobEffectInstance(InspireEffects.FATAL_POISON.get(), 400)));
-        LONG_FATAL_POISON_POTION = POTIONS.register("long_fatal_poison", () -> new Potion("fatal_poison", new MobEffectInstance(InspireEffects.FATAL_POISON.get(), 800)));
-        STRONG_FATAL_POISON_POTION = POTIONS.register("strong_fatal_poison", () -> new Potion("fatal_poison", new MobEffectInstance(InspireEffects.FATAL_POISON.get(), 400, 1)));
-        SILENCE_POTION = POTIONS.register("silence", () -> new Potion("silence", new MobEffectInstance(InspireEffects.SILENCE.get(), 600)));
-        LONG_SILENCE_POTION = POTIONS.register("long_silence", () -> new Potion("silence", new MobEffectInstance(InspireEffects.SILENCE.get(), 1200)));
-        NULLIFIER_POTION = POTIONS.register("nullifier", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER.get(), 200)));
-        LONG_NULLIFIER_POTION = POTIONS.register("long_nullifier", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER.get(), 400)));
-        INFECTION = POTIONS.register("infection", () -> new Potion("infection", new MobEffectInstance(InspireEffects.INFECTION.get(), 1200)));
-        LONG_INFECTION = POTIONS.register("long_infection", () -> new Potion("infection", new MobEffectInstance(InspireEffects.INFECTION.get(), 2400)));
-        SUFFOCATION = POTIONS.register("suffocation", () -> new Potion("suffocation", new MobEffectInstance(InspireEffects.SUFFOCATION.get(), 600)));
-        CURING = POTIONS.register("curing", () -> new Potion("curing", new MobEffectInstance(InspireEffects.CURING.get(), 1)));
-        NEUTRALIZING = POTIONS.register("neutralizing", () -> new Potion("neutralizing", new MobEffectInstance(InspireEffects.NEUTRALIZING.get(), 1)));
-        DESTRUCTION = POTIONS.register("destruction", () -> new Potion("destruction", new MobEffectInstance(InspireEffects.DESTRUCTION.get(), 1)));
+        FATAL_POISON_POTION = POTIONS.register("fatal_poison", () -> new Potion("fatal_poison", new MobEffectInstance(InspireEffects.FATAL_POISON, 400)));
+        LONG_FATAL_POISON_POTION = POTIONS.register("long_fatal_poison", () -> new Potion("fatal_poison", new MobEffectInstance(InspireEffects.FATAL_POISON, 800)));
+        STRONG_FATAL_POISON_POTION = POTIONS.register("strong_fatal_poison", () -> new Potion("fatal_poison", new MobEffectInstance(InspireEffects.FATAL_POISON, 400, 1)));
+        SILENCE_POTION = POTIONS.register("silence", () -> new Potion("silence", new MobEffectInstance(InspireEffects.SILENCE, 600)));
+        LONG_SILENCE_POTION = POTIONS.register("long_silence", () -> new Potion("silence", new MobEffectInstance(InspireEffects.SILENCE, 1200)));
+        NULLIFIER_POTION = POTIONS.register("nullifier", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER, 200)));
+        LONG_NULLIFIER_POTION = POTIONS.register("long_nullifier", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER, 400)));
+        INFECTION = POTIONS.register("infection", () -> new Potion("infection", new MobEffectInstance(InspireEffects.INFECTION, 1200)));
+        LONG_INFECTION = POTIONS.register("long_infection", () -> new Potion("infection", new MobEffectInstance(InspireEffects.INFECTION, 2400)));
+        SUFFOCATION = POTIONS.register("suffocation", () -> new Potion("suffocation", new MobEffectInstance(InspireEffects.SUFFOCATION, 600)));
+        CURING = POTIONS.register("curing", () -> new Potion("curing", new MobEffectInstance(InspireEffects.CURING, 1)));
+        NEUTRALIZING = POTIONS.register("neutralizing", () -> new Potion("neutralizing", new MobEffectInstance(InspireEffects.NEUTRALIZING, 1)));
+        DESTRUCTION = POTIONS.register("destruction", () -> new Potion("destruction", new MobEffectInstance(InspireEffects.DESTRUCTION, 1)));
     }
     /*
-    public static final RegistrySupplier<Potion> NULLIFIER_POTION_1 = POTIONS.register("nullifier_1", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER.get(), 600, 0)));
-    public static final RegistrySupplier<Potion> NULLIFIER_POTION_2 = POTIONS.register("nullifier_2", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER.get(), 500, 1)));
-    public static final RegistrySupplier<Potion> NULLIFIER_POTION_3 = POTIONS.register("nullifier_3", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER.get(), 400, 2)));
-    public static final RegistrySupplier<Potion> NULLIFIER_POTION_4 = POTIONS.register("nullifier_4", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER.get(), 300, 3)));
-    public static final RegistrySupplier<Potion> NULLIFIER_POTION_5 = POTIONS.register("nullifier_5", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER.get(), 200, 4)));
-    public static final RegistrySupplier<Potion> NULLIFIER_POTION_6 = POTIONS.register("nullifier_6", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER.get(), 100, 5)));
-    //public static final RegistrySupplier<Potion> EXTENSION = POTIONS.register("extension", () -> new Potion("extension", new MobEffectInstance(InspireEffects.EXTENSION.get(), 1)));
-    public static final RegistrySupplier<Potion> IRON_FIST_POTION = POTIONS.register("iron_fist", () -> new Potion("iron_fist", new MobEffectInstance(InspireEffects.IRON_FIST.get(), 300)));
-    public static final RegistrySupplier<Potion> LONG_IRON_FIST_POTION = POTIONS.register("long_iron_fist", () -> new Potion("iron_fist", new MobEffectInstance(InspireEffects.IRON_FIST.get(), 600)));
+    public static final RegistrySupplier<Potion> NULLIFIER_POTION_1 = POTIONS.register("nullifier_1", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER, 600, 0)));
+    public static final RegistrySupplier<Potion> NULLIFIER_POTION_2 = POTIONS.register("nullifier_2", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER, 500, 1)));
+    public static final RegistrySupplier<Potion> NULLIFIER_POTION_3 = POTIONS.register("nullifier_3", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER, 400, 2)));
+    public static final RegistrySupplier<Potion> NULLIFIER_POTION_4 = POTIONS.register("nullifier_4", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER, 300, 3)));
+    public static final RegistrySupplier<Potion> NULLIFIER_POTION_5 = POTIONS.register("nullifier_5", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER, 200, 4)));
+    public static final RegistrySupplier<Potion> NULLIFIER_POTION_6 = POTIONS.register("nullifier_6", () -> new Potion("nullifier", new MobEffectInstance(InspireEffects.NULLIFIER, 100, 5)));
+    //public static final RegistrySupplier<Potion> EXTENSION = POTIONS.register("extension", () -> new Potion("extension", new MobEffectInstance(InspireEffects.EXTENSION, 1)));
+    public static final RegistrySupplier<Potion> IRON_FIST_POTION = POTIONS.register("iron_fist", () -> new Potion("iron_fist", new MobEffectInstance(InspireEffects.IRON_FIST, 300)));
+    public static final RegistrySupplier<Potion> LONG_IRON_FIST_POTION = POTIONS.register("long_iron_fist", () -> new Potion("iron_fist", new MobEffectInstance(InspireEffects.IRON_FIST, 600)));
     public static final RegistrySupplier<Potion> CRUSHING_MIND_POTION = POTIONS.register("crushing_mind", () -> new Potion("crushing_mind",
             new MobEffectInstance(MobEffects.BLINDNESS, 400),
             new MobEffectInstance(MobEffects.DARKNESS, 400),
@@ -180,3 +182,4 @@ public class InspirePotions {
      */
 
 }
+

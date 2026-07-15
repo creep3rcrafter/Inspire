@@ -27,7 +27,7 @@ public class BluestoneButtonBlock extends ButtonBlock implements SimpleWaterlogg
     }
 
     public BluestoneButtonBlock(Properties settings) {
-        super(BlockSetType.POLISHED_BLACKSTONE, 20, false, settings);
+        super(BlockSetType.POLISHED_BLACKSTONE, 20, settings);
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, false));
     }
 

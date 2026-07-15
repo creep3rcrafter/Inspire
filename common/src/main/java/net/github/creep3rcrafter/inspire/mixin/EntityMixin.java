@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModEffects;
+import net.github.creep3rcrafter.inspire.register.InspireEffects;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
@@ -35,7 +35,7 @@ public abstract class EntityMixin implements Nameable, EntityAccess, CommandSour
     @Inject(method = "dampensVibrations", at = @At("HEAD"), cancellable = true)
     public void injectDampensVibrations(CallbackInfoReturnable<Boolean> cir) {
         if (((Entity) (Object) this) instanceof LivingEntity) {
-            if (((LivingEntity) (Object) this).hasEffect(ModEffects.SILENCE.get())) {
+            if (((LivingEntity) (Object) this).hasEffect(InspireEffects.SILENCE)) {
                 cir.setReturnValue(true);
             }
         }
@@ -46,7 +46,7 @@ public abstract class EntityMixin implements Nameable, EntityAccess, CommandSour
         Entity entity = ((Entity) (Object) this);
         if (entity.isPassenger()) {
             if (entity.getVehicle() instanceof Boat boat) {
-                if (boat.getBoatType().equals(Boat.Type.byName("crimson")) || boat.getBoatType().equals(Boat.Type.byName("warped"))) {
+                if (boat.getVariant().equals(Boat.Type.byName("crimson")) || boat.getVariant().equals(Boat.Type.byName("warped"))) {
                     ci.cancel();
                 }
             }
@@ -59,7 +59,7 @@ public abstract class EntityMixin implements Nameable, EntityAccess, CommandSour
         Entity entity = ((Entity) (Object) this);
         if (entity.isPassenger()) {
             if (entity.getVehicle() instanceof Boat boat) {
-                if (boat.getBoatType().equals(Boat.Type.byName("crimson")) || boat.getBoatType().equals(Boat.Type.byName("warped"))) {
+                if (boat.getVariant().equals(Boat.Type.byName("crimson")) || boat.getVariant().equals(Boat.Type.byName("warped"))) {
                     cir.setReturnValue(false);
                 }
             }

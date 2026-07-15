@@ -24,9 +24,9 @@ public class InspireEntityRenderers {
     public static final ModelLayerLocation ENDER_CHEST_MINECART_MODEL_LAYER;
 
     static {
-        WITHER_SKELETON_HORSE_MODEL_LAYER = new ModelLayerLocation(new ResourceLocation(InspireCommon.MOD_ID, "wither_skeleton_horse"), "main");
-        TRAPPED_CHEST_MINECART_MODEL_LAYER = new ModelLayerLocation(new ResourceLocation(InspireCommon.MOD_ID, "trapped_chest_minecart"), "main");
-        ENDER_CHEST_MINECART_MODEL_LAYER = new ModelLayerLocation(new ResourceLocation(InspireCommon.MOD_ID, "ender_chest_minecart"), "main");
+        WITHER_SKELETON_HORSE_MODEL_LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "wither_skeleton_horse"), "main");
+        TRAPPED_CHEST_MINECART_MODEL_LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "trapped_chest_minecart"), "main");
+        ENDER_CHEST_MINECART_MODEL_LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "ender_chest_minecart"), "main");
         EntityRendererRegistry.register(InspireEntityTypes.CUSTOM_ARROW, CustomArrowRenderer::new);
         EntityRendererRegistry.register(InspireEntityTypes.DYNAMITE, ThrownItemRenderer::new);
         EntityRendererRegistry.register(InspireEntityTypes.BRICK, ThrownItemRenderer::new);

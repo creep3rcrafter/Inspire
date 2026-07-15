@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModItems;
+import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
@@ -20,16 +20,16 @@ public abstract class ChestBoatMixin extends Boat {
 
     @Inject(method = "getDropItem", at = @At(value = "HEAD"), cancellable = true)
     public void injectGetDropItem(CallbackInfoReturnable<Item> cir) {
-        if (this.getBoatType() == Type.byName("crimson")) {
-            cir.setReturnValue(ModItems.CRIMSON_CHEST_BOAT.get());
-        } else if (this.getBoatType() == Type.byName("warped")) {
-            cir.setReturnValue(ModItems.WARPED_CHEST_BOAT.get());
-        } else if (this.getBoatType() == Type.byName("withered")) {
-            cir.setReturnValue(ModItems.WITHERED_CHEST_BOAT.get());
-        } else if (this.getBoatType() == Type.byName("pine")) {
-            cir.setReturnValue(ModItems.PINE_CHEST_BOAT.get());
-        } else if (this.getBoatType() == Type.byName("redwood")) {
-            cir.setReturnValue(ModItems.REDWOOD_CHEST_BOAT.get());
+        if (this.getVariant() == Type.byName("crimson")) {
+            cir.setReturnValue(InspireItems.CRIMSON_CHEST_BOAT.get());
+        } else if (this.getVariant() == Type.byName("warped")) {
+            cir.setReturnValue(InspireItems.WARPED_CHEST_BOAT.get());
+        } else if (this.getVariant() == Type.byName("withered")) {
+            cir.setReturnValue(InspireItems.WITHERED_CHEST_BOAT.get());
+        } else if (this.getVariant() == Type.byName("pine")) {
+            cir.setReturnValue(InspireItems.PINE_CHEST_BOAT.get());
+        } else if (this.getVariant() == Type.byName("redwood")) {
+            cir.setReturnValue(InspireItems.REDWOOD_CHEST_BOAT.get());
         }
     }
 }

@@ -1,6 +1,7 @@
 package net.github.creep3rcrafter.inspire.entity;
 
 import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.BiConsumer;
@@ -52,7 +54,7 @@ public class EnderChestBoatEntity extends Boat implements MenuProvider {
         return this.canAddPassenger(player) && !player.isSecondaryUseActive() ? super.interact(player, hand) : this.interactWithChestVehicle(this::gameEvent, player);
     }
 
-    public InteractionResult interactWithChestVehicle(BiConsumer<GameEvent, Entity> biConsumer, Player player) {
+    public InteractionResult interactWithChestVehicle(BiConsumer<Holder<GameEvent>, Entity> biConsumer, Player player) {
         player.openMenu(this);
         if (!player.level().isClientSide) {
             biConsumer.accept(GameEvent.CONTAINER_OPEN, player);
@@ -80,7 +82,7 @@ public class EnderChestBoatEntity extends Boat implements MenuProvider {
     }
 
     @Override
-    public Item asItem() {
+    public Item getDropItem() {
         Item item;
         switch (this.getVariant()) {
             case SPRUCE -> item = Items.SPRUCE_CHEST_BOAT;
@@ -108,5 +110,10 @@ public class EnderChestBoatEntity extends Boat implements MenuProvider {
     @Override
     public boolean isFlapping() {
         return super.isFlapping();
+    }
+
+    @Override
+    public Boat.@NotNull Type getVariant() {
+        return Boat.Type.OAK;
     }
 }

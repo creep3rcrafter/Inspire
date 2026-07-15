@@ -73,8 +73,30 @@ public class BetterBlockFamilies {
     public static final BetterBlockFamily DARK_OAK_FAMILY;
     public static final BetterBlockFamily MANGROVE_FAMILY;
     public static final BetterBlockFamily CHERRY_FAMILY;
+    public static final BetterBlockFamily BRICKS_FAMILY;
 
     static {
+        BRICKS_FAMILY = new BetterBlockFamily(
+                null, // DyeColor
+                Blocks.BRICKS, // Main
+                InspireBlocks.CRACKED_BRICKS.get(), // Cracked
+                Blocks.BRICK_STAIRS, // Stair
+                Blocks.BRICK_SLAB, // Slab
+                Blocks.BRICK_WALL, // Wall
+                InspireBlocks.BRICK_FENCE.get(), // Fence
+                InspireBlocks.BRICK_FENCE_GATE.get(), // Fence Gate
+                InspireBlocks.CHISELED_BRICKS.get(), // Chisled
+                InspireBlocks.BRICK_PILLAR.get(), // Pillar
+                InspireBlocks.BRICK_DOOR.get(), // Door
+                InspireBlocks.BRICK_TRAPDOOR.get(), // Trap Door
+                InspireBlocks.BRICK_BUTTON.get(), // Button
+                InspireBlocks.BRICK_PRESSURE_PLATE.get(), // Pressure Plate
+                InspireBlocks.BRICK_LAMP.get(), // Lamp
+                null, // Sign
+                null, // HangingSign
+                null, // Shelf
+                null  // Grate
+        );
         CYAN_NETHER_BRICKS_FAMILY = new BetterBlockFamily(
                 null, // DyeColor
                 InspireBlocks.CYAN_NETHER_BRICKS.get(), // Main

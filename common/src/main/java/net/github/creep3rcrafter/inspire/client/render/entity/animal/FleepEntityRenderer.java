@@ -11,12 +11,12 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class FleepEntityRenderer extends MobRenderer<FleepEntity, FleepEntityModel<FleepEntity>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/animal/fleep/fleep.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/animal/fleep/fleep.png");
 
     public FleepEntityRenderer(EntityRendererProvider.Context context) {
         super(context, new FleepEntityModel<>(context.bakeLayer(InspireEntityRenderers.FLEEP_MODEL_LAYER)), 0.7F);
         this.addLayer(new FleepWoolFeatureRenderer(this, context.getModelSet()));
-        this.addLayer(new FleepFlowerFeatureRenderer(this, context.getBlockRenderManager()));
+        this.addLayer(new FleepFlowerFeatureRenderer(this, context.getBlockRenderDispatcher()));
     }
 
     @Override

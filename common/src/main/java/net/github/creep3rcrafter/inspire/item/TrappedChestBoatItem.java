@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.item;
 
-import net.github.creep3rcrafter.inspire.entity.TrappedChestBoat;
+import net.github.creep3rcrafter.inspire.entity.TrappedChestBoatEntity;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -55,7 +55,7 @@ public class TrappedChestBoatItem extends Item {
 
             if (hitResult.getType() == HitResult.Type.BLOCK) {
                 Boat boat = this.getBoat(level, hitResult);
-                boat.setType(this.type);
+                boat.setVariant(this.type);
                 boat.setYRot(player.getYRot());
                 if (!level.noCollision(boat, boat.getBoundingBox())) {
                     return InteractionResultHolder.fail(itemStack);
@@ -78,6 +78,6 @@ public class TrappedChestBoatItem extends Item {
     }
 
     private Boat getBoat(Level level, HitResult hitResult) {
-        return (Boat) new TrappedChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
+        return new TrappedChestBoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
     }
 }

@@ -5,12 +5,17 @@ import dev.architectury.core.fluid.ArchitecturyFluidAttributes;
 import dev.architectury.core.fluid.SimpleArchitecturyFluidAttributes;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.register.InspireBlocks;
+import net.github.creep3rcrafter.inspire.register.InspireItems;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FlowingFluid;
 
 public class InspireFluids {
-    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(InspireCommon.MOD_ID,Registries.FLUID_REGISTRY);
+    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(InspireCommon.MOD_ID,Registries.FLUID);
     public static final ArchitecturyFluidAttributes LIQUID_SOUL_FLUID_ATTRIBUTES;
     public static final ArchitecturyFluidAttributes LIQUID_HONEY_FLUID_ATTRIBUTES;
     public static final ArchitecturyFluidAttributes SCULK_SLUDGE_ATTRIBUTES;
@@ -29,9 +34,9 @@ public class InspireFluids {
         EXAMPLE_FLUID_ATTRIBUTES = SimpleArchitecturyFluidAttributes.of(() -> InspireFluids.FLOWING_POTION_FLUID.get(), () -> InspireFluids.POTION_FLUID.get())
                 .blockSupplier(() -> InspireBlocks.POTION_FLUID)
                 .bucketItemSupplier(() -> InspireItems.POTION_BUCKET)
-                .sourceTexture(new ResourceLocation("block/water_still"))
-                .flowingTexture(new ResourceLocation("block/water_flow"))
-                .overlayTexture(new ResourceLocation("block/water_overlay"))
+                .sourceTexture(ResourceLocation.parse("block/water_still"))
+                .flowingTexture(ResourceLocation.parse("block/water_flow"))
+                .overlayTexture(ResourceLocation.parse("block/water_overlay"))
                 .luminosity(10)
                 .dropOff(2);
         POTION_FLUID = FLUIDS.register("potion_fluid", () -> new ArchitecturyFlowingFluid.Source(InspireFluids.EXAMPLE_FLUID_ATTRIBUTES) {
@@ -55,21 +60,21 @@ public class InspireFluids {
         LIQUID_SOUL_FLUID_ATTRIBUTES = SimpleArchitecturyFluidAttributes.of(InspireFluids.FLOWING_SOUL_FLUID, InspireFluids.SOUL_FLUID)
                 .blockSupplier(() -> InspireBlocks.SOUL_FLUID_BLOCK)
                 .bucketItemSupplier(() -> InspireItems.SOUL_BUCKET)
-                .sourceTexture(new ResourceLocation("block/water_still"))
-                .flowingTexture(new ResourceLocation("block/water_flow"))
-                .overlayTexture(new ResourceLocation("block/water_overlay"))
+                .sourceTexture(ResourceLocation.parse("block/water_still"))
+                .flowingTexture(ResourceLocation.parse("block/water_flow"))
+                .overlayTexture(ResourceLocation.parse("block/water_overlay"))
                 .luminosity(15)
                 .dropOff(1)
-                .emptySound(SoundEvents.SOUL_ESCAPE)
-                .fillSound(SoundEvents.SOUL_ESCAPE)
+                .emptySound(SoundEvents.SOUL_ESCAPE.value())
+                .fillSound(SoundEvents.SOUL_ESCAPE.value())
                 .color(4915199)
                 .viscosity(1000);
         LIQUID_HONEY_FLUID_ATTRIBUTES = SimpleArchitecturyFluidAttributes.of(InspireFluids.FLOWING_HONEY_FLUID, InspireFluids.HONEY_FLUID)
                 .blockSupplier(() -> InspireBlocks.HONEY_FLUID_BLOCK)
                 .bucketItemSupplier(() -> InspireItems.HONEY_BUCKET)
-                .sourceTexture(new ResourceLocation("block/water_still"))
-                .flowingTexture(new ResourceLocation("block/water_flow"))
-                .overlayTexture(new ResourceLocation("block/water_overlay"))
+                .sourceTexture(ResourceLocation.parse("block/water_still"))
+                .flowingTexture(ResourceLocation.parse("block/water_flow"))
+                .overlayTexture(ResourceLocation.parse("block/water_overlay"))
                 .luminosity(0)
                 .dropOff(2)
                 .density(-1000)
@@ -80,9 +85,9 @@ public class InspireFluids {
         SCULK_SLUDGE_ATTRIBUTES = SimpleArchitecturyFluidAttributes.of(InspireFluids.FLOWING_SCULK_SLUDGE, InspireFluids.SCULK_SLUDGE)
                 .blockSupplier(() -> InspireBlocks.SCULK_SLUDGE_BLOCK)
                 .bucketItemSupplier(() -> InspireItems.SCULK_SLUDGE_BUCKET)
-                .sourceTexture(new ResourceLocation(InspireCommon.MOD_ID,"textures/block/amethyst_ore"))
-                .flowingTexture(new ResourceLocation(InspireCommon.MOD_ID,"textures/block/amethyst_ore"))
-                .overlayTexture(new ResourceLocation("block/water_overlay"))
+                .sourceTexture(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID,"textures/block/amethyst_ore"))
+                .flowingTexture(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID,"textures/block/amethyst_ore"))
+                .overlayTexture(ResourceLocation.parse("block/water_overlay"))
                 .luminosity(0)
                 .dropOff(2)
                 .density(1000)
@@ -93,3 +98,6 @@ public class InspireFluids {
                 .viscosity(20000);
     }
 }
+
+
+

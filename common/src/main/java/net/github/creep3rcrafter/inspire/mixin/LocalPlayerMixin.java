@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModItems;
+import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.MenuProvider;
@@ -36,8 +36,8 @@ public abstract class LocalPlayerMixin extends LivingEntity {
 
     @Inject(method = "openItemGui", at = @At(value = "HEAD"))
     private void InjectOnHitBlock(ItemStack itemStack, InteractionHand interactionHand, CallbackInfo ci) {
-        if (itemStack.is(ModItems.CRAFTING_TABLET.get())) {
-            if (getLevel().isClientSide()) {
+        if (itemStack.is(InspireItems.CRAFTING_TABLET.get())) {
+            if (level().isClientSide()) {
                 openMenu(new SimpleMenuProvider((i, inventory, player) -> new CraftingMenu(i, inventory), CONTAINER_TITLE));
             }
             //openMenu(new SimpleMenuProvider((i, inventory, player) -> new CraftingMenu(i, inventory), CONTAINER_TITLE));

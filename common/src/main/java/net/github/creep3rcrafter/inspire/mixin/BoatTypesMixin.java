@@ -1,7 +1,7 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.creep3rcrafter.theupdatemod.register.ModBlocks;
+import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -23,11 +23,11 @@ public abstract class BoatTypesMixin {
     @Unique
     private static final Boat.Type WARPED = addType(Blocks.WARPED_PLANKS, "warped");
     @Unique
-    private static final Boat.Type WITHERED = addType(ModBlocks.WITHERED_PLANKS.getOrNull(), "withered");
+    private static final Boat.Type WITHERED = addType(InspireBlocks.WITHERED_PLANKS.getOrNull(), "withered");
     @Unique
-    private static final Boat.Type PINE = addType(ModBlocks.PINE_PLANKS.getOrNull(), "pine");
+    private static final Boat.Type PINE = addType(InspireBlocks.PINE_PLANKS.getOrNull(), "pine");
     @Unique
-    private static final Boat.Type REDWOOD = addType(ModBlocks.REDWOOD_PLANKS.getOrNull(), "redwood");
+    private static final Boat.Type REDWOOD = addType(InspireBlocks.REDWOOD_PLANKS.getOrNull(), "redwood");
 
     @Invoker("<init>")
     private static Boat.Type invokeInit(String enumName, int internalId, Block wood, String name) {

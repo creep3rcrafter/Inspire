@@ -2,6 +2,7 @@ package net.github.creep3rcrafter.inspire.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
@@ -34,11 +35,11 @@ public class ThinIceBlock extends SlabBlock {
         FluidState fluidState = world.getFluidState(pos);
         if (state.blocksMotion() || !fluidState.isEmpty()) {
             if (state.getValue(SlabBlock.TYPE) == SlabType.DOUBLE || state.getValue(WATERLOGGED)) {
-                world.breakBlock(pos, false);
+                world.destroyBlock(pos, false, null, 512);
                 world.setBlock(pos, getMeltedState(), 3);
                 world.updateNeighborsAt(pos, getMeltedState().getBlock());
             } else {
-                world.breakBlock(pos, false);
+                world.destroyBlock(pos, false, null, 512);
             }
         }
     }
@@ -67,25 +68,27 @@ public class ThinIceBlock extends SlabBlock {
     @Override
     public void playerDestroy(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
         super.playerDestroy(world, player, pos, state, blockEntity, tool);
-        if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, tool) == 0) {
-            if (world.dimensionType().ultraWarm()) {
-                world.removeBlock(pos, false);
-                return;
-            }
+        if (world instanceof ServerLevel serverLevel) {
+            var silkTouch = serverLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH);
+            if (EnchantmentHelper.getItemEnchantmentLevel(silkTouch, tool) == 0) {
+                if (world.dimensionType().ultraWarm()) {
+                    world.removeBlock(pos, false);
+                    return;
+                }
 
-            BlockState blockState = world.getBlockState(pos.below());
-            FluidState fluidState = world.getFluidState(pos.below());
-            if (blockState.blocksMotion() || !fluidState.isEmpty()) {
-                if (state.getValue(SlabBlock.TYPE) == SlabType.DOUBLE || state.getValue(WATERLOGGED)) {
-                    world.breakBlock(pos, false);
-                    world.setBlock(pos, getMeltedState(), 3);
-                    world.updateNeighborsAt(pos, getMeltedState().getBlock());
-                } else {
-                    world.breakBlock(pos, false);
+                BlockState blockState = world.getBlockState(pos.below());
+                FluidState fluidState = world.getFluidState(pos.below());
+                if (blockState.blocksMotion() || !fluidState.isEmpty()) {
+                    if (state.getValue(SlabBlock.TYPE) == SlabType.DOUBLE || state.getValue(WATERLOGGED)) {
+                        world.destroyBlock(pos, false, null, 512);
+                        world.setBlock(pos, getMeltedState(), 3);
+                        world.updateNeighborsAt(pos, getMeltedState().getBlock());
+                    } else {
+                        world.destroyBlock(pos, false, null, 512);
+                    }
                 }
             }
         }
-
     }
 
     @Override
@@ -101,11 +104,11 @@ public class ThinIceBlock extends SlabBlock {
             world.removeBlock(pos, false);
         } else {
             if (state.getValue(SlabBlock.TYPE) == SlabType.DOUBLE || state.getValue(WATERLOGGED)) {
-                world.breakBlock(pos, false);
+                world.destroyBlock(pos, false, null, 512);
                 world.setBlock(pos, getMeltedState(), 3);
                 world.updateNeighborsAt(pos, getMeltedState().getBlock());
             } else {
-                world.breakBlock(pos, false);
+                world.destroyBlock(pos, false, null, 512);
             }
         }
     }

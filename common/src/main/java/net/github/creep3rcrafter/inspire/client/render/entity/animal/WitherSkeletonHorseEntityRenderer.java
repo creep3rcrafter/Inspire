@@ -17,7 +17,7 @@ public class WitherSkeletonHorseEntityRenderer extends AbstractWitherSkeletonHor
     private static final Map<EntityType<?>, ResourceLocation> MAP;
 
     static {
-        MAP = Maps.newHashMap(ImmutableMap.of(InspireEntityTypes.WITHER_SKELETON_HORSE.get(), new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/animal/wither_skeleton_horse/horse_wither_skeleton.png")));
+        MAP = Maps.newHashMap(ImmutableMap.of(InspireEntityTypes.WITHER_SKELETON_HORSE.get(), ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/animal/wither_skeleton_horse/horse_wither_skeleton.png")));
     }
 
     public WitherSkeletonHorseEntityRenderer(EntityRendererProvider.Context context, ModelLayerLocation modelLayerLocation) {

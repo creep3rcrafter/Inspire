@@ -13,6 +13,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -27,6 +28,13 @@ import net.minecraft.world.level.portal.PortalShape;
 import org.jetbrains.annotations.Nullable;
 
 public class HydroFireBlock extends BaseFireBlock implements SimpleWaterloggedBlock {
+    private static final MapCodec<HydroFireBlock> CODEC = simpleCodec(HydroFireBlock::new);
+
+    @Override
+    public MapCodec<? extends BaseFireBlock> codec() {
+        return CODEC;
+    }
+
     public static final BooleanProperty WATERLOGGED;
 
     static {
@@ -39,7 +47,7 @@ public class HydroFireBlock extends BaseFireBlock implements SimpleWaterloggedBl
     }
 
     public static boolean isPrismarineBase(BlockState state) {
-        return state.isOf(Blocks.PRISMARINE);
+        return state.is(Blocks.PRISMARINE);
     }
 
     public static boolean canPlaceAt(Level world, BlockPos pos, Direction direction) {
@@ -97,8 +105,13 @@ public class HydroFireBlock extends BaseFireBlock implements SimpleWaterloggedBl
     }
 
     @Override
-    protected boolean isFlammable(BlockState state) {
+    protected boolean canBurn(BlockState state) {
         return true;
+    }
+
+    // Keep isFlammable for internal use (fire spreading)
+    private boolean isFlammable(BlockState state) {
+        return canBurn(state);
     }
 
     @Override

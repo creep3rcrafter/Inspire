@@ -62,7 +62,7 @@ public class TrappedChestMinecartEntity extends MinecartChest {
 
     @Override
     public InteractionResult interact(Player player, InteractionHand hand) {
-        InteractionResult actionResult = this.interact(player);
+        InteractionResult actionResult = super.interact(player, hand);
         if (actionResult.consumesAction()) {
             this.gameEvent(GameEvent.CONTAINER_OPEN, player);
             PiglinAi.angerNearbyPiglins(player, true);

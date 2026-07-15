@@ -3,6 +3,7 @@ package net.github.creep3rcrafter.inspire.fabric.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.block.ThinIceBlock;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -41,8 +42,9 @@ public class InspireFabricBlockTagProvider extends FabricTagProvider.BlockTagPro
             ResourceLocation key = BuiltInRegistries.BLOCK.getKey(block);
             if (InspireCommon.MOD_ID.equals(key.getNamespace())) {
                 allBlocks.add(block);
+                //if (block instanceof ThinIceBlock) slabs.add(block);
                 if (block instanceof WallBlock) walls.add(block);
-                if (block instanceof SlabBlock) slabs.add(block);
+                if (block instanceof SlabBlock && !(block instanceof ThinIceBlock)) slabs.add(block);
                 if (block instanceof StairBlock) stairs.add(block);
                 if (block instanceof FenceBlock) fences.add(block);
                 if (block instanceof FenceGateBlock) fenceGates.add(block);
@@ -52,5 +54,6 @@ public class InspireFabricBlockTagProvider extends FabricTagProvider.BlockTagPro
                 if (block instanceof PressurePlateBlock) pressurePlates.add(block);
             }
         });
+
     }
 }

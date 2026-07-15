@@ -1,38 +1,47 @@
 package net.github.creep3rcrafter.inspire.item;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
 import net.github.creep3rcrafter.inspire.entity.projectile.ThrownSpear;
 import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.*;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-public class SpearItem extends TieredItem implements Vanishable {
-    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+public class SpearItem extends TieredItem {
+    private static final ResourceLocation SPEAR_ATTACK_SPEED_ID = ResourceLocation.fromNamespaceAndPath("inspire", "spear_attack_speed");
 
     public SpearItem(Tier tier, int baseDamage, Properties properties) {
-        super(tier, properties);
+        super(tier, properties.attributes(createAttributes(tier, baseDamage)));
+    }
+
+    private static ItemAttributeModifiers createAttributes(Tier tier, int baseDamage) {
         float attackDamage = (float) baseDamage + tier.getAttackDamageBonus();
-        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", (double) attackDamage, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2.9000000953674316, AttributeModifier.Operation.ADDITION));
-        this.defaultModifiers = builder.build();
+        return ItemAttributeModifiers.builder()
+            .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double) attackDamage, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+            .add(Attributes.ATTACK_SPEED, new AttributeModifier(SPEAR_ATTACK_SPEED_ID, -2.9000000953674316, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+            .build();
     }
 
     public boolean canAttackBlock(BlockState blockState, Level level, BlockPos blockPos, Player player) {
@@ -52,10 +61,8 @@ public class SpearItem extends TieredItem implements Vanishable {
             int j = this.getUseDuration(itemStack) - i;
             if (j >= 10) {
                 if (!level.isClientSide) {
-                    itemStack.hurtAndBreak(1, player, (playerx) -> {
-                        playerx.broadcastBreakEvent(livingEntity.getUsedItemHand());
-                    });
-                    ThrownSpear thrownSpear = null; ///new ThrownSpear(level, player, itemStack); -----------------------------------------------
+                    itemStack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
+                    ThrownSpear thrownSpear = new ThrownSpear(level, player);
                     if (itemStack.getItem() == InspireItems.STONE_SPEAR.get()) {
                         thrownSpear.setTip(0.1f);
                     } else if (itemStack.getItem() == InspireItems.IRON_SPEAR.get()) {
@@ -69,13 +76,13 @@ public class SpearItem extends TieredItem implements Vanishable {
                     } else {
                         thrownSpear.setTip(0.0f);
                     }
-                    thrownSpear.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F + 0.5F, 1.0F);
+                    thrownSpear.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.0F, 1.0F);
                     if (player.getAbilities().instabuild) {
                         thrownSpear.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                     }
 
                     level.addFreshEntity(thrownSpear);
-                    level.playSound((Player) null, thrownSpear, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    level.playSound((Player) null, thrownSpear, SoundEvents.TRIDENT_THROW.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                     if (!player.getAbilities().instabuild) {
                         player.getInventory().removeItem(itemStack);
                     }
@@ -90,7 +97,7 @@ public class SpearItem extends TieredItem implements Vanishable {
         ItemStack itemStack = player.getItemInHand(interactionHand);
         if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
             return InteractionResultHolder.fail(itemStack);
-        } else if (EnchantmentHelper.getRiptide(itemStack) > 0 && !player.isInWaterOrRain()) {
+        } else if (EnchantmentHelper.getItemEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.RIPTIDE), itemStack) > 0 && !player.isInWaterOrRain()) {
             return InteractionResultHolder.fail(itemStack);
         } else {
             player.startUsingItem(interactionHand);
@@ -99,24 +106,16 @@ public class SpearItem extends TieredItem implements Vanishable {
     }
 
     public boolean hurtEnemy(ItemStack itemStack, LivingEntity livingEntity, LivingEntity livingEntity2) {
-        itemStack.hurtAndBreak(1, livingEntity2, (livingEntityx) -> {
-            livingEntityx.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+        itemStack.hurtAndBreak(1, livingEntity2, EquipmentSlot.MAINHAND);
         return true;
     }
 
     public boolean mineBlock(ItemStack itemStack, Level level, BlockState blockState, BlockPos blockPos, LivingEntity livingEntity) {
         if ((double) blockState.getDestroySpeed(level, blockPos) != 0.0) {
-            itemStack.hurtAndBreak(2, livingEntity, (livingEntityx) -> {
-                livingEntityx.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-            });
+            itemStack.hurtAndBreak(2, livingEntity, EquipmentSlot.MAINHAND);
         }
 
         return true;
-    }
-
-    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot equipmentSlot) {
-        return equipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(equipmentSlot);
     }
 
     public int getEnchantmentValue() {

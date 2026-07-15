@@ -1,7 +1,7 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.entity.projectile.CustomArrow;
-import net.creep3rcrafter.theupdatemod.utils.ColorUtils;
+import net.github.creep3rcrafter.inspire.entity.projectile.CustomArrowEntity;
+import net.github.creep3rcrafter.inspire.utils.ColorUtils;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -21,10 +21,10 @@ public abstract class AbstractArrowMixin extends Projectile {
 
     @Inject(method = "onHitBlock", at = @At(value = "TAIL"))
     private void InjectOnHitBlock(BlockHitResult blockHitResult, CallbackInfo ci) {
-        if (!getLevel().isClientSide()) {
-            ServerLevel serverLevel = (ServerLevel) getLevel();
+        if (!level().isClientSide()) {
+            ServerLevel serverLevel = (ServerLevel) level();
             if (ColorUtils.isGlass(serverLevel, blockHitResult.getBlockPos()) || ColorUtils.isGlassPane(serverLevel, blockHitResult.getBlockPos())) {
-                if ((AbstractArrow) (Object) this instanceof CustomArrow customArrow) {
+                if ((AbstractArrow) (Object) this instanceof CustomArrowEntity customArrow) {
                     if (!(customArrow.getTip() == 0.6f
                             || customArrow.getTip() == 0.65f
                             || customArrow.getTip() == 0.7f

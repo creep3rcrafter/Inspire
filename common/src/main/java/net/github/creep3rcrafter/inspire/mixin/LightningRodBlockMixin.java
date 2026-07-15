@@ -1,10 +1,10 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModPotions;
+import net.github.creep3rcrafter.inspire.register.InspirePotions;
+import net.minecraft.core.Holder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.PotionItem;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LightningRodBlock;
 import net.minecraft.world.level.block.entity.BrewingStandBlockEntity;
@@ -22,9 +22,7 @@ public abstract class LightningRodBlockMixin {
             if (level.getBlockEntity(blockPos.below()) instanceof BrewingStandBlockEntity brewingStand) {
                 for (int i = 0; i < brewingStand.items.size(); i++) {
                     if (brewingStand.getItem(i).getItem() instanceof PotionItem) {
-                        if (PotionUtils.getPotion(brewingStand.getItem(i)) == Potions.AWKWARD) {
-                            PotionUtils.setPotion(brewingStand.getItem(i), ModPotions.THUNDEROUS_POTION.get());
-                        }
+                        brewingStand.setItem(i, PotionContents.createItemStack(brewingStand.getItem(i).getItem(), Holder.direct(InspirePotions.THUNDEROUS_POTION.get())));
                     }
                 }
             }

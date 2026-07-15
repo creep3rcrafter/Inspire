@@ -110,13 +110,13 @@ public class SoulGlassBlock extends Block {
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
         if (!level.isClientSide()) {
             level.setBlock(blockPos, blockState.setValue(BRIGHTNESS, 15), 3);
             level.scheduleTick(blockPos, this, 20);
         }
-        ItemStack itemStack = player.getItemInHand(interactionHand);
-        return itemStack.getItem() instanceof BlockItem && (new BlockPlaceContext(player, interactionHand, itemStack, blockHitResult)).canPlace() ? InteractionResult.PASS : InteractionResult.SUCCESS;
+        ItemStack itemStack = player.getMainHandItem();
+        return itemStack.getItem() instanceof BlockItem && (new BlockPlaceContext(player, net.minecraft.world.InteractionHand.MAIN_HAND, itemStack, blockHitResult)).canPlace() ? InteractionResult.PASS : InteractionResult.SUCCESS;
     }
 
     @Override

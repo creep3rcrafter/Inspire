@@ -12,6 +12,10 @@ public class InspireRenderTypes {
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.BLUESTONE_REPEATER.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.BLUESTONE_COMPARATOR.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.HYDRO_FIRE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.ICICLE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.WARPED_NYLIUM_SHELF.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.CRIMSON_NYLIUM_SHELF.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.ICICLE.get());
         RenderTypeRegistry.register(RenderType.translucent(), InspireBlocks.THIN_ICE.get());
     }
 }

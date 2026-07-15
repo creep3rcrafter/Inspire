@@ -15,12 +15,6 @@ public class WoodenBucketItem extends BucketItem {
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> nonNullList) {
-        super.fillItemCategory(creativeModeTab, nonNullList);
-
-    }
-
-    @Override
     public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int i, boolean bl) {
         super.inventoryTick(itemStack, level, entity, i, bl);
         if (arch$getFluid() == Fluids.LAVA) {

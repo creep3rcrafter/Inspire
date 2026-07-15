@@ -16,6 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("UnstableApiUsage")
@@ -173,6 +174,11 @@ public class InspireItems {
     public static final RegistrySupplier<Item> GOLD_CLUB;
     public static final RegistrySupplier<Item> DIAMOND_CLUB;
     public static final RegistrySupplier<Item> NETHERITE_CLUB;
+    public static final RegistrySupplier<Item> STONE_SPEAR;
+    public static final RegistrySupplier<Item> IRON_SPEAR;
+    public static final RegistrySupplier<Item> GOLD_SPEAR;
+    public static final RegistrySupplier<Item> DIAMOND_SPEAR;
+    public static final RegistrySupplier<Item> NETHERITE_SPEAR;
     public static final RegistrySupplier<Item> WHITE_DYE_GLOB;
     public static final RegistrySupplier<Item> ORANGE_DYE_GLOB;
     public static final RegistrySupplier<Item> MAGENTA_DYE_GLOB;
@@ -1381,6 +1387,11 @@ public class InspireItems {
         GOLD_CLUB = ITEMS.register("gold_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         DIAMOND_CLUB = ITEMS.register("diamond_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         NETHERITE_CLUB = ITEMS.register("netherite_club", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STONE_SPEAR = ITEMS.register("stone_spear", () -> new SpearItem(Tiers.STONE, 3, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        IRON_SPEAR = ITEMS.register("iron_spear", () -> new SpearItem(Tiers.IRON, 4, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        GOLD_SPEAR = ITEMS.register("gold_spear", () -> new SpearItem(Tiers.GOLD, 3, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        DIAMOND_SPEAR = ITEMS.register("diamond_spear", () -> new SpearItem(Tiers.DIAMOND, 5, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        NETHERITE_SPEAR = ITEMS.register("netherite_spear", () -> new SpearItem(Tiers.NETHERITE, 5, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         WHITE_DYE_GLOB = ITEMS.register("white_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         ORANGE_DYE_GLOB = ITEMS.register("orange_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         MAGENTA_DYE_GLOB = ITEMS.register("magenta_dye_glob", () -> new Item((new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
@@ -1449,11 +1460,11 @@ public class InspireItems {
         WITHERED_TRAPPED_CHEST_BOAT = ITEMS.register("withered_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
         PINE_TRAPPED_CHEST_BOAT = ITEMS.register("pine_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         REDWOOD_TRAPPED_CHEST_BOAT = ITEMS.register("redwood_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
-        STRIDER_SCALE_BOOTS = ITEMS.register("strider_scale_boots", () -> new ArmorItem(InspireArmorMaterials.STRIDER_SCALE, EquipmentSlot.FEET, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        STRIDER_SCALE_BOOTS = ITEMS.register("strider_scale_boots", () -> new ArmorItem(InspireArmorMaterials.STRIDER_SCALE, ArmorItem.Type.BOOTS, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        CARAMEL = ITEMS.register("caramel", () -> new Item(new Item.Properties().food(InspireFoods.CARAMEL).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         //CHROMATIC_LAMP = ITEMS.register("chromatic_lamp", () -> new ItemNameBlockItem(InspireBlocks.CHROMATIC_LAMP.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         /*
-    CARAMEL = ITEMS.register("caramel", () -> new Item(new Item.Properties().food(InspireFoods.CARAMEL).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
-        CREEPER_COOKIE = ITEMS.register("creeper_cookie", () -> new Item(new Item.Properties().food(InspireFoods.CREEPER_COOKIE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+            CREEPER_COOKIE = ITEMS.register("creeper_cookie", () -> new Item(new Item.Properties().food(InspireFoods.CREEPER_COOKIE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         CHOCOLATE_COOKIE = ITEMS.register("chocolate_cookie", () -> new Item(new Item.Properties().food(InspireFoods.CHOCOLATE_COOKIE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         SUGAR_COOKIE = ITEMS.register("sugar_cookie", () -> new Item(new Item.Properties().food(InspireFoods.SUGAR_COOKIE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 

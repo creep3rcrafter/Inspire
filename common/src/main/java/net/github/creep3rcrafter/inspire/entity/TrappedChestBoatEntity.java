@@ -5,11 +5,13 @@ import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import static net.minecraft.world.level.block.RedStoneWireBlock.POWER;
 
@@ -35,7 +37,7 @@ public class TrappedChestBoatEntity extends ChestBoat {
 
 
     @Override
-    public Item asItem() {
+    public Item getDropItem() {
         Item item;
         switch (this.getVariant()) {
             case SPRUCE -> item = Items.SPRUCE_CHEST_BOAT;
@@ -105,5 +107,10 @@ public class TrappedChestBoatEntity extends ChestBoat {
             }
         }
         super.startOpen(player);
+    }
+
+    @Override
+    public Boat.@NotNull Type getVariant() {
+        return Boat.Type.OAK;
     }
 }

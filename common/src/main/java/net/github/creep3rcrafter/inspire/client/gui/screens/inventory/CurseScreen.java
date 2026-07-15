@@ -3,7 +3,6 @@ package net.github.creep3rcrafter.inspire.client.gui.screens.inventory;
 import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -33,6 +32,6 @@ public class CurseScreen extends AbstractContainerScreen<AbstractContainerMenu> 
     protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
         int left = (this.width - this.imageWidth) / 2;
         int top = (this.height - this.imageHeight) / 2;
-        guiGraphics.blit(RenderType::guiTextured, CURSE_LOCATION, left, top, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
+        guiGraphics.blit(CURSE_LOCATION, left, top, 0, 0, this.imageWidth, this.imageHeight);
     }
 }

@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModEffects;
+import net.github.creep3rcrafter.inspire.register.InspireEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class PressurePlateMixin {
     @Inject(method = "checkPressed", at = @At("HEAD"), cancellable = true)
     public void injectCheckPressed(Entity entity, Level level, BlockPos blockPos, BlockState blockState, int i, CallbackInfo ci) {
-        if (entity instanceof LivingEntity && ((LivingEntity) entity).hasEffect(ModEffects.NIMBLE.get())) {
+        if (entity instanceof LivingEntity && ((LivingEntity) entity).hasEffect(InspireEffects.NIMBLE)) {
             ci.cancel();
         }
     }

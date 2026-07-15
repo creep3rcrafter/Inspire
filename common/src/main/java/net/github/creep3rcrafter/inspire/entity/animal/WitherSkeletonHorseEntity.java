@@ -42,7 +42,7 @@ public class WitherSkeletonHorseEntity extends AbstractHorse {
         AttributeInstance attributeInstance = this.getAttribute(Attributes.JUMP_STRENGTH);
         Objects.requireNonNull(random);
         if (attributeInstance != null) {
-            attributeInstance.setBaseValue(getOffspringAttribute(random::nextDouble) + 1f);
+            attributeInstance.setBaseValue(generateJumpStrength(random::nextDouble) + 1f);
         }
     }
 
@@ -107,32 +107,6 @@ public class WitherSkeletonHorseEntity extends AbstractHorse {
             super.playJumpSound();
         }
 
-    }
-
-    @Override
-    protected void spawnSoulSpeedParticle() {
-        super.spawnSoulSpeedParticle();
-    }
-
-
-    @Override
-    public double getPassengersRidingOffset() {
-        return super.getPassengersRidingOffset() + 0.05;
-    }
-
-    @Override
-    protected float getBlockSpeedFactor() {
-        return this.onSoulSpeedBlock() ? 1.0f : super.getBlockSpeedFactor();
-    }
-
-    @Override
-    public boolean canSpawnSprintParticle() {
-        return this.tickCount % 5 == 0 && this.getDeltaMovement().x != 0.0F && this.getDeltaMovement().z != 0.0F && !this.isSpectator() && this.onSoulSpeedBlock();
-    }
-
-    @Override
-    public boolean canBeControlledByRider() {
-        return false;
     }
 
     @Override

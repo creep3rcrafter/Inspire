@@ -1,7 +1,9 @@
 package net.github.creep3rcrafter.inspire.register;
 
+import net.minecraft.core.Position;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.DispenserBlock;
@@ -47,12 +49,17 @@ public class InspireDispencerBlockProjectiles {
     }
 
     public static void registerBasicArrow(ItemLike item, AbstractArrow arrow) {
-        DispenserBlock.registerBehavior(item, new AbstractProjectileDispenseBehavior() {
-            protected @NotNull Projectile getProjectile(@NotNull Level level, @NotNull Position position, @NotNull ItemStack itemStack) {
-                arrow.setBaseDamage(((AbstractArrow) item).getBaseDamage());
-                return arrow;
-            }
-        });
+        if (item.asItem() instanceof net.minecraft.world.item.ProjectileItem) {
+            DispenserBlock.registerBehavior(item, new ProjectileDispenseBehavior(item.asItem()));
+        } else {
+            DispenserBlock.registerBehavior(item, new DefaultDispenseItemBehavior() {
+                @Override
+                protected @NotNull ItemStack execute(@NotNull net.minecraft.core.dispenser.BlockSource blockSource, @NotNull ItemStack itemStack) {
+                    itemStack.shrink(1);
+                    return itemStack;
+                }
+            });
+        }
     }
 
 }

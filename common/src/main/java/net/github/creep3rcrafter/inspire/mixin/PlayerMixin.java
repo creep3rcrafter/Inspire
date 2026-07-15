@@ -1,16 +1,19 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
+import net.github.creep3rcrafter.inspire.register.InspireEffects;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Player.class)
-public class PlayerMixin {
+public abstract class PlayerMixin extends LivingEntity {
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -39,9 +42,9 @@ public class PlayerMixin {
 
     @Inject(method = "attack", at = @At("RETURN"))
     public void injectAttack(Entity entity, CallbackInfo ci) {
-        if (this.hasEffect(ModEffects.INFECTION.get())) {
+        if (this.hasEffect(InspireEffects.INFECTION)) {
             if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addEffect(new MobEffectInstance(ModEffects.INFECTION.get(), 1200));
+                ((LivingEntity) entity).addEffect(new MobEffectInstance(InspireEffects.INFECTION, 1200));
             }
         }
     }

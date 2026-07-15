@@ -12,7 +12,7 @@ public class SunkenEntity extends AbstractSkeleton {
     }
 
     @Override
-    protected SoundEvent getStepSound() {
-        return SoundEvents.ENTITY_SKELETON_STEP;
+    public SoundEvent getStepSound() {
+        return SoundEvents.SKELETON_STEP;
     }
 }

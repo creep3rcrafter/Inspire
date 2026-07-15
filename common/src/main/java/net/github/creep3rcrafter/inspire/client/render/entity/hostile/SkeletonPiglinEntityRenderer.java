@@ -1,47 +1,41 @@
 package net.github.creep3rcrafter.inspire.client.render.entity.hostile;
 
-import com.github.creep3rcrafter.inspire.InspireCommon;
-import com.github.creep3rcrafter.inspire.client.model.entity.SkeletonPiglinEntityModel;
-import com.github.creep3rcrafter.inspire.entity.hostile.SkeletonPiglinEntity;
-import com.github.creep3rcrafter.inspire.register.InspireEntityTypes;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import net.minecraft.client.render.entity.BipedEntityRenderer;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
-import net.minecraft.client.render.entity.model.ArmorEntityModel;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.EntityModelLoader;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.AbstractSkeletonEntity;
-import net.minecraft.util.Identifier;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.github.creep3rcrafter.inspire.client.model.entity.SkeletonPiglinEntityModel;
+import net.github.creep3rcrafter.inspire.entity.hostile.SkeletonPiglinEntity;
+import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.AbstractSkeleton;
 
 import java.util.Map;
 
-public class SkeletonPiglinEntityRenderer extends BipedEntityRenderer<SkeletonPiglinEntity, SkeletonPiglinEntityModel<SkeletonPiglinEntity>> {
+public class SkeletonPiglinEntityRenderer extends MobRenderer<SkeletonPiglinEntity, SkeletonPiglinEntityModel<SkeletonPiglinEntity>> {
+    private static final Map<EntityType<?>, ResourceLocation> MAP = Maps.newHashMap(
+            ImmutableMap.of(
+                    InspireEntityTypes.SKELETON_PIGLIN.get(),
+                    ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/hostile/skeleton_piglin/skeleton_piglin.png")
+            )
+    );
 
-    private static final Map<EntityType<?>, Identifier> MAP;
-
-    static {
-        MAP = Maps.newHashMap(ImmutableMap.of(InspireEntityTypes.SKELETON_PIGLIN.get(), new Identifier(InspireCommon.MOD_ID, "textures/entity/hostile/skeleton_piglin/skeleton_piglin.png")));
-    }
-
-    public SkeletonPiglinEntityRenderer(EntityRendererFactory.Context ctx, EntityModelLayer mainLayer, EntityModelLayer innerArmorLayer, EntityModelLayer outerArmorLayer) {
-        super(ctx, getSkeletonPiglinEntitynModel(ctx.getModelLoader(), mainLayer), 0.5F, 1.0019531F, 1.0F, 1.0019531F);
-        this.addFeature(new ArmorFeatureRenderer<>(this, new ArmorEntityModel<>(ctx.getPart(innerArmorLayer)), new ArmorEntityModel<>(ctx.getPart(outerArmorLayer)), ctx.getModelManager()));
-    }
-
-    private static SkeletonPiglinEntityModel<SkeletonPiglinEntity> getSkeletonPiglinEntitynModel(EntityModelLoader modelLoader, EntityModelLayer layer) {
-        return new SkeletonPiglinEntityModel<>(modelLoader.getModelPart(layer));
-    }
-
-
-    protected boolean isShaking(AbstractSkeletonEntity abstractSkeletonEntity) {
-        return abstractSkeletonEntity.isShaking();
+    public SkeletonPiglinEntityRenderer(EntityRendererProvider.Context context, net.minecraft.client.model.geom.ModelLayerLocation mainLayer, net.minecraft.client.model.geom.ModelLayerLocation innerArmorLayer, net.minecraft.client.model.geom.ModelLayerLocation outerArmorLayer) {
+        super(context, new SkeletonPiglinEntityModel<>(context.bakeLayer(mainLayer)), 0.5F);
+        this.addLayer(new HumanoidArmorLayer<>(this,
+                new HumanoidModel<>(context.bakeLayer(innerArmorLayer)),
+                new HumanoidModel<>(context.bakeLayer(outerArmorLayer)),
+                context.getModelManager()));
     }
 
     @Override
-    public Identifier getTexture(SkeletonPiglinEntity entity) {
-        return (Identifier) MAP.get(entity.getType());
+    public ResourceLocation getTextureLocation(SkeletonPiglinEntity entity) {
+        return MAP.get(entity.getType());
     }
 }

@@ -1,8 +1,8 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.entity.projectile.ThrownBrick;
-import net.creep3rcrafter.theupdatemod.entity.projectile.ThrownNetherBrick;
-import net.creep3rcrafter.theupdatemod.entity.projectile.ThrownSlimeball;
+import net.github.creep3rcrafter.inspire.entity.projectile.ThrownBrickEntity;
+import net.github.creep3rcrafter.inspire.entity.projectile.ThrownNetherBrickEntity;
+import net.github.creep3rcrafter.inspire.entity.projectile.ThrownSlimeballEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -28,7 +28,7 @@ public abstract class ItemMixin implements ItemLike {
         if (itemStack.is(Items.SLIME_BALL)) {
             level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.SLIME_JUMP_SMALL, SoundSource.PLAYERS, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
             if (!level.isClientSide) {
-                ThrownSlimeball thrownEgg = new ThrownSlimeball(level, player);
+                ThrownSlimeballEntity thrownEgg = new ThrownSlimeballEntity(level, player);
                 thrownEgg.setItem(itemStack);
                 thrownEgg.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1F, 1.0F);
                 level.addFreshEntity(thrownEgg);
@@ -41,7 +41,7 @@ public abstract class ItemMixin implements ItemLike {
         } else if (itemStack.is(Items.BRICK)) {
             level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.NETHER_BRICKS_FALL, SoundSource.PLAYERS, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
             if (!level.isClientSide) {
-                ThrownBrick thrownEgg = new ThrownBrick(level, player);
+                ThrownBrickEntity thrownEgg = new ThrownBrickEntity(level, player);
                 thrownEgg.setItem(itemStack);
                 thrownEgg.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 0.75F, 1.0F);
                 level.addFreshEntity(thrownEgg);
@@ -54,7 +54,7 @@ public abstract class ItemMixin implements ItemLike {
         } else if (itemStack.is(Items.NETHER_BRICK)) {
             level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.NETHER_BRICKS_FALL, SoundSource.PLAYERS, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
             if (!level.isClientSide) {
-                ThrownNetherBrick thrownEgg = new ThrownNetherBrick(level, player);
+                ThrownNetherBrickEntity thrownEgg = new ThrownNetherBrickEntity(level, player);
                 thrownEgg.setItem(itemStack);
                 thrownEgg.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 0.75F, 1.0F);
                 level.addFreshEntity(thrownEgg);

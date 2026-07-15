@@ -1,6 +1,6 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
-import net.creep3rcrafter.theupdatemod.register.ModWoodTypes;
+import net.github.creep3rcrafter.inspire.register.InspireWoodTypes;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,9 +15,9 @@ public abstract class WoodTypeMixin {
     @Final
     private static Set<WoodType> VALUES;
     @Unique
-    private static final WoodType WITHERED = architectury_theupdatemod$registerWoodType(ModWoodTypes.WITHERED);
-    private static final WoodType PINE = architectury_theupdatemod$registerWoodType(ModWoodTypes.PINE);
-    private static final WoodType REDWOOD = architectury_theupdatemod$registerWoodType(ModWoodTypes.REDWOOD);
+    private static final WoodType WITHERED = architectury_theupdatemod$registerWoodType(InspireWoodTypes.WITHERED);
+    private static final WoodType PINE = architectury_theupdatemod$registerWoodType(InspireWoodTypes.PINE);
+    private static final WoodType REDWOOD = architectury_theupdatemod$registerWoodType(InspireWoodTypes.REDWOOD);
 
     @Unique
     private static WoodType architectury_theupdatemod$registerWoodType(WoodType woodType) {

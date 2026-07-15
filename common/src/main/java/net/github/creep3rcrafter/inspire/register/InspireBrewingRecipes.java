@@ -4,6 +4,6 @@ import net.minecraft.world.item.alchemy.PotionBrewing;
 
 public class InspireBrewingRecipes {
     static {
-        PotionBrewing.addContainer(InspireItems.POTION_JAR.get());
+        // Potion jar brewing support is handled by PotionBrewingMixin on 1.21.1.
     }
 }

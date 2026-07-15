@@ -59,7 +59,7 @@ public class ThrownSlimeballEntity extends ThrowableItemProjectile {
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.hurt(this.damageSources().thrown(this, this.getOwner()), 0.5f);
             double d = Math.max(0.0F, 1.0F - livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
-            Vec3 vec3 = this.getDeltaMovement().multiply(1.0F, 0.0F, 1.0F).normalize().multiply(5 * 0.6 * d);
+            Vec3 vec3 = this.getDeltaMovement().multiply(1.0F, 0.0F, 1.0F).normalize().scale(5 * 0.6 * d);
             if (vec3.lengthSqr() > 0.0F) {
                 livingEntity.push(vec3.x, 0.1, vec3.z);
             }

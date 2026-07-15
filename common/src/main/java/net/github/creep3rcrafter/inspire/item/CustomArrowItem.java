@@ -2,19 +2,18 @@ package net.github.creep3rcrafter.inspire.item;
 
 import net.github.creep3rcrafter.inspire.entity.projectile.CustomArrowEntity;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.CustomData;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -28,10 +27,10 @@ public class CustomArrowItem extends BaseArrowItem {
     }
 
     @Override
-    public @NotNull AbstractArrow createArrow(@NotNull Level level, @NotNull ItemStack itemStack, @NotNull LivingEntity livingEntity) {
+    public @NotNull AbstractArrow createArrow(@NotNull Level level, @NotNull ItemStack itemStack, @NotNull LivingEntity livingEntity, @NotNull ItemStack weapon) {
         CustomArrowEntity arrow = new CustomArrowEntity(level, livingEntity);
         arrow.pickup = AbstractArrow.Pickup.ALLOWED;
-        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        CompoundTag compoundTag = itemStack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         if (compoundTag.contains("tip")) {
             arrow.setTip(compoundTag.getFloat("tip"));
         }
@@ -52,7 +51,7 @@ public class CustomArrowItem extends BaseArrowItem {
 
     @Override
     public double getBaseDamage(ItemStack itemStack) {
-        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        CompoundTag compoundTag = itemStack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         double damage = 0;
         if (compoundTag.contains("tip")) {
             if (compoundTag.getFloat("tip") == 0.0f) {
@@ -121,9 +120,9 @@ public class CustomArrowItem extends BaseArrowItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, @Nullable Level level, @NotNull List<Component> list, @NotNull TooltipFlag tooltipFlag) {
-        super.appendHoverText(itemStack, level, list, tooltipFlag);
-        CompoundTag compoundTag = itemStack.getOrCreateTag();
+    public void appendHoverText(ItemStack itemStack, Item.TooltipContext tooltipContext, @NotNull List<Component> list, @NotNull TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, tooltipContext, list, tooltipFlag);
+        CompoundTag compoundTag = itemStack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         if (compoundTag.contains("tip")) {
             if (compoundTag.getFloat("tip") == 0.05f) {
                 list.add(Component.translatable("inspire.flint_tip.desc").withStyle(ChatFormatting.GOLD));
@@ -170,33 +169,9 @@ public class CustomArrowItem extends BaseArrowItem {
         }
     }
 
-
-    @Override
-    public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> nonNullList) {
-        if (creativeModeTab == this.getItemCategory()) {
-            for (int rod = 0; rod < 3; rod++) {
-                for (int tip = 0; tip < 19; tip++) {
-                    for (int tail = 0; tail < 2; tail++) {
-                        if (!(rod == 0 && tail == 0 && tip == 1)) {
-                            ItemStack itemStack = new ItemStack(this);
-                            CompoundTag compoundTag = itemStack.getOrCreateTag();
-                            compoundTag.putFloat("tip", new BigDecimal(Float.toString(tip * 0.05f)).setScale(2, RoundingMode.HALF_UP).floatValue());
-                            //compoundTag.putFloat("tip", tip);
-                            compoundTag.putFloat("rod", new BigDecimal(Float.toString(rod * 0.05f)).setScale(2, RoundingMode.HALF_UP).floatValue());
-                            compoundTag.putFloat("tail", new BigDecimal(Float.toString(tail * 0.05f)).setScale(2, RoundingMode.HALF_UP).floatValue());
-                            itemStack.save(compoundTag);
-                            nonNullList.add(itemStack);
-                        }
-                    }
-                }
-            }
-        }
-
-    }
-
     @Override
     public @NotNull Component getName(ItemStack itemStack) {
-        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        CompoundTag compoundTag = itemStack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         String tip = "";
         String rod = "";
         String tail = "";

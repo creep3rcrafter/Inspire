@@ -1,19 +1,24 @@
 package net.github.creep3rcrafter.inspire.register;
 
 import dev.architectury.registry.CreativeTabRegistry;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
+import net.github.creep3rcrafter.inspire.InspireCommon;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 public class InspireCreativeTabs {
-    public static final CreativeModeTab TAB_INSPIRE;
+    public static final DeferredRegister<CreativeModeTab> TABS =
+            DeferredRegister.create(InspireCommon.MOD_ID, Registries.CREATIVE_MODE_TAB);
 
-    static {
-        TAB_INSPIRE = CreativeTabRegistry.create(new ResourceLocation(InspireCommon.MOD_ID, "inspire"), () -> {
-            ItemStack itemStack = new ItemStack(InspireItems.CUSTOM_ARROW.get());
-            itemStack.getOrCreateTag().putFloat("rod", 0.1f);
-            itemStack.getOrCreateTag().putFloat("tail", 0.05f);
-            return itemStack.copy();
-        });
-    }
+    public static final RegistrySupplier<CreativeModeTab> TAB_INSPIRE = TABS.register(
+            "inspire",
+            () -> CreativeTabRegistry.create(
+                    Component.translatable("itemGroup." + InspireCommon.MOD_ID + ".inspire"), // Title
+                    () -> new ItemStack(InspireItems.SOUL_GLASS.get()) // Icon supplier
+            )
+    );
 }

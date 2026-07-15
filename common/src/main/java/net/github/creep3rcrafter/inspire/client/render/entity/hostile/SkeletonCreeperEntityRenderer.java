@@ -18,7 +18,7 @@ import java.util.Map;
 public class SkeletonCreeperEntityRenderer extends MobRenderer<SkeletonCreeperEntity, SkeletonCreeperEntityModel<SkeletonCreeperEntity>> {
     private static final Map<EntityType<?>, ResourceLocation> MAP = Map.of(
             InspireEntityTypes.SKELETON_CREEPER.get(),
-            new ResourceLocation(InspireCommon.MOD_ID, "textures/entity/hostile/skeleton_creeper/skeleton_creeper.png")
+            ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "textures/entity/hostile/skeleton_creeper/skeleton_creeper.png")
     );
 
     public SkeletonCreeperEntityRenderer(EntityRendererProvider.Context context) {
@@ -28,7 +28,7 @@ public class SkeletonCreeperEntityRenderer extends MobRenderer<SkeletonCreeperEn
 
     @Override
     protected void scale(SkeletonCreeperEntity creeperEntity, PoseStack poseStack, float partialTick) {
-        float fuse = creeperEntity.getClientFuseTime(partialTick);
+        float fuse = creeperEntity.getSwelling(partialTick);
         float wave = 1.0F + Mth.sin(fuse * 100.0F) * fuse * 0.01F;
         fuse = Mth.clamp(fuse, 0.0F, 1.0F);
         fuse *= fuse;
@@ -40,7 +40,7 @@ public class SkeletonCreeperEntityRenderer extends MobRenderer<SkeletonCreeperEn
 
     @Override
     protected float getWhiteOverlayProgress(SkeletonCreeperEntity creeperEntity, float partialTick) {
-        float fuse = creeperEntity.getClientFuseTime(partialTick);
+        float fuse = creeperEntity.getSwelling(partialTick);
         return (int) (fuse * 10.0F) % 2 == 0 ? 0.0F : Mth.clamp(fuse, 0.5F, 1.0F);
     }
 

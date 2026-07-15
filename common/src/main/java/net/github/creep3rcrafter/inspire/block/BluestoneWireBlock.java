@@ -3,9 +3,11 @@ package net.github.creep3rcrafter.inspire.block;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import org.joml.Vector3f;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -72,6 +74,17 @@ public class BluestoneWireBlock extends RedStoneWireBlock implements SimpleWater
             levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
         }
         return super.updateShape(blockState, direction, blockState2, levelAccessor, blockPos, blockPos2).setValue(WATERLOGGED, levelAccessor.getFluidState(blockPos).getType() == Fluids.WATER);
+    }
+
+    private void spawnParticlesAlongLine(Level level, RandomSource random, BlockPos pos, Vec3 color, Direction dir1, Direction dir2, float minOffset, float maxOffset) {
+        float spread = maxOffset - minOffset;
+        if (random.nextFloat() < 0.2F) {
+            float f = minOffset + spread * random.nextFloat();
+            double x = pos.getX() + 0.5 + 0.4375 * dir1.getStepX() + f * dir2.getStepX();
+            double y = pos.getY() + 0.0625 + f * dir2.getStepY();
+            double z = pos.getZ() + 0.5 + 0.4375 * dir1.getStepZ() + f * dir2.getStepZ();
+            level.addParticle(new DustParticleOptions(new Vector3f((float) color.x(), (float) color.y(), (float) color.z()), 1.0F), x, y, z, 0.0, 0.0, 0.0);
+        }
     }
 
     @Override

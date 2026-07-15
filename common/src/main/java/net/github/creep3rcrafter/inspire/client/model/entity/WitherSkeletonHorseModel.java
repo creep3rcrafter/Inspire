@@ -136,8 +136,8 @@ public class WitherSkeletonHorseModel<T extends AbstractHorse> extends AgeableLi
 
     public void prepareMobModel(T abstractHorse, float f, float g, float h) {
         super.prepareMobModel(abstractHorse, f, g, h);
-        float i = Mth.rotlerp(abstractHorse.yBodyRotO, abstractHorse.yBodyRot, h);
-        float j = Mth.rotlerp(abstractHorse.yHeadRotO, abstractHorse.yHeadRot, h);
+        float i = Mth.rotLerp(abstractHorse.yBodyRotO, abstractHorse.yBodyRot, h);
+        float j = Mth.rotLerp(abstractHorse.yHeadRotO, abstractHorse.yHeadRot, h);
         float k = Mth.lerp(h, abstractHorse.xRotO, abstractHorse.getXRot());
         float l = j - i;
         float m = k * 0.017453292F;

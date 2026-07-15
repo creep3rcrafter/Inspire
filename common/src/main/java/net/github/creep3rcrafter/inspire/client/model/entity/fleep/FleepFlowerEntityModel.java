@@ -53,8 +53,8 @@ public class FleepFlowerEntityModel<T extends FleepEntity> extends QuadrupedMode
 
     public void prepareMobModel(T sheepEntity, float f, float g, float h) {
         super.prepareMobModel(sheepEntity, f, g, h);
-        this.head.y = 6.0F + sheepEntity.getNeckAngle(h) * 9.0F;
-        this.headAngle = sheepEntity.getHeadAngle(h);
+        this.head.y = 6.0F + sheepEntity.getHeadEatPositionScale(h) * 9.0F;
+        this.headAngle = sheepEntity.getHeadEatAngleScale(h);
     }
 
     public void setupAnim(T sheepEntity, float f, float g, float h, float i, float j) {

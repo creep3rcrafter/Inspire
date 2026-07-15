@@ -1,6 +1,5 @@
 package net.github.creep3rcrafter.inspire.item;
 
-import com.mojang.datafixers.util.Pair;
 import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
@@ -16,6 +15,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,20 +40,17 @@ public class FoodJarItem extends Item {
         }
 
         if (!level.isClientSide) {
-            if (itemStack.isEdible()) {
+            FoodProperties foodProps = itemStack.get(DataComponents.FOOD);
+            if (foodProps != null) {
                 level.playSound((Player) null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), this.getEatingSound(), SoundSource.NEUTRAL, 1.0F, 1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.4F);
-                if (this.getFoodProperties() != null) {
-                    List<Pair<MobEffectInstance, Float>> list = this.getFoodProperties().getEffects();
-
-                    for (Pair<MobEffectInstance, Float> mobEffectInstanceFloatPair : list) {
-                        if (mobEffectInstanceFloatPair.getFirst() != null && level.random.nextFloat() < (Float) mobEffectInstanceFloatPair.getSecond()) {
-                            livingEntity.addEffect(new MobEffectInstance((MobEffectInstance) mobEffectInstanceFloatPair.getFirst()));
-                        }
+                for (FoodProperties.PossibleEffect possibleEffect : foodProps.effects()) {
+                    if (possibleEffect.effect() != null && level.random.nextFloat() < possibleEffect.probability()) {
+                        livingEntity.addEffect(new MobEffectInstance(possibleEffect.effect()));
                     }
-                    livingEntity.gameEvent(GameEvent.EAT);
-                    if (player != null) {
-                        player.getFoodData().eat(getFoodProperties().getNutrition(), getFoodProperties().getSaturationModifier());
-                    }
+                }
+                livingEntity.gameEvent(GameEvent.EAT);
+                if (player != null) {
+                    player.getFoodData().eat(foodProps.nutrition(), foodProps.saturation());
                 }
             }
             if (isHoney()) {

@@ -2,6 +2,7 @@ package net.github.creep3rcrafter.inspire.block.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -84,7 +85,7 @@ public class ObsidianChestBlockEntity extends RandomizableContainerBlockEntity i
     }
 
     public static int getOpenCount(BlockGetter blockGetter, BlockPos blockPos) {
-        BlockState blockState = blockGetter.state(blockPos);
+        BlockState blockState = blockGetter.getBlockState(blockPos);
         if (blockState.hasBlockEntity()) {
             BlockEntity blockEntity = blockGetter.getBlockEntity(blockPos);
             if (blockEntity instanceof ObsidianChestBlockEntity) {
@@ -109,19 +110,19 @@ public class ObsidianChestBlockEntity extends RandomizableContainerBlockEntity i
         return Component.translatable("container.chest");
     }
 
-    public void load(CompoundTag compoundTag) {
-        super.load(compoundTag);
+    public void loadAdditional(CompoundTag compoundTag, HolderLookup.Provider registries) {
+        super.loadAdditional(compoundTag, registries);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(compoundTag)) {
-            ContainerHelper.loadAllItems(compoundTag, this.items);
+            ContainerHelper.loadAllItems(compoundTag, this.items, registries);
         }
 
     }
 
-    protected void saveAdditional(CompoundTag compoundTag) {
-        super.saveAdditional(compoundTag);
+    protected void saveAdditional(CompoundTag compoundTag, HolderLookup.Provider registries) {
+        super.saveAdditional(compoundTag, registries);
         if (!this.trySaveLootTable(compoundTag)) {
-            ContainerHelper.saveAllItems(compoundTag, this.items);
+            ContainerHelper.saveAllItems(compoundTag, this.items, registries);
         }
 
     }
@@ -137,14 +138,14 @@ public class ObsidianChestBlockEntity extends RandomizableContainerBlockEntity i
 
     public void startOpen(Player player) {
         if (!this.remove && !player.isSpectator()) {
-            this.openersCounter.incrementOpeners(player, this.getLevel(), this.getBlockPos(), this.state());
+            this.openersCounter.incrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
 
     }
 
     public void stopOpen(Player player) {
         if (!this.remove && !player.isSpectator()) {
-            this.openersCounter.decrementOpeners(player, this.getLevel(), this.getBlockPos(), this.state());
+            this.openersCounter.decrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
 
     }
@@ -167,7 +168,7 @@ public class ObsidianChestBlockEntity extends RandomizableContainerBlockEntity i
 
     public void recheckOpen() {
         if (!this.remove) {
-            this.openersCounter.recheckOpeners(this.getLevel(), this.getBlockPos(), this.state());
+            this.openersCounter.recheckOpeners(this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
 
     }

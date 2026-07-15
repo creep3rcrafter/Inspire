@@ -1,5 +1,6 @@
 package net.github.creep3rcrafter.inspire.entity;
 
+import net.minecraft.core.Holder;
 import net.github.creep3rcrafter.inspire.register.InspireEntityDataSerializers;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -50,7 +51,7 @@ public class JukeboxBoatEntity extends Boat implements Clearable {
         super(level, d, e, f);
     }
 
-    public static void playRecordTick(BiConsumer<GameEvent, Entity> biConsumer, JukeboxBoatEntity jukeboxBoatEntity) {
+    public static void playRecordTick(BiConsumer<Holder<GameEvent>, Entity> biConsumer, JukeboxBoatEntity jukeboxBoatEntity) {
         jukeboxBoatEntity.setTicksSinceLastEvent(jukeboxBoatEntity.getTicksSinceLastEvent() + 1);
         if (recordIsPlaying(jukeboxBoatEntity)) {
             // For now, just accept any item without checking for specific music disc items
@@ -128,14 +129,15 @@ public class JukeboxBoatEntity extends Boat implements Clearable {
         this.entityData.set(HAS_RECORD, hasRecord);
     }
 
-    protected void defineSynchedData() {
-        this.entityData.define(RECORD, ItemStack.EMPTY);
-        this.entityData.define(TICKS_SINCE_LAST_EVENT, 0);
-        //this.entityData.define(TICK_COUNT, 0L);
-        this.entityData.define(RECORD_STARTED_TICK, 0L);
-        this.entityData.define(IS_PLAYING, false);
-        this.entityData.define(HAS_RECORD, false);
-        super.defineSynchedData();
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(RECORD, ItemStack.EMPTY);
+        builder.define(TICKS_SINCE_LAST_EVENT, 0);
+        //builder.define(TICK_COUNT, 0L);
+        builder.define(RECORD_STARTED_TICK, 0L);
+        builder.define(IS_PLAYING, false);
+        builder.define(HAS_RECORD, false);
     }
 
     public void setAndPlayRecord(JukeboxBoatEntity jukeboxBoatEntity, ItemStack itemStack) {
@@ -164,9 +166,9 @@ public class JukeboxBoatEntity extends Boat implements Clearable {
     }
 
     @Override
-    public boolean wasKilled(ServerLevel serverLevel, LivingEntity livingEntity) {
+    public boolean killedEntity(ServerLevel serverLevel, LivingEntity livingEntity) {
         dropRecording(serverLevel);
-        return super.wasKilled(serverLevel, livingEntity);
+        return super.killedEntity(serverLevel, livingEntity);
     }
 
     @Override
@@ -174,9 +176,9 @@ public class JukeboxBoatEntity extends Boat implements Clearable {
         return this.canAddPassenger(player) && !player.isSecondaryUseActive() ? super.interact(player, interactionHand) : this.interactWithJukeboxVehicle(this::gameEvent, player, interactionHand);
     }
 
-    public InteractionResult interactWithJukeboxVehicle(BiConsumer<GameEvent, Entity> biConsumer, Player player, InteractionHand interactionHand) {
+    public InteractionResult interactWithJukeboxVehicle(BiConsumer<Holder<GameEvent>, Entity> biConsumer, Player player, InteractionHand interactionHand) {
         if (!getHasRecord()) {
-            if (!getLevel().isClientSide) {
+            if (!level().isClientSide) {
                 ItemStack itemStack = player.getItemInHand(interactionHand);
                 if (!itemStack.isEmpty()) {
                     this.setAndPlayRecord(this, itemStack);
@@ -188,7 +190,7 @@ public class JukeboxBoatEntity extends Boat implements Clearable {
                 System.out.print("boom2");
             }
             System.out.print("boom3");
-            return InteractionResult.sidedSuccess(getLevel().isClientSide);
+            return InteractionResult.sidedSuccess(level().isClientSide);
         } else {
             System.out.print("boom4");
             return InteractionResult.PASS;
@@ -229,7 +231,7 @@ public class JukeboxBoatEntity extends Boat implements Clearable {
     protected void addAdditionalSaveData(CompoundTag compoundTag) {
         super.addAdditionalSaveData(compoundTag);
         if (!this.getRecord().isEmpty()) {
-            compoundTag.put("RecordItem", this.getRecord().save(new CompoundTag()));
+            compoundTag.put("RecordItem", this.getRecord().save(this.level().registryAccess()));
         }
 
         compoundTag.putBoolean("IsPlaying", this.getIsPlaying());
@@ -241,7 +243,7 @@ public class JukeboxBoatEntity extends Boat implements Clearable {
     protected void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
         if (compoundTag.contains("RecordItem", 10)) {
-            this.setRecord(ItemStack.of(compoundTag.getCompound("RecordItem")));
+            this.setRecord(ItemStack.parseOptional(this.level().registryAccess(), compoundTag.getCompound("RecordItem")));
         }
 
         this.setIsPlaying(compoundTag.getBoolean("IsPlaying"));
@@ -263,5 +265,10 @@ public class JukeboxBoatEntity extends Boat implements Clearable {
                 level.addFreshEntity(itemEntity);
             }
         }
+    }
+
+    @Override
+    public Boat.@NotNull Type getVariant() {
+        return Boat.Type.OAK;
     }
 }

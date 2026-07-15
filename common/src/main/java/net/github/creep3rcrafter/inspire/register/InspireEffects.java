@@ -7,6 +7,7 @@ import net.github.creep3rcrafter.inspire.utils.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -479,7 +480,7 @@ public class InspireEffects {
             @Override
             public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
                 if (livingEntity.getAttributes().hasAttribute(Attributes.ARMOR)) {
-                    addAttributeModifier(Attributes.ARMOR, "9aa8ab7f-3f42-4c2d-acc9-30a56847c3fc", 1, AttributeModifier.Operation.ADD_VALUE);
+                    addAttributeModifier(Attributes.ARMOR, ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "protection_armor_bonus"), 1, AttributeModifier.Operation.ADD_VALUE);
                 }
                 return super.applyEffectTick(livingEntity, amplifier);
             }
@@ -613,7 +614,7 @@ public class InspireEffects {
         SUFFOCATION = EFFECTS.register("suffocation", () -> new MobEffect(MobEffectCategory.HARMFUL, 0) {
             @Override
             public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-                livingEntity.setAirSupply(livingEntity.decreaseAirSupply(livingEntity.getAirSupply()));
+                livingEntity.setAirSupply(Math.max(livingEntity.getAirSupply() - 1, -20));
                 return super.applyEffectTick(livingEntity, amplifier);
             }
 

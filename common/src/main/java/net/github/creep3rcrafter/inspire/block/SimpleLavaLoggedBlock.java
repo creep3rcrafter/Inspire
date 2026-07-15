@@ -2,8 +2,8 @@ package net.github.creep3rcrafter.inspire.block;
 
 import net.github.creep3rcrafter.inspire.register.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;

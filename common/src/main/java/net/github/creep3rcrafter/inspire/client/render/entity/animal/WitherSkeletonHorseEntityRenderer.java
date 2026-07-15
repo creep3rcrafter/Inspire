@@ -1,15 +1,15 @@
 package net.github.creep3rcrafter.inspire.client.render.entity.animal;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.github.creep3rcrafter.inspire.client.model.entity.WitherSkeletonHorseEntityModel;
 import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
-import net.minecraft.resources.ResourceLocation;
 
 import java.util.Map;
 

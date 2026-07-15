@@ -1,7 +1,7 @@
 package net.github.creep3rcrafter.inspire.client.register;
 
-import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
+import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.minecraft.client.renderer.RenderType;
 
 public class InspireRenderTypes {

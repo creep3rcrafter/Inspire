@@ -3,8 +3,8 @@ package net.github.creep3rcrafter.inspire.register;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.JukeboxSong;
 
 public class InspireJukeBoxSongs {

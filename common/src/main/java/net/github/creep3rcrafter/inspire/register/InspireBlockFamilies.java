@@ -1,7 +1,6 @@
 package net.github.creep3rcrafter.inspire.register;
 
 import com.google.common.collect.Maps;
-import net.github.creep3rcrafter.inspire.utils.BetterBlockFamily;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;

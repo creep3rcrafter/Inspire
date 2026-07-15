@@ -1,23 +1,17 @@
 package net.github.creep3rcrafter.inspire.client;
 
 import dev.architectury.event.events.client.ClientTickEvent;
-import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
-import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import it.unimi.dsi.fastutil.ints.Int2LongMap;
 import it.unimi.dsi.fastutil.ints.Int2LongOpenHashMap;
 import net.github.creep3rcrafter.inspire.client.register.InspireColors;
-import net.github.creep3rcrafter.inspire.client.register.InspireEntityRenderers;
 import net.github.creep3rcrafter.inspire.client.register.InspireRenderTypes;
-import net.github.creep3rcrafter.inspire.network.InspireNetworking;
-import net.github.creep3rcrafter.inspire.client.renderer.RegularBedRenderer;
 import net.github.creep3rcrafter.inspire.item.PortableJukeboxItem;
-import net.github.creep3rcrafter.inspire.register.InspireBlockEntityTypes;
-import net.github.creep3rcrafter.inspire.register.InspireBlocks;
-// ChunkSectionLayer import removed - not available in 1.21.1
-import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
+import net.github.creep3rcrafter.inspire.network.InspireNetworking;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+
+// ChunkSectionLayer import removed - not available in 1.21.1
 
 public class InspireCommonClient {
     public static final Int2LongMap LAST_PARTICLE = new Int2LongOpenHashMap();

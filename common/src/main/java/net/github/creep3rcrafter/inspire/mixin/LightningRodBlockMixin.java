@@ -1,8 +1,8 @@
 package net.github.creep3rcrafter.inspire.mixin;
 
 import net.github.creep3rcrafter.inspire.register.InspirePotions;
-import net.minecraft.core.Holder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;

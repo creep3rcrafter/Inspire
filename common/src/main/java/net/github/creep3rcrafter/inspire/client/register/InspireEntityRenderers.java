@@ -23,14 +23,14 @@ import net.github.creep3rcrafter.inspire.entity.EnderChestMinecartEntity;
 import net.github.creep3rcrafter.inspire.entity.TrappedChestMinecartEntity;
 import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
 import net.minecraft.client.model.MinecartModel;
+import net.minecraft.client.model.SkeletonModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.MinecartRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.model.SkeletonModel;
-import net.minecraft.client.model.geom.ModelLayers;
 
 public final class InspireEntityRenderers {
     public static final ModelLayerLocation WITHER_SKELETON_HORSE_MODEL_LAYER;

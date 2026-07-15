@@ -1,7 +1,7 @@
 package net.github.creep3rcrafter.inspire.register;
 
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;

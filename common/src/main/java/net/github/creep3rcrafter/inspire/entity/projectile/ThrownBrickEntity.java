@@ -2,8 +2,9 @@ package net.github.creep3rcrafter.inspire.entity.projectile;
 
 import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
 import net.github.creep3rcrafter.inspire.utils.ColorUtils;
-import net.minecraft.world.entity.projectile.Snowball;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,12 +13,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.core.particles.ItemParticleOption;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 
 public class ThrownBrickEntity extends ThrowableItemProjectile {
     public ThrownBrickEntity(EntityType<? extends ThrownBrickEntity> entityType, Level level) {

@@ -6,13 +6,11 @@ import dev.architectury.core.fluid.SimpleArchitecturyFluidAttributes;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.github.creep3rcrafter.inspire.InspireCommon;
-import net.github.creep3rcrafter.inspire.register.InspireBlocks;
-import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
 
 public class InspireFluids {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(InspireCommon.MOD_ID,Registries.FLUID);

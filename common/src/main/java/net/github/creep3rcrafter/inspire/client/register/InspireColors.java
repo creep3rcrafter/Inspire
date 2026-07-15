@@ -1,22 +1,14 @@
 package net.github.creep3rcrafter.inspire.client.register;
 
+import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
 import net.github.creep3rcrafter.inspire.block.BluestoneWireBlock;
 import net.github.creep3rcrafter.inspire.block.ChromaticLampBlock;
 import net.github.creep3rcrafter.inspire.block.SoulGlassBlock;
 import net.github.creep3rcrafter.inspire.register.InspireBlocks;
-import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
 import net.minecraft.client.color.block.BlockColor;
-import net.minecraft.client.resources.model.Material;
-import net.minecraft.core.BlockPos;
-import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.BlockAndTintGetter;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
-import org.jetbrains.annotations.Nullable;
-
-import java.awt.*;
 
 public class InspireColors {
     public static final BlockColor BLUESTONE_WIRE;

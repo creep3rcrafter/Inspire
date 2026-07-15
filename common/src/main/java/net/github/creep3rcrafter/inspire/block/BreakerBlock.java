@@ -1,9 +1,7 @@
 package net.github.creep3rcrafter.inspire.block;
 
 import net.github.creep3rcrafter.inspire.block.entity.BreakerBlockEntity;
-import net.github.creep3rcrafter.inspire.register.InspireBlockEntityTypes;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;

@@ -6,7 +6,6 @@ import net.github.creep3rcrafter.inspire.InspireCommon;
 import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.client.model.ElytraModel;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;

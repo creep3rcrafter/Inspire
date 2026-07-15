@@ -1,6 +1,5 @@
 package net.github.creep3rcrafter.inspire.register;
 
-import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.world.entity.projectile.AbstractArrow;

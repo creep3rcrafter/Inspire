@@ -2,8 +2,8 @@ package net.github.creep3rcrafter.inspire.mixin;
 
 import net.github.creep3rcrafter.inspire.item.PotionJarItem;
 import net.github.creep3rcrafter.inspire.register.InspireItems;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;

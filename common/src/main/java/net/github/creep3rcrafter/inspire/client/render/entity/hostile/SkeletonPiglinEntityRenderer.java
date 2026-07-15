@@ -7,14 +7,11 @@ import net.github.creep3rcrafter.inspire.client.model.entity.SkeletonPiglinEntit
 import net.github.creep3rcrafter.inspire.entity.hostile.SkeletonPiglinEntity;
 import net.github.creep3rcrafter.inspire.register.InspireEntityTypes;
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.AbstractSkeleton;
 
 import java.util.Map;
 

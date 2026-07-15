@@ -3,7 +3,10 @@ package net.github.creep3rcrafter.inspire.mixin;
 
 import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RedStoneWireBlock;
+import net.minecraft.world.level.block.RepeaterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

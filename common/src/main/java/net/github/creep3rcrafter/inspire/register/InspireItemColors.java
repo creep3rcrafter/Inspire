@@ -1,8 +1,8 @@
 package net.github.creep3rcrafter.inspire.register;
 
 import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
 import org.jetbrains.annotations.NotNull;

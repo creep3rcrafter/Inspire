@@ -49,3 +49,6 @@ PROXYAI.md
 /fabric/src/main/generated/.cache
 /.opencode
 AGENTS.md
+.continue/rules/build-rules.md
+.continue/rules/search-rules.md
+.continue/rules/windows-rules.md

@@ -4,7 +4,6 @@ import net.github.creep3rcrafter.inspire.inventory.FletchingMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
@@ -31,8 +30,8 @@ public class FletchingTableBlockMixin extends CraftingTableBlock {
         super(properties);
     }
 
-    @Inject(method = "use", at = @At("RETURN"), cancellable = true)
-    public void injectUse(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
+    @Inject(method = "useWithoutItem", at = @At("RETURN"), cancellable = true)
+    public void injectUse(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
         if (level.isClientSide) {
             cir.setReturnValue(InteractionResult.SUCCESS);
         } else {

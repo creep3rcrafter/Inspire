@@ -978,6 +978,7 @@ public class InspireBlocks {
     //public static final RegistrySupplier<Block> REDSTONE_GLASS;
 
     public static final RegistrySupplier<Block> FILTERED_HOPPER;
+    public static final RegistrySupplier<Block> WET_SAND;
 
 
     /*
@@ -2036,27 +2037,24 @@ public class InspireBlocks {
                 new UnstableBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(2.0F, 6.0F)));
 
         WARPED_NYLIUM_SHELF = BLOCKS.register("warped_nylium_shelf", () -> new ShelfFungiBlock(basicProperties("warped_nylium_shelf")
-                
                 .instabreak()
                 .sound(SoundType.FUNGUS)
                 .pushReaction(PushReaction.DESTROY)
                 .forceSolidOn()
-                
                 .noOcclusion()
                 .lightLevel((blockStatex) -> 5)
                 .hasPostProcess(InspireBlocks::always)
                 .emissiveRendering(InspireBlocks::always)));
         CRIMSON_NYLIUM_SHELF = BLOCKS.register("crimson_nylium_shelf", () -> new ShelfFungiBlock(basicProperties("crimson_nylium_shelf")
-                
                 .instabreak()
                 .sound(SoundType.FUNGUS)
                 .pushReaction(PushReaction.DESTROY)
                 .forceSolidOn()
-                
                 .noOcclusion()
                 .lightLevel((blockStatex) -> 5)
                 .hasPostProcess(InspireBlocks::always)
                 .emissiveRendering(InspireBlocks::always)));
+        WET_SAND = BLOCKS.register("wet_sand", () -> new WetSandBlock(basicProperties("wet_sand").mapColor(MapColor.DIRT).randomTicks()));
     }
 
     private static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {

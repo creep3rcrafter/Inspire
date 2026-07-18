@@ -23,9 +23,9 @@ import java.util.List;
 public abstract class PotionBrewingMixin {
 
     @Inject(method = "hasMix", at = @At("HEAD"), cancellable = true)
-    private static void injectHasMix(ItemStack containerItemStack, ItemStack ingredientItemStack, CallbackInfoReturnable<Boolean> cir) {
-        if (containerItemStack.is(InspireItems.POTION_JAR.get())) {
-            if (ingredientItemStack.is(Items.POTION)) {
+    private static void injectHasMix(ItemStack itemStack, ItemStack itemStack2, CallbackInfoReturnable<Boolean> cir) {
+        if (itemStack.is(InspireItems.POTION_JAR.get())) {
+            if (itemStack2.is(Items.POTION)) {
                 cir.setReturnValue(true);
             }
         }

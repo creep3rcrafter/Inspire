@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AxeItem.class)
 public abstract class AxeItemMixin {
-    @Inject(method = "useOn", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z", shift = At.Shift.AFTER, ordinal = 3))
+    @Inject(method = "useOn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;)V", shift = At.Shift.AFTER))
     private void InjectOnHitBlock(UseOnContext useOnContext, CallbackInfoReturnable<InteractionResult> cir) {
         BlockPos blockPos = useOnContext.getClickedPos().relative(useOnContext.getClickedFace());
         Level level = useOnContext.getLevel();

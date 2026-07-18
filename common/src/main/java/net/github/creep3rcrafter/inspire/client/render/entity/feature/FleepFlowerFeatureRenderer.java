@@ -47,6 +47,8 @@ public class FleepFlowerFeatureRenderer extends RenderLayer<FleepEntity, FleepEn
             renderBamboo(poseStack, buffer, light, outlineOnly, blockState, overlay);
         } else if (blockState.is(Blocks.PINK_PETALS)) {
             renderPinkPetals(poseStack, buffer, light, outlineOnly, blockState, overlay);
+        }else if (blockState.is(Blocks.SPORE_BLOSSOM)) {
+            renderSporeBlossom(poseStack, buffer, light, outlineOnly, blockState, overlay);
         } else {
             renderStandardFlower(poseStack, buffer, light, outlineOnly, blockState, overlay);
         }
@@ -85,6 +87,26 @@ public class FleepFlowerFeatureRenderer extends RenderLayer<FleepEntity, FleepEn
         poseStack.scale(-1.0F, -1.0F, 1.0F);
         poseStack.translate(-0.35F, -0.5F, -0.25F);
         this.renderFlower(poseStack, buffer, light, outlineOnly, blockState.setValue(PinkPetalsBlock.AMOUNT, 1), overlay);
+        poseStack.popPose();
+    }
+
+    private void renderSporeBlossom(PoseStack poseStack, MultiBufferSource buffer, int light, boolean outlineOnly, BlockState blockState, int overlay) {
+        poseStack.pushPose();
+        poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+        poseStack.translate(-0.1F, 0.73F, -0.6F);
+        poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
+        poseStack.scale(-1.0F, -1.0F, 1.0F);
+        this.renderFlower(poseStack, buffer, light, outlineOnly, blockState, overlay);
+        poseStack.popPose();
+
+        poseStack.pushPose();
+        this.getParentModel().getHead().translateAndRotate(poseStack);
+        poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+        poseStack.translate(0.25F, 0.785F, 0F);
+        poseStack.mulPose(Axis.YP.rotationDegrees(-78.0F));
+        poseStack.scale(-1.0F, -1.0F, 1.0F);
+        poseStack.translate(-0.35F, -0.5F, -0.25F);
+        this.renderFlower(poseStack, buffer, light, outlineOnly, blockState, overlay);
         poseStack.popPose();
     }
 

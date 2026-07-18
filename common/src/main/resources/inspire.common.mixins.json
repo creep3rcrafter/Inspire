@@ -4,10 +4,37 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "mixins": [
+    "AbstractArrowMixin",
+    "AxeItemMixin",
+    "BoatTypesMixin",
+    "ChestBoatMixin",
+    "EnchantmentHelperMixin",
+    "EnchantmentMixin",
+    "EntityMixin",
+    "FarmBlockMixin",
+    "FletchingTableBlockMixin",
+    "ItemMixin",
+    "LightningRodBlockMixin",
     "LivingEntityMixin",
-    "PlayerMixin"
+    "LocalPlayerMixin",
+    "MobMixin",
+    "NetherPortalBlockMixin",
+    "OreFeatureMixin",
+    "PlayerMixin",
+    "PortalShapeMixin",
+    "PotionBrewingMixin",
+    "PotionSlotMixin",
+    "PressurePlateMixin",
+    "ProjectileMixin",
+    "RedstoneWireMixin",
+    "TripWireBlockMixin",
+    "WoodTypeMixin",
+    "WorldComparatorMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "ElytraLayerMixin"
+  ]
 }

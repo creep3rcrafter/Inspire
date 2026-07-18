@@ -50,7 +50,7 @@ public class EnderChestBoatEntity extends Boat implements MenuProvider {
     }
 
     @Override
-    public InteractionResult interact(Player player, InteractionHand hand) {
+    public @NotNull InteractionResult interact(Player player, InteractionHand hand) {
         return this.canAddPassenger(player) && !player.isSecondaryUseActive() ? super.interact(player, hand) : this.interactWithChestVehicle(this::gameEvent, player);
     }
 
@@ -66,7 +66,7 @@ public class EnderChestBoatEntity extends Boat implements MenuProvider {
     }
 
     @Override
-    public Component getDisplayName() {
+    public @NotNull Component getDisplayName() {
         return CONTAINER_TITLE;
     }
 
@@ -82,7 +82,7 @@ public class EnderChestBoatEntity extends Boat implements MenuProvider {
     }
 
     @Override
-    public Item getDropItem() {
+    public @NotNull Item getDropItem() {
         Item item;
         switch (this.getVariant()) {
             case SPRUCE -> item = Items.SPRUCE_CHEST_BOAT;

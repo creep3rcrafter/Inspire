@@ -3,11 +3,16 @@ package net.github.creep3rcrafter.inspire.mixin;
 import net.github.creep3rcrafter.inspire.item.CustomElytraItem;
 import net.github.creep3rcrafter.inspire.register.InspireEffects;
 import net.github.creep3rcrafter.inspire.register.InspireItems;
+import net.minecraft.core.Holder;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,6 +23,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,9 +33,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin extends LivingEntity {
-
-    protected LivingEntityMixin(EntityType<? extends LivingEntity> entityType, Level level) {
+public abstract class LivingEntityMixin extends Entity{
+    public LivingEntityMixin(EntityType<?> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -58,6 +63,22 @@ public abstract class LivingEntityMixin extends LivingEntity {
         }
     }
          */
+
+    @Shadow
+    public abstract boolean hasEffect(Holder<MobEffect> holder);
+    @Shadow
+    public abstract void setHealth(float f);
+    @Shadow
+    public abstract boolean removeEffect(Holder<MobEffect> holder);
+    @Shadow
+    public abstract boolean removeAllEffects();
+    @Shadow
+    public abstract boolean addEffect(MobEffectInstance mobEffectInstance);
+    @Shadow
+    public abstract ItemStack getItemBySlot(EquipmentSlot equipmentSlot);
+    @Shadow
+    public abstract MobEffectInstance getEffect(Holder<MobEffect> holder);
+
     @Inject(method = "getEquipmentSlotForItem(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/entity/EquipmentSlot;", at = @At("HEAD"), cancellable = true)
     private static void inject(ItemStack itemStack, CallbackInfoReturnable<EquipmentSlot> cir) {
         if (itemStack.getItem() instanceof CustomElytraItem) {
@@ -87,7 +108,7 @@ public abstract class LivingEntityMixin extends LivingEntity {
 
     @ModifyArg(method = "travel(Lnet/minecraft/world/phys/Vec3;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;setDeltaMovement(Lnet/minecraft/world/phys/Vec3;)V", ordinal = 6))
     private Vec3 modifyVelocity(Vec3 vec3) {
-        ItemStack itemStack = getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack itemStack = this.getItemBySlot(EquipmentSlot.CHEST);
         if (itemStack.is(InspireItems.CRAFTED_ELYTRA.get())) {
             return vec3.multiply(new Vec3(0.9900000095367432, 0.9900000095367432, 0.9900000095367432));
         } else {
@@ -97,15 +118,15 @@ public abstract class LivingEntityMixin extends LivingEntity {
 
     @ModifyVariable(method = "travel", at = @At("LOAD"), name = "f2", ordinal = 0, index = 8)//return
     public float inject5(float value) {
-        if (this.hasEffect(InspireEffects.SLIPPERY) && this.onGround()) {
+        if (this.hasEffect(InspireEffects.SLIPPERY) && onGround()) {
             int amplifier = this.getEffect(InspireEffects.SLIPPERY).getAmplifier();
             return (((amplifier / (-300f)) + 1) * 0.98f);
         }
         return value;
     }
 
-    @ModifyVariable(method = "travel", at = @At("LOAD"), name = "d0", ordinal = 0, index = 2)//return
-    public double inject6(double value) {
+    @ModifyVariable(method = "travel", at = @At("LOAD"), name = "d")//return
+    public double inject6(double d) {
         if (this.hasEffect(InspireEffects.GRAVITATION)) {
             if (this.isCrouching()) {
                 return 0.08D;
@@ -113,15 +134,15 @@ public abstract class LivingEntityMixin extends LivingEntity {
                 return -0.04;
             }
         }
-        return value;
+        return d;
     }
     @Inject(method = "tick", at = @At("HEAD"))
     public void inject3(CallbackInfo ci) {
         if (((Object) this) instanceof LivingEntity) {
-            ItemStack itemStack = getItemBySlot(EquipmentSlot.FEET);
+            ItemStack itemStack = this.getItemBySlot(EquipmentSlot.FEET);
             if (itemStack.is(InspireItems.STRIDER_SCALE_BOOTS.get())) {
                 architectury_theupdatemod$floatStrider();
-                checkInsideBlocks();
+                this.checkInsideBlocks();
             }
         }
     }
@@ -131,7 +152,7 @@ public abstract class LivingEntityMixin extends LivingEntity {
     public void inject4(FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
         if (((Object) this) instanceof LivingEntity) {
             if (fluidState.is(FluidTags.LAVA)) {
-                if (getItemBySlot(EquipmentSlot.FEET).is(InspireItems.STRIDER_SCALE_BOOTS.get())) {
+                if (this.getItemBySlot(EquipmentSlot.FEET).is(InspireItems.STRIDER_SCALE_BOOTS.get())) {
                     cir.setReturnValue(true);
                 }
             }
@@ -141,10 +162,10 @@ public abstract class LivingEntityMixin extends LivingEntity {
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     public void inject5(DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
         if (((Object) this) instanceof LivingEntity) {
-            ItemStack itemStack = getItemBySlot(EquipmentSlot.FEET);
+            ItemStack itemStack = this.getItemBySlot(EquipmentSlot.FEET);
             if (itemStack.is(InspireItems.STRIDER_SCALE_BOOTS.get())) {
-                if (damageSource.is(DamageTypeTags.IS_FIRE) && !isEyeInFluid(FluidTags.LAVA)) {
-                    clearFire();
+                if (damageSource.is(DamageTypeTags.IS_FIRE) && !this.isEyeInFluid(FluidTags.LAVA)) {
+                    this.clearFire();
                     cir.setReturnValue(false);
                 }
             }
@@ -153,9 +174,9 @@ public abstract class LivingEntityMixin extends LivingEntity {
 
     @Unique
     private void architectury_theupdatemod$floatStrider() {
-        if (this.isInLava()) {
+        if (isInLava()) {
             CollisionContext collisionContext = CollisionContext.of(this);
-            if (collisionContext.isAbove(LiquidBlock.STABLE_SHAPE, this.blockPosition(), true) && !this.level().getFluidState(this.blockPosition().above()).is(FluidTags.LAVA)) {
+            if (collisionContext.isAbove(LiquidBlock.STABLE_SHAPE, blockPosition(), true) && !level().getFluidState(blockPosition().above()).is(FluidTags.LAVA)) {
                 this.setOnGround(true);
             } else {
                 this.setDeltaMovement(this.getDeltaMovement().scale(0.5).add(0.0, 0.05, 0.0));

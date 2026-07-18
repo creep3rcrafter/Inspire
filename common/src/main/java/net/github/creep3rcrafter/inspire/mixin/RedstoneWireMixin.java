@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RedStoneWireBlock;
 import net.minecraft.world.level.block.RepeaterBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -44,12 +45,12 @@ public abstract class RedstoneWireMixin extends Block {
         return blockState.is(block);
     }
 
-    @Redirect(method = "calculateTargetStrength", at = @At(value = "FIELD", target = "net/minecraft/world/level/block/RedStoneWireBlock.shouldSignal:Z"), require = 2)
+    @Redirect(method = "calculateTargetStrength", at = @At(value = "FIELD", target = "net/minecraft/world/level/block/RedStoneWireBlock.shouldSignal:Z", opcode = Opcodes.PUTFIELD), require = 2)
     private void redirectPowerWrite(RedStoneWireBlock owner, boolean value) {
         architectury_theupdatemod$shouldSignal2 = value;
     }
 
-    @Redirect(method = {"getSignal", "getDirectSignal", "isSignalSource"}, at = @At(value = "FIELD", target = "net/minecraft/world/level/block/RedStoneWireBlock.shouldSignal:Z"), require = 3)
+    @Redirect(method = {"getSignal", "getDirectSignal", "isSignalSource"}, at = @At(value = "FIELD", target = "net/minecraft/world/level/block/RedStoneWireBlock.shouldSignal:Z", opcode = Opcodes.GETFIELD), require = 3)
     private boolean redirectPowerRead(RedStoneWireBlock owner) {
         return architectury_theupdatemod$shouldSignal2;
     }

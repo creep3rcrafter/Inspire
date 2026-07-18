@@ -1159,6 +1159,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> BAMBOO_WALL;
     public static final RegistrySupplier<Item> CRIMSON_WALL;
     public static final RegistrySupplier<Item> WARPED_WALL;
+    public static final RegistrySupplier<Item> WET_SAND;
     /*
     public static final RegistrySupplier<Item> POLISHED_NETHER_BRICKS;
     public static final RegistrySupplier<Item> CRACKED_POLISHED_RED_NETHER_BRICKS;
@@ -1460,6 +1461,7 @@ public class InspireItems {
         REDWOOD_TRAPPED_CHEST_BOAT = ITEMS.register("redwood_trapped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         STRIDER_SCALE_BOOTS = ITEMS.register("strider_scale_boots", () -> new ArmorItem(InspireArmorMaterials.STRIDER_SCALE, ArmorItem.Type.BOOTS, (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
         CARAMEL = ITEMS.register("caramel", () -> new Item(new Item.Properties().food(InspireFoods.CARAMEL).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        WET_SAND = ITEMS.register("wet_sand", () -> new BlockItem(InspireBlocks.WET_SAND.get() ,new Item.Properties().arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         //CHROMATIC_LAMP = ITEMS.register("chromatic_lamp", () -> new ItemNameBlockItem(InspireBlocks.CHROMATIC_LAMP.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         /*
             CREEPER_COOKIE = ITEMS.register("creeper_cookie", () -> new Item(new Item.Properties().food(InspireFoods.CREEPER_COOKIE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));

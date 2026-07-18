@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "inspire:block/celadon_froglight_top",
+    "side": "inspire:block/celadon_froglight_side"
+  }
+}

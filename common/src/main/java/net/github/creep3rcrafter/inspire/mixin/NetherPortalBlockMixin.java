@@ -34,7 +34,7 @@ public abstract class NetherPortalBlockMixin extends Block implements SimpleWate
     }
 
     @WrapMethod(method = "createBlockStateDefinition")
-    protected void wrapcreateBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder, Operation<Void> original) {
+    protected void wrapCreateBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder, Operation<Void> original) {
         builder.add(BlockStateProperties.WATERLOGGED);
         original.call(builder);
     }
@@ -45,11 +45,11 @@ public abstract class NetherPortalBlockMixin extends Block implements SimpleWate
     }
 
     @WrapMethod(method = "updateShape")
-    private BlockState wrapGetStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos, Operation<BlockState> original) {
-        if (state.getValue(BlockStateProperties.WATERLOGGED)) {
-            level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+    private BlockState wrapGetStateForNeighborUpdate(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2, Operation<BlockState> original) {
+        if (blockState.getValue(BlockStateProperties.WATERLOGGED)) {
+            levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
         }
-        return original.call(state, direction, neighborState, level, pos, neighborPos);
+        return original.call(blockState, direction, blockState2, levelAccessor, blockPos, blockPos2);
     }
 
     @Inject(method = "animateTick", at = @At("TAIL"))

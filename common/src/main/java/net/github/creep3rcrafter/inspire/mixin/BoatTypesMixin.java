@@ -19,15 +19,15 @@ public abstract class BoatTypesMixin {
     @Final
     private static Boat.Type[] $VALUES;
     @Unique
-    private static final Boat.Type CRIMSON = addType(Blocks.CRIMSON_PLANKS, "crimson");
+    private static final Boat.Type CRIMSON = inspire$addType(Blocks.CRIMSON_PLANKS, "crimson");
     @Unique
-    private static final Boat.Type WARPED = addType(Blocks.WARPED_PLANKS, "warped");
+    private static final Boat.Type WARPED = inspire$addType(Blocks.WARPED_PLANKS, "warped");
     @Unique
-    private static final Boat.Type WITHERED = addType(InspireBlocks.WITHERED_PLANKS.getOrNull(), "withered");
+    private static final Boat.Type WITHERED = inspire$addType(InspireBlocks.WITHERED_PLANKS.getOrNull(), "withered");
     @Unique
-    private static final Boat.Type PINE = addType(InspireBlocks.PINE_PLANKS.getOrNull(), "pine");
+    private static final Boat.Type PINE = inspire$addType(InspireBlocks.PINE_PLANKS.getOrNull(), "pine");
     @Unique
-    private static final Boat.Type REDWOOD = addType(InspireBlocks.REDWOOD_PLANKS.getOrNull(), "redwood");
+    private static final Boat.Type REDWOOD = inspire$addType(InspireBlocks.REDWOOD_PLANKS.getOrNull(), "redwood");
 
     @Invoker("<init>")
     private static Boat.Type invokeInit(String enumName, int internalId, Block wood, String name) {
@@ -35,7 +35,7 @@ public abstract class BoatTypesMixin {
     }
 
     @Unique
-    private static Boat.Type addType(Block block, String name) {
+    private static Boat.Type inspire$addType(Block block, String name) {
         List<Boat.Type> variants = new ArrayList<>(Arrays.asList($VALUES));
         Boat.Type type = invokeInit(name.toUpperCase(), variants.get(variants.size() - 1).ordinal() + 1, block, name);
         variants.add(type);
@@ -44,7 +44,7 @@ public abstract class BoatTypesMixin {
     }
 
     @Unique
-    private static Boat.Type addType(RegistrySupplier<Block> blockRegistrySupplier, String name) {
+    private static Boat.Type inspire$addType(RegistrySupplier<Block> blockRegistrySupplier, String name) {
         List<Boat.Type> variants = new ArrayList<>(Arrays.asList($VALUES));
         Boat.Type type = invokeInit(name.toUpperCase(), variants.get(variants.size() - 1).ordinal() + 1, blockRegistrySupplier.get(), name);
         variants.add(type);

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(Projectile.class)
 public abstract class ProjectileMixin {
-    @Redirect(method = {"shoot"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;triangle(DD)D"), require = 3)
+    @Redirect(method = {"getMovementToShoot"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;triangle(DD)D"), require = 3)
     private double redirectShoot(RandomSource instance, double d, double e) {
         if ((Projectile) (Object) this instanceof CustomArrowEntity customArrow) {
             if (customArrow.getTail() == 0.0f) {

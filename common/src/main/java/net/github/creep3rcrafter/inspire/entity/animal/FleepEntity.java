@@ -86,12 +86,13 @@ public class FleepEntity extends Sheep {
         TORCHFLOWER("torchflower", Blocks.TORCHFLOWER.defaultBlockState(), DyeColor.ORANGE),
         WITHER_ROSE("wither_rose", Blocks.WITHER_ROSE.defaultBlockState(), DyeColor.BLACK),
         PINK_PETALS("pink_petals", Blocks.PINK_PETALS.defaultBlockState(), DyeColor.PINK),
-        PITCHER_PLANT("pitcher_plant", Blocks.PITCHER_CROP.defaultBlockState(), DyeColor.CYAN),
+        PITCHER_PLANT("pitcher_plant", Blocks.PITCHER_PLANT.defaultBlockState(), DyeColor.CYAN),
         LILAC("lilac", Blocks.LILAC.defaultBlockState(), DyeColor.MAGENTA),
         PEONY("peony", Blocks.PEONY.defaultBlockState(), DyeColor.PINK),
         ROSE_BUSH("rose_bush", Blocks.ROSE_BUSH.defaultBlockState(), DyeColor.RED),
         SUNFLOWER("sunflower", Blocks.SUNFLOWER.defaultBlockState(), DyeColor.YELLOW),
-        BAMBOO("bamboo", Blocks.BAMBOO.defaultBlockState(), DyeColor.LIME);
+        BAMBOO("bamboo", Blocks.BAMBOO.defaultBlockState(), DyeColor.LIME),
+        SPORE_BLOSSOM("spore_blossom", Blocks.SPORE_BLOSSOM.defaultBlockState(), DyeColor.PINK);
 
         private final String name;
         private final BlockState flower;

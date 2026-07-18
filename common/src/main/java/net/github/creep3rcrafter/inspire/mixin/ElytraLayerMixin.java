@@ -83,12 +83,11 @@ public class ElytraLayerMixin<T extends LivingEntity, M extends EntityModel<T>> 
     private void injectRender(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, T livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo ci) {
         ItemStack itemStack = livingEntity.getItemBySlot(EquipmentSlot.CHEST);
         if (itemStack.is(InspireItems.CRAFTED_ELYTRA.get())) {
-            ResourceLocation resourceLocation = BASIC_ELYTRA;
             poseStack.pushPose();
             poseStack.translate(0.0, 0.0, 0.125);
             this.getParentModel().copyPropertiesTo(this.elytraModel);
             this.elytraModel.setupAnim(livingEntity, f, g, j, k, l);
-            VertexConsumer vertexConsumer = ItemRenderer.getArmorFoilBuffer(multiBufferSource, RenderType.armorCutoutNoCull(resourceLocation), itemStack.hasFoil());
+            VertexConsumer vertexConsumer = ItemRenderer.getArmorFoilBuffer(multiBufferSource, RenderType.armorCutoutNoCull(BASIC_ELYTRA), itemStack.hasFoil());
             this.elytraModel.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY);
             poseStack.popPose();
         }

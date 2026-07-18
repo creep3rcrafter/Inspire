@@ -29,16 +29,16 @@ public abstract class PortalShapeMixin {
 
     @Shadow
     @Final
-    private LevelAccessor levelAccessor;
+    public LevelAccessor level;
 
     @Inject(method = "isEmpty", at = @At("RETURN"), cancellable = true)
-    private static void injectValidStateInsidePortal(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(cir.getReturnValue() || state.is(Blocks.WATER) || state.is(InspireBlocks.HYDRO_FIRE.get()));
+    private static void injectValidStateInsidePortal(BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(cir.getReturnValue() || blockState.is(Blocks.WATER) || blockState.is(InspireBlocks.HYDRO_FIRE.get()));
     }
 
     @Redirect(method = "createPortalBlocks", at = @At(value = "INVOKE", target = "Ljava/lang/Iterable;forEach(Ljava/util/function/Consumer;)V"))
-    public void redirectcreatePortalBlocks(Iterable<BlockPos> instance, Consumer<Void> consumer) {
+    public void redirectcreatePortalBlocks(Iterable<BlockPos> instance, Consumer<Void> action) {
         BlockState blockState = (BlockState) Blocks.NETHER_PORTAL.defaultBlockState().setValue(NetherPortalBlock.AXIS, axis);
-        instance.forEach(blockPos -> this.levelAccessor.setBlock(blockPos, blockState.setValue(BlockStateProperties.WATERLOGGED, levelAccessor.getFluidState(blockPos).getType() == Fluids.WATER), 18));
+        instance.forEach(blockPos -> this.level.setBlock(blockPos, blockState.setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(blockPos).getType() == Fluids.WATER), 18));
     }
 }

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "inspire:block/dry_sand"
+    },
+    "moisture=1": {
+      "model": "inspire:block/wet_sand"
+    },
+    "moisture=2": {
+      "model": "inspire:block/wet_sand"
+    },
+    "moisture=3": {
+      "model": "inspire:block/wet_sand"
+    },
+    "moisture=4": {
+      "model": "inspire:block/wet_sand"
+    },
+    "moisture=5": {
+      "model": "inspire:block/wet_sand"
+    },
+    "moisture=6": {
+      "model": "inspire:block/wet_sand"
+    },
+    "moisture=7": {
+      "model": "inspire:block/wet_sand"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "inspire:block/icicle",
+  "textures": {
+    "cross": "inspire:block/icicle_down_tip"
+  }
+}

@@ -1,5 +1,6 @@
 package net.github.creep3rcrafter.inspire.fabric.datagen;
 
+import com.google.gson.JsonElement;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.github.creep3rcrafter.inspire.InspireCommon;
@@ -7,6 +8,7 @@ import net.github.creep3rcrafter.inspire.register.InspireBlockFamilies;
 import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.github.creep3rcrafter.inspire.utils.BetterBlockFamilies;
 import net.github.creep3rcrafter.inspire.utils.BetterBlockFamily;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
@@ -16,15 +18,16 @@ import net.minecraft.data.models.blockstates.*;
 import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 import net.minecraft.world.level.block.state.properties.SlabType;
+import org.intellij.lang.annotations.Identifier;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Supplier;
 
 public class InspireFabricModelProvider extends FabricModelProvider {
     public InspireFabricModelProvider(FabricDataOutput output) {
@@ -121,7 +124,78 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         customBlockFamily(BetterBlockFamilies.MANGROVE_FAMILY, blockStateModelGenerator);
         customBlockFamily(BetterBlockFamilies.CHERRY_FAMILY, blockStateModelGenerator);
         customBlockFamily(BetterBlockFamilies.BRICKS_FAMILY, blockStateModelGenerator);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.AMARANTH_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.BLUSH_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.CELADON_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.CLOUDY_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.COBALT_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.CRIMSON_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.FROSTED_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.MIDNIGHT_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.MISTY_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.SEAFOAM_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.UMBER_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.WARM_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.SKY_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
+        blockStateModelGenerator.blockEntityModels(ModelLocationUtils.decorateBlockModelLocation("bed"), Blocks.OAK_PLANKS).createWithoutBlockItem(InspireBlocks.BED.get());
+        blockStateModelGenerator.createFullAndCarpetBlocks(InspireBlocks.WOOL.get(), InspireBlocks.CARPET.get());
+        blockStateModelGenerator.createTrivialCube(InspireBlocks.CONCRETE.get());
+        blockStateModelGenerator.createColoredBlockWithRandomRotations(TexturedModel.CUBE, InspireBlocks.CONCRETE_POWDER.get());
+        blockStateModelGenerator.createColoredBlockWithStateRotations(TexturedModel.GLAZED_TERRACOTTA, InspireBlocks.GLAZED_TERRACOTTA.get());
+        //createGlassPane(blockStateModelGenerator, Blocks.TINTED_GLASS, InspireBlocks.TINTED_GLASS_PANE.get());
+        //createIcicle(blockStateModelGenerator);
+    }
+    public final void createGlassPane(BlockModelGenerators blockModelGenerators, Block block, Block block2) {
+        TextureMapping textureMapping = TextureMapping.pane(block, block2);
+        ResourceLocation resourceLocation = ModelTemplates.STAINED_GLASS_PANE_POST.create(block2, textureMapping, blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation2 = ModelTemplates.STAINED_GLASS_PANE_SIDE.create(block2, textureMapping, blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation3 = ModelTemplates.STAINED_GLASS_PANE_SIDE_ALT.create(block2, textureMapping, blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation4 = ModelTemplates.STAINED_GLASS_PANE_NOSIDE.create(block2, textureMapping, blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation5 = ModelTemplates.STAINED_GLASS_PANE_NOSIDE_ALT.create(block2, textureMapping, blockModelGenerators.modelOutput);
+        Item item = block2.asItem();
+        ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(item), TextureMapping.layer0(block), blockModelGenerators.modelOutput);
+        blockModelGenerators.blockStateOutput.accept(MultiPartGenerator.multiPart(block2)
+                .with(Variant.variant().with(VariantProperties.MODEL, resourceLocation))
+                .with(Condition.condition().term(BlockStateProperties.NORTH, true), Variant.variant()
+                        .with(VariantProperties.MODEL, resourceLocation2))
+                .with(Condition.condition().term(BlockStateProperties.EAST, true), Variant.variant()
+                        .with(VariantProperties.MODEL, resourceLocation2)
+                        .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90))
+                .with(Condition.condition().term(BlockStateProperties.SOUTH, true), Variant.variant()
+                        .with(VariantProperties.MODEL, resourceLocation3))
+                .with(Condition.condition().term(BlockStateProperties.WEST, true), Variant.variant()
+                        .with(VariantProperties.MODEL, resourceLocation3)
+                        .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90))
+                .with(Condition.condition().term(BlockStateProperties.NORTH, false), Variant.variant()
+                        .with(VariantProperties.MODEL, resourceLocation4))
+                .with(Condition.condition().term(BlockStateProperties.EAST, false), Variant.variant()
+                        .with(VariantProperties.MODEL, resourceLocation5))
+                .with(Condition.condition().term(BlockStateProperties.SOUTH, false), Variant.variant()
+                        .with(VariantProperties.MODEL, resourceLocation5).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90))
+                .with(Condition.condition().term(BlockStateProperties.WEST, false), Variant.variant()
+                        .with(VariantProperties.MODEL, resourceLocation4).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)));
+    }
+    private void createIcicle(BlockModelGenerators blockModelGenerators) {
+        blockModelGenerators.skipAutoItemBlock(InspireBlocks.ICICLE.get());
+        PropertyDispatch.C2<Direction, DripstoneThickness> c2 = PropertyDispatch.properties(BlockStateProperties.VERTICAL_DIRECTION, BlockStateProperties.DRIPSTONE_THICKNESS);
 
+        for(DripstoneThickness dripstoneThickness : DripstoneThickness.values()) {
+            c2.select(Direction.UP, dripstoneThickness, createIcicleVariant(blockModelGenerators, Direction.UP, dripstoneThickness));
+        }
+
+        for(DripstoneThickness dripstoneThickness : DripstoneThickness.values()) {
+            c2.select(Direction.DOWN, dripstoneThickness, createIcicleVariant(blockModelGenerators, Direction.DOWN, dripstoneThickness));
+        }
+
+        blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.multiVariant(InspireBlocks.ICICLE.get()).with(c2));
+    }
+    public final Variant createIcicleVariant(BlockModelGenerators blockModelGenerators, Direction direction, DripstoneThickness dripstoneThickness) {
+        String string = "_" + direction.getSerializedName() + "_" + dripstoneThickness.getSerializedName();
+        TextureMapping textureMapping = TextureMapping.cross(TextureMapping.getBlockTexture(InspireBlocks.ICICLE.get(), string));
+        return Variant.variant().with(VariantProperties.MODEL, new ModelTemplate(Optional
+                .of(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/icicle" + string)),Optional.empty(), TextureSlot.CROSS)
+                .createWithSuffix(InspireBlocks.ICICLE.get(), string, textureMapping, blockModelGenerators.modelOutput));
     }
     public static void customBlockFamily(BetterBlockFamily betterBlockFamily, BlockModelGenerators blockStateModelGenerator) {
         if(betterBlockFamily.main != null) {

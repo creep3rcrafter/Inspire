@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @SuppressWarnings("unused")
 @Mixin(Level.class)
 public abstract class WorldComparatorMixin {//Makes Prismarine/Bluestone Comparator work
-
     @Redirect(method = "updateNeighbourForOutputSignal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"), require = 2)
     private boolean redirectUpdateComparators(BlockState instance, Block block) {
         return instance.is(block) || instance.is(InspireBlocks.BLUESTONE_COMPARATOR.get());

@@ -46,3 +46,4 @@ extendable method net/minecraft/client/model/BoatModel setupAnim (Lnet/minecraft
 extendable method net/minecraft/client/model/Model renderType (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
 extendable method net/minecraft/client/model/ListModel renderToBuffer (Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V
 extendable method net/minecraft/client/model/BoatModel waterPatch ()Lnet/minecraft/client/model/geom/ModelPart;
+extendable method net/minecraft/world/level/block/RedStoneWireBlock getConnectionState (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;

@@ -7,12 +7,18 @@ import net.github.creep3rcrafter.inspire.entity.animal.WitherSkeletonHorseEntity
 import net.github.creep3rcrafter.inspire.entity.hostile.SkeletonCreeperEntity;
 import net.github.creep3rcrafter.inspire.entity.hostile.SkeletonPiglinEntity;
 import net.github.creep3rcrafter.inspire.entity.hostile.SunkenEntity;
+import net.github.creep3rcrafter.inspire.mixin.BlockEntityTypeAccessor;
 import net.github.creep3rcrafter.inspire.network.InspireNetworking;
 import net.github.creep3rcrafter.inspire.register.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 //@SuppressWarnings("deprecation")
@@ -30,6 +36,11 @@ public final class InspireCommon {
         InspireEntityTypes.ENTITY_TYPES.register();
         InspireFluids.FLUIDS.register();
         InspireBlocks.BLOCKS.register();
+        BlockEntityTypeAccessor accessor =
+                (BlockEntityTypeAccessor) (Object) BlockEntityType.COMPARATOR;
+        Set<Block> blocks = new HashSet<>(accessor.inspire$getValidBlocks());
+        blocks.add(InspireBlocks.BLUESTONE_COMPARATOR.get());
+        accessor.inspire$setValidBlocks(Set.copyOf(blocks));
         InspireBlockEntityTypes.BLOCK_ENTITY_TYPES.register();
         InspireItems.ITEMS.register();
         InspireEffects.EFFECTS.register();

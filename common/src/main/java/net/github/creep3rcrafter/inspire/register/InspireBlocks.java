@@ -979,6 +979,10 @@ public class InspireBlocks {
 
     public static final RegistrySupplier<Block> FILTERED_HOPPER;
     public static final RegistrySupplier<Block> WET_SAND;
+    public static final RegistrySupplier<Block> STEM;
+    public static final RegistrySupplier<Block> WARPED_SOUL_SOIL;
+    public static final RegistrySupplier<Block> CRIMSON_SOUL_SOIL;
+    public static final RegistrySupplier<Block> CUT_SOUL_SANDSTONE;
 
 
     /*
@@ -1061,7 +1065,7 @@ public class InspireBlocks {
         BLUESTONE_REPEATER = BLOCKS.register("bluestone_repeater", () ->
                 new BluestoneRepeaterBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD)));
         BLUESTONE_COMPARATOR = BLOCKS.register("bluestone_comparator", () ->
-                new BluestoneComparatorBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD)));
+                new BluestoneComparatorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COMPARATOR)));
 
         PRISMARINE_LAMP = BLOCKS.register("prismarine_lamp", () ->
                 new RedstoneLampBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).lightLevel(litBlockEmission(15)).strength(0.3F).sound(SoundType.GLASS).isValidSpawn((state, getter, pos, entity) -> true)));
@@ -1087,6 +1091,7 @@ public class InspireBlocks {
         WITHERED_BONE_BLOCK = BLOCKS.register("withered_bone_block", () ->
                 new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(2.5F).sound(SoundType.BONE_BLOCK)));
 
+        STEM = BLOCKS.register("stem", () -> netherLog(MapColor.COLOR_GREEN));
         WITHERED_LOG = BLOCKS.register("withered_log", () -> netherLog(MapColor.COLOR_LIGHT_GRAY));
         STRIPPED_WITHERED_LOG = BLOCKS.register("stripped_withered_log", () -> netherLog(MapColor.COLOR_BLACK));
         WITHERED_WOOD = BLOCKS.register("withered_wood", () -> netherLog(MapColor.COLOR_LIGHT_GRAY));
@@ -2055,6 +2060,9 @@ public class InspireBlocks {
                 .hasPostProcess(InspireBlocks::always)
                 .emissiveRendering(InspireBlocks::always)));
         WET_SAND = BLOCKS.register("wet_sand", () -> new WetSandBlock(basicProperties("wet_sand").mapColor(MapColor.DIRT).randomTicks()));
+        WARPED_SOUL_SOIL = BLOCKS.register("warped_soul_soil", () -> new NyliumBlock(basicProperties("warped_soul_soil").mapColor(MapColor.DIRT)));
+        CRIMSON_SOUL_SOIL = BLOCKS.register("crimson_soul_soil", () -> new NyliumBlock(basicProperties("crimson_soul_soil").mapColor(MapColor.DIRT)));
+        CUT_SOUL_SANDSTONE = BLOCKS.register("cut_soul_sandstone", () -> new Block(basicProperties("cut_soul_sandstone").mapColor(MapColor.DIRT)));
     }
 
     private static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {

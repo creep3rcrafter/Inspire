@@ -7,9 +7,11 @@ import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RedStoneWireBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,7 +25,7 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
-@SuppressWarnings({"deprecation", "unused"})
+@SuppressWarnings({"unused"})
 public class BluestoneWireBlock extends RedStoneWireBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED;
     private static final Vec3[] COLORS;
@@ -40,7 +42,6 @@ public class BluestoneWireBlock extends RedStoneWireBlock implements SimpleWater
             }
         });
     }
-
     public BluestoneWireBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, false));
@@ -69,12 +70,17 @@ public class BluestoneWireBlock extends RedStoneWireBlock implements SimpleWater
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
-        if (blockState.getValue(WATERLOGGED)) {
-            levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
+    public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        if (state.getValue(WATERLOGGED)) {
+            level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
-        return super.updateShape(blockState, direction, blockState2, levelAccessor, blockPos, blockPos2).setValue(WATERLOGGED, levelAccessor.getFluidState(blockPos).getType() == Fluids.WATER);
+        BlockState updated = super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+        if (updated.isAir()) {
+            return state.getValue(WATERLOGGED) ? Blocks.WATER.defaultBlockState() : updated;
+        }
+        return updated.setValue(WATERLOGGED, state.getValue(WATERLOGGED));
     }
+
 
     private void spawnParticlesAlongLine(Level level, RandomSource random, BlockPos pos, Vec3 color, Direction dir1, Direction dir2, float minOffset, float maxOffset) {
         float spread = maxOffset - minOffset;
@@ -105,5 +111,14 @@ public class BluestoneWireBlock extends RedStoneWireBlock implements SimpleWater
                 }
             }
         }
+    }
+    @Override
+    protected boolean useShapeForLightOcclusion(BlockState state) {
+        return true;
+    }
+    @Override
+    public @NotNull BlockState getConnectionState(BlockGetter blockGetter, BlockState blockState, BlockPos blockPos) {
+        BlockState result = super.getConnectionState(blockGetter, blockState, blockPos);
+        return result.setValue(WATERLOGGED, blockState.getValue(WATERLOGGED));
     }
 }

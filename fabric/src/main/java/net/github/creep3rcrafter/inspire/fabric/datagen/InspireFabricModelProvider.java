@@ -145,6 +145,9 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createColoredBlockWithStateRotations(TexturedModel.GLAZED_TERRACOTTA, InspireBlocks.GLAZED_TERRACOTTA.get());
         //createGlassPane(blockStateModelGenerator, Blocks.TINTED_GLASS, InspireBlocks.TINTED_GLASS_PANE.get());
         //createIcicle(blockStateModelGenerator);
+        blockStateModelGenerator.woodProvider(InspireBlocks.STEM.get()).logWithHorizontal(InspireBlocks.STEM.get());
+        blockStateModelGenerator.createNyliumBlock(InspireBlocks.CRIMSON_SOUL_SOIL.get());
+        blockStateModelGenerator.createNyliumBlock(InspireBlocks.WARPED_SOUL_SOIL.get());
     }
     public final void createGlassPane(BlockModelGenerators blockModelGenerators, Block block, Block block2) {
         TextureMapping textureMapping = TextureMapping.pane(block, block2);

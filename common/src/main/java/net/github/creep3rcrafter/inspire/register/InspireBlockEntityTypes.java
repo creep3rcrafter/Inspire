@@ -9,6 +9,7 @@ import net.github.creep3rcrafter.inspire.block.entity.FilteredHopperBlockEntity;
 import net.github.creep3rcrafter.inspire.block.entity.RegularBedBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.ComparatorBlockEntity;
 
 public class InspireBlockEntityTypes {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(InspireCommon.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
@@ -17,6 +18,7 @@ public class InspireBlockEntityTypes {
     public static final RegistrySupplier<BlockEntityType<BreakerBlockEntity>> BREAKER;
     public static final RegistrySupplier<BlockEntityType<CursedTableBlockEntity>> CURSED_TABLE;
     public static final RegistrySupplier<BlockEntityType<FilteredHopperBlockEntity>> FILTERED_HOPPER;
+    //public static final RegistrySupplier<BlockEntityType<ComparatorBlockEntity>> BLUESTONE_COMPARATOR;
 
     // BlockEntityType registration for 1.21.1 - disabled due to constructor signature changes
     // The exact constructor signature is unclear for 1.21.1
@@ -41,5 +43,6 @@ public class InspireBlockEntityTypes {
                 "cursed_table", () -> BlockEntityType.Builder.of(CursedTableBlockEntity::new, InspireBlocks.CURSED_TABLE.get()).build(null));
         FILTERED_HOPPER = BLOCK_ENTITY_TYPES.register(
                 "filtered_hopper", () -> BlockEntityType.Builder.of(FilteredHopperBlockEntity::new, InspireBlocks.FILTERED_HOPPER.get()).build(null));
+        //BLUESTONE_COMPARATOR = BLOCK_ENTITY_TYPES.register("bluestone_comparator", () -> BlockEntityType.Builder.of(ComparatorBlockEntity::new, InspireBlocks.BLUESTONE_COMPARATOR.get()).build(null));
     }
 }

@@ -33,6 +33,7 @@
     "inspire:deepslate_prismarine_ore",
     "inspire:bluestone_block",
     "inspire:withered_bone_block",
+    "inspire:stem",
     "inspire:withered_log",
     "inspire:stripped_withered_log",
     "inspire:withered_wood",
@@ -865,6 +866,9 @@
     "inspire:unstable_cobblestone",
     "inspire:warped_nylium_shelf",
     "inspire:crimson_nylium_shelf",
-    "inspire:wet_sand"
+    "inspire:wet_sand",
+    "inspire:warped_soul_soil",
+    "inspire:crimson_soul_soil",
+    "inspire:cut_soul_sandstone"
   ]
 }

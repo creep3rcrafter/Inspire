@@ -20,6 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 import net.minecraft.world.level.block.state.properties.SlabType;
@@ -148,6 +149,7 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         blockStateModelGenerator.woodProvider(InspireBlocks.STEM.get()).logWithHorizontal(InspireBlocks.STEM.get());
         blockStateModelGenerator.createNyliumBlock(InspireBlocks.CRIMSON_SOUL_SOIL.get());
         blockStateModelGenerator.createNyliumBlock(InspireBlocks.WARPED_SOUL_SOIL.get());
+        blockStateModelGenerator.createPlant(InspireBlocks.DANDELION_PUFF.get(), InspireBlocks.POTTED_DANDELION_PUFF.get(), BlockModelGenerators.TintState.NOT_TINTED);
     }
     public final void createGlassPane(BlockModelGenerators blockModelGenerators, Block block, Block block2) {
         TextureMapping textureMapping = TextureMapping.pane(block, block2);

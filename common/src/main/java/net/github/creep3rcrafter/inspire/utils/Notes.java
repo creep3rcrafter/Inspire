@@ -2,6 +2,11 @@ package net.github.creep3rcrafter.inspire.utils;
 
 public class Notes {
     /*
+    potion enchantments
+    life steal enchantment
+    attack speed enchantment/swift for bows
+    lightning enchantment
+
     large raw gold nugget
     raw gold nugget
     cobble = gravel, sand, gold nuggets

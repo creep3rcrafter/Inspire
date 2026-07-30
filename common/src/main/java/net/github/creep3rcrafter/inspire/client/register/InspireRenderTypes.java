@@ -25,5 +25,7 @@ public class InspireRenderTypes {
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.WITHERED_TRAPDOOR.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.WITHERED_SAPLING.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.POTTED_WITHERED_SAPLING.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.POTTED_DANDELION_PUFF.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.DANDELION_PUFF.get());
     }
 }

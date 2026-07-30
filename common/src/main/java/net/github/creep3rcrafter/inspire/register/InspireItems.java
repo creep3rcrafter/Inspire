@@ -15,6 +15,7 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("UnstableApiUsage")
@@ -1164,6 +1165,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CUT_SOUL_SANDSTONE;
     public static final RegistrySupplier<Item> CRIMSON_SOUL_SOIL;
     public static final RegistrySupplier<Item> WARPED_SOUL_SOIL;
+    public static final RegistrySupplier<Item> DANDELION_PUFF;
     /*
     public static final RegistrySupplier<Item> POLISHED_NETHER_BRICKS;
     public static final RegistrySupplier<Item> CRACKED_POLISHED_RED_NETHER_BRICKS;
@@ -3991,6 +3993,7 @@ public class InspireItems {
         MUSIC_DISC_THE_END = registerNonBasicMusicDisc("music_disc_the_end",new Item.Properties().rarity(Rarity.RARE), InspireJukeBoxSongs.MUSIC_DISC_THE_END);
         MUSIC_DISC_BOSS = registerNonBasicMusicDisc("music_disc_boss", new Item.Properties().rarity(Rarity.EPIC).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true), InspireJukeBoxSongs.MUSIC_DISC_BOSS);
         MUSIC_DISC_ALPHA = registerNonBasicMusicDisc("music_disc_alpha", new Item.Properties().rarity(Rarity.EPIC).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true), InspireJukeBoxSongs.MUSIC_DISC_ALPHA);
+        DANDELION_PUFF = ITEMS.register("dandelion_puff", () -> new DandelionPuffItem(new Item.Properties()));
     }
     private static RegistrySupplier<Item> registerBasicMusicDisc(String name, ResourceKey<JukeboxSong> jukeboxSongResourceKey) {
         return ITEMS.register(name, () -> new Item(basicProperties(name)

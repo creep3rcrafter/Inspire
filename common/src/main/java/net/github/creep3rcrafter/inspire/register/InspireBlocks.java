@@ -9,6 +9,7 @@ import net.github.creep3rcrafter.inspire.block.entity.IcicleBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
@@ -983,6 +984,9 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> WARPED_SOUL_SOIL;
     public static final RegistrySupplier<Block> CRIMSON_SOUL_SOIL;
     public static final RegistrySupplier<Block> CUT_SOUL_SANDSTONE;
+
+    public static final RegistrySupplier<Block> DANDELION_PUFF;
+    public static final RegistrySupplier<Block> POTTED_DANDELION_PUFF;
 
 
     /*
@@ -2063,6 +2067,8 @@ public class InspireBlocks {
         WARPED_SOUL_SOIL = BLOCKS.register("warped_soul_soil", () -> new NyliumBlock(basicProperties("warped_soul_soil").mapColor(MapColor.DIRT)));
         CRIMSON_SOUL_SOIL = BLOCKS.register("crimson_soul_soil", () -> new NyliumBlock(basicProperties("crimson_soul_soil").mapColor(MapColor.DIRT)));
         CUT_SOUL_SANDSTONE = BLOCKS.register("cut_soul_sandstone", () -> new Block(basicProperties("cut_soul_sandstone").mapColor(MapColor.DIRT)));
+        DANDELION_PUFF = BLOCKS.register("dandelion_puff", () -> new FlowerBlock(MobEffects.SATURATION, 0.35F, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+        POTTED_DANDELION_PUFF = BLOCKS.register("potted_dandelion_puff", () -> new FlowerPotBlock(InspireBlocks.DANDELION_PUFF.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
     }
 
     private static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {

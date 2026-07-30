@@ -4,25 +4,25 @@
       "model": "inspire:block/dry_sand"
     },
     "moisture=1": {
-      "model": "inspire:block/wet_sand"
+      "model": "inspire:block/wet_sand_1"
     },
     "moisture=2": {
-      "model": "inspire:block/wet_sand"
+      "model": "inspire:block/wet_sand_2"
     },
     "moisture=3": {
-      "model": "inspire:block/wet_sand"
+      "model": "inspire:block/wet_sand_3"
     },
     "moisture=4": {
-      "model": "inspire:block/wet_sand"
+      "model": "inspire:block/wet_sand_4"
     },
     "moisture=5": {
-      "model": "inspire:block/wet_sand"
+      "model": "inspire:block/wet_sand_5"
     },
     "moisture=6": {
-      "model": "inspire:block/wet_sand"
+      "model": "inspire:block/wet_sand_6"
     },
     "moisture=7": {
-      "model": "inspire:block/wet_sand"
+      "model": "inspire:block/wet_sand_7"
     }
   }
 }

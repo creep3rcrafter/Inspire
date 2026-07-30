@@ -69,20 +69,26 @@ public class WetSandBlock extends Block {
     protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
         super.randomTick(blockState, serverLevel, blockPos, randomSource);
         int i = (Integer)blockState.getValue(MOISTURE);
-        if (!betterIsNearWater(serverLevel, blockPos) && !serverLevel.isRainingAt(blockPos.above())) {
+        int nearbyMoisture = getNearbyMoisture(serverLevel, blockPos);
+        boolean raining = serverLevel.isRainingAt(blockPos.above());
+        if (!(nearbyMoisture > 0) && !raining) {
             if (i > 0) {
                 serverLevel.setBlock(blockPos, blockState.setValue(MOISTURE, i - 1), Block.UPDATE_CLIENTS);
             }else{
                 turnToSand(blockState, serverLevel,blockPos);
             }
-        } else if (i < 7) {
-            serverLevel.setBlock(blockPos, blockState.setValue(MOISTURE, 7), Block.UPDATE_CLIENTS);
+        }else{
+            serverLevel.setBlock(blockPos, blockState.setValue(MOISTURE, nearbyMoisture - 1), Block.UPDATE_CLIENTS);
+        }
+        if (i == 0){
+            turnToSand(blockState, serverLevel, blockPos);
         }
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(new Property[]{MOISTURE});
     }
+    /*
     @Override
     public void fallOn(Level level, BlockState blockState, BlockPos blockPos, Entity entity, float f) {
         if (!level.isClientSide && level.random.nextFloat() < f - 0.5F && entity instanceof LivingEntity && (entity instanceof Player || level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) && entity.getBbWidth() * entity.getBbWidth() * entity.getBbHeight() > 0.512F) {
@@ -90,6 +96,7 @@ public class WetSandBlock extends Block {
         }
         super.fallOn(level, blockState, blockPos, entity, f);
     }
+     */
 
     @Override
     public @NotNull List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
@@ -128,47 +135,27 @@ public class WetSandBlock extends Block {
         }
 
     }
-    private static boolean isNearWater(LevelReader levelReader, BlockPos blockPos) {
-        for(BlockPos blockPos2 : BlockPos.betweenClosed(blockPos.offset(-4, -4, -4), blockPos.offset(4, 4, 4))) {
-            if (levelReader.getFluidState(blockPos2).is(FluidTags.WATER)) {
-                return true;
+    public static int getNearbyMoisture(LevelReader level, BlockPos pos) {
+        int highestMoisture = 0;
+
+        for (Direction direction : Direction.values()) {
+            BlockPos neighbor = pos.relative(direction);
+            if (level.getFluidState(neighbor).is(FluidTags.WATER)) {
+                return 8;
+            }
+            BlockState state = level.getBlockState(neighbor);
+            if (state.getBlock() instanceof WetSandBlock && state.hasProperty(WetSandBlock.MOISTURE)) {
+                highestMoisture = Math.max(highestMoisture, state.getValue(WetSandBlock.MOISTURE));
             }
         }
-
-        return false;
-    }
-    private static boolean betterIsNearWater(LevelReader level, BlockPos start) {
-        Set<BlockPos> visited = new HashSet<>();
-        Queue<BlockPos> queue = new ArrayDeque<>();
-
-        queue.add(start);
-        visited.add(start);
-
-        int maxDistance = 4;
-
-        while (!queue.isEmpty()) {
-            BlockPos pos = queue.poll();
-
-            for (Direction direction : Direction.values()) {
-                BlockPos next = pos.relative(direction);
-
-                if (level.getFluidState(next).is(FluidTags.WATER)) {
-                    return true;
-                }
-
-                if (next.distManhattan(start) <= maxDistance
-                        && !visited.contains(next)
-                        && level.getBlockState(next).getBlock() instanceof WetSandBlock) {
-                    visited.add(next);
-                    queue.add(next);
-                }
-            }
-        }
-
-        return false;
+        return highestMoisture;
     }
     public static void turnToSand(BlockState blockState, Level level, BlockPos blockPos) {
-        level.setBlock(blockPos, blockState.setValue(MOISTURE, 0), Block.UPDATE_CLIENTS);
+        if (FallingBlock.isFree(level.getBlockState(blockPos.below()))) {
+            level.setBlock(blockPos, blockState.setValue(MOISTURE, 0), Block.UPDATE_CLIENTS);
+        }else{
+            level.setBlock(blockPos, Blocks.SAND.defaultBlockState(), Block.UPDATE_CLIENTS);
+        }
     }
     private static void spawnDripParticle(Level level, BlockPos blockPos, BlockState blockState) {
         Vec3 vec3 = blockState.getOffset(level, blockPos);

@@ -13,45 +13,112 @@ public class InspireWoodBark {
 
     //Add Honey as a fluid <-----------------------------------<---------------------------<----------------------<-------
     static {
-        register(Blocks.OAK_LOG,
+        register(Blocks.STRIPPED_OAK_LOG,
                 new ItemStack(InspireItems.OAK_BARK.get().arch$holder().value(), 4));
-        register(Blocks.OAK_WOOD,
+        register(Blocks.STRIPPED_OAK_WOOD,
                 new ItemStack(InspireItems.OAK_BARK.get().arch$holder().value(), 6));
-        register(Blocks.SPRUCE_LOG,
+        register(Blocks.STRIPPED_SPRUCE_LOG,
                 new ItemStack(InspireItems.SPRUCE_BARK.get().arch$holder().value(), 4));
-        register(Blocks.SPRUCE_WOOD,
+        register(Blocks.STRIPPED_SPRUCE_WOOD,
                 new ItemStack(InspireItems.SPRUCE_BARK.get().arch$holder().value(), 6));
-        register(Blocks.BIRCH_LOG,
+        register(Blocks.STRIPPED_BIRCH_LOG,
                 new ItemStack(InspireItems.BIRCH_BARK.get().arch$holder().value(), 4));
-        register(Blocks.BIRCH_WOOD,
+        register(Blocks.STRIPPED_BIRCH_WOOD,
                 new ItemStack(InspireItems.BIRCH_BARK.get().arch$holder().value(), 6));
-        register(Blocks.JUNGLE_LOG,
+        register(Blocks.STRIPPED_JUNGLE_LOG,
                 new ItemStack(InspireItems.JUNGLE_BARK.get().arch$holder().value(), 4));
-        register(Blocks.JUNGLE_WOOD,
+        register(Blocks.STRIPPED_JUNGLE_WOOD,
                 new ItemStack(InspireItems.JUNGLE_BARK.get().arch$holder().value(), 6));
-        register(Blocks.ACACIA_LOG,
+        register(Blocks.STRIPPED_ACACIA_LOG,
                 new ItemStack(InspireItems.ACACIA_BARK.get().arch$holder().value(), 4));
-        register(Blocks.ACACIA_WOOD,
+        register(Blocks.STRIPPED_ACACIA_WOOD,
                 new ItemStack(InspireItems.ACACIA_BARK.get().arch$holder().value(), 6));
-        register(Blocks.DARK_OAK_LOG,
+        register(Blocks.STRIPPED_DARK_OAK_LOG,
                 new ItemStack(InspireItems.DARK_OAK_BARK.get().arch$holder().value(), 4));
-        register(Blocks.DARK_OAK_WOOD,
+        register(Blocks.STRIPPED_DARK_OAK_WOOD,
                 new ItemStack(InspireItems.DARK_OAK_BARK.get().arch$holder().value(), 6));
-        register(Blocks.MANGROVE_LOG,
+        register(Blocks.STRIPPED_MANGROVE_LOG,
                 new ItemStack(InspireItems.MANGROVE_BARK.get().arch$holder().value(), 4));
-        register(Blocks.MANGROVE_WOOD,
+        register(Blocks.STRIPPED_MANGROVE_WOOD,
                 new ItemStack(InspireItems.MANGROVE_BARK.get().arch$holder().value(), 6));
-        register(InspireBlocks.WITHERED_LOG.get(),
+        register(InspireBlocks.STRIPPED_WITHERED_LOG.get(),
                 new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 4));
-        register(InspireBlocks.WITHERED_WOOD.get(),
+        register(InspireBlocks.STRIPPED_WITHERED_WOOD.get(),
                 new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 6));
-        register(InspireBlocks.PINE_LOG.get(),
+
+        register(InspireBlocks.STRIPPED_OAK_LOG_FENCE.get(),
+                new ItemStack(InspireItems.OAK_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_OAK_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.OAK_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_SPRUCE_LOG_FENCE.get(),
+                new ItemStack(InspireItems.SPRUCE_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_SPRUCE_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.SPRUCE_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_BIRCH_LOG_FENCE.get(),
+                new ItemStack(InspireItems.BIRCH_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_BIRCH_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.BIRCH_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_JUNGLE_LOG_FENCE.get(),
+                new ItemStack(InspireItems.JUNGLE_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_JUNGLE_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.JUNGLE_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_ACACIA_LOG_FENCE.get(),
+                new ItemStack(InspireItems.ACACIA_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_ACACIA_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.ACACIA_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_DARK_OAK_LOG_FENCE.get(),
+                new ItemStack(InspireItems.DARK_OAK_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_DARK_OAK_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.DARK_OAK_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_MANGROVE_LOG_FENCE.get(),
+                new ItemStack(InspireItems.MANGROVE_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_MANGROVE_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.MANGROVE_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_WITHERED_LOG_FENCE.get(),
+                new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_WITHERED_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 2));
+
+        register(InspireBlocks.STRIPPED_OAK_LOG_WALL.get(),
+                new ItemStack(InspireItems.OAK_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_OAK_WOOD_WALL.get(),
+                new ItemStack(InspireItems.OAK_BARK.get().arch$holder().value(), 3));
+        register(InspireBlocks.STRIPPED_SPRUCE_LOG_WALL.get(),
+                new ItemStack(InspireItems.SPRUCE_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_SPRUCE_WOOD_WALL.get(),
+                new ItemStack(InspireItems.SPRUCE_BARK.get().arch$holder().value(), 3));
+        register(InspireBlocks.STRIPPED_BIRCH_LOG_WALL.get(),
+                new ItemStack(InspireItems.BIRCH_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_BIRCH_WOOD_WALL.get(),
+                new ItemStack(InspireItems.BIRCH_BARK.get().arch$holder().value(), 3));
+        register(InspireBlocks.STRIPPED_JUNGLE_LOG_WALL.get(),
+                new ItemStack(InspireItems.JUNGLE_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_JUNGLE_WOOD_WALL.get(),
+                new ItemStack(InspireItems.JUNGLE_BARK.get().arch$holder().value(), 3));
+        register(InspireBlocks.STRIPPED_ACACIA_LOG_WALL.get(),
+                new ItemStack(InspireItems.ACACIA_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_ACACIA_WOOD_WALL.get(),
+                new ItemStack(InspireItems.ACACIA_BARK.get().arch$holder().value(), 3));
+        register(InspireBlocks.STRIPPED_DARK_OAK_LOG_WALL.get(),
+                new ItemStack(InspireItems.DARK_OAK_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_DARK_OAK_WOOD_WALL.get(),
+                new ItemStack(InspireItems.DARK_OAK_BARK.get().arch$holder().value(), 3));
+        register(InspireBlocks.STRIPPED_MANGROVE_LOG_WALL.get(),
+                new ItemStack(InspireItems.MANGROVE_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_MANGROVE_WOOD_WALL.get(),
+                new ItemStack(InspireItems.MANGROVE_BARK.get().arch$holder().value(), 3));
+        register(InspireBlocks.STRIPPED_WITHERED_LOG_WALL.get(),
+                new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_WITHERED_WOOD_WALL.get(),
+                new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 3));
+
+        register(InspireBlocks.STRIPPED_PINE_LOG.get(),
                 new ItemStack(InspireItems.PINE_BARK.get().arch$holder().value(), 4));
-        register(InspireBlocks.PINE_WOOD.get(),
+        register(InspireBlocks.STRIPPED_PINE_WOOD.get(),
                 new ItemStack(InspireItems.PINE_BARK.get().arch$holder().value(), 6));
-        register(InspireBlocks.REDWOOD_LOG.get(),
+        register(InspireBlocks.STRIPPED_REDWOOD_LOG.get(),
                 new ItemStack(InspireItems.REDWOOD_BARK.get().arch$holder().value(), 4));
-        register(InspireBlocks.REDWOOD_WOOD.get(),
+        register(InspireBlocks.STRIPPED_REDWOOD_WOOD.get(),
                 new ItemStack(InspireItems.REDWOOD_BARK.get().arch$holder().value(), 6));
         register(Blocks.WAXED_COPPER_BLOCK,
                 new ItemStack(Items.HONEYCOMB, 1));

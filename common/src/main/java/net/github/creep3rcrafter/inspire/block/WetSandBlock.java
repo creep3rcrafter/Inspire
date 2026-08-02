@@ -65,6 +65,7 @@ public class WetSandBlock extends Block {
         BlockState blockState = super.getStateForPlacement(blockPlaceContext);
         return blockState.setValue(MOISTURE, 7);
     }
+    //todo fix rain crashing game
     @Override
     protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
         super.randomTick(blockState, serverLevel, blockPos, randomSource);

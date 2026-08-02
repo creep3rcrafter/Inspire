@@ -1,0 +1,7 @@
+{
+  "parent": "inspire:block/template_wall_post_top",
+  "textures": {
+    "end": "inspire:block/birch_log_wall_top",
+    "side": "minecraft:block/birch_log"
+  }
+}

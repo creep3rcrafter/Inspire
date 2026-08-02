@@ -1,6 +1,7 @@
 package net.github.creep3rcrafter.inspire.fabric.datagen;
 
 import com.google.gson.JsonElement;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.github.creep3rcrafter.inspire.InspireCommon;
@@ -116,15 +117,15 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         customBlockFamily(BetterBlockFamilies.PURPUR_FAMILY, blockStateModelGenerator);
         customBlockFamily(BetterBlockFamilies.END_STONE_BRICKS_FAMILY, blockStateModelGenerator);
         customBlockFamily(BetterBlockFamilies.PRISMARINE_BRICKS_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.OAK_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.SPRUCE_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.BIRCH_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.JUNGLE_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.ACACIA_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.DARK_OAK_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.MANGROVE_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.CHERRY_FAMILY, blockStateModelGenerator);
-        customBlockFamily(BetterBlockFamilies.BRICKS_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.OAK_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.SPRUCE_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.BIRCH_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.JUNGLE_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.ACACIA_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.DARK_OAK_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.MANGROVE_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.CHERRY_FAMILY, blockStateModelGenerator);
+        //customBlockFamily(BetterBlockFamilies.BRICKS_FAMILY, blockStateModelGenerator);
         blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.AMARANTH_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
         blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.BLUSH_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
         blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(InspireBlocks.CELADON_FROGLIGHT.get(), TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
@@ -150,8 +151,179 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createNyliumBlock(InspireBlocks.CRIMSON_SOUL_SOIL.get());
         blockStateModelGenerator.createNyliumBlock(InspireBlocks.WARPED_SOUL_SOIL.get());
         blockStateModelGenerator.createPlant(InspireBlocks.DANDELION_PUFF.get(), InspireBlocks.POTTED_DANDELION_PUFF.get(), BlockModelGenerators.TintState.NOT_TINTED);
+
+        createWall(blockStateModelGenerator, Blocks.OAK_PLANKS, InspireBlocks.OAK_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.SPRUCE_PLANKS, InspireBlocks.SPRUCE_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.BIRCH_PLANKS, InspireBlocks.BIRCH_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.JUNGLE_PLANKS, InspireBlocks.JUNGLE_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.ACACIA_PLANKS, InspireBlocks.ACACIA_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.DARK_OAK_PLANKS, InspireBlocks.DARK_OAK_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.MANGROVE_PLANKS, InspireBlocks.MANGROVE_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.CHERRY_PLANKS, InspireBlocks.CHERRY_PLANK_WALL.get());
+        //createWall(blockStateModelGenerator, Blocks.PALE_OAK_PLANKS, InspireBlocks.PALE_OAK_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.BAMBOO_PLANKS, InspireBlocks.BAMBOO_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, InspireBlocks.WITHERED_PLANKS.get(), InspireBlocks.WITHERED_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.CRIMSON_PLANKS, InspireBlocks.CRIMSON_PLANK_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.WARPED_PLANKS, InspireBlocks.WARPED_PLANK_WALL.get());
+
+        createWallWithTop(blockStateModelGenerator, Blocks.OAK_LOG, InspireBlocks.OAK_LOG_WALL.get(), "oak");
+        createWallWithTop(blockStateModelGenerator, Blocks.SPRUCE_LOG, InspireBlocks.SPRUCE_LOG_WALL.get(), "spruce");
+        createWallWithTop(blockStateModelGenerator, Blocks.BIRCH_LOG, InspireBlocks.BIRCH_LOG_WALL.get(), "birch");
+        createWallWithTop(blockStateModelGenerator, Blocks.JUNGLE_LOG, InspireBlocks.JUNGLE_LOG_WALL.get(), "jungle");
+        createWallWithTop(blockStateModelGenerator, Blocks.ACACIA_LOG, InspireBlocks.ACACIA_LOG_WALL.get(), "acacia");
+        createWallWithTop(blockStateModelGenerator, Blocks.DARK_OAK_LOG, InspireBlocks.DARK_OAK_LOG_WALL.get(), "dark_oak");
+        createWallWithTop(blockStateModelGenerator, Blocks.MANGROVE_LOG, InspireBlocks.MANGROVE_LOG_WALL.get(), "mangrove");
+        createWallWithTop(blockStateModelGenerator, Blocks.CHERRY_LOG, InspireBlocks.CHERRY_LOG_WALL.get(), "cherry");
+        //createWallWithTop(blockStateModelGenerator, Blocks.PALE_OAK_LOG, InspireBlocks.PALE_OAK_LOG_WALL.get(), "pale_oak");
+        createWallWithTop(blockStateModelGenerator, Blocks.BAMBOO_BLOCK, InspireBlocks.BAMBOO_LOG_WALL.get(), "bamboo");
+        createWallWithTop(blockStateModelGenerator, InspireBlocks.WITHERED_LOG.get(), InspireBlocks.WITHERED_LOG_WALL.get(), "withered");
+        createWallWithTop(blockStateModelGenerator, Blocks.CRIMSON_STEM, InspireBlocks.CRIMSON_STEM_WALL.get(), "crimson");
+        createWallWithTop(blockStateModelGenerator, Blocks.WARPED_STEM, InspireBlocks.WARPED_STEM_WALL.get(), "warped");
+
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_OAK_LOG, InspireBlocks.STRIPPED_OAK_LOG_WALL.get(), "oak");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_SPRUCE_LOG, InspireBlocks.STRIPPED_SPRUCE_LOG_WALL.get(), "spruce");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_BIRCH_LOG, InspireBlocks.STRIPPED_BIRCH_LOG_WALL.get(), "birch");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_JUNGLE_LOG, InspireBlocks.STRIPPED_JUNGLE_LOG_WALL.get(), "jungle");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_ACACIA_LOG, InspireBlocks.STRIPPED_ACACIA_LOG_WALL.get(), "acacia");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_DARK_OAK_LOG, InspireBlocks.STRIPPED_DARK_OAK_LOG_WALL.get(), "dark_oak");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_MANGROVE_LOG, InspireBlocks.STRIPPED_MANGROVE_LOG_WALL.get(), "mangrove");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_CHERRY_LOG, InspireBlocks.STRIPPED_CHERRY_LOG_WALL.get(), "cherry");
+        //createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_PALE_OAK_LOG, InspireBlocks.STRIPPED_PALE_OAK_LOG_WALL.get(), "pale_oak");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_BAMBOO_BLOCK, InspireBlocks.STRIPPED_BAMBOO_LOG_WALL.get(), "bamboo");
+        createWallWithTop(blockStateModelGenerator, InspireBlocks.STRIPPED_WITHERED_LOG.get(), InspireBlocks.STRIPPED_WITHERED_LOG_WALL.get(), "withered");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_CRIMSON_STEM, InspireBlocks.STRIPPED_CRIMSON_STEM_WALL.get(), "crimson");
+        createWallWithTop(blockStateModelGenerator, Blocks.STRIPPED_WARPED_STEM, InspireBlocks.STRIPPED_WARPED_STEM_WALL.get(), "warped");
+
+        createWall(blockStateModelGenerator, Blocks.OAK_LOG, InspireBlocks.OAK_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.SPRUCE_LOG, InspireBlocks.SPRUCE_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.BIRCH_LOG, InspireBlocks.BIRCH_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.JUNGLE_LOG, InspireBlocks.JUNGLE_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.ACACIA_LOG, InspireBlocks.ACACIA_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.DARK_OAK_LOG, InspireBlocks.DARK_OAK_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.MANGROVE_LOG, InspireBlocks.MANGROVE_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.CHERRY_LOG, InspireBlocks.CHERRY_WOOD_WALL.get());
+        //createWall(blockStateModelGenerator, Blocks.PALE_OAK_LOG, InspireBlocks.PALE_OAK_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.BAMBOO_BLOCK, InspireBlocks.BAMBOO_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, InspireBlocks.WITHERED_LOG.get(), InspireBlocks.WITHERED_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.CRIMSON_STEM, InspireBlocks.CRIMSON_HYPHAE_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.WARPED_STEM, InspireBlocks.WARPED_HYPHAE_WALL.get());
+
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_OAK_LOG, InspireBlocks.STRIPPED_OAK_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_SPRUCE_LOG, InspireBlocks.STRIPPED_SPRUCE_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_BIRCH_LOG, InspireBlocks.STRIPPED_BIRCH_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_JUNGLE_LOG, InspireBlocks.STRIPPED_JUNGLE_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_ACACIA_LOG, InspireBlocks.STRIPPED_ACACIA_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_DARK_OAK_LOG, InspireBlocks.STRIPPED_DARK_OAK_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_MANGROVE_LOG, InspireBlocks.STRIPPED_MANGROVE_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_CHERRY_LOG, InspireBlocks.STRIPPED_CHERRY_WOOD_WALL.get());
+        //createWall(blockStateModelGenerator, Blocks.STRIPPED_PALE_OAK_LOG, InspireBlocks.STRIPPED_PALE_OAK_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_BAMBOO_BLOCK, InspireBlocks.STRIPPED_BAMBOO_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, InspireBlocks.STRIPPED_WITHERED_LOG.get(), InspireBlocks.STRIPPED_WITHERED_WOOD_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_CRIMSON_STEM, InspireBlocks.STRIPPED_CRIMSON_HYPHAE_WALL.get());
+        createWall(blockStateModelGenerator, Blocks.STRIPPED_WARPED_STEM, InspireBlocks.STRIPPED_WARPED_HYPHAE_WALL.get());
+
+        createFenceWithTop(blockStateModelGenerator, Blocks.OAK_LOG, InspireBlocks.OAK_LOG_FENCE.get(), "oak");
+        createFenceWithTop(blockStateModelGenerator, Blocks.SPRUCE_LOG, InspireBlocks.SPRUCE_LOG_FENCE.get(), "spruce");
+        createFenceWithTop(blockStateModelGenerator, Blocks.BIRCH_LOG, InspireBlocks.BIRCH_LOG_FENCE.get(), "birch");
+        createFenceWithTop(blockStateModelGenerator, Blocks.JUNGLE_LOG, InspireBlocks.JUNGLE_LOG_FENCE.get(), "jungle");
+        createFenceWithTop(blockStateModelGenerator, Blocks.ACACIA_LOG, InspireBlocks.ACACIA_LOG_FENCE.get(), "acacia");
+        createFenceWithTop(blockStateModelGenerator, Blocks.DARK_OAK_LOG, InspireBlocks.DARK_OAK_LOG_FENCE.get(), "dark_oak");
+        createFenceWithTop(blockStateModelGenerator, Blocks.MANGROVE_LOG, InspireBlocks.MANGROVE_LOG_FENCE.get(), "mangrove");
+        createFenceWithTop(blockStateModelGenerator, Blocks.CHERRY_LOG, InspireBlocks.CHERRY_LOG_FENCE.get(), "cherry");
+        //createFenceWithTop(blockStateModelGenerator, Blocks.PALE_OAK_LOG, InspireBlocks.PALE_OAK_LOG_FENCE.get(), "pale_oak");
+        createFenceWithTop(blockStateModelGenerator, Blocks.BAMBOO_BLOCK, InspireBlocks.BAMBOO_LOG_FENCE.get(), "bamboo");
+        createFenceWithTop(blockStateModelGenerator, InspireBlocks.WITHERED_LOG.get(), InspireBlocks.WITHERED_LOG_FENCE.get(), "withered");
+        createFenceWithTop(blockStateModelGenerator, Blocks.CRIMSON_STEM, InspireBlocks.CRIMSON_STEM_FENCE.get(), "crimson");
+        createFenceWithTop(blockStateModelGenerator, Blocks.WARPED_STEM, InspireBlocks.WARPED_STEM_FENCE.get(), "warped");
+
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_OAK_LOG, InspireBlocks.STRIPPED_OAK_LOG_FENCE.get(), "oak");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_SPRUCE_LOG, InspireBlocks.STRIPPED_SPRUCE_LOG_FENCE.get(), "spruce");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_BIRCH_LOG, InspireBlocks.STRIPPED_BIRCH_LOG_FENCE.get(), "birch");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_JUNGLE_LOG, InspireBlocks.STRIPPED_JUNGLE_LOG_FENCE.get(), "jungle");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_ACACIA_LOG, InspireBlocks.STRIPPED_ACACIA_LOG_FENCE.get(), "acacia");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_DARK_OAK_LOG, InspireBlocks.STRIPPED_DARK_OAK_LOG_FENCE.get(), "dark_oak");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_MANGROVE_LOG, InspireBlocks.STRIPPED_MANGROVE_LOG_FENCE.get(), "mangrove");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_CHERRY_LOG, InspireBlocks.STRIPPED_CHERRY_LOG_FENCE.get(), "cherry");
+        //createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_PALE_OAK_LOG, InspireBlocks.PALE_OAK_LOG_FENCE.get(), "pale_oak");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_BAMBOO_BLOCK, InspireBlocks.STRIPPED_BAMBOO_LOG_FENCE.get(), "bamboo");
+        createFenceWithTop(blockStateModelGenerator, InspireBlocks.STRIPPED_WITHERED_LOG.get(), InspireBlocks.STRIPPED_WITHERED_LOG_FENCE.get(), "withered");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_CRIMSON_STEM, InspireBlocks.STRIPPED_CRIMSON_STEM_FENCE.get(), "crimson");
+        createFenceWithTop(blockStateModelGenerator, Blocks.STRIPPED_WARPED_STEM, InspireBlocks.STRIPPED_WARPED_STEM_FENCE.get(), "warped");
+
+        createFence(blockStateModelGenerator, Blocks.OAK_LOG, InspireBlocks.OAK_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.SPRUCE_LOG, InspireBlocks.SPRUCE_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.BIRCH_LOG, InspireBlocks.BIRCH_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.JUNGLE_LOG, InspireBlocks.JUNGLE_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.ACACIA_LOG, InspireBlocks.ACACIA_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.DARK_OAK_LOG, InspireBlocks.DARK_OAK_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.MANGROVE_LOG, InspireBlocks.MANGROVE_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.CHERRY_LOG, InspireBlocks.CHERRY_WOOD_FENCE.get());
+        //createFence(blockStateModelGenerator, Blocks.PALE_OAK_LOG, InspireBlocks.PALE_OAK_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.BAMBOO_BLOCK, InspireBlocks.BAMBOO_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, InspireBlocks.WITHERED_LOG.get(), InspireBlocks.WITHERED_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.CRIMSON_STEM, InspireBlocks.CRIMSON_HYPHAE_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.WARPED_STEM, InspireBlocks.WARPED_HYPHAE_FENCE.get());
+
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_OAK_LOG, InspireBlocks.STRIPPED_OAK_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_SPRUCE_LOG, InspireBlocks.STRIPPED_SPRUCE_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_BIRCH_LOG, InspireBlocks.STRIPPED_BIRCH_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_JUNGLE_LOG, InspireBlocks.STRIPPED_JUNGLE_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_ACACIA_LOG, InspireBlocks.STRIPPED_ACACIA_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_DARK_OAK_LOG, InspireBlocks.STRIPPED_DARK_OAK_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_MANGROVE_LOG, InspireBlocks.STRIPPED_MANGROVE_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_CHERRY_LOG, InspireBlocks.STRIPPED_CHERRY_WOOD_FENCE.get());
+        //createFence(blockStateModelGenerator, Blocks.STRIPPED_PALE_OAK_LOG, InspireBlocks.STRIPPED_PALE_OAK_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_BAMBOO_BLOCK, InspireBlocks.STRIPPED_BAMBOO_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, InspireBlocks.STRIPPED_WITHERED_LOG.get(), InspireBlocks.STRIPPED_WITHERED_WOOD_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_CRIMSON_STEM, InspireBlocks.STRIPPED_CRIMSON_HYPHAE_FENCE.get());
+        createFence(blockStateModelGenerator, Blocks.STRIPPED_WARPED_STEM, InspireBlocks.STRIPPED_WARPED_HYPHAE_FENCE.get());
     }
-    public final void createGlassPane(BlockModelGenerators blockModelGenerators, Block block, Block block2) {
+    private void createWall(BlockModelGenerators blockModelGenerator, Block main, Block wall) {
+        TextureMapping textureMapping = TextureMapping.cube(main);
+        ResourceLocation resourceLocation = ModelTemplates.WALL_POST.create(wall, textureMapping, blockModelGenerator.modelOutput);
+        ResourceLocation resourceLocation2 = ModelTemplates.WALL_LOW_SIDE.create(wall, textureMapping, blockModelGenerator.modelOutput);
+        ResourceLocation resourceLocation3 = ModelTemplates.WALL_TALL_SIDE.create(wall, textureMapping, blockModelGenerator.modelOutput);
+        blockModelGenerator.blockStateOutput.accept(BlockModelGenerators.createWall(wall, resourceLocation, resourceLocation2, resourceLocation3));
+    }
+
+    public static final ModelTemplate WALL_POST_TOP = new ModelTemplate(
+            Optional.of(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/template_wall_post_top")),
+            Optional.empty(),
+            TextureSlot.SIDE,
+            TextureSlot.END
+    );
+    public static final ModelTemplate FENCE_POST_TOP = new ModelTemplate(
+            Optional.of(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/template_fence_post_top")),
+            Optional.empty(),
+            TextureSlot.SIDE,
+            TextureSlot.END
+    );
+    private void createFence(BlockModelGenerators blockModelGenerator, Block main, Block fence) {
+        TextureMapping textureMapping = TextureMapping.cube(main);
+        ResourceLocation resourceLocation = ModelTemplates.FENCE_POST.create(fence, textureMapping, blockModelGenerator.modelOutput);
+        ResourceLocation resourceLocation2 = ModelTemplates.FENCE_SIDE.create(fence, textureMapping, blockModelGenerator.modelOutput);
+        blockModelGenerator.blockStateOutput.accept(BlockModelGenerators.createFence(fence, resourceLocation, resourceLocation2));
+    }
+    private void createFenceWithTop(BlockModelGenerators blockModelGenerator, Block main, Block fence, String type) {
+        TextureMapping postTextures = new TextureMapping()
+                .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(main))
+                .put(TextureSlot.END, ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/" + type + "_log_fence_top"));
+        ResourceLocation post = FENCE_POST_TOP.create(fence, postTextures, blockModelGenerator.modelOutput);
+        TextureMapping sideTextures = TextureMapping.cube(main);
+        ResourceLocation side = ModelTemplates.FENCE_SIDE.create(fence, sideTextures, blockModelGenerator.modelOutput);
+        blockModelGenerator.blockStateOutput.accept(BlockModelGenerators.createFence(fence, post, side));
+    }
+    private void createWallWithTop(BlockModelGenerators blockModelGenerator, Block main, Block wall, String type) {
+        TextureMapping textures = new TextureMapping()
+                .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(main))
+                .put(TextureSlot.END, ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/" + type + "_log_wall_top"));
+        ResourceLocation post = WALL_POST_TOP.create(wall, textures, blockModelGenerator.modelOutput);
+        TextureMapping sideTextures = TextureMapping.cube(main);
+        ResourceLocation low = ModelTemplates.WALL_LOW_SIDE.create(wall, sideTextures, blockModelGenerator.modelOutput);
+        ResourceLocation tall = ModelTemplates.WALL_TALL_SIDE.create(wall, sideTextures, blockModelGenerator.modelOutput);
+        blockModelGenerator.blockStateOutput.accept(BlockModelGenerators.createWall(wall, post, low, tall));
+    }
+    private void createGlassPane(BlockModelGenerators blockModelGenerators, Block block, Block block2) {
         TextureMapping textureMapping = TextureMapping.pane(block, block2);
         ResourceLocation resourceLocation = ModelTemplates.STAINED_GLASS_PANE_POST.create(block2, textureMapping, blockModelGenerators.modelOutput);
         ResourceLocation resourceLocation2 = ModelTemplates.STAINED_GLASS_PANE_SIDE.create(block2, textureMapping, blockModelGenerators.modelOutput);

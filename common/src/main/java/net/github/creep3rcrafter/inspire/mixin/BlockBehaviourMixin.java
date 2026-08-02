@@ -27,7 +27,10 @@ public abstract class BlockBehaviourMixin implements FeatureElement {
     @Inject(method = "randomTick", at = @At(value = "RETURN"))
     public void injectGetMaxCost(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource, CallbackInfo ci) {
         if (blockState.getBlock() == Blocks.SAND) {
-            if ((WetSandBlock.getNearbyMoisture(serverLevel, blockPos) > 1) || serverLevel.isRainingAt(blockPos.above())) {
+            if ((WetSandBlock.getNearbyMoisture(serverLevel, blockPos) > 1)) {
+                serverLevel.setBlock(blockPos, InspireBlocks.WET_SAND.get().defaultBlockState().setValue(WetSandBlock.MOISTURE, 1), Block.UPDATE_CLIENTS);
+            }
+            if ((WetSandBlock.getNearbyMoisture(serverLevel, blockPos) < 7) && serverLevel.isRainingAt(blockPos.above())) {
                 serverLevel.setBlock(blockPos, InspireBlocks.WET_SAND.get().defaultBlockState().setValue(WetSandBlock.MOISTURE, 1), Block.UPDATE_CLIENTS);
             }
         }

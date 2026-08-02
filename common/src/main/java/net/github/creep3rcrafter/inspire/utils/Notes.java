@@ -23,8 +23,7 @@ public class Notes {
     wither skeleton enderman
     wither skeleton bear
     wither skeleton illager
-    willager evil illager type that experaments on creatures
-      and bones to make wither creatures
+    willager evil illager type that experaments on creatures and bones to make wither creatures
     soul lily pad
     sculk lily pad
     combo ores that have more than one type of ingot in them
@@ -39,11 +38,9 @@ public class Notes {
     soul cobblestone
     soul grass
     soul flint
-    soul flint and netherite to open ether portal?
-      lights soul fire candles and blocks
+    soul flint and netherite to open ether portal? lights soul fire candles and blocks
     soul dragon purifys sculk and has 3 heads
-    gillagers underwater villagers use prismarine
-      arrows and tridents
+    gillagers underwater villagers use prismarine arrows and tridents
     gillage village coral castles and towers with bluestone
     baked pumpkin seeds
     white pumpkins
@@ -60,8 +57,7 @@ public class Notes {
     bucket of oceans
     bedrock shard
     conjering table make spells
-    spellbooks freeze, burn, shock, plage,
-      knockback, damage, (cone ray sphere(cube), point)
+    spellbooks freeze, burn, shock, plage, knockback, damage, (cone ray sphere(cube), point)
     netherite scrap armor
     netherite scrap tools
     sulfer ore

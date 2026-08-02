@@ -1,0 +1,7 @@
+{
+  "parent": "inspire:block/template_wall_post_top",
+  "textures": {
+    "end": "inspire:block/oak_log_wall_top",
+    "side": "minecraft:block/oak_log"
+  }
+}

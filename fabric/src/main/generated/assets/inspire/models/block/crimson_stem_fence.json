@@ -1,0 +1,7 @@
+{
+  "parent": "inspire:block/template_fence_post_top",
+  "textures": {
+    "end": "inspire:block/crimson_log_fence_top",
+    "side": "minecraft:block/crimson_stem"
+  }
+}

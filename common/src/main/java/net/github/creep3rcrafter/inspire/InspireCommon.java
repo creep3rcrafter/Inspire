@@ -54,6 +54,8 @@ public final class InspireCommon {
         //InspirePaintings.PAINTINGS.register();
         //ShulkerBoxBlock
         //BlockFamilies
+        new InspireStrippableBlocks();
+        new InspireWoodBark();
     }
 }
 

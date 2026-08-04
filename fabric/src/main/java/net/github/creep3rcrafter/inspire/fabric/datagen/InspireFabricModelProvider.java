@@ -166,6 +166,17 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         createWall(blockStateModelGenerator, Blocks.CRIMSON_PLANKS, InspireBlocks.CRIMSON_PLANK_WALL.get());
         createWall(blockStateModelGenerator, Blocks.WARPED_PLANKS, InspireBlocks.WARPED_PLANK_WALL.get());
 
+        createTintedWall(blockStateModelGenerator, Blocks.OAK_LEAVES, InspireBlocks.OAK_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.SPRUCE_LEAVES, InspireBlocks.SPRUCE_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.BIRCH_LEAVES, InspireBlocks.BIRCH_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.JUNGLE_LEAVES, InspireBlocks.JUNGLE_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.ACACIA_LEAVES, InspireBlocks.ACACIA_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.DARK_OAK_LEAVES, InspireBlocks.DARK_OAK_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.MANGROVE_LEAVES, InspireBlocks.MANGROVE_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.CHERRY_LEAVES, InspireBlocks.CHERRY_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.AZALEA_LEAVES, InspireBlocks.AZALEA_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.FLOWERING_AZALEA_LEAVES, InspireBlocks.FLOWERING_AZALEA_HEDGE.get());
+
         createWallWithTop(blockStateModelGenerator, Blocks.OAK_LOG, InspireBlocks.OAK_LOG_WALL.get(), "oak");
         createWallWithTop(blockStateModelGenerator, Blocks.SPRUCE_LOG, InspireBlocks.SPRUCE_LOG_WALL.get(), "spruce");
         createWallWithTop(blockStateModelGenerator, Blocks.BIRCH_LOG, InspireBlocks.BIRCH_LOG_WALL.get(), "birch");
@@ -284,6 +295,37 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         ResourceLocation resourceLocation2 = ModelTemplates.WALL_LOW_SIDE.create(wall, textureMapping, blockModelGenerator.modelOutput);
         ResourceLocation resourceLocation3 = ModelTemplates.WALL_TALL_SIDE.create(wall, textureMapping, blockModelGenerator.modelOutput);
         blockModelGenerator.blockStateOutput.accept(BlockModelGenerators.createWall(wall, resourceLocation, resourceLocation2, resourceLocation3));
+        // Create the unsuffixed inventory model so the auto-generated item model can reference it
+        ModelTemplates.WALL_INVENTORY.create(ModelLocationUtils.getModelLocation(wall), textureMapping, blockModelGenerator.modelOutput);
+    }
+
+    private static final ModelTemplate TINTED_WALL_POST = new ModelTemplate(
+            Optional.of(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/template_tinted_wall_post")),
+            Optional.of("_post"),
+            TextureSlot.WALL
+    );
+    private static final ModelTemplate TINTED_WALL_LOW_SIDE = new ModelTemplate(
+            Optional.of(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/template_tinted_wall_side")),
+            Optional.of("_side"),
+            TextureSlot.WALL
+    );
+    private static final ModelTemplate TINTED_WALL_TALL_SIDE = new ModelTemplate(
+            Optional.of(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/template_tinted_wall_side_tall")),
+            Optional.of("_side_tall"),
+            TextureSlot.WALL
+    );
+    private static final ModelTemplate TINTED_WALL_INVENTORY = new ModelTemplate(
+            Optional.of(ResourceLocation.fromNamespaceAndPath(InspireCommon.MOD_ID, "block/template_tinted_wall_inventory")),
+            Optional.empty(),
+            TextureSlot.WALL
+    );
+    private void createTintedWall(BlockModelGenerators blockModelGenerator, Block main, Block wall) {
+        TextureMapping textureMapping = TextureMapping.cube(main);
+        ResourceLocation post = TINTED_WALL_POST.create(wall, textureMapping, blockModelGenerator.modelOutput);
+        ResourceLocation low = TINTED_WALL_LOW_SIDE.create(wall, textureMapping, blockModelGenerator.modelOutput);
+        ResourceLocation tall = TINTED_WALL_TALL_SIDE.create(wall, textureMapping, blockModelGenerator.modelOutput);
+        blockModelGenerator.blockStateOutput.accept(BlockModelGenerators.createWall(wall, post, low, tall));
+        TINTED_WALL_INVENTORY.create(ModelLocationUtils.getModelLocation(wall), textureMapping, blockModelGenerator.modelOutput);
     }
 
     public static final ModelTemplate WALL_POST_TOP = new ModelTemplate(

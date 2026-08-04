@@ -27,5 +27,15 @@ public class InspireRenderTypes {
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.POTTED_WITHERED_SAPLING.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.POTTED_DANDELION_PUFF.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.DANDELION_PUFF.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.OAK_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.SPRUCE_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.BIRCH_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.JUNGLE_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.ACACIA_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.DARK_OAK_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.MANGROVE_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.CHERRY_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.AZALEA_HEDGE.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.FLOWERING_AZALEA_HEDGE.get());
     }
 }

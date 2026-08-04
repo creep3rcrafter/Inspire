@@ -1,0 +1,6 @@
+{
+  "parent": "inspire:block/template_tinted_wall_side_tall",
+  "textures": {
+    "wall": "minecraft:block/cherry_leaves"
+  }
+}

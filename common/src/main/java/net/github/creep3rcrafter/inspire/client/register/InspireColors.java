@@ -6,12 +6,14 @@ import net.github.creep3rcrafter.inspire.block.ChromaticLampBlock;
 import net.github.creep3rcrafter.inspire.block.SoulGlassBlock;
 import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.github.creep3rcrafter.inspire.register.InspireItems;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.NotNull;
@@ -51,6 +53,24 @@ public class InspireColors {
         ColorHandlerRegistry.registerBlockColors(BLUESTONE_WIRE, InspireBlocks.BLUESTONE_WIRE.get());
         ColorHandlerRegistry.registerBlockColors(SOUL_GLASS, InspireBlocks.SOUL_GLASS.get());
         //ColorHandlerRegistry.registerBlockColors(CHROMATIC_LAMP, InspireBlocks.SOUL_GLASS.get());
+        // Hedge foliage biome colors
+        BlockColor foliage = (state, level, pos, tintIndex) ->
+                level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : FoliageColor.getDefaultColor();
+        ColorHandlerRegistry.registerBlockColors(foliage,
+                InspireBlocks.OAK_HEDGE.get(),
+                InspireBlocks.JUNGLE_HEDGE.get(),
+                InspireBlocks.ACACIA_HEDGE.get(),
+                InspireBlocks.DARK_OAK_HEDGE.get(),
+                InspireBlocks.MANGROVE_HEDGE.get()
+        );
+        ColorHandlerRegistry.registerBlockColors(
+                (state, level, pos, tintIndex) -> FoliageColor.getEvergreenColor(),
+                InspireBlocks.SPRUCE_HEDGE.get()
+        );
+        ColorHandlerRegistry.registerBlockColors(
+                (state, level, pos, tintIndex) -> FoliageColor.getBirchColor(),
+                InspireBlocks.BIRCH_HEDGE.get()
+        );
     }
     public static ItemColor POTION_JAR;
     public static ItemColor SOUL_GLASS_ITEM;
@@ -74,5 +94,22 @@ public class InspireColors {
         };
         ColorHandlerRegistry.registerItemColors(POTION_JAR, InspireItems.POTION_JAR.get());
         ColorHandlerRegistry.registerItemColors(SOUL_GLASS_ITEM, InspireItems.SOUL_GLASS.get());
+        // Hedge item foliage colors (inventory tinting)
+        ItemColor foliageItem = (stack, tintIndex) -> FoliageColor.getDefaultColor();
+        ColorHandlerRegistry.registerItemColors(foliageItem,
+                InspireItems.OAK_HEDGE.get(),
+                InspireItems.JUNGLE_HEDGE.get(),
+                InspireItems.ACACIA_HEDGE.get(),
+                InspireItems.DARK_OAK_HEDGE.get(),
+                InspireItems.MANGROVE_HEDGE.get()
+        );
+        ColorHandlerRegistry.registerItemColors(
+                (stack, tintIndex) -> FoliageColor.getEvergreenColor(),
+                InspireItems.SPRUCE_HEDGE.get()
+        );
+        ColorHandlerRegistry.registerItemColors(
+                (stack, tintIndex) -> FoliageColor.getBirchColor(),
+                InspireItems.BIRCH_HEDGE.get()
+        );
     }
 }

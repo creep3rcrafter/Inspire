@@ -1162,6 +1162,17 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CRIMSON_PLANK_WALL;
     public static final RegistrySupplier<Item> WARPED_PLANK_WALL;
 
+    public static final RegistrySupplier<Item> OAK_HEDGE;
+    public static final RegistrySupplier<Item> SPRUCE_HEDGE;
+    public static final RegistrySupplier<Item> BIRCH_HEDGE;
+    public static final RegistrySupplier<Item> JUNGLE_HEDGE;
+    public static final RegistrySupplier<Item> ACACIA_HEDGE;
+    public static final RegistrySupplier<Item> DARK_OAK_HEDGE;
+    public static final RegistrySupplier<Item> MANGROVE_HEDGE;
+    public static final RegistrySupplier<Item> CHERRY_HEDGE;
+    public static final RegistrySupplier<Item> AZALEA_HEDGE;
+    public static final RegistrySupplier<Item> FLOWERING_AZALEA_HEDGE;
+
     public static final RegistrySupplier<Item> OAK_LOG_WALL;
     public static final RegistrySupplier<Item> SPRUCE_LOG_WALL;
     public static final RegistrySupplier<Item> BIRCH_LOG_WALL;
@@ -3954,6 +3965,17 @@ public class InspireItems {
         WITHERED_PLANK_WALL = ITEMS.register("withered_plank_wall", ()-> new BlockItem(InspireBlocks.WITHERED_PLANK_WALL.get(), basicProperties("withered_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         CRIMSON_PLANK_WALL = ITEMS.register("crimson_plank_wall", ()-> new BlockItem(InspireBlocks.CRIMSON_PLANK_WALL.get(), basicProperties("crimson_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WARPED_PLANK_WALL = ITEMS.register("warped_plank_wall", ()-> new BlockItem(InspireBlocks.WARPED_PLANK_WALL.get(), basicProperties("warped_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+
+        OAK_HEDGE = ITEMS.register("oak_hedge", ()-> new BlockItem(InspireBlocks.OAK_HEDGE.get(), basicProperties("oak_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        SPRUCE_HEDGE = ITEMS.register("spruce_hedge", ()-> new BlockItem(InspireBlocks.SPRUCE_HEDGE.get(), basicProperties("spruce_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        BIRCH_HEDGE = ITEMS.register("birch_hedge", ()-> new BlockItem(InspireBlocks.BIRCH_HEDGE.get(), basicProperties("birch_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        JUNGLE_HEDGE = ITEMS.register("jungle_hedge", ()-> new BlockItem(InspireBlocks.JUNGLE_HEDGE.get(), basicProperties("jungle_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        ACACIA_HEDGE = ITEMS.register("acacia_hedge", ()-> new BlockItem(InspireBlocks.ACACIA_HEDGE.get(), basicProperties("acacia_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        DARK_OAK_HEDGE = ITEMS.register("dark_oak_hedge", ()-> new BlockItem(InspireBlocks.DARK_OAK_HEDGE.get(), basicProperties("dark_oak_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        MANGROVE_HEDGE = ITEMS.register("mangrove_hedge", ()-> new BlockItem(InspireBlocks.MANGROVE_HEDGE.get(), basicProperties("mangrove_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        CHERRY_HEDGE = ITEMS.register("cherry_hedge", ()-> new BlockItem(InspireBlocks.CHERRY_HEDGE.get(), basicProperties("cherry_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        AZALEA_HEDGE = ITEMS.register("azalea_hedge", ()-> new BlockItem(InspireBlocks.AZALEA_HEDGE.get(), basicProperties("azalea_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        FLOWERING_AZALEA_HEDGE = ITEMS.register("flowering_azalea_hedge", ()-> new BlockItem(InspireBlocks.FLOWERING_AZALEA_HEDGE.get(), basicProperties("flowering_azalea_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
 
         OAK_LOG_WALL = ITEMS.register("oak_log_wall", ()-> new BlockItem(InspireBlocks.OAK_LOG_WALL.get(), basicProperties("oak_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         SPRUCE_LOG_WALL = ITEMS.register("spruce_log_wall", ()-> new BlockItem(InspireBlocks.SPRUCE_LOG_WALL.get(), basicProperties("spruce_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));

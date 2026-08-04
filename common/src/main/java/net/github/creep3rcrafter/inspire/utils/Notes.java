@@ -2,6 +2,55 @@ package net.github.creep3rcrafter.inspire.utils;
 
 public class Notes {
     /*
+    Sea Moss
+    Wet Mossy Sand
+    Wet Sand Bricks
+    Ice Brick
+    Snow Brick
+    Sand Pile
+    Gravel Pile
+    Wet Sand Pile
+    Alge
+    Duckweed
+    Lilypads
+    Trial Timer
+    Grapple Shot
+    Boomerang
+    Collection Enchantment
+    Reach Enchantment
+    Sticky Redstone
+    Crates of Stuff
+    Torch Arrow
+    Block Arrow
+    Color Sensor
+    Horse Chest
+    Undead Horse Armor
+    Large Candles
+    Wax Block
+    Random Houses
+    Flooded Village
+    Ice Castle
+    Underwater Trials
+    Enchantment Holding
+    Lavalogged Blocks
+    Unstable Snow
+    Enchantment Ricoshe
+    Useful Trims
+
+    Tree Seeds Spruce(Pinecone), (Apple Tree)Seed, Acorn
+    Spruce Cone used to plant saplings or make tea
+    Apple Tree Seed
+    Birch Tree Seed falls and spins
+    Acorn small animals want it
+    cherry
+    cherry pit
+    acacia seed packet
+
+    Apple Tree
+    Golden Apple Tree
+
+    leaf wall / Hedges
+
     potion enchantments
     life steal enchantment
     attack speed enchantment/swift for bows

@@ -855,5 +855,15 @@
   "block.inspire.polished_calcite_lamp": "Polished Calcite Lamp",
   "item.inspire.harness": "Harness",
   "item.inspire.soap": "Soap",
-  "block.inspire.icicle": "Icicle"
+  "block.inspire.icicle": "Icicle",
+  "block.inspire.oak_hedge": "Oak Hedge",
+  "block.inspire.spruce_hedge": "Spruce Hedge",
+  "block.inspire.birch_hedge": "Birch Hedge",
+  "block.inspire.jungle_hedge": "Jungle Hedge",
+  "block.inspire.acacia_hedge": "Acacia Hedge",
+  "block.inspire.dark_oak_hedge": "Dark Oak Hedge",
+  "block.inspire.mangrove_hedge": "Mangrove Hedge",
+  "block.inspire.cherry_hedge": "Cherry Hedge",
+  "block.inspire.azalea_hedge": "Azalea Hedge",
+  "block.inspire.flowering_azalea_hedge": "Flowering Azalea Hedge"
 }

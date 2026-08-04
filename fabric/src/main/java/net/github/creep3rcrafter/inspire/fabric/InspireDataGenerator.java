@@ -6,6 +6,7 @@ import net.github.creep3rcrafter.inspire.fabric.datagen.InspireFabricBlockLootTa
 import net.github.creep3rcrafter.inspire.fabric.datagen.InspireFabricBlockTagProvider;
 import net.github.creep3rcrafter.inspire.fabric.datagen.InspireFabricItemTagProvider;
 import net.github.creep3rcrafter.inspire.fabric.datagen.InspireFabricModelProvider;
+import net.github.creep3rcrafter.inspire.fabric.datagen.InspirePaintingVariantProvider;
 
 public class InspireDataGenerator implements DataGeneratorEntrypoint {
     @Override
@@ -15,5 +16,6 @@ public class InspireDataGenerator implements DataGeneratorEntrypoint {
         InspireFabricBlockTagProvider blockTagProvider = pack.addProvider(InspireFabricBlockTagProvider::new);
         pack.addProvider((output, registriesFuture) -> new InspireFabricItemTagProvider(output, registriesFuture, blockTagProvider));
         pack.addProvider(InspireFabricModelProvider::new);
+        pack.addProvider(InspirePaintingVariantProvider::new);
     }
 }

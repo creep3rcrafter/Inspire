@@ -75,6 +75,17 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> CRIMSON_PLANK_WALL;
     public static final RegistrySupplier<Block> WARPED_PLANK_WALL;
 
+    public static final RegistrySupplier<Block> OAK_HEDGE;
+    public static final RegistrySupplier<Block> SPRUCE_HEDGE;
+    public static final RegistrySupplier<Block> BIRCH_HEDGE;
+    public static final RegistrySupplier<Block> JUNGLE_HEDGE;
+    public static final RegistrySupplier<Block> ACACIA_HEDGE;
+    public static final RegistrySupplier<Block> DARK_OAK_HEDGE;
+    public static final RegistrySupplier<Block> MANGROVE_HEDGE;
+    public static final RegistrySupplier<Block> CHERRY_HEDGE;
+    public static final RegistrySupplier<Block> AZALEA_HEDGE;
+    public static final RegistrySupplier<Block> FLOWERING_AZALEA_HEDGE;
+
     public static final RegistrySupplier<Block> OAK_LOG_WALL;
     public static final RegistrySupplier<Block> SPRUCE_LOG_WALL;
     public static final RegistrySupplier<Block> BIRCH_LOG_WALL;
@@ -1324,6 +1335,17 @@ public class InspireBlocks {
         CRIMSON_PLANK_WALL = BLOCKS.register("crimson_plank_wall", ()-> new WallBlock(copyProperties("crimson_plank_wall", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         WARPED_PLANK_WALL = BLOCKS.register("warped_plank_wall", ()-> new WallBlock(copyProperties("warped_plank_wall", Blocks.WARPED_PLANKS).forceSolidOn()));
         WITHERED_PLANK_WALL = BLOCKS.register("withered_plank_wall", ()-> new WallBlock(copyProperties("withered_plank_wall", Blocks.WARPED_PLANKS).forceSolidOn()));
+
+        OAK_HEDGE = BLOCKS.register("oak_hedge", ()-> new WallBlock(copyProperties("oak_hedge", Blocks.OAK_LEAVES).forceSolidOn()));
+        SPRUCE_HEDGE = BLOCKS.register("spruce_hedge", ()-> new WallBlock(copyProperties("spruce_hedge", Blocks.SPRUCE_LEAVES).forceSolidOn()));
+        BIRCH_HEDGE = BLOCKS.register("birch_hedge", ()-> new WallBlock(copyProperties("birch_hedge", Blocks.BIRCH_LEAVES).forceSolidOn()));
+        JUNGLE_HEDGE = BLOCKS.register("jungle_hedge", ()-> new WallBlock(copyProperties("jungle_hedge", Blocks.JUNGLE_LEAVES).forceSolidOn()));
+        ACACIA_HEDGE = BLOCKS.register("acacia_hedge", ()-> new WallBlock(copyProperties("acacia_hedge", Blocks.ACACIA_LEAVES).forceSolidOn()));
+        DARK_OAK_HEDGE = BLOCKS.register("dark_oak_hedge", ()-> new WallBlock(copyProperties("dark_oak_hedge", Blocks.DARK_OAK_LEAVES).forceSolidOn()));
+        MANGROVE_HEDGE = BLOCKS.register("mangrove_hedge", ()-> new WallBlock(copyProperties("mangrove_hedge", Blocks.MANGROVE_LEAVES).forceSolidOn()));
+        CHERRY_HEDGE = BLOCKS.register("cherry_hedge", ()-> new WallBlock(copyProperties("cherry_hedge", Blocks.CHERRY_LEAVES).forceSolidOn()));
+        AZALEA_HEDGE = BLOCKS.register("azalea_hedge", ()-> new WallBlock(copyProperties("azalea_hedge", Blocks.AZALEA_LEAVES).forceSolidOn()));
+        FLOWERING_AZALEA_HEDGE = BLOCKS.register("flowering_azalea_hedge", ()-> new WallBlock(copyProperties("flowering_azalea_hedge", Blocks.FLOWERING_AZALEA_LEAVES).forceSolidOn()));
 
         OAK_LOG_WALL = BLOCKS.register("oak_log_wall", ()-> new WallBlock(copyProperties("oak_log_wall", Blocks.OAK_PLANKS).forceSolidOn()));
         SPRUCE_LOG_WALL = BLOCKS.register("spruce_log_wall", ()-> new WallBlock(copyProperties("spruce_log_wall", Blocks.SPRUCE_PLANKS).forceSolidOn()));

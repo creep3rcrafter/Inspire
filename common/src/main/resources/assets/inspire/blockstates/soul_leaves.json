@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "brightness=0":  { "model": "inspire:block/soul_leaves" },
+    "brightness=1":  { "model": "inspire:block/soul_leaves" },
+    "brightness=2":  { "model": "inspire:block/soul_leaves" },
+    "brightness=3":  { "model": "inspire:block/soul_leaves" },
+    "brightness=4":  { "model": "inspire:block/soul_leaves" },
+    "brightness=5":  { "model": "inspire:block/soul_leaves" },
+    "brightness=6":  { "model": "inspire:block/soul_leaves" },
+    "brightness=7":  { "model": "inspire:block/soul_leaves" },
+    "brightness=8":  { "model": "inspire:block/soul_leaves" },
+    "brightness=9":  { "model": "inspire:block/soul_leaves" },
+    "brightness=10": { "model": "inspire:block/soul_leaves" },
+    "brightness=11": { "model": "inspire:block/soul_leaves" },
+    "brightness=12": { "model": "inspire:block/soul_leaves" },
+    "brightness=13": { "model": "inspire:block/soul_leaves" },
+    "brightness=14": { "model": "inspire:block/soul_leaves" },
+    "brightness=15": { "model": "inspire:block/soul_leaves" }
+  }
+}

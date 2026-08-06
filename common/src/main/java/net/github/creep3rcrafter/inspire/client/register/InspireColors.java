@@ -1,9 +1,7 @@
 package net.github.creep3rcrafter.inspire.client.register;
 
 import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
-import net.github.creep3rcrafter.inspire.block.BluestoneWireBlock;
-import net.github.creep3rcrafter.inspire.block.ChromaticLampBlock;
-import net.github.creep3rcrafter.inspire.block.SoulGlassBlock;
+import net.github.creep3rcrafter.inspire.block.*;
 import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.github.creep3rcrafter.inspire.register.InspireItems;
 import net.minecraft.client.renderer.BiomeColors;
@@ -22,6 +20,8 @@ public class InspireColors {
     public static final BlockColor BLUESTONE_WIRE;
     public static final BlockColor SOUL_GLASS;
     public static final BlockColor CHROMATIC_LAMP;
+    public static final BlockColor SOUL_LEAVES;
+    public static final BlockColor SOUL_HEDGE;
     static {
         BLUESTONE_WIRE = (state, world, pos, tintIndex) -> BluestoneWireBlock.getColorForPower(state.getValue(BlockStateProperties.POWER));
         SOUL_GLASS = (state, world, pos, tintIndex) -> {
@@ -30,6 +30,22 @@ public class InspireColors {
             float r = (f > 0.98F ? 0.5F : 0.1F);//Mth.map(0f, 15f, 0f, 0.3f, f);
             float g = (0.4f + f) * 0.6f;
             float b = (0.4f + f) * 0.7f;
+            return Mth.color(r, g, b);
+        };
+        SOUL_LEAVES = (state, world, pos, tintIndex) -> {
+            float f = (float) state.getValue(SoulLeavesBlock.SOUL_LEVEL) / 15.0F;
+            // Transitions from near-black (f=0) to light blue (f=1)
+            float r = 0.25f + f * 0.25f;
+            float g = 0.25f + f * 0.75f;
+            float b = 0.25f + f * 0.75f;
+            return Mth.color(r, g, b);
+        };
+        SOUL_HEDGE = (state, world, pos, tintIndex) -> {
+            float f = (float) state.getValue(SoulHedgeBlock.SOUL_LEVEL) / 8.0F;
+            // Transitions from near-black (f=0) to light blue (f=1)
+            float r = 0.25f + f * 0.25f;
+            float g = 0.25f + f * 0.75f;
+            float b = 0.25f + f * 0.75f;
             return Mth.color(r, g, b);
         };
         CHROMATIC_LAMP  = (state, world, pos, tintIndex) -> switch (state.getValue(ChromaticLampBlock.COLOR)) {
@@ -52,6 +68,8 @@ public class InspireColors {
         };
         ColorHandlerRegistry.registerBlockColors(BLUESTONE_WIRE, InspireBlocks.BLUESTONE_WIRE.get());
         ColorHandlerRegistry.registerBlockColors(SOUL_GLASS, InspireBlocks.SOUL_GLASS.get());
+        ColorHandlerRegistry.registerBlockColors(SOUL_LEAVES, InspireBlocks.SOUL_LEAVES.get());
+        ColorHandlerRegistry.registerBlockColors(SOUL_HEDGE, InspireBlocks.SOUL_HEDGE.get());
         //ColorHandlerRegistry.registerBlockColors(CHROMATIC_LAMP, InspireBlocks.SOUL_GLASS.get());
         // Hedge foliage biome colors
         BlockColor foliage = (state, level, pos, tintIndex) ->
@@ -71,6 +89,12 @@ public class InspireColors {
                 (state, level, pos, tintIndex) -> FoliageColor.getBirchColor(),
                 InspireBlocks.BIRCH_HEDGE.get()
         );
+        /*
+        ColorHandlerRegistry.registerBlockColors(
+                (state, level, pos, tintIndex) -> Mth.color(0.08f, 0.15f, 0.35f),
+                InspireBlocks.SOUL_HEDGE.get()
+        );
+         */
     }
     public static ItemColor POTION_JAR;
     public static ItemColor SOUL_GLASS_ITEM;
@@ -94,6 +118,10 @@ public class InspireColors {
         };
         ColorHandlerRegistry.registerItemColors(POTION_JAR, InspireItems.POTION_JAR.get());
         ColorHandlerRegistry.registerItemColors(SOUL_GLASS_ITEM, InspireItems.SOUL_GLASS.get());
+        ColorHandlerRegistry.registerItemColors(
+                (stack, tintIndex) -> Mth.color(0.0f, 0.0f, 0.12f),
+                InspireItems.SOUL_LEAVES.get()
+        );
         // Hedge item foliage colors (inventory tinting)
         ItemColor foliageItem = (stack, tintIndex) -> FoliageColor.getDefaultColor();
         ColorHandlerRegistry.registerItemColors(foliageItem,
@@ -101,7 +129,8 @@ public class InspireColors {
                 InspireItems.JUNGLE_HEDGE.get(),
                 InspireItems.ACACIA_HEDGE.get(),
                 InspireItems.DARK_OAK_HEDGE.get(),
-                InspireItems.MANGROVE_HEDGE.get()
+                InspireItems.MANGROVE_HEDGE.get(),
+                InspireItems.PALE_OAK_HEDGE.get()
         );
         ColorHandlerRegistry.registerItemColors(
                 (stack, tintIndex) -> FoliageColor.getEvergreenColor(),
@@ -110,6 +139,10 @@ public class InspireColors {
         ColorHandlerRegistry.registerItemColors(
                 (stack, tintIndex) -> FoliageColor.getBirchColor(),
                 InspireItems.BIRCH_HEDGE.get()
+        );
+        ColorHandlerRegistry.registerItemColors(
+                (stack, tintIndex) -> Mth.color(0.08f, 0.15f, 0.35f),
+                InspireItems.SOUL_HEDGE.get()
         );
     }
 }

@@ -15,7 +15,6 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("UnstableApiUsage")
@@ -327,6 +326,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> PINE_BARK;
     public static final RegistrySupplier<Item> REDWOOD_BARK;
     public static final RegistrySupplier<Item> SOUL_GLASS;
+    public static final RegistrySupplier<Item> SOUL_LEAVES;
     public static final RegistrySupplier<Item> CHEESE;
 
     public static final RegistrySupplier<Item> CORN;
@@ -1172,6 +1172,8 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CHERRY_HEDGE;
     public static final RegistrySupplier<Item> AZALEA_HEDGE;
     public static final RegistrySupplier<Item> FLOWERING_AZALEA_HEDGE;
+    public static final RegistrySupplier<Item> PALE_OAK_HEDGE;
+    public static final RegistrySupplier<Item> SOUL_HEDGE;
 
     public static final RegistrySupplier<Item> OAK_LOG_WALL;
     public static final RegistrySupplier<Item> SPRUCE_LOG_WALL;
@@ -1899,6 +1901,7 @@ public class InspireItems {
         PINE_BARK = ITEMS.register("pine_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         REDWOOD_BARK = ITEMS.register("redwood_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         SOUL_GLASS = ITEMS.register("soul_glass", () -> new BlockItem(InspireBlocks.SOUL_GLASS.get(), (new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_LEAVES = ITEMS.register("soul_leaves", () -> new BlockItem(InspireBlocks.SOUL_LEAVES.get(), (new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         SOUL_BOTTLE = ITEMS.register("soul_bottle", () -> new Item(new Item.Properties().rarity(Rarity.RARE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)) {
             @Override
             public boolean isFoil(ItemStack itemStack) {
@@ -3976,6 +3979,8 @@ public class InspireItems {
         CHERRY_HEDGE = ITEMS.register("cherry_hedge", ()-> new BlockItem(InspireBlocks.CHERRY_HEDGE.get(), basicProperties("cherry_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
         AZALEA_HEDGE = ITEMS.register("azalea_hedge", ()-> new BlockItem(InspireBlocks.AZALEA_HEDGE.get(), basicProperties("azalea_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
         FLOWERING_AZALEA_HEDGE = ITEMS.register("flowering_azalea_hedge", ()-> new BlockItem(InspireBlocks.FLOWERING_AZALEA_HEDGE.get(), basicProperties("flowering_azalea_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        PALE_OAK_HEDGE = ITEMS.register("pale_oak_hedge", ()-> new BlockItem(InspireBlocks.PALE_OAK_HEDGE.get(), basicProperties("pale_oak_hedge").arch$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+        SOUL_HEDGE = ITEMS.register("soul_hedge", ()-> new BlockItem(InspireBlocks.SOUL_HEDGE.get(), basicProperties("soul_hedge").arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
         OAK_LOG_WALL = ITEMS.register("oak_log_wall", ()-> new BlockItem(InspireBlocks.OAK_LOG_WALL.get(), basicProperties("oak_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         SPRUCE_LOG_WALL = ITEMS.register("spruce_log_wall", ()-> new BlockItem(InspireBlocks.SPRUCE_LOG_WALL.get(), basicProperties("spruce_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));

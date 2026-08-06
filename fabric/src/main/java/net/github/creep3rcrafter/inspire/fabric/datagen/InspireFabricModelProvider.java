@@ -1,18 +1,14 @@
 package net.github.creep3rcrafter.inspire.fabric.datagen;
 
-import com.google.gson.JsonElement;
-import dev.architectury.registry.registries.RegistrySupplier;
+import com.blackgear.vanillabackport.common.registries.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.github.creep3rcrafter.inspire.InspireCommon;
-import net.github.creep3rcrafter.inspire.register.InspireBlockFamilies;
 import net.github.creep3rcrafter.inspire.register.InspireBlocks;
 import net.github.creep3rcrafter.inspire.utils.BetterBlockFamilies;
 import net.github.creep3rcrafter.inspire.utils.BetterBlockFamily;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.BlockFamilies;
-import net.minecraft.data.BlockFamily;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.blockstates.*;
@@ -21,15 +17,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
-import net.minecraft.world.level.block.state.properties.SlabType;
-import org.intellij.lang.annotations.Identifier;
 
-import java.lang.reflect.Field;
 import java.util.*;
-import java.util.function.Supplier;
 
 public class InspireFabricModelProvider extends FabricModelProvider {
     public InspireFabricModelProvider(FabricDataOutput output) {
@@ -176,6 +167,8 @@ public class InspireFabricModelProvider extends FabricModelProvider {
         createTintedWall(blockStateModelGenerator, Blocks.CHERRY_LEAVES, InspireBlocks.CHERRY_HEDGE.get());
         createTintedWall(blockStateModelGenerator, Blocks.AZALEA_LEAVES, InspireBlocks.AZALEA_HEDGE.get());
         createTintedWall(blockStateModelGenerator, Blocks.FLOWERING_AZALEA_LEAVES, InspireBlocks.FLOWERING_AZALEA_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, ModBlocks.PALE_OAK_LEAVES.get(), InspireBlocks.PALE_OAK_HEDGE.get());
+        createTintedWall(blockStateModelGenerator, Blocks.OAK_LEAVES, InspireBlocks.SOUL_HEDGE.get());
 
         createWallWithTop(blockStateModelGenerator, Blocks.OAK_LOG, InspireBlocks.OAK_LOG_WALL.get(), "oak");
         createWallWithTop(blockStateModelGenerator, Blocks.SPRUCE_LOG, InspireBlocks.SPRUCE_LOG_WALL.get(), "spruce");

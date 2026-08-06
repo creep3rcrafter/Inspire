@@ -865,5 +865,11 @@
   "block.inspire.mangrove_hedge": "Mangrove Hedge",
   "block.inspire.cherry_hedge": "Cherry Hedge",
   "block.inspire.azalea_hedge": "Azalea Hedge",
-  "block.inspire.flowering_azalea_hedge": "Flowering Azalea Hedge"
+  "block.inspire.flowering_azalea_hedge": "Flowering Azalea Hedge",
+  "block.inspire.soul_leaves": "Soul Leaves",
+  "block.inspire.soul_leaves": "Soul Leaves",
+  "block.inspire.soul_leaves_hedge": "Soul Leaves Hedge",
+  "block.inspire.pale_oak_hedge": "Pale Oak Hedge",
+  "biome.inspire.withered_wastes": "Withered Wastes",
+  "biome.inspire.soul_forest": "Soul Forest"
 }

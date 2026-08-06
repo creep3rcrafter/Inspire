@@ -85,6 +85,8 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> CHERRY_HEDGE;
     public static final RegistrySupplier<Block> AZALEA_HEDGE;
     public static final RegistrySupplier<Block> FLOWERING_AZALEA_HEDGE;
+    public static final RegistrySupplier<Block> PALE_OAK_HEDGE;
+    public static final RegistrySupplier<Block> SOUL_HEDGE;
 
     public static final RegistrySupplier<Block> OAK_LOG_WALL;
     public static final RegistrySupplier<Block> SPRUCE_LOG_WALL;
@@ -1094,6 +1096,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> BREAKER;
     public static final RegistrySupplier<Block> FILTER;
     public static final RegistrySupplier<Block> SOUL_GLASS;
+    public static final RegistrySupplier<Block> SOUL_LEAVES;
     public static final RegistrySupplier<Block> CURSED_TABLE;
     public static final RegistrySupplier<Block> SOUL_FARMLAND;
     public static final RegistrySupplier<Block> MAGNETIC_REPULSER;
@@ -1225,7 +1228,7 @@ public class InspireBlocks {
         WITHERED_WOOD = BLOCKS.register("withered_wood", () -> netherLog(MapColor.COLOR_LIGHT_GRAY));
         STRIPPED_WITHERED_WOOD = BLOCKS.register("stripped_withered_wood", () -> netherLog(MapColor.COLOR_BLACK));
         WITHERED_PLANKS = BLOCKS.register("withered_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
-        WITHERED_SAPLING = BLOCKS.register("withered_sapling", () -> new SaplingBlock(TreeGrower.OAK, BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        WITHERED_SAPLING = BLOCKS.register("withered_sapling", () -> new WitheredSaplingBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
         WITHERED_STAIRS = BLOCKS.register("withered_stairs", () -> new StairBlock(WITHERED_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(WITHERED_PLANKS.get())));
         WITHERED_SIGN = BLOCKS.register("withered_sign", () -> new StandingSignBlock(InspireWoodTypes.WITHERED, BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD)));
         WITHERED_DOOR = BLOCKS.register("withered_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().mapColor(WITHERED_PLANKS.get().defaultMapColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
@@ -1277,6 +1280,7 @@ public class InspireBlocks {
         BREAKER = BLOCKS.register("breaker", () -> new BreakerBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.5F)));
         FILTER = BLOCKS.register("filter", () -> new FilterBlock(BlockBehaviour.Properties.of().noOcclusion().requiresCorrectToolForDrops().strength(3.5F)));
         SOUL_GLASS = BLOCKS.register("soul_glass", () -> new SoulGlassBlock(BlockBehaviour.Properties.of().strength(0.3F).sound(SoundType.GLASS).noOcclusion().randomTicks().isValidSpawn(InspireBlocks::never).isRedstoneConductor(InspireBlocks::never).isSuffocating(InspireBlocks::never).isViewBlocking(InspireBlocks::never).lightLevel(brightnessBlockEmission())));
+        SOUL_LEAVES = BLOCKS.register("soul_leaves", () -> new SoulLeavesBlock(BlockBehaviour.Properties.ofLegacyCopy(Blocks.OAK_LEAVES).lightLevel(brightnessBlockEmission()).hasPostProcess((state, level, pos) -> state.getValue(SoulLeavesBlock.SOUL_LEVEL) > 0).emissiveRendering((state, level, pos) -> state.getValue(SoulLeavesBlock.SOUL_LEVEL) > 0)));
         CURSED_TABLE = BLOCKS.register("cursed_table", () -> new CursedTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).requiresCorrectToolForDrops().lightLevel((blockStatex) -> 7).strength(5.0F, 1200.0F)));
         //Blocks
         SOUL_FLUID_BLOCK = BLOCKS.register("soul_fluid_block", () ->
@@ -1346,6 +1350,8 @@ public class InspireBlocks {
         CHERRY_HEDGE = BLOCKS.register("cherry_hedge", ()-> new WallBlock(copyProperties("cherry_hedge", Blocks.CHERRY_LEAVES).forceSolidOn()));
         AZALEA_HEDGE = BLOCKS.register("azalea_hedge", ()-> new WallBlock(copyProperties("azalea_hedge", Blocks.AZALEA_LEAVES).forceSolidOn()));
         FLOWERING_AZALEA_HEDGE = BLOCKS.register("flowering_azalea_hedge", ()-> new WallBlock(copyProperties("flowering_azalea_hedge", Blocks.FLOWERING_AZALEA_LEAVES).forceSolidOn()));
+        PALE_OAK_HEDGE = BLOCKS.register("pale_oak_hedge", ()-> new WallBlock(copyProperties("pale_oak_hedge", Blocks.OAK_LEAVES).forceSolidOn()));
+        SOUL_HEDGE = BLOCKS.register("soul_hedge", ()-> new SoulHedgeBlock(copyProperties("soul_hedge", Blocks.OAK_LEAVES).forceSolidOn().randomTicks()));
 
         OAK_LOG_WALL = BLOCKS.register("oak_log_wall", ()-> new WallBlock(copyProperties("oak_log_wall", Blocks.OAK_PLANKS).forceSolidOn()));
         SPRUCE_LOG_WALL = BLOCKS.register("spruce_log_wall", ()-> new WallBlock(copyProperties("spruce_log_wall", Blocks.SPRUCE_PLANKS).forceSolidOn()));

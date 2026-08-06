@@ -1,0 +1,6 @@
+{
+  "parent": "inspire:block/template_tinted_wall_post",
+  "textures": {
+    "wall": "minecraft:block/pale_oak_leaves"
+  }
+}

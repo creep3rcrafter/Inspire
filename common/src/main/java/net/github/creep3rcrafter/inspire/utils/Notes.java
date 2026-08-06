@@ -49,7 +49,7 @@ public class Notes {
     Apple Tree
     Golden Apple Tree
 
-    leaf wall / Hedges
+    leaves wall / Hedges
 
     potion enchantments
     life steal enchantment

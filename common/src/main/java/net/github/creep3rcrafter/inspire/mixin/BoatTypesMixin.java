@@ -23,6 +23,8 @@ public abstract class BoatTypesMixin {
     @Unique
     private static final Boat.Type WARPED = inspire$addType(Blocks.WARPED_PLANKS, "warped");
     @Unique
+    private static final Boat.Type SOUL = inspire$addType(InspireBlocks.SOUL_PLANKS.getOrNull(), "soul");
+    @Unique
     private static final Boat.Type WITHERED = inspire$addType(InspireBlocks.WITHERED_PLANKS.getOrNull(), "withered");
     @Unique
     private static final Boat.Type PINE = inspire$addType(InspireBlocks.PINE_PLANKS.getOrNull(), "pine");

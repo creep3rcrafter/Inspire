@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "inspire:block/hanging_soul_vines_plant"
+  }
+}

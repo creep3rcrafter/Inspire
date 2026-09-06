@@ -9,7 +9,7 @@
       "tick_chance": 0.0111
     },
     "ambient_sound": "minecraft:ambient.soul_sand_valley.loop",
-    "fog_color": 1181961,
+    "fog_color": 0,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -48,6 +48,7 @@
       "minecraft:glowstone",
       "minecraft:ore_magma",
       "minecraft:spring_closed",
+      "inspire:withered_bone_fossil",
       "minecraft:ore_gravel_nether",
       "minecraft:ore_blackstone",
       "minecraft:ore_gold_nether",

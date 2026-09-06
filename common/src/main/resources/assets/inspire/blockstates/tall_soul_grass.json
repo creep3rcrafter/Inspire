@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "inspire:block/tall_soul_grass_bottom"
+    },
+    "half=upper": {
+      "model": "inspire:block/tall_soul_grass_top"
+    }
+  }
+}

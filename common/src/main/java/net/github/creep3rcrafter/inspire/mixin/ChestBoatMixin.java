@@ -24,6 +24,8 @@ public abstract class ChestBoatMixin extends Boat {
             cir.setReturnValue(InspireItems.CRIMSON_CHEST_BOAT.get());
         } else if (this.getVariant() == Type.byName("warped")) {
             cir.setReturnValue(InspireItems.WARPED_CHEST_BOAT.get());
+        } else if (this.getVariant() == Type.byName("soul")) {
+            cir.setReturnValue(InspireItems.SOUL_CHEST_BOAT.get());
         } else if (this.getVariant() == Type.byName("withered")) {
             cir.setReturnValue(InspireItems.WITHERED_CHEST_BOAT.get());
         } else if (this.getVariant() == Type.byName("pine")) {

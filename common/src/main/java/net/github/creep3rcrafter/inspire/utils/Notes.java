@@ -2,6 +2,37 @@ package net.github.creep3rcrafter.inspire.utils;
 
 public class Notes {
     /*
+    double lilypad
+    triple lilypad
+    algae
+    Item Stand when powered it changes how an item/block is displayed like flat, it can hold 4 stacks or 2 stacks if it is a half like a better shelf
+
+    ender wand acts like a bundle but holds the items/blocks and it can acesss the inventory of a saved location
+
+    layered clouds
+
+    launching pistons if on top of a piston launch the entity up
+
+    mini sky islands
+
+    spiders hang from webs
+
+    pumise/lava rock
+
+    jump in minecarts
+    lean in minecarts to turn
+
+    cross tracks
+    split track
+    minecart ramp
+
+    minecart caves structure
+
+    straw hat          [-]
+    lavender           | |
+    limestone towers   | |
+
+
     Sea Moss
     Wet Mossy Sand
     Wet Sand Bricks

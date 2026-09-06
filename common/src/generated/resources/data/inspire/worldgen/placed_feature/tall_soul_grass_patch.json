@@ -1,0 +1,24 @@
+{
+  "feature": "inspire:tall_soul_grass_patch",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 2
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "inspire:tall_soul_grass",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -45,6 +45,10 @@ public class InspireWoodBark {
                 new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 4));
         register(InspireBlocks.STRIPPED_WITHERED_WOOD.get(),
                 new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 6));
+        register(InspireBlocks.STRIPPED_SOUL_LOG.get(),
+                new ItemStack(InspireItems.SOUL_BARK.get().arch$holder().value(), 4));
+        register(InspireBlocks.STRIPPED_SOUL_WOOD.get(),
+                new ItemStack(InspireItems.SOUL_BARK.get().arch$holder().value(), 6));
 
         register(InspireBlocks.STRIPPED_OAK_LOG_FENCE.get(),
                 new ItemStack(InspireItems.OAK_BARK.get().arch$holder().value(), 1));
@@ -78,6 +82,10 @@ public class InspireWoodBark {
                 new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 1));
         register(InspireBlocks.STRIPPED_WITHERED_WOOD_FENCE.get(),
                 new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_SOUL_LOG_FENCE.get(),
+                new ItemStack(InspireItems.SOUL_BARK.get().arch$holder().value(), 1));
+        register(InspireBlocks.STRIPPED_SOUL_WOOD_FENCE.get(),
+                new ItemStack(InspireItems.SOUL_BARK.get().arch$holder().value(), 2));
 
         register(InspireBlocks.STRIPPED_OAK_LOG_WALL.get(),
                 new ItemStack(InspireItems.OAK_BARK.get().arch$holder().value(), 2));
@@ -111,6 +119,10 @@ public class InspireWoodBark {
                 new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 2));
         register(InspireBlocks.STRIPPED_WITHERED_WOOD_WALL.get(),
                 new ItemStack(InspireItems.WITHERED_BARK.get().arch$holder().value(), 3));
+        register(InspireBlocks.STRIPPED_SOUL_LOG_WALL.get(),
+                new ItemStack(InspireItems.SOUL_BARK.get().arch$holder().value(), 2));
+        register(InspireBlocks.STRIPPED_SOUL_WOOD_WALL.get(),
+                new ItemStack(InspireItems.SOUL_BARK.get().arch$holder().value(), 3));
 
         register(InspireBlocks.STRIPPED_PINE_LOG.get(),
                 new ItemStack(InspireItems.PINE_BARK.get().arch$holder().value(), 4));

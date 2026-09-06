@@ -11,6 +11,7 @@ public class InspireFuels {
         FuelRegistry.register(75, InspireItems.ACACIA_BARK.get());
         FuelRegistry.register(75, InspireItems.DARK_OAK_BARK.get());
         FuelRegistry.register(75, InspireItems.MANGROVE_BARK.get());
+        FuelRegistry.register(75, InspireItems.SOUL_BARK.get());
         FuelRegistry.register(75, InspireItems.PINE_BARK.get());
         FuelRegistry.register(75, InspireItems.REDWOOD_BARK.get());
     }

@@ -1,0 +1,8 @@
+{
+  "parent": "inspire:block/template_soul_grass_block",
+  "textures": {
+    "all": "minecraft:block/soul_soil",
+    "side": "minecraft:block/grass_block_side_overlay",
+    "top": "minecraft:block/grass_block_top"
+  }
+}

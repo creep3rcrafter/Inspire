@@ -26,6 +26,12 @@ public final class InspirePlacedFeatures {
     public static final ResourceKey<PlacedFeature> WITHERED_OAK_NETHER = createKey("withered_oak_nether");
     public static final ResourceKey<PlacedFeature> LARGE_WITHERED_OAK = createKey("large_withered_oak");
     public static final ResourceKey<PlacedFeature> LARGE_WITHERED_OAK_NETHER = createKey("large_withered_oak_nether");
+    public static final ResourceKey<PlacedFeature> SOUL_TREE_NETHER = createKey("soul_tree_nether");
+    public static final ResourceKey<PlacedFeature> LARGE_SOUL_TREE_NETHER = createKey("large_soul_tree_nether");
+    public static final ResourceKey<PlacedFeature> SOUL_GRASS_PATCH = createKey("soul_grass_patch");
+    public static final ResourceKey<PlacedFeature> SHORT_SOUL_GRASS_PATCH = createKey("short_soul_grass_patch");
+    public static final ResourceKey<PlacedFeature> TALL_SOUL_GRASS_PATCH = createKey("tall_soul_grass_patch");
+    public static final ResourceKey<PlacedFeature> WITHERED_BONE_FOSSIL = createKey("withered_bone_fossil");
 
     private InspirePlacedFeatures() {
     }
@@ -75,6 +81,51 @@ public final class InspirePlacedFeatures {
                         netherTreePlacement(2)
                 )
         );
+        context.register(
+                SOUL_TREE_NETHER,
+                new PlacedFeature(
+                        configuredFeatures.getOrThrow(InspireConfiguredFeatures.SOUL_TREE),
+                        netherTreePlacement(4, InspireBlocks.SOUL_SAPLING.get())
+                )
+        );
+        context.register(
+                LARGE_SOUL_TREE_NETHER,
+                new PlacedFeature(
+                        configuredFeatures.getOrThrow(InspireConfiguredFeatures.LARGE_SOUL_TREE),
+                        netherTreePlacement(2, InspireBlocks.SOUL_SAPLING.get())
+                )
+        );
+        context.register(
+                SOUL_GRASS_PATCH,
+                new PlacedFeature(
+                        configuredFeatures.getOrThrow(InspireConfiguredFeatures.SOUL_GRASS_PATCH),
+                        netherVegetationPlacement(6, InspireBlocks.SOUL_GRASS.get())
+                )
+        );
+        context.register(
+                SHORT_SOUL_GRASS_PATCH,
+                new PlacedFeature(
+                        configuredFeatures.getOrThrow(InspireConfiguredFeatures.SHORT_SOUL_GRASS_PATCH),
+                        netherVegetationPlacement(4, InspireBlocks.SHORT_SOUL_GRASS.get())
+                )
+        );
+        context.register(
+                TALL_SOUL_GRASS_PATCH,
+                new PlacedFeature(
+                        configuredFeatures.getOrThrow(InspireConfiguredFeatures.TALL_SOUL_GRASS_PATCH),
+                        netherVegetationPlacement(2, InspireBlocks.TALL_SOUL_GRASS.get())
+                )
+        );
+        context.register(
+                WITHERED_BONE_FOSSIL,
+                new PlacedFeature(
+                        configuredFeatures.getOrThrow(InspireConfiguredFeatures.WITHERED_BONE_FOSSIL),
+                        List.of(
+                                CountOnEveryLayerPlacement.of(1),
+                                BiomeFilter.biome()
+                        )
+                )
+        );
     }
 
     private static List<PlacementModifier> treePlacement(PlacementModifier countModifier) {
@@ -89,9 +140,21 @@ public final class InspirePlacedFeatures {
     }
 
     private static List<PlacementModifier> netherTreePlacement(int count) {
+        return netherTreePlacement(count, InspireBlocks.WITHERED_SAPLING.get());
+    }
+
+    private static List<PlacementModifier> netherTreePlacement(int count, net.minecraft.world.level.block.Block sapling) {
         return List.of(
                 CountOnEveryLayerPlacement.of(count),
-                PlacementUtils.filteredByBlockSurvival(InspireBlocks.WITHERED_SAPLING.get()),
+                PlacementUtils.filteredByBlockSurvival(sapling),
+                BiomeFilter.biome()
+        );
+    }
+
+    private static List<PlacementModifier> netherVegetationPlacement(int count, net.minecraft.world.level.block.Block block) {
+        return List.of(
+                CountOnEveryLayerPlacement.of(count),
+                PlacementUtils.filteredByBlockSurvival(block),
                 BiomeFilter.biome()
         );
     }

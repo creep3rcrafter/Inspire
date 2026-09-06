@@ -47,8 +47,12 @@ public final class InspireBiomes {
         return soulBiome(
                 placedFeatures,
                 carvers,
+                0x000000,
                 new ResourceKey[]{
                         InspirePlacedFeatures.WITHERED_BARE_TREE_NETHER
+                },
+                new ResourceKey[]{
+                        InspirePlacedFeatures.WITHERED_BONE_FOSSIL
                 }
         );
     }
@@ -57,19 +61,26 @@ public final class InspireBiomes {
         return soulBiome(
                 placedFeatures,
                 carvers,
+                0x18D7E6,
                 new ResourceKey[]{
-                        InspirePlacedFeatures.WITHERED_OAK_NETHER,
-                        InspirePlacedFeatures.LARGE_WITHERED_OAK_NETHER,
+                        InspirePlacedFeatures.SOUL_TREE_NETHER,
+                        InspirePlacedFeatures.LARGE_SOUL_TREE_NETHER,
                         InspirePlacedFeatures.WITHERED_BARE_TREE_NETHER
+                },
+                new ResourceKey[]{
+                        InspirePlacedFeatures.SOUL_GRASS_PATCH,
+                        InspirePlacedFeatures.SHORT_SOUL_GRASS_PATCH,
+                        InspirePlacedFeatures.TALL_SOUL_GRASS_PATCH
                 }
         );
     }
 
-    @SafeVarargs
     private static Biome soulBiome(
             HolderGetter<PlacedFeature> placedFeatures,
             HolderGetter<ConfiguredWorldCarver<?>> carvers,
-            ResourceKey<PlacedFeature>... treeFeatures
+            int fogColor,
+            ResourceKey<PlacedFeature>[] treeFeatures,
+            ResourceKey<PlacedFeature>[] extraFeatures
     ) {
         MobSpawnSettings mobSpawnSettings = new MobSpawnSettings.Builder()
                 .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.GHAST, 40, 2, 4))
@@ -93,6 +104,14 @@ public final class InspireBiomes {
         for (ResourceKey<PlacedFeature> treeFeature : treeFeatures) {
             generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, treeFeature);
         }
+        for (ResourceKey<PlacedFeature> extraFeature : extraFeatures) {
+            generationSettings.addFeature(
+                    extraFeature == InspirePlacedFeatures.WITHERED_BONE_FOSSIL
+                            ? GenerationStep.Decoration.UNDERGROUND_DECORATION
+                            : GenerationStep.Decoration.VEGETAL_DECORATION,
+                    extraFeature
+            );
+        }
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings);
 
         return new Biome.BiomeBuilder()
@@ -102,7 +121,7 @@ public final class InspireBiomes {
                 .specialEffects(new BiomeSpecialEffects.Builder()
                         .waterColor(4159204)
                         .waterFogColor(329011)
-                        .fogColor(0x120909)
+                        .fogColor(fogColor)
                         .skyColor(0x2A1414)
                         .ambientParticle(new AmbientParticleSettings(ParticleTypes.ASH, 0.004f))
                         .ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)

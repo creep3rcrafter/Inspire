@@ -18,6 +18,7 @@ public final class InspireSurfaceRuleData {
     private static final SurfaceRules.RuleSource NETHER_WART_BLOCK = makeStateRule(Blocks.NETHER_WART_BLOCK);
     private static final SurfaceRules.RuleSource SOUL_SAND = makeStateRule(Blocks.SOUL_SAND);
     private static final SurfaceRules.RuleSource SOUL_SOIL = makeStateRule(Blocks.SOUL_SOIL);
+    private static final SurfaceRules.RuleSource SOUL_GRASS_BLOCK = makeStateRule(InspireBlocks.SOUL_GRASS_BLOCK.get());
     private static final SurfaceRules.RuleSource WARPED_NYLIUM = makeStateRule(Blocks.WARPED_NYLIUM);
     private static final SurfaceRules.RuleSource WARPED_WART_BLOCK = makeStateRule(Blocks.WARPED_WART_BLOCK);
 
@@ -57,7 +58,7 @@ public final class InspireSurfaceRuleData {
                                                 SOUL_SOIL
                                         )
                                 ),
-                                SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, BLACKSTONE),
+                                SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SOUL_SOIL),
                                 BLACKSTONE
                         )
                 ),
@@ -70,10 +71,10 @@ public final class InspireSurfaceRuleData {
                                         SurfaceRules.ON_FLOOR,
                                         SurfaceRules.sequence(
                                                 SurfaceRules.ifTrue(SurfaceRules.not(aboveSoulSoilDepth), SurfaceRules.ifTrue(hole, LAVA)),
-                                                SOUL_SOIL
+                                                SOUL_GRASS_BLOCK
                                         )
                                 ),
-                                SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, BLACKSTONE),
+                                SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SOUL_SOIL),
                                 BLACKSTONE
                         )
                 ),

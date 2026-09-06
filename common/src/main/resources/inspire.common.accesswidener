@@ -30,7 +30,6 @@ accessible method net/minecraft/world/entity/animal/Cat setCollarColor (Lnet/min
 
 accessible method net/minecraft/world/level/block/entity/ShulkerBoxBlockEntity getItems ()Lnet/minecraft/core/NonNullList;
 accessible method net/minecraft/world/level/block/entity/ShulkerBoxBlockEntity setItems (Lnet/minecraft/core/NonNullList;)V
-accessible method net/minecraft/world/level/block/entity/BlockEntity setCustomName (Lnet/minecraft/network/chat/Component;)V
 accessible field net/minecraft/world/level/block/entity/BaseContainerBlockEntity name Lnet/minecraft/network/chat/Component;
 mutable field net/minecraft/world/level/block/entity/BaseContainerBlockEntity name Lnet/minecraft/network/chat/Component;
 
@@ -44,6 +43,5 @@ accessible field net/minecraft/world/level/block/entity/BrewingStandBlockEntity 
 accessible field net/minecraft/client/model/BoatModel waterPatch Lnet/minecraft/client/model/geom/ModelPart;
 extendable method net/minecraft/client/model/BoatModel setupAnim (Lnet/minecraft/world/entity/vehicle/Boat;FFFFF)V
 extendable method net/minecraft/client/model/Model renderType (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
-extendable method net/minecraft/client/model/ListModel renderToBuffer (Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V
 extendable method net/minecraft/client/model/BoatModel waterPatch ()Lnet/minecraft/client/model/geom/ModelPart;
 extendable method net/minecraft/world/level/block/RedStoneWireBlock getConnectionState (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;

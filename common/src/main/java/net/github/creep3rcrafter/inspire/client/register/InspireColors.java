@@ -22,6 +22,7 @@ public class InspireColors {
     public static final BlockColor CHROMATIC_LAMP;
     public static final BlockColor SOUL_LEAVES;
     public static final BlockColor SOUL_HEDGE;
+    public static final BlockColor SOUL_GRASS;
     static {
         BLUESTONE_WIRE = (state, world, pos, tintIndex) -> BluestoneWireBlock.getColorForPower(state.getValue(BlockStateProperties.POWER));
         SOUL_GLASS = (state, world, pos, tintIndex) -> {
@@ -48,6 +49,7 @@ public class InspireColors {
             float b = 0.25f + f * 0.75f;
             return Mth.color(r, g, b);
         };
+        SOUL_GRASS = (state, world, pos, tintIndex) -> tintIndex == 0 ? Mth.color(0.09f, 0.84f, 0.9f) : -1;
         CHROMATIC_LAMP  = (state, world, pos, tintIndex) -> switch (state.getValue(ChromaticLampBlock.COLOR)) {
             case 1 -> MapColor.COLOR_GRAY.col;
             case 2 -> MapColor.COLOR_LIGHT_GRAY.col;
@@ -70,6 +72,12 @@ public class InspireColors {
         ColorHandlerRegistry.registerBlockColors(SOUL_GLASS, InspireBlocks.SOUL_GLASS.get());
         ColorHandlerRegistry.registerBlockColors(SOUL_LEAVES, InspireBlocks.SOUL_LEAVES.get());
         ColorHandlerRegistry.registerBlockColors(SOUL_HEDGE, InspireBlocks.SOUL_HEDGE.get());
+        ColorHandlerRegistry.registerBlockColors(SOUL_GRASS,
+                InspireBlocks.SOUL_GRASS_BLOCK.get(),
+                InspireBlocks.SOUL_GRASS.get(),
+                InspireBlocks.SHORT_SOUL_GRASS.get(),
+                InspireBlocks.TALL_SOUL_GRASS.get()
+        );
         //ColorHandlerRegistry.registerBlockColors(CHROMATIC_LAMP, InspireBlocks.SOUL_GLASS.get());
         // Hedge foliage biome colors
         BlockColor foliage = (state, level, pos, tintIndex) ->
@@ -118,6 +126,13 @@ public class InspireColors {
         };
         ColorHandlerRegistry.registerItemColors(POTION_JAR, InspireItems.POTION_JAR.get());
         ColorHandlerRegistry.registerItemColors(SOUL_GLASS_ITEM, InspireItems.SOUL_GLASS.get());
+        ColorHandlerRegistry.registerItemColors(
+                (stack, tintIndex) -> tintIndex == 0 ? Mth.color(0.09f, 0.84f, 0.9f) : -1,
+                InspireItems.SOUL_GRASS_BLOCK.get(),
+                InspireItems.SOUL_GRASS.get(),
+                InspireItems.SHORT_SOUL_GRASS.get(),
+                InspireItems.TALL_SOUL_GRASS.get()
+        );
         ColorHandlerRegistry.registerItemColors(
                 (stack, tintIndex) -> Mth.color(0.0f, 0.0f, 0.12f),
                 InspireItems.SOUL_LEAVES.get()

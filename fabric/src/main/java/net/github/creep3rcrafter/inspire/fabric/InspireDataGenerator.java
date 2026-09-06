@@ -16,6 +16,7 @@ import net.github.creep3rcrafter.inspire.register.InspireConfiguredFeatures;
 import net.github.creep3rcrafter.inspire.register.InspireLevelStems;
 import net.github.creep3rcrafter.inspire.register.InspireNoiseGeneratorSettings;
 import net.github.creep3rcrafter.inspire.register.InspirePlacedFeatures;
+import net.github.creep3rcrafter.inspire.register.InspireProcessorLists;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.core.RegistrySetBuilder;
@@ -38,6 +39,7 @@ public class InspireDataGenerator implements DataGeneratorEntrypoint {
 
     @Override
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
+        registryBuilder.add(Registries.PROCESSOR_LIST, InspireProcessorLists::bootstrap);
         registryBuilder.add(Registries.CONFIGURED_FEATURE, InspireConfiguredFeatures::bootstrap);
         registryBuilder.add(Registries.PLACED_FEATURE, InspirePlacedFeatures::bootstrap);
         registryBuilder.add(Registries.BIOME, InspireBiomes::bootstrap);

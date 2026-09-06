@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -22,7 +23,6 @@ import java.util.List;
  * Glows brighter as living entities approach within 16 blocks.
  * At full range: nearly black. At touching: light blue.
  */
-@SuppressWarnings("deprecation")
 public class SoulLeavesBlock extends Block {
     public static final IntegerProperty SOUL_LEVEL = InspireBlockStateProperties.BRIGHTNESS;
 
@@ -63,7 +63,7 @@ public class SoulLeavesBlock extends Block {
     }
 
     @Override
-    protected BlockState updateShape(BlockState blockState, Direction direction, BlockState neighborState, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos neighborPos) {
+    protected @NotNull BlockState updateShape(BlockState blockState, Direction direction, BlockState neighborState, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos neighborPos) {
         levelAccessor.scheduleTick(blockPos, this, 2);
         return super.updateShape(blockState, direction, neighborState, levelAccessor, blockPos, neighborPos);
     }

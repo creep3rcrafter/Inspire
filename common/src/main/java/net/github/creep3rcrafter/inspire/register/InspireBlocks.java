@@ -71,6 +71,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> CHERRY_PLANK_WALL;
     public static final RegistrySupplier<Block> PALE_OAK_PLANK_WALL;
     public static final RegistrySupplier<Block> BAMBOO_PLANK_WALL;
+    public static final RegistrySupplier<Block> SOUL_PLANK_WALL;
     public static final RegistrySupplier<Block> WITHERED_PLANK_WALL;
     public static final RegistrySupplier<Block> CRIMSON_PLANK_WALL;
     public static final RegistrySupplier<Block> WARPED_PLANK_WALL;
@@ -98,6 +99,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> CHERRY_LOG_WALL;
     public static final RegistrySupplier<Block> PALE_OAK_LOG_WALL;
     public static final RegistrySupplier<Block> BAMBOO_LOG_WALL;
+    public static final RegistrySupplier<Block> SOUL_LOG_WALL;
     public static final RegistrySupplier<Block> WITHERED_LOG_WALL;
     public static final RegistrySupplier<Block> CRIMSON_STEM_WALL;
     public static final RegistrySupplier<Block> WARPED_STEM_WALL;
@@ -112,6 +114,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> STRIPPED_CHERRY_LOG_WALL;
     public static final RegistrySupplier<Block> STRIPPED_PALE_OAK_LOG_WALL;
     public static final RegistrySupplier<Block> STRIPPED_BAMBOO_LOG_WALL;
+    public static final RegistrySupplier<Block> STRIPPED_SOUL_LOG_WALL;
     public static final RegistrySupplier<Block> STRIPPED_WITHERED_LOG_WALL;
     public static final RegistrySupplier<Block> STRIPPED_CRIMSON_STEM_WALL;
     public static final RegistrySupplier<Block> STRIPPED_WARPED_STEM_WALL;
@@ -126,6 +129,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> CHERRY_WOOD_WALL;
     public static final RegistrySupplier<Block> PALE_OAK_WOOD_WALL;
     public static final RegistrySupplier<Block> BAMBOO_WOOD_WALL;
+    public static final RegistrySupplier<Block> SOUL_WOOD_WALL;
     public static final RegistrySupplier<Block> WITHERED_WOOD_WALL;
     public static final RegistrySupplier<Block> CRIMSON_HYPHAE_WALL;
     public static final RegistrySupplier<Block> WARPED_HYPHAE_WALL;
@@ -140,6 +144,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> CHERRY_LOG_FENCE;
     public static final RegistrySupplier<Block> PALE_OAK_LOG_FENCE;
     public static final RegistrySupplier<Block> BAMBOO_LOG_FENCE;
+    public static final RegistrySupplier<Block> SOUL_LOG_FENCE;
     public static final RegistrySupplier<Block> WITHERED_LOG_FENCE;
     public static final RegistrySupplier<Block> CRIMSON_STEM_FENCE;
     public static final RegistrySupplier<Block> WARPED_STEM_FENCE;
@@ -154,6 +159,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> STRIPPED_CHERRY_LOG_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_PALE_OAK_LOG_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_BAMBOO_LOG_FENCE;
+    public static final RegistrySupplier<Block> STRIPPED_SOUL_LOG_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_WITHERED_LOG_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_CRIMSON_STEM_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_WARPED_STEM_FENCE;
@@ -168,6 +174,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> STRIPPED_CHERRY_WOOD_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_PALE_OAK_WOOD_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_BAMBOO_WOOD_FENCE;
+    public static final RegistrySupplier<Block> STRIPPED_SOUL_WOOD_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_WITHERED_WOOD_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_CRIMSON_HYPHAE_FENCE;
     public static final RegistrySupplier<Block> STRIPPED_WARPED_HYPHAE_FENCE;
@@ -182,6 +189,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> STRIPPED_CHERRY_WOOD_WALL;
     public static final RegistrySupplier<Block> STRIPPED_PALE_OAK_WOOD_WALL;
     public static final RegistrySupplier<Block> STRIPPED_BAMBOO_WOOD_WALL;
+    public static final RegistrySupplier<Block> STRIPPED_SOUL_WOOD_WALL;
     public static final RegistrySupplier<Block> STRIPPED_WITHERED_WOOD_WALL;
     public static final RegistrySupplier<Block> STRIPPED_CRIMSON_HYPHAE_WALL;
     public static final RegistrySupplier<Block> STRIPPED_WARPED_HYPHAE_WALL;
@@ -196,6 +204,7 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> CHERRY_WOOD_FENCE;
     public static final RegistrySupplier<Block> PALE_OAK_WOOD_FENCE;
     public static final RegistrySupplier<Block> BAMBOO_WOOD_FENCE;
+    public static final RegistrySupplier<Block> SOUL_WOOD_FENCE;
     public static final RegistrySupplier<Block> WITHERED_WOOD_FENCE;
     public static final RegistrySupplier<Block> CRIMSON_HYPHAE_FENCE;
     public static final RegistrySupplier<Block> WARPED_HYPHAE_FENCE;
@@ -1057,6 +1066,24 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> WITHERED_SLAB;
     public static final RegistrySupplier<Block> STRIPPED_WITHERED_WOOD;
 
+    public static final RegistrySupplier<Block> SOUL_LOG;
+    public static final RegistrySupplier<Block> STRIPPED_SOUL_LOG;
+    public static final RegistrySupplier<Block> SOUL_WOOD;
+    public static final RegistrySupplier<Block> SOUL_PLANKS;
+    public static final RegistrySupplier<Block> SOUL_SAPLING;
+    public static final RegistrySupplier<Block> SOUL_STAIRS;
+    public static final RegistrySupplier<Block> SOUL_SIGN;
+    public static final RegistrySupplier<Block> SOUL_DOOR;
+    public static final RegistrySupplier<Block> SOUL_WALL_SIGN;
+    public static final RegistrySupplier<Block> SOUL_PRESSURE_PLATE;
+    public static final RegistrySupplier<Block> SOUL_FENCE;
+    public static final RegistrySupplier<Block> SOUL_TRAPDOOR;
+    public static final RegistrySupplier<Block> SOUL_FENCE_GATE;
+    public static final RegistrySupplier<Block> POTTED_SOUL_SAPLING;
+    public static final RegistrySupplier<Block> SOUL_BUTTON;
+    public static final RegistrySupplier<Block> SOUL_SLAB;
+    public static final RegistrySupplier<Block> STRIPPED_SOUL_WOOD;
+
     public static final RegistrySupplier<Block> PINE_LOG;
     public static final RegistrySupplier<Block> STRIPPED_PINE_LOG;
     public static final RegistrySupplier<Block> PINE_WOOD;
@@ -1097,6 +1124,12 @@ public class InspireBlocks {
     public static final RegistrySupplier<Block> FILTER;
     public static final RegistrySupplier<Block> SOUL_GLASS;
     public static final RegistrySupplier<Block> SOUL_LEAVES;
+    public static final RegistrySupplier<Block> SOUL_GRASS_BLOCK;
+    public static final RegistrySupplier<Block> SOUL_GRASS;
+    public static final RegistrySupplier<Block> SHORT_SOUL_GRASS;
+    public static final RegistrySupplier<Block> TALL_SOUL_GRASS;
+    public static final RegistrySupplier<Block> HANGING_SOUL_VINES;
+    public static final RegistrySupplier<Block> HANGING_SOUL_VINES_PLANT;
     public static final RegistrySupplier<Block> CURSED_TABLE;
     public static final RegistrySupplier<Block> SOUL_FARMLAND;
     public static final RegistrySupplier<Block> MAGNETIC_REPULSER;
@@ -1241,6 +1274,24 @@ public class InspireBlocks {
         WITHERED_BUTTON = BLOCKS.register("withered_button", () -> new ButtonBlock(BlockSetType.OAK, 30, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD)));
         WITHERED_SLAB = BLOCKS.register("withered_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
+        SOUL_LOG = BLOCKS.register("soul_log", () -> soulLog(MapColor.COLOR_CYAN));
+        STRIPPED_SOUL_LOG = BLOCKS.register("stripped_soul_log", () -> soulLog(MapColor.COLOR_LIGHT_BLUE));
+        SOUL_WOOD = BLOCKS.register("soul_wood", () -> soulLog(MapColor.COLOR_CYAN));
+        STRIPPED_SOUL_WOOD = BLOCKS.register("stripped_soul_wood", () -> soulLog(MapColor.COLOR_LIGHT_BLUE));
+        SOUL_PLANKS = BLOCKS.register("soul_planks", () -> new Block(soulWoodProperties(MapColor.COLOR_CYAN)));
+        SOUL_SAPLING = BLOCKS.register("soul_sapling", () -> new SoulSaplingBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
+        SOUL_STAIRS = BLOCKS.register("soul_stairs", () -> new StairBlock(SOUL_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SOUL_PLANKS.get())));
+        SOUL_SIGN = BLOCKS.register("soul_sign", () -> new StandingSignBlock(InspireWoodTypes.SOUL, soulWoodProperties(MapColor.COLOR_CYAN).noCollission().strength(1.0F)));
+        SOUL_DOOR = BLOCKS.register("soul_door", () -> new DoorBlock(BlockSetType.OAK, soulWoodProperties(SOUL_PLANKS.get().defaultMapColor()).strength(3.0F).noOcclusion()));
+        SOUL_WALL_SIGN = BLOCKS.register("soul_wall_sign", () -> new WallSignBlock(InspireWoodTypes.SOUL, soulWoodProperties(MapColor.COLOR_CYAN).noCollission().strength(1.0F).dropsLike(SOUL_SIGN.get())));
+        SOUL_PRESSURE_PLATE = BLOCKS.register("soul_pressure_plate", () -> new PressurePlateBlock(BlockSetType.OAK, soulWoodProperties(SOUL_PLANKS.get().defaultMapColor()).noCollission().strength(0.5F)));
+        SOUL_FENCE = BLOCKS.register("soul_fence", () -> new FenceBlock(soulWoodProperties(SOUL_PLANKS.get().defaultMapColor())));
+        SOUL_TRAPDOOR = BLOCKS.register("soul_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, soulWoodProperties(MapColor.COLOR_CYAN).strength(3.0F).noOcclusion().isValidSpawn(InspireBlocks::never)));
+        SOUL_FENCE_GATE = BLOCKS.register("soul_fence_gate", () -> new FenceGateBlock(InspireWoodTypes.SOUL, soulWoodProperties(SOUL_PLANKS.get().defaultMapColor())));
+        POTTED_SOUL_SAPLING = BLOCKS.register("potted_soul_sapling", () -> new FlowerPotBlock(SOUL_SAPLING.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
+        SOUL_BUTTON = BLOCKS.register("soul_button", () -> new ButtonBlock(BlockSetType.OAK, 30, soulWoodProperties(MapColor.COLOR_CYAN).noCollission().strength(0.5F)));
+        SOUL_SLAB = BLOCKS.register("soul_slab", () -> new SlabBlock(soulWoodProperties(MapColor.COLOR_CYAN)));
+
         PINE_LOG = BLOCKS.register("pine_log", () -> netherLog(MapColor.COLOR_RED));
         STRIPPED_PINE_LOG = BLOCKS.register("stripped_pine_log", () -> netherLog(MapColor.COLOR_RED));
         PINE_WOOD = BLOCKS.register("pine_wood", () -> netherLog(MapColor.COLOR_RED));
@@ -1281,6 +1332,12 @@ public class InspireBlocks {
         FILTER = BLOCKS.register("filter", () -> new FilterBlock(BlockBehaviour.Properties.of().noOcclusion().requiresCorrectToolForDrops().strength(3.5F)));
         SOUL_GLASS = BLOCKS.register("soul_glass", () -> new SoulGlassBlock(BlockBehaviour.Properties.of().strength(0.3F).sound(SoundType.GLASS).noOcclusion().randomTicks().isValidSpawn(InspireBlocks::never).isRedstoneConductor(InspireBlocks::never).isSuffocating(InspireBlocks::never).isViewBlocking(InspireBlocks::never).lightLevel(brightnessBlockEmission())));
         SOUL_LEAVES = BLOCKS.register("soul_leaves", () -> new SoulLeavesBlock(BlockBehaviour.Properties.ofLegacyCopy(Blocks.OAK_LEAVES).lightLevel(brightnessBlockEmission()).hasPostProcess((state, level, pos) -> state.getValue(SoulLeavesBlock.SOUL_LEVEL) > 0).emissiveRendering((state, level, pos) -> state.getValue(SoulLeavesBlock.SOUL_LEVEL) > 0)));
+        SOUL_GRASS_BLOCK = BLOCKS.register("soul_grass_block", () -> new NyliumBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_NYLIUM).lightLevel((state) -> 2).emissiveRendering(InspireBlocks::always)));
+        SOUL_GRASS = BLOCKS.register("soul_grass", () -> new SoulGrassPlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS).lightLevel((state) -> 4).emissiveRendering(InspireBlocks::always)));
+        SHORT_SOUL_GRASS = BLOCKS.register("short_soul_grass", () -> new ShortSoulGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS).lightLevel((state) -> 3).emissiveRendering(InspireBlocks::always)));
+        TALL_SOUL_GRASS = BLOCKS.register("tall_soul_grass", () -> new TallSoulGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS).lightLevel((state) -> 4).emissiveRendering(InspireBlocks::always)));
+        HANGING_SOUL_VINES = BLOCKS.register("hanging_soul_vines", () -> new HangingSoulVinesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAVE_VINES).lightLevel(CaveVines.emission(10)).emissiveRendering(InspireBlocks::always)));
+        HANGING_SOUL_VINES_PLANT = BLOCKS.register("hanging_soul_vines_plant", () -> new HangingSoulVinesPlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAVE_VINES_PLANT).lightLevel(CaveVines.emission(10)).emissiveRendering(InspireBlocks::always)));
         CURSED_TABLE = BLOCKS.register("cursed_table", () -> new CursedTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).requiresCorrectToolForDrops().lightLevel((blockStatex) -> 7).strength(5.0F, 1200.0F)));
         //Blocks
         SOUL_FLUID_BLOCK = BLOCKS.register("soul_fluid_block", () ->
@@ -1338,6 +1395,7 @@ public class InspireBlocks {
         BAMBOO_PLANK_WALL = BLOCKS.register("bamboo_plank_wall", ()-> new WallBlock(copyProperties("bamboo_plank_wall", Blocks.BAMBOO_PLANKS).forceSolidOn()));
         CRIMSON_PLANK_WALL = BLOCKS.register("crimson_plank_wall", ()-> new WallBlock(copyProperties("crimson_plank_wall", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         WARPED_PLANK_WALL = BLOCKS.register("warped_plank_wall", ()-> new WallBlock(copyProperties("warped_plank_wall", Blocks.WARPED_PLANKS).forceSolidOn()));
+        SOUL_PLANK_WALL = BLOCKS.register("soul_plank_wall", ()-> new WallBlock(copyProperties("soul_plank_wall", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         WITHERED_PLANK_WALL = BLOCKS.register("withered_plank_wall", ()-> new WallBlock(copyProperties("withered_plank_wall", Blocks.WARPED_PLANKS).forceSolidOn()));
 
         OAK_HEDGE = BLOCKS.register("oak_hedge", ()-> new WallBlock(copyProperties("oak_hedge", Blocks.OAK_LEAVES).forceSolidOn()));
@@ -1363,6 +1421,7 @@ public class InspireBlocks {
         CHERRY_LOG_WALL = BLOCKS.register("cherry_log_wall", ()-> new WallBlock(copyProperties("cherry_log_wall", Blocks.CHERRY_PLANKS).forceSolidOn()));
         PALE_OAK_LOG_WALL = BLOCKS.register("pale_oak_log_wall", ()-> new WallBlock(copyProperties("pale_oak_log_wall", Blocks.DARK_OAK_PLANKS).forceSolidOn()));
         BAMBOO_LOG_WALL = BLOCKS.register("bamboo_log_wall", ()-> new WallBlock(copyProperties("bamboo_log_wall", Blocks.BAMBOO_PLANKS).forceSolidOn()));
+        SOUL_LOG_WALL = BLOCKS.register("soul_log_wall", ()-> new WallBlock(copyProperties("soul_log_wall", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         WITHERED_LOG_WALL = BLOCKS.register("withered_log_wall", ()-> new WallBlock(copyProperties("withered_log_wall", InspireBlocks.WITHERED_PLANKS.get()).forceSolidOn()));
         CRIMSON_STEM_WALL = BLOCKS.register("crimson_stem_wall", ()-> new WallBlock(copyProperties("crimson_stem_wall", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         WARPED_STEM_WALL = BLOCKS.register("warped_stem_wall", ()-> new WallBlock(copyProperties("warped_stem_wall", Blocks.WARPED_PLANKS).forceSolidOn()));
@@ -1377,6 +1436,7 @@ public class InspireBlocks {
         STRIPPED_CHERRY_LOG_WALL = BLOCKS.register("stripped_cherry_log_wall", ()-> new WallBlock(copyProperties("stripped_cherry_log_wall", Blocks.CHERRY_PLANKS).forceSolidOn()));
         STRIPPED_PALE_OAK_LOG_WALL = BLOCKS.register("stripped_pale_oak_log_wall", ()-> new WallBlock(copyProperties("stripped_pale_oak_log_wall", Blocks.DARK_OAK_PLANKS).forceSolidOn()));
         STRIPPED_BAMBOO_LOG_WALL = BLOCKS.register("stripped_bamboo_log_wall", ()-> new WallBlock(copyProperties("stripped_bamboo_log_wall", Blocks.BAMBOO_PLANKS).forceSolidOn()));
+        STRIPPED_SOUL_LOG_WALL = BLOCKS.register("stripped_soul_log_wall", ()-> new WallBlock(copyProperties("stripped_soul_log_wall", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         STRIPPED_WITHERED_LOG_WALL = BLOCKS.register("stripped_withered_log_wall", ()-> new WallBlock(copyProperties("stripped_withered_log_wall", InspireBlocks.WITHERED_PLANKS.get()).forceSolidOn()));
         STRIPPED_CRIMSON_STEM_WALL = BLOCKS.register("stripped_crimson_stem_wall", ()-> new WallBlock(copyProperties("stripped_crimson_stem_wall", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         STRIPPED_WARPED_STEM_WALL = BLOCKS.register("stripped_warped_stem_wall", ()-> new WallBlock(copyProperties("stripped_warped_stem_wall", Blocks.WARPED_PLANKS).forceSolidOn()));
@@ -1391,6 +1451,7 @@ public class InspireBlocks {
         STRIPPED_CHERRY_WOOD_WALL = BLOCKS.register("stripped_cherry_wood_wall", ()-> new WallBlock(copyProperties("stripped_cherry_wood_wall", Blocks.CHERRY_PLANKS).forceSolidOn()));
         STRIPPED_PALE_OAK_WOOD_WALL = BLOCKS.register("stripped_pale_oak_wood_wall", ()-> new WallBlock(copyProperties("stripped_pale_oak_wood_wall", Blocks.DARK_OAK_PLANKS).forceSolidOn()));
         STRIPPED_BAMBOO_WOOD_WALL = BLOCKS.register("stripped_bamboo_wood_wall", ()-> new WallBlock(copyProperties("stripped_bamboo_wood_wall", Blocks.BAMBOO_PLANKS).forceSolidOn()));
+        STRIPPED_SOUL_WOOD_WALL = BLOCKS.register("stripped_soul_wood_wall", ()-> new WallBlock(copyProperties("stripped_soul_wood_wall", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         STRIPPED_WITHERED_WOOD_WALL = BLOCKS.register("stripped_withered_wood_wall", ()-> new WallBlock(copyProperties("stripped_withered_wood_wall", InspireBlocks.WITHERED_PLANKS.get()).forceSolidOn()));
         STRIPPED_CRIMSON_HYPHAE_WALL = BLOCKS.register("stripped_crimson_hyphae_wall", ()-> new WallBlock(copyProperties("stripped_crimson_hyphae_wall", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         STRIPPED_WARPED_HYPHAE_WALL = BLOCKS.register("stripped_warped_hyphae_wall", ()-> new WallBlock(copyProperties("stripped_warped_hyphae_wall", Blocks.WARPED_PLANKS).forceSolidOn()));
@@ -1405,6 +1466,7 @@ public class InspireBlocks {
         CHERRY_WOOD_WALL = BLOCKS.register("cherry_wood_wall", ()-> new WallBlock(copyProperties("cherry_wood_wall", Blocks.CHERRY_PLANKS).forceSolidOn()));
         PALE_OAK_WOOD_WALL = BLOCKS.register("pale_oak_wood_wall", ()-> new WallBlock(copyProperties("pale_oak_wood_wall", Blocks.DARK_OAK_PLANKS).forceSolidOn()));
         BAMBOO_WOOD_WALL = BLOCKS.register("bamboo_wood_wall", ()-> new WallBlock(copyProperties("bamboo_wood_wall", Blocks.BAMBOO_PLANKS).forceSolidOn()));
+        SOUL_WOOD_WALL = BLOCKS.register("soul_wood_wall", ()-> new WallBlock(copyProperties("soul_wood_wall", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         WITHERED_WOOD_WALL = BLOCKS.register("withered_wood_wall", ()-> new WallBlock(copyProperties("withered_wood_wall", InspireBlocks.WITHERED_PLANKS.get()).forceSolidOn()));
         CRIMSON_HYPHAE_WALL = BLOCKS.register("crimson_hyphae_wall", ()-> new WallBlock(copyProperties("crimson_hyphae_wall", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         WARPED_HYPHAE_WALL = BLOCKS.register("warped_hyphae_wall", ()-> new WallBlock(copyProperties("warped_hyphae_wall", Blocks.WARPED_PLANKS).forceSolidOn()));
@@ -1419,6 +1481,7 @@ public class InspireBlocks {
         CHERRY_LOG_FENCE = BLOCKS.register("cherry_log_fence", ()-> new FenceBlock(copyProperties("cherry_log_fence", Blocks.CHERRY_PLANKS).forceSolidOn()));
         PALE_OAK_LOG_FENCE = BLOCKS.register("pale_oak_log_fence", ()-> new FenceBlock(copyProperties("pale_oak_log_fence", Blocks.DARK_OAK_PLANKS).forceSolidOn()));
         BAMBOO_LOG_FENCE = BLOCKS.register("bamboo_log_fence", ()-> new FenceBlock(copyProperties("bamboo_log_fence", Blocks.BAMBOO_PLANKS).forceSolidOn()));
+        SOUL_LOG_FENCE = BLOCKS.register("soul_log_fence", ()-> new FenceBlock(copyProperties("soul_log_fence", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         WITHERED_LOG_FENCE = BLOCKS.register("withered_log_fence", ()-> new FenceBlock(copyProperties("withered_log_fence", InspireBlocks.WITHERED_PLANKS.get()).forceSolidOn()));
         CRIMSON_STEM_FENCE = BLOCKS.register("crimson_stem_fence", ()-> new FenceBlock(copyProperties("crimson_stem_fence", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         WARPED_STEM_FENCE = BLOCKS.register("warped_stem_fence", ()-> new FenceBlock(copyProperties("warped_stem_fence", Blocks.WARPED_PLANKS).forceSolidOn()));
@@ -1433,6 +1496,7 @@ public class InspireBlocks {
         STRIPPED_CHERRY_LOG_FENCE = BLOCKS.register("stripped_cherry_log_fence", ()-> new FenceBlock(copyProperties("stripped_cherry_log_fence", Blocks.CHERRY_PLANKS).forceSolidOn()));
         STRIPPED_PALE_OAK_LOG_FENCE = BLOCKS.register("stripped_pale_oak_log_fence", ()-> new FenceBlock(copyProperties("stripped_pale_oak_log_fence", Blocks.DARK_OAK_PLANKS).forceSolidOn()));
         STRIPPED_BAMBOO_LOG_FENCE = BLOCKS.register("stripped_bamboo_log_fence", ()-> new FenceBlock(copyProperties("stripped_bamboo_log_fence", Blocks.BAMBOO_PLANKS).forceSolidOn()));
+        STRIPPED_SOUL_LOG_FENCE = BLOCKS.register("stripped_soul_log_fence", ()-> new FenceBlock(copyProperties("stripped_soul_log_fence", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         STRIPPED_WITHERED_LOG_FENCE = BLOCKS.register("stripped_withered_log_fence", ()-> new FenceBlock(copyProperties("stripped_withered_log_fence", InspireBlocks.WITHERED_PLANKS.get()).forceSolidOn()));
         STRIPPED_CRIMSON_STEM_FENCE = BLOCKS.register("stripped_crimson_stem_fence", ()-> new FenceBlock(copyProperties("stripped_crimson_stem_fence", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         STRIPPED_WARPED_STEM_FENCE = BLOCKS.register("stripped_warped_stem_fence", ()-> new FenceBlock(copyProperties("stripped_warped_stem_fence", Blocks.WARPED_PLANKS).forceSolidOn()));
@@ -1447,6 +1511,7 @@ public class InspireBlocks {
         STRIPPED_CHERRY_WOOD_FENCE = BLOCKS.register("stripped_cherry_wood_fence", ()-> new FenceBlock(copyProperties("stripped_cherry_wood_fence", Blocks.CHERRY_PLANKS).forceSolidOn()));
         STRIPPED_PALE_OAK_WOOD_FENCE = BLOCKS.register("stripped_pale_oak_wood_fence", ()-> new FenceBlock(copyProperties("stripped_pale_oak_wood_fence", Blocks.DARK_OAK_PLANKS).forceSolidOn()));
         STRIPPED_BAMBOO_WOOD_FENCE = BLOCKS.register("stripped_bamboo_wood_fence", ()-> new FenceBlock(copyProperties("stripped_bamboo_wood_fence", Blocks.BAMBOO_PLANKS).forceSolidOn()));
+        STRIPPED_SOUL_WOOD_FENCE = BLOCKS.register("stripped_soul_wood_fence", ()-> new FenceBlock(copyProperties("stripped_soul_wood_fence", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         STRIPPED_WITHERED_WOOD_FENCE = BLOCKS.register("stripped_withered_wood_fence", ()-> new FenceBlock(copyProperties("stripped_withered_wood_fence", InspireBlocks.WITHERED_PLANKS.get()).forceSolidOn()));
         STRIPPED_CRIMSON_HYPHAE_FENCE = BLOCKS.register("stripped_crimson_hyphae_fence", ()-> new FenceBlock(copyProperties("stripped_crimson_hyphae_fence", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         STRIPPED_WARPED_HYPHAE_FENCE = BLOCKS.register("stripped_warped_hyphae_fence", ()-> new FenceBlock(copyProperties("stripped_warped_hyphae_fence", Blocks.WARPED_PLANKS).forceSolidOn()));
@@ -1461,6 +1526,7 @@ public class InspireBlocks {
         CHERRY_WOOD_FENCE = BLOCKS.register("cherry_wood_fence", ()-> new FenceBlock(copyProperties("cherry_wood_fence", Blocks.CHERRY_PLANKS).forceSolidOn()));
         PALE_OAK_WOOD_FENCE = BLOCKS.register("pale_oak_wood_fence", ()-> new FenceBlock(copyProperties("pale_oak_wood_fence", Blocks.DARK_OAK_PLANKS).forceSolidOn()));
         BAMBOO_WOOD_FENCE = BLOCKS.register("bamboo_wood_fence", ()-> new FenceBlock(copyProperties("bamboo_wood_fence", Blocks.BAMBOO_PLANKS).forceSolidOn()));
+        SOUL_WOOD_FENCE = BLOCKS.register("soul_wood_fence", ()-> new FenceBlock(copyProperties("soul_wood_fence", InspireBlocks.SOUL_PLANKS.get()).forceSolidOn().lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always)));
         WITHERED_WOOD_FENCE = BLOCKS.register("withered_wood_fence", ()-> new FenceBlock(copyProperties("withered_wood_fence", InspireBlocks.WITHERED_PLANKS.get()).forceSolidOn()));
         CRIMSON_HYPHAE_FENCE = BLOCKS.register("crimson_hyphae_fence", ()-> new FenceBlock(copyProperties("crimson_hyphae_fence", Blocks.CRIMSON_PLANKS).forceSolidOn()));
         WARPED_HYPHAE_FENCE = BLOCKS.register("warped_hyphae_fence", ()-> new FenceBlock(copyProperties("warped_hyphae_fence", Blocks.WARPED_PLANKS).forceSolidOn()));
@@ -2349,6 +2415,14 @@ public class InspireBlocks {
     }
     private static RotatedPillarBlock netherLog(MapColor mapColor) {
         return new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).strength(2.0F).sound(SoundType.WOOD));
+    }
+
+    private static BlockBehaviour.Properties soulWoodProperties(MapColor mapColor) {
+        return BlockBehaviour.Properties.of().mapColor(mapColor).strength(2.0F, 3.0F).sound(SoundType.WOOD).lightLevel((state) -> 5).emissiveRendering(InspireBlocks::always);
+    }
+
+    private static RotatedPillarBlock soulLog(MapColor mapColor) {
+        return new RotatedPillarBlock(soulWoodProperties(mapColor));
     }
 
     @SuppressWarnings("deprecation")

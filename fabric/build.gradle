@@ -10,6 +10,15 @@ fabricApi {
         client = true
     }
 }
+tasks.register('cleanDatagenCache') {
+    doLast {
+        delete 'src/main/generated/.cache'
+    }
+}
+
+tasks.named('runDatagen').configure {
+    dependsOn 'cleanDatagenCache'
+}
 configurations {
     common {
         canBeResolved = true

@@ -9,7 +9,7 @@
       "tick_chance": 0.0111
     },
     "ambient_sound": "minecraft:ambient.soul_sand_valley.loop",
-    "fog_color": 1181961,
+    "fog_color": 1628134,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -58,9 +58,12 @@
     [],
     [
       "minecraft:spring_lava",
-      "inspire:withered_oak_nether",
-      "inspire:large_withered_oak_nether",
-      "inspire:withered_bare_tree_nether"
+      "inspire:soul_tree_nether",
+      "inspire:large_soul_tree_nether",
+      "inspire:withered_bare_tree_nether",
+      "inspire:soul_grass_patch",
+      "inspire:short_soul_grass_patch",
+      "inspire:tall_soul_grass_patch"
     ]
   ],
   "has_precipitation": false,

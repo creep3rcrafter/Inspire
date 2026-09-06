@@ -326,7 +326,7 @@
                   "then_run": {
                     "type": "minecraft:block",
                     "result_state": {
-                      "Name": "minecraft:blackstone"
+                      "Name": "minecraft:soul_soil"
                     }
                   }
                 },
@@ -427,7 +427,7 @@
                       {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:soul_soil"
+                          "Name": "inspire:soul_grass_block"
                         }
                       }
                     ]
@@ -445,7 +445,7 @@
                   "then_run": {
                     "type": "minecraft:block",
                     "result_state": {
-                      "Name": "minecraft:blackstone"
+                      "Name": "minecraft:soul_soil"
                     }
                   }
                 },

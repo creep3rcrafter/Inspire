@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "inspire:block/soul_planks",
+    "side": "inspire:block/soul_planks",
+    "top": "inspire:block/soul_planks"
+  }
+}

@@ -25,6 +25,15 @@ public class InspireRenderTypes {
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.WITHERED_TRAPDOOR.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.WITHERED_SAPLING.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.POTTED_WITHERED_SAPLING.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.SOUL_DOOR.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.SOUL_TRAPDOOR.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.SOUL_SAPLING.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.POTTED_SOUL_SAPLING.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.SOUL_GRASS.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.SHORT_SOUL_GRASS.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.TALL_SOUL_GRASS.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.HANGING_SOUL_VINES.get());
+        RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.HANGING_SOUL_VINES_PLANT.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.POTTED_DANDELION_PUFF.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.DANDELION_PUFF.get());
         RenderTypeRegistry.register(RenderType.cutout(), InspireBlocks.OAK_HEDGE.get());

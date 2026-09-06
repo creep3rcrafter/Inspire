@@ -212,11 +212,13 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CRAFTED_ELYTRA;
     public static final RegistrySupplier<Item> CRIMSON_BOAT;
     public static final RegistrySupplier<Item> WARPED_BOAT;
+    public static final RegistrySupplier<Item> SOUL_BOAT;
     public static final RegistrySupplier<Item> WITHERED_BOAT;
     public static final RegistrySupplier<Item> PINE_BOAT;
     public static final RegistrySupplier<Item> REDWOOD_BOAT;
     public static final RegistrySupplier<Item> CRIMSON_CHEST_BOAT;
     public static final RegistrySupplier<Item> WARPED_CHEST_BOAT;
+    public static final RegistrySupplier<Item> SOUL_CHEST_BOAT;
     public static final RegistrySupplier<Item> WITHERED_CHEST_BOAT;
     public static final RegistrySupplier<Item> PINE_CHEST_BOAT;
     public static final RegistrySupplier<Item> REDWOOD_CHEST_BOAT;
@@ -281,6 +283,22 @@ public class InspireItems {
     public static final RegistrySupplier<Item> WITHERED_BUTTON;
     public static final RegistrySupplier<Item> WITHERED_SLAB;
 
+    public static final RegistrySupplier<Item> SOUL_PLANKS;
+    public static final RegistrySupplier<Item> SOUL_SAPLING;
+    public static final RegistrySupplier<Item> SOUL_LOG;
+    public static final RegistrySupplier<Item> STRIPPED_SOUL_LOG;
+    public static final RegistrySupplier<Item> SOUL_WOOD;
+    public static final RegistrySupplier<Item> STRIPPED_SOUL_WOOD;
+    public static final RegistrySupplier<Item> SOUL_STAIRS;
+    public static final RegistrySupplier<Item> SOUL_SIGN;
+    public static final RegistrySupplier<Item> SOUL_DOOR;
+    public static final RegistrySupplier<Item> SOUL_PRESSURE_PLATE;
+    public static final RegistrySupplier<Item> SOUL_FENCE;
+    public static final RegistrySupplier<Item> SOUL_TRAPDOOR;
+    public static final RegistrySupplier<Item> SOUL_FENCE_GATE;
+    public static final RegistrySupplier<Item> SOUL_BUTTON;
+    public static final RegistrySupplier<Item> SOUL_SLAB;
+
     public static final RegistrySupplier<Item> PINE_PLANKS;
     public static final RegistrySupplier<Item> PINE_SAPLING;
     public static final RegistrySupplier<Item> PINE_LOG;
@@ -322,11 +340,17 @@ public class InspireItems {
     public static final RegistrySupplier<Item> MANGROVE_BARK;
     //public static final RegistrySupplier<Item> CHERRY_BARK;
     //public static final RegistrySupplier<Item> PALE_BARK;
+    public static final RegistrySupplier<Item> SOUL_BARK;
     public static final RegistrySupplier<Item> WITHERED_BARK;
     public static final RegistrySupplier<Item> PINE_BARK;
     public static final RegistrySupplier<Item> REDWOOD_BARK;
     public static final RegistrySupplier<Item> SOUL_GLASS;
     public static final RegistrySupplier<Item> SOUL_LEAVES;
+    public static final RegistrySupplier<Item> SOUL_GRASS_BLOCK;
+    public static final RegistrySupplier<Item> SOUL_GRASS;
+    public static final RegistrySupplier<Item> SHORT_SOUL_GRASS;
+    public static final RegistrySupplier<Item> TALL_SOUL_GRASS;
+    public static final RegistrySupplier<Item> HANGING_SOUL_VINES;
     public static final RegistrySupplier<Item> CHEESE;
 
     public static final RegistrySupplier<Item> CORN;
@@ -1158,6 +1182,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CHERRY_PLANK_WALL;
     public static final RegistrySupplier<Item> PALE_OAK_PLANK_WALL;
     public static final RegistrySupplier<Item> BAMBOO_PLANK_WALL;
+    public static final RegistrySupplier<Item> SOUL_PLANK_WALL;
     public static final RegistrySupplier<Item> WITHERED_PLANK_WALL;
     public static final RegistrySupplier<Item> CRIMSON_PLANK_WALL;
     public static final RegistrySupplier<Item> WARPED_PLANK_WALL;
@@ -1185,6 +1210,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CHERRY_LOG_WALL;
     public static final RegistrySupplier<Item> PALE_OAK_LOG_WALL;
     public static final RegistrySupplier<Item> BAMBOO_LOG_WALL;
+    public static final RegistrySupplier<Item> SOUL_LOG_WALL;
     public static final RegistrySupplier<Item> WITHERED_LOG_WALL;
     public static final RegistrySupplier<Item> CRIMSON_STEM_WALL;
     public static final RegistrySupplier<Item> WARPED_STEM_WALL;
@@ -1199,6 +1225,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> STRIPPED_CHERRY_LOG_WALL;
     public static final RegistrySupplier<Item> STRIPPED_PALE_OAK_LOG_WALL;
     public static final RegistrySupplier<Item> STRIPPED_BAMBOO_LOG_WALL;
+    public static final RegistrySupplier<Item> STRIPPED_SOUL_LOG_WALL;
     public static final RegistrySupplier<Item> STRIPPED_WITHERED_LOG_WALL;
     public static final RegistrySupplier<Item> STRIPPED_CRIMSON_STEM_WALL;
     public static final RegistrySupplier<Item> STRIPPED_WARPED_STEM_WALL;
@@ -1213,6 +1240,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> STRIPPED_CHERRY_WOOD_WALL;
     public static final RegistrySupplier<Item> STRIPPED_PALE_OAK_WOOD_WALL;
     public static final RegistrySupplier<Item> STRIPPED_BAMBOO_WOOD_WALL;
+    public static final RegistrySupplier<Item> STRIPPED_SOUL_WOOD_WALL;
     public static final RegistrySupplier<Item> STRIPPED_WITHERED_WOOD_WALL;
     public static final RegistrySupplier<Item> STRIPPED_CRIMSON_HYPHAE_WALL;
     public static final RegistrySupplier<Item> STRIPPED_WARPED_HYPHAE_WALL;
@@ -1227,6 +1255,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CHERRY_WOOD_WALL;
     public static final RegistrySupplier<Item> PALE_OAK_WOOD_WALL;
     public static final RegistrySupplier<Item> BAMBOO_WOOD_WALL;
+    public static final RegistrySupplier<Item> SOUL_WOOD_WALL;
     public static final RegistrySupplier<Item> WITHERED_WOOD_WALL;
     public static final RegistrySupplier<Item> CRIMSON_HYPHAE_WALL;
     public static final RegistrySupplier<Item> WARPED_HYPHAE_WALL;
@@ -1241,6 +1270,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CHERRY_LOG_FENCE;
     public static final RegistrySupplier<Item> PALE_OAK_LOG_FENCE;
     public static final RegistrySupplier<Item> BAMBOO_LOG_FENCE;
+    public static final RegistrySupplier<Item> SOUL_LOG_FENCE;
     public static final RegistrySupplier<Item> WITHERED_LOG_FENCE;
     public static final RegistrySupplier<Item> CRIMSON_STEM_FENCE;
     public static final RegistrySupplier<Item> WARPED_STEM_FENCE;
@@ -1255,6 +1285,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> STRIPPED_CHERRY_LOG_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_PALE_OAK_LOG_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_BAMBOO_LOG_FENCE;
+    public static final RegistrySupplier<Item> STRIPPED_SOUL_LOG_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_WITHERED_LOG_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_CRIMSON_STEM_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_WARPED_STEM_FENCE;
@@ -1269,6 +1300,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> STRIPPED_CHERRY_WOOD_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_PALE_OAK_WOOD_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_BAMBOO_WOOD_FENCE;
+    public static final RegistrySupplier<Item> STRIPPED_SOUL_WOOD_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_WITHERED_WOOD_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_CRIMSON_HYPHAE_FENCE;
     public static final RegistrySupplier<Item> STRIPPED_WARPED_HYPHAE_FENCE;
@@ -1283,6 +1315,7 @@ public class InspireItems {
     public static final RegistrySupplier<Item> CHERRY_WOOD_FENCE;
     public static final RegistrySupplier<Item> PALE_OAK_WOOD_FENCE;
     public static final RegistrySupplier<Item> BAMBOO_WOOD_FENCE;
+    public static final RegistrySupplier<Item> SOUL_WOOD_FENCE;
     public static final RegistrySupplier<Item> WITHERED_WOOD_FENCE;
     public static final RegistrySupplier<Item> CRIMSON_HYPHAE_FENCE;
     public static final RegistrySupplier<Item> WARPED_HYPHAE_FENCE;
@@ -1560,11 +1593,13 @@ public class InspireItems {
         CRAFTED_ELYTRA = ITEMS.register("crafted_elytra", () -> new CustomElytraItem((new Item.Properties()).stacksTo(1).durability(64).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         CRIMSON_BOAT = ITEMS.register("crimson_boat", () -> new BoatItem(false, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
         WARPED_BOAT = ITEMS.register("warped_boat", () -> new BoatItem(false, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        SOUL_BOAT = ITEMS.register("soul_boat", () -> new BoatItem(false, Boat.Type.byName("soul"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
         WITHERED_BOAT = ITEMS.register("withered_boat", () -> new BoatItem(false, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
         PINE_BOAT = ITEMS.register("pine_boat", () -> new BoatItem(false, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         REDWOOD_BOAT = ITEMS.register("redwood_boat", () -> new BoatItem(false, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         CRIMSON_CHEST_BOAT = ITEMS.register("crimson_chest_boat", () -> new BoatItem(true, Boat.Type.byName("crimson"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
         WARPED_CHEST_BOAT = ITEMS.register("warped_chest_boat", () -> new BoatItem(true, Boat.Type.byName("warped"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
+        SOUL_CHEST_BOAT = ITEMS.register("soul_chest_boat", () -> new BoatItem(true, Boat.Type.byName("soul"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
         WITHERED_CHEST_BOAT = ITEMS.register("withered_chest_boat", () -> new BoatItem(true, Boat.Type.byName("withered"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE).fireResistant()));
         PINE_CHEST_BOAT = ITEMS.register("pine_chest_boat", () -> new BoatItem(true, Boat.Type.byName("pine"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         REDWOOD_CHEST_BOAT = ITEMS.register("redwood_chest_boat", () -> new BoatItem(true, Boat.Type.byName("redwood"), (new Item.Properties()).stacksTo(1).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
@@ -1856,6 +1891,22 @@ public class InspireItems {
         WITHERED_BUTTON = ITEMS.register("withered_button", () -> new BlockItem(InspireBlocks.WITHERED_BUTTON.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         WITHERED_SLAB = ITEMS.register("withered_slab", () -> new BlockItem(InspireBlocks.WITHERED_SLAB.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
 
+        SOUL_PLANKS = ITEMS.register("soul_planks", () -> new BlockItem(InspireBlocks.SOUL_PLANKS.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_SAPLING = ITEMS.register("soul_sapling", () -> new BlockItem(InspireBlocks.SOUL_SAPLING.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_LOG = ITEMS.register("soul_log", () -> new BlockItem(InspireBlocks.SOUL_LOG.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIPPED_SOUL_LOG = ITEMS.register("stripped_soul_log", () -> new BlockItem(InspireBlocks.STRIPPED_SOUL_LOG.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_WOOD = ITEMS.register("soul_wood", () -> new BlockItem(InspireBlocks.SOUL_WOOD.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        STRIPPED_SOUL_WOOD = ITEMS.register("stripped_soul_wood", () -> new BlockItem(InspireBlocks.STRIPPED_SOUL_WOOD.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_STAIRS = ITEMS.register("soul_stairs", () -> new BlockItem(InspireBlocks.SOUL_STAIRS.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_SIGN = ITEMS.register("soul_sign", () -> new SignItem((new Item.Properties().fireResistant()).stacksTo(16).arch$tab(InspireCreativeTabs.TAB_INSPIRE), InspireBlocks.SOUL_SIGN.get(), InspireBlocks.SOUL_WALL_SIGN.get()));
+        SOUL_DOOR = ITEMS.register("soul_door", () -> new DoubleHighBlockItem(InspireBlocks.SOUL_DOOR.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_PRESSURE_PLATE = ITEMS.register("soul_pressure_plate", () -> new BlockItem(InspireBlocks.SOUL_PRESSURE_PLATE.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_FENCE = ITEMS.register("soul_fence", () -> new BlockItem(InspireBlocks.SOUL_FENCE.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_TRAPDOOR = ITEMS.register("soul_trapdoor", () -> new BlockItem(InspireBlocks.SOUL_TRAPDOOR.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_FENCE_GATE = ITEMS.register("soul_fence_gate", () -> new BlockItem(InspireBlocks.SOUL_FENCE_GATE.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_BUTTON = ITEMS.register("soul_button", () -> new BlockItem(InspireBlocks.SOUL_BUTTON.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_SLAB = ITEMS.register("soul_slab", () -> new BlockItem(InspireBlocks.SOUL_SLAB.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+
         PINE_PLANKS = ITEMS.register("pine_planks", () -> new BlockItem(InspireBlocks.PINE_PLANKS.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         PINE_SAPLING = ITEMS.register("pine_sapling", () -> new BlockItem(InspireBlocks.PINE_SAPLING.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         PINE_LOG = ITEMS.register("pine_log", () -> new BlockItem(InspireBlocks.PINE_LOG.get(), (new Item.Properties()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
@@ -1897,11 +1948,17 @@ public class InspireItems {
         MANGROVE_BARK = ITEMS.register("mangrove_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         //CHERRY_BARK = ITEMS.register("cherry_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         //PALE_BARK = ITEMS.register("pale_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_BARK = ITEMS.register("soul_bark", () -> new Item((new Item.Properties().stacksTo(64).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         WITHERED_BARK = ITEMS.register("withered_bark", () -> new Item((new Item.Properties().stacksTo(64).fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         PINE_BARK = ITEMS.register("pine_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         REDWOOD_BARK = ITEMS.register("redwood_bark", () -> new Item((new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         SOUL_GLASS = ITEMS.register("soul_glass", () -> new BlockItem(InspireBlocks.SOUL_GLASS.get(), (new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         SOUL_LEAVES = ITEMS.register("soul_leaves", () -> new BlockItem(InspireBlocks.SOUL_LEAVES.get(), (new Item.Properties().stacksTo(64)).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_GRASS_BLOCK = ITEMS.register("soul_grass_block", () -> new BlockItem(InspireBlocks.SOUL_GRASS_BLOCK.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SOUL_GRASS = ITEMS.register("soul_grass", () -> new BlockItem(InspireBlocks.SOUL_GRASS.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        SHORT_SOUL_GRASS = ITEMS.register("short_soul_grass", () -> new BlockItem(InspireBlocks.SHORT_SOUL_GRASS.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        TALL_SOUL_GRASS = ITEMS.register("tall_soul_grass", () -> new DoubleHighBlockItem(InspireBlocks.TALL_SOUL_GRASS.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
+        HANGING_SOUL_VINES = ITEMS.register("hanging_soul_vines", () -> new BlockItem(InspireBlocks.HANGING_SOUL_VINES.get(), (new Item.Properties().fireResistant()).arch$tab(InspireCreativeTabs.TAB_INSPIRE)));
         SOUL_BOTTLE = ITEMS.register("soul_bottle", () -> new Item(new Item.Properties().rarity(Rarity.RARE).arch$tab(InspireCreativeTabs.TAB_INSPIRE)) {
             @Override
             public boolean isFoil(ItemStack itemStack) {
@@ -3965,6 +4022,7 @@ public class InspireItems {
         CHERRY_PLANK_WALL = ITEMS.register("cherry_plank_wall", ()-> new BlockItem(InspireBlocks.CHERRY_PLANK_WALL.get(), basicProperties("cherry_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         PALE_OAK_PLANK_WALL = ITEMS.register("pale_oak_plank_wall", ()-> new BlockItem(InspireBlocks.PALE_OAK_PLANK_WALL.get(), basicProperties("pale_oak_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         BAMBOO_PLANK_WALL = ITEMS.register("bamboo_plank_wall", ()-> new BlockItem(InspireBlocks.BAMBOO_PLANK_WALL.get(), basicProperties("bamboo_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        SOUL_PLANK_WALL = ITEMS.register("soul_plank_wall", ()-> new BlockItem(InspireBlocks.SOUL_PLANK_WALL.get(), basicProperties("soul_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WITHERED_PLANK_WALL = ITEMS.register("withered_plank_wall", ()-> new BlockItem(InspireBlocks.WITHERED_PLANK_WALL.get(), basicProperties("withered_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         CRIMSON_PLANK_WALL = ITEMS.register("crimson_plank_wall", ()-> new BlockItem(InspireBlocks.CRIMSON_PLANK_WALL.get(), basicProperties("crimson_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WARPED_PLANK_WALL = ITEMS.register("warped_plank_wall", ()-> new BlockItem(InspireBlocks.WARPED_PLANK_WALL.get(), basicProperties("warped_plank_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -3992,6 +4050,7 @@ public class InspireItems {
         CHERRY_LOG_WALL = ITEMS.register("cherry_log_wall", ()-> new BlockItem(InspireBlocks.CHERRY_LOG_WALL.get(), basicProperties("cherry_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         PALE_OAK_LOG_WALL = ITEMS.register("pale_oak_log_wall", ()-> new BlockItem(InspireBlocks.PALE_OAK_LOG_WALL.get(), basicProperties("pale_oak_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         BAMBOO_LOG_WALL = ITEMS.register("bamboo_log_wall", ()-> new BlockItem(InspireBlocks.BAMBOO_LOG_WALL.get(), basicProperties("bamboo_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        SOUL_LOG_WALL = ITEMS.register("soul_log_wall", ()-> new BlockItem(InspireBlocks.SOUL_LOG_WALL.get(), basicProperties("soul_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WITHERED_LOG_WALL = ITEMS.register("withered_log_wall", ()-> new BlockItem(InspireBlocks.WITHERED_LOG_WALL.get(), basicProperties("withered_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         CRIMSON_STEM_WALL = ITEMS.register("crimson_stem_wall", ()-> new BlockItem(InspireBlocks.CRIMSON_STEM_WALL.get(), basicProperties("crimson_stem_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WARPED_STEM_WALL = ITEMS.register("warped_stem_wall", ()-> new BlockItem(InspireBlocks.WARPED_STEM_WALL.get(), basicProperties("warped_stem_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -4006,6 +4065,7 @@ public class InspireItems {
         STRIPPED_CHERRY_LOG_WALL = ITEMS.register("stripped_cherry_log_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_CHERRY_LOG_WALL.get(), basicProperties("stripped_cherry_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_PALE_OAK_LOG_WALL = ITEMS.register("stripped_pale_oak_log_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_PALE_OAK_LOG_WALL.get(), basicProperties("stripped_pale_oak_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_BAMBOO_LOG_WALL = ITEMS.register("stripped_bamboo_log_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_BAMBOO_LOG_WALL.get(), basicProperties("stripped_bamboo_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        STRIPPED_SOUL_LOG_WALL = ITEMS.register("stripped_soul_log_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_SOUL_LOG_WALL.get(), basicProperties("stripped_soul_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_WITHERED_LOG_WALL = ITEMS.register("stripped_withered_log_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_WITHERED_LOG_WALL.get(), basicProperties("stripped_withered_log_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_CRIMSON_STEM_WALL = ITEMS.register("stripped_crimson_stem_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_CRIMSON_STEM_WALL.get(), basicProperties("stripped_crimson_stem_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_WARPED_STEM_WALL = ITEMS.register("stripped_warped_stem_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_WARPED_STEM_WALL.get(), basicProperties("stripped_warped_stem_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -4020,6 +4080,7 @@ public class InspireItems {
         STRIPPED_CHERRY_WOOD_WALL = ITEMS.register("stripped_cherry_wood_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_CHERRY_WOOD_WALL.get(), basicProperties("stripped_cherry_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_PALE_OAK_WOOD_WALL = ITEMS.register("stripped_pale_oak_wood_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_PALE_OAK_WOOD_WALL.get(), basicProperties("stripped_pale_oak_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_BAMBOO_WOOD_WALL = ITEMS.register("stripped_bamboo_wood_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_BAMBOO_WOOD_WALL.get(), basicProperties("stripped_bamboo_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        STRIPPED_SOUL_WOOD_WALL = ITEMS.register("stripped_soul_wood_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_SOUL_WOOD_WALL.get(), basicProperties("stripped_soul_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_WITHERED_WOOD_WALL = ITEMS.register("stripped_withered_wood_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_WITHERED_WOOD_WALL.get(), basicProperties("stripped_withered_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_CRIMSON_HYPHAE_WALL = ITEMS.register("stripped_crimson_hyphae_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_CRIMSON_HYPHAE_WALL.get(), basicProperties("stripped_crimson_hyphae_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_WARPED_HYPHAE_WALL = ITEMS.register("stripped_warped_hyphae_wall", ()-> new BlockItem(InspireBlocks.STRIPPED_WARPED_HYPHAE_WALL.get(), basicProperties("stripped_warped_hyphae_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -4034,6 +4095,7 @@ public class InspireItems {
         CHERRY_WOOD_WALL = ITEMS.register("cherry_wood_wall", ()-> new BlockItem(InspireBlocks.CHERRY_WOOD_WALL.get(), basicProperties("cherry_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         PALE_OAK_WOOD_WALL = ITEMS.register("pale_oak_wood_wall", ()-> new BlockItem(InspireBlocks.PALE_OAK_WOOD_WALL.get(), basicProperties("pale_oak_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         BAMBOO_WOOD_WALL = ITEMS.register("bamboo_wood_wall", ()-> new BlockItem(InspireBlocks.BAMBOO_WOOD_WALL.get(), basicProperties("bamboo_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        SOUL_WOOD_WALL = ITEMS.register("soul_wood_wall", ()-> new BlockItem(InspireBlocks.SOUL_WOOD_WALL.get(), basicProperties("soul_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WITHERED_WOOD_WALL = ITEMS.register("withered_wood_wall", ()-> new BlockItem(InspireBlocks.WITHERED_WOOD_WALL.get(), basicProperties("withered_wood_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         CRIMSON_HYPHAE_WALL = ITEMS.register("crimson_hyphae_wall", ()-> new BlockItem(InspireBlocks.CRIMSON_HYPHAE_WALL.get(), basicProperties("crimson_hyphae_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WARPED_HYPHAE_WALL = ITEMS.register("warped_hyphae_wall", ()-> new BlockItem(InspireBlocks.WARPED_HYPHAE_WALL.get(), basicProperties("warped_hyphae_wall").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -4048,6 +4110,7 @@ public class InspireItems {
         CHERRY_LOG_FENCE = ITEMS.register("cherry_log_fence", ()-> new BlockItem(InspireBlocks.CHERRY_LOG_FENCE.get(), basicProperties("cherry_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         PALE_OAK_LOG_FENCE = ITEMS.register("pale_oak_log_fence", ()-> new BlockItem(InspireBlocks.PALE_OAK_LOG_FENCE.get(), basicProperties("pale_oak_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         BAMBOO_LOG_FENCE = ITEMS.register("bamboo_log_fence", ()-> new BlockItem(InspireBlocks.BAMBOO_LOG_FENCE.get(), basicProperties("bamboo_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        SOUL_LOG_FENCE = ITEMS.register("soul_log_fence", ()-> new BlockItem(InspireBlocks.SOUL_LOG_FENCE.get(), basicProperties("soul_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WITHERED_LOG_FENCE = ITEMS.register("withered_log_fence", ()-> new BlockItem(InspireBlocks.WITHERED_LOG_FENCE.get(), basicProperties("withered_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         CRIMSON_STEM_FENCE = ITEMS.register("crimson_stem_fence", ()-> new BlockItem(InspireBlocks.CRIMSON_STEM_FENCE.get(), basicProperties("crimson_stem_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WARPED_STEM_FENCE = ITEMS.register("warped_stem_fence", ()-> new BlockItem(InspireBlocks.WARPED_STEM_FENCE.get(), basicProperties("warped_stem_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -4062,6 +4125,7 @@ public class InspireItems {
         STRIPPED_CHERRY_LOG_FENCE = ITEMS.register("stripped_cherry_log_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_CHERRY_LOG_FENCE.get(), basicProperties("stripped_cherry_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_PALE_OAK_LOG_FENCE = ITEMS.register("stripped_pale_oak_log_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_PALE_OAK_LOG_FENCE.get(), basicProperties("stripped_pale_oak_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_BAMBOO_LOG_FENCE = ITEMS.register("stripped_bamboo_log_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_BAMBOO_LOG_FENCE.get(), basicProperties("stripped_bamboo_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        STRIPPED_SOUL_LOG_FENCE = ITEMS.register("stripped_soul_log_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_SOUL_LOG_FENCE.get(), basicProperties("stripped_soul_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_WITHERED_LOG_FENCE = ITEMS.register("stripped_withered_log_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_WITHERED_LOG_FENCE.get(), basicProperties("stripped_withered_log_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_CRIMSON_STEM_FENCE = ITEMS.register("stripped_crimson_stem_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_CRIMSON_STEM_FENCE.get(), basicProperties("stripped_crimson_stem_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_WARPED_STEM_FENCE = ITEMS.register("stripped_warped_stem_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_WARPED_STEM_FENCE.get(), basicProperties("stripped_warped_stem_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -4076,6 +4140,7 @@ public class InspireItems {
         STRIPPED_CHERRY_WOOD_FENCE = ITEMS.register("stripped_cherry_wood_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_CHERRY_WOOD_FENCE.get(), basicProperties("stripped_cherry_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_PALE_OAK_WOOD_FENCE = ITEMS.register("stripped_pale_oak_wood_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_PALE_OAK_WOOD_FENCE.get(), basicProperties("stripped_pale_oak_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_BAMBOO_WOOD_FENCE = ITEMS.register("stripped_bamboo_wood_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_BAMBOO_WOOD_FENCE.get(), basicProperties("stripped_bamboo_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        STRIPPED_SOUL_WOOD_FENCE = ITEMS.register("stripped_soul_wood_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_SOUL_WOOD_FENCE.get(), basicProperties("stripped_soul_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_WITHERED_WOOD_FENCE = ITEMS.register("stripped_withered_wood_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_WITHERED_WOOD_FENCE.get(), basicProperties("stripped_withered_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_CRIMSON_HYPHAE_FENCE = ITEMS.register("stripped_crimson_hyphae_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_CRIMSON_HYPHAE_FENCE.get(), basicProperties("stripped_crimson_hyphae_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         STRIPPED_WARPED_HYPHAE_FENCE = ITEMS.register("stripped_warped_hyphae_fence", ()-> new BlockItem(InspireBlocks.STRIPPED_WARPED_HYPHAE_FENCE.get(), basicProperties("stripped_warped_hyphae_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
@@ -4090,6 +4155,7 @@ public class InspireItems {
         CHERRY_WOOD_FENCE = ITEMS.register("cherry_wood_fence", ()-> new BlockItem(InspireBlocks.CHERRY_WOOD_FENCE.get(), basicProperties("cherry_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         PALE_OAK_WOOD_FENCE = ITEMS.register("pale_oak_wood_fence", ()-> new BlockItem(InspireBlocks.PALE_OAK_WOOD_FENCE.get(), basicProperties("pale_oak_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         BAMBOO_WOOD_FENCE = ITEMS.register("bamboo_wood_fence", ()-> new BlockItem(InspireBlocks.BAMBOO_WOOD_FENCE.get(), basicProperties("bamboo_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
+        SOUL_WOOD_FENCE = ITEMS.register("soul_wood_fence", ()-> new BlockItem(InspireBlocks.SOUL_WOOD_FENCE.get(), basicProperties("soul_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WITHERED_WOOD_FENCE = ITEMS.register("withered_wood_fence", ()-> new BlockItem(InspireBlocks.WITHERED_WOOD_FENCE.get(), basicProperties("withered_wood_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         CRIMSON_HYPHAE_FENCE = ITEMS.register("crimson_hyphae_fence", ()-> new BlockItem(InspireBlocks.CRIMSON_HYPHAE_FENCE.get(), basicProperties("crimson_hyphae_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
         WARPED_HYPHAE_FENCE = ITEMS.register("warped_hyphae_fence", ()-> new BlockItem(InspireBlocks.WARPED_HYPHAE_FENCE.get(), basicProperties("warped_hyphae_fence").arch$tab(CreativeModeTabs.COLORED_BLOCKS)));
